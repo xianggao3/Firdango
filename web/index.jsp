@@ -20,63 +20,12 @@
     Secondary Texts (eg. article content): Josefin Sans
     -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
-    <link href="WEB-INF/view/index.css" rel="stylesheet">
+    <link href="static/css/index.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="./index.jsp"><img src="WEB-INF/view/firlogo.png">Firdango</a>
-
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="moviesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Movies
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="moviesDropdown">
-                            <a class="dropdown-item" href="./moviesintheatres.jsp">Now Playing</a>
-                            <a class="dropdown-item" href="./moviesintheatres.jsp">Opening This Week</a>
-                            <a class="dropdown-item" href="./moviesintheatres.jsp">Pre Sales Tickets</a>
-                            <a class="dropdown-item" href="./moviesintheatres.jsp">Coming Soon</a>
-                            <a class="dropdown-item" href="./moviesintheatres.jsp">More Movies</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="timesAndTicketsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Times & Tickets
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="timesAndTicketsDropdown">
-                            <a class="dropdown-item" href="./movietimesandtickets.jsp">Tickets for 'Fifty Shades Darker'</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            News
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="newsDropdown">
-                            <a class="dropdown-item" href="./movienews.jsp">Featured News</a>
-                            <a class="dropdown-item" href="./movienews.jsp">Explore Content</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="vipDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sign In
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="vipDropdown">
-                            <a class="dropdown-item" href="./signup.jsp">Register</a>
-                            <a class="dropdown-item" href="./signin.jsp">Sign In</a>
-                        </div>
-                    </li>
-                </ul>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Enter a movie or location...">
-                    <input type= "button" class = "btn btn-outline-warning my-2 my-sm-0" onClick="parent.location='./movietimesandtickets.jsp'" value='Search'>
-                </form>
-            </div>
-        </div>
-    </nav>
+    <jsp:include page="WEB-INF/includes/header.jsp" />
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -121,26 +70,26 @@
         <h1 class="display-5 text-white border-bottom-1">Top Movies</h1>
 
         <div class="card-deck">
-            <a href="./movieoverview.jsp" class="card card-inverse text-center">
+            <a href="./movieoverview.html" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16883.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Fifty Shades Darker</h4>
                 </div>
             </a>
-            <a href="./movieoverview.jsp" class="card card-inverse text-center">
+            <a href="./movieoverview.html" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://www.myvue.com/-/media/images/film%20and%20events/february%202017/legobatmanposter2.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">The Lego Batman Movie</h4>
                 </div>
             </a>
-            <a href="./movieoverview.jsp" class="card card-inverse text-center">
+            <a href="./movieoverview.html" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16999.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Logan (2017)</h4>
                 </div>
             </a>
 
-            <a href="./movieoverview.jsp" class="card card-inverse text-center">
+            <a href="./movieoverview.html" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16631.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Patriots Day</h4>
@@ -150,25 +99,25 @@
 
         <!-- https://images.mymovies.net/images/film/cin/350x522/fid16502.jpg-->
         <div class="card-deck">
-            <a href="./movieoverview.jsp" class="card card-inverse text-center">
+            <a href="./movieoverview.html" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16502.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Beauty and the Beast</h4>
                 </div>
             </a>
-            <a href="./movieoverview.jsp" class="card card-inverse text-center">
+            <a href="./movieoverview.html" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16847.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Hidden Figures</h4>
                 </div>
             </a>
-            <a href="./movieoverview.jsp" class="card card-inverse text-center">
+            <a href="./movieoverview.html" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16962.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">John Wick: Chapter Two</h4>
                 </div>
             </a>
-            <a href="./movieoverview.jsp" class="card card-inverse text-center">
+            <a href="./movieoverview.html" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16152.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Sing</h4>
@@ -176,25 +125,25 @@
             </a>
         </div>
         <div class="card-deck">
-            <a href="./movieoverview.jsp" class="card card-inverse text-center">
+            <a href="./movieoverview.html" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid17189.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Moonlight</h4>
                 </div>
             </a>
-            <a href="./movieoverview.jsp" class="card card-inverse text-center">
+            <a href="./movieoverview.html" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid17038.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">A Cure For Wellness</h4>
                 </div>
             </a>
-            <a href="./movieoverview.jsp" class="card card-inverse text-center">
+            <a href="./movieoverview.html" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16950.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Lion</h4>
                 </div>
             </a>
-            <a href="./movieoverview.jsp" class="card card-inverse text-center">
+            <a href="./movieoverview.html" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16546.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Moana</h4>
@@ -378,6 +327,6 @@
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script src="WEB-INF/view/index.js"></script>
+<script src="resources/js/index.js"></script>
 
 </html>
