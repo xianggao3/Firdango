@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="NewPersistenceUnit" />
+          <factory-entry name="NewPersistenceUnit" value="ea5f9a94-8d51-48c0-9621-7c3eb1d31d3e" />
           <factory-entry name="sessionFactory" value="745662ec-0da2-4968-b83a-fdd8c72ce4ae" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
@@ -52,7 +52,7 @@
     <orderEntry type="library" name="hibernate-c3p0-5.2.2.Final" level="project" />
     <orderEntry type="library" name="mchange-commons-java-0.2.3.4" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1.39-bin" level="project" />
-    <orderEntry type="library" name="javax.servlet.jsp.jstl-1.2.1" level="project" />
-    <orderEntry type="library" name="javax.servlet.jsp.jstl-api-1.2.1" level="project" />
+    <orderEntry type="library" name="jstl:jstl:1.2" level="project" />
+    <orderEntry type="library" name="javax.servlet.jsp.jstl:jstl-api:1.2" level="project" />
   </component>
 </module>

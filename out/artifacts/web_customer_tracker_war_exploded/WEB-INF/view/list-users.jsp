@@ -10,17 +10,17 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
-    <title>List Customers</title>
+    <title>List Users</title>
 </head>
 <body>
 <div id="wrapper">
     <div id="header">
-        <h2>CRM - Customer Relationship Manager</h2>
+        <h2>User List</h2>
     </div>
 </div>
 <div id="container">
     <div id="content">
-        <input type="button" value="Add Customer" onclick="window.location.href='showFormForAdd'" class="add-button" />
+        <input type="button" value="Add User" onclick="window.location.href='showAddUserForm'" class="add-button" />
         <table>
             <tr>
                 <th>First Name</th>
@@ -28,23 +28,21 @@
                 <th>Email</th>
                 <th>Action</th>
             </tr>
-            <c:forEach var="tempCustomer" items="${customers}">
-                <!-- construct an 'update' link with customer id -->
-                <!-- /customer/showFormForUpdate?customerId=1 -->
-                <c:url var="updateLink" value="/customer/showFormForUpdate">
-                    <c:param name="customerId" value="${tempCustomer.id}" />
+            <c:forEach var="tempUser" items="${users}">
+                <c:url var="updateLink" value="/admin/showUpdateUserForm">
+                    <c:param name="userId" value="${tempUser.id}" />
                 </c:url>
-                <c:url var="deleteLink" value="/customer/delete">
-                    <c:param name="customerId" value="${tempCustomer.id}" />
+                <c:url var="deleteLink" value="/admin/deleteUser">
+                    <c:param name="userId" value="${tempUser.id}" />
                 </c:url>
                 <tr>
-                    <td>${tempCustomer.firstName}</td>
-                    <td>${tempCustomer.lastName}</td>
-                    <td>${tempCustomer.email}</td>
+                    <td>${tempUser.firstName}</td>
+                    <td>${tempUser.lastName}</td>
+                    <td>${tempUser.email}</td>
                     <td>
                         <a href="${updateLink}">Update</a>
                         |
-                        <a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+                        <a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this user?'))) return false">Delete</a>
                     </td>
                 </tr>
             </c:forEach>

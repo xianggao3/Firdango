@@ -11,20 +11,20 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
-    <title>Add a Customer</title>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/add-user-style.css">
+    <title>Add a User</title>
 </head>
 <body>
     <div id="wrapper">
         <div id="header">
-            <h2>CRM - Customer Relationship Manager</h2>
+            <h2>User Manager</h2>
         </div>
     </div>
 
     <div id="container">
-        <h3>Save Customer</h3>
+        <h3>Save User</h3>
         <!-- modelAttribute pre-populates fields -->
-        <form:form action="saveCustomer" modelAttribute="customer" method="post">
+        <form:form action="saveUser" modelAttribute="user" method="post">
             <!-- need this to keep track of id for get/set ops-->
             <form:hidden path="id" />
             <table>
@@ -50,7 +50,7 @@
         </form:form>
         <div style="clear;both;"></div>
         <p>
-            <a href="${pageContext.request.contextPath}/customer/list">Back to List</a>
+            <a href="${pageContext.request.contextPath}/admin/listUsers">Back to List</a>
         </p>
     </div>
 </body>

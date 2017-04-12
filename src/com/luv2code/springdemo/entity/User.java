@@ -6,8 +6,8 @@ import javax.persistence.*;
  * Created by marvinyan on 2/6/2017.
  */
 @Entity
-@Table(name = "customer")
-public class Customer {
+@Table(name = "user")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -22,7 +22,7 @@ public class Customer {
     @Column(name = "email")
     private String email;
 
-    public Customer() {
+    public User() {
     }
 
     public int getId() {
@@ -59,7 +59,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "User{" +
                 "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
