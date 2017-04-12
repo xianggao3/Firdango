@@ -112,7 +112,7 @@
 <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="./index.html"><img src="../../resources/img/firlogo.png">Firdango</a>
+            <a class="navbar-brand" href="./index.jsp"><img src="./firlogo.png">Firdango</a>
 
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
@@ -121,11 +121,11 @@
                             Movies
                         </a>
                         <div class="dropdown-menu" aria-labelledby="moviesDropdown">
-                            <a class="dropdown-item" href="./moviesintheatres.html">Now Playing</a>
-                            <a class="dropdown-item" href="./moviesintheatres.html">Opening This Week</a>
-                            <a class="dropdown-item" href="./moviesintheatres.html">Pre Sales Tickets</a>
-                            <a class="dropdown-item" href="./moviesintheatres.html">Coming Soon</a>
-                            <a class="dropdown-item" href="./moviesintheatres.html">More Movies</a>
+                            <a class="dropdown-item" href="./moviesintheatres.jsp">Now Playing</a>
+                            <a class="dropdown-item" href="./moviesintheatres.jsp">Opening This Week</a>
+                            <a class="dropdown-item" href="./moviesintheatres.jsp">Pre Sales Tickets</a>
+                            <a class="dropdown-item" href="./moviesintheatres.jsp">Coming Soon</a>
+                            <a class="dropdown-item" href="./moviesintheatres.jsp">More Movies</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -133,7 +133,7 @@
                             Times & Tickets
                         </a>
                         <div class="dropdown-menu" aria-labelledby="timesAndTicketsDropdown">
-                            <a class="dropdown-item" href="./movietimesandtickets.html">Tickets for 'Fifty Shades Darker'</a>
+                            <a class="dropdown-item" href="./movietimesandtickets.jsp">Tickets for 'Fifty Shades Darker'</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -141,8 +141,8 @@
                             News
                         </a>
                         <div class="dropdown-menu" aria-labelledby="newsDropdown">
-                            <a class="dropdown-item" href="./movienews.html">Featured News</a>
-                            <a class="dropdown-item" href="./movienews.html">Explore Content</a>
+                            <a class="dropdown-item" href="./movienews.jsp">Featured News</a>
+                            <a class="dropdown-item" href="./movienews.jsp">Explore Content</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -150,14 +150,14 @@
                             Sign In
                         </a>
                         <div class="dropdown-menu" aria-labelledby="vipDropdown">
-                            <a class="dropdown-item" href="./signup.html">Register</a>
-                            <a class="dropdown-item" href="./signin.html">Sign In</a>
+                            <a class="dropdown-item" href="./signup.jsp">Register</a>
+                            <a class="dropdown-item" href="./signin.jsp">Sign In</a>
                         </div>
                     </li>
                 </ul>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="text" placeholder="Enter a movie or location...">
-                    <input type= "button" class = "btn btn-outline-warning my-2 my-sm-0" onClick="parent.location='./movietimesandtickets.html'" value='Search'>
+                    <input type= "button" class = "btn btn-outline-warning my-2 my-sm-0" onClick="parent.location='./movietimesandtickets.jsp'" value='Search'>
                 </form>
             </div>
         </div>
@@ -168,13 +168,13 @@
         <h1 style="color: white">Fifty Shades Darker Photos & Posters</h1>
         <div class="row">
             <ul id="overviewList">
-                <li><a href="./movieoverview.html">Overview</a></li>
-                <li><a href="./movietimesandtickets.html">Movie Times + Tickets</a></li>
-                <li><a href="./moviesynopsis.html">Synopsis</a></li>
-                <li><a href="./moviereviews.html">Movie Reviews</a></li>
-                <li><a href="./movietrailers.html">Trailers</a></li>
-                <li class="active"><a href="./moviephotosandposters.html">Photos + Posters</a></li>
-                <li><a href="./moviecastandcrew.html">Cast + Crew</a></li>
+                <li><a href="./movieoverview.jsp">Overview</a></li>
+                <li><a href="./movietimesandtickets.jsp">Movie Times + Tickets</a></li>
+                <li><a href="./moviesynopsis.jsp">Synopsis</a></li>
+                <li><a href="./moviereviews.jsp">Movie Reviews</a></li>
+                <li><a href="./movietrailers.jsp">Trailers</a></li>
+                <li class="active"><a href="./moviephotosandposters.jsp">Photos + Posters</a></li>
+                <li><a href="./moviecastandcrew.jsp">Cast + Crew</a></li>
 
             </ul>
         </div>
@@ -200,7 +200,7 @@
                                     <li><span class="detail">Length: </span> 13:37</li>
 
                                 </ul>
-                                <input type= "button" class = "btn-danger" style="width: 100%" onClick="parent.location='./movietimesandtickets.html'" value='Buy Tickets'>
+                                <input type= "button" class = "btn-danger" style="width: 100%" onClick="parent.location='./movietimesandtickets.jsp'" value='Buy Tickets'>
                             </div>
 
 

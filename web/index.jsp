@@ -20,7 +20,7 @@
     Secondary Texts (eg. article content): Josefin Sans
     -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
-    <link href="static/css/index.css" rel="stylesheet">
+    <link href="/resources/css/index.css" rel="stylesheet">
 
 </head>
 
