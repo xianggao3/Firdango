@@ -1,6 +1,6 @@
 package com.luv2code.springdemo.dao;
 
-import com.luv2code.springdemo.entity.Customer;
+import com.luv2code.springdemo.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -13,43 +13,43 @@ import java.util.List;
  * Created by marvinyan on 2/6/2017.
  */
 @Repository
-public class CustomerDAOImpl implements CustomerDAO {
+public class UserDAOImpl implements UserDAO {
     // need to inject the session factory
     private final SessionFactory sessionFactory;
 
     @Autowired
-    public CustomerDAOImpl(SessionFactory sessionFactory) {
+    public UserDAOImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
     @Override
-    public List<Customer> getCustomers() {
+    public List<User> getUsers() {
         // get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
 
         // create a query
-        Query<Customer> theQuery = currentSession.createQuery("from Customer order by lastName", Customer.class);
+        Query<User> theQuery = currentSession.createQuery("from User order by lastName", User.class);
 
         // execute and return the result list
         return theQuery.getResultList();
     }
 
     @Override
-    public void saveCustomer(Customer customer) {
+    public void saveUser(User user) {
         Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.saveOrUpdate(customer); // id empty ? insert : update
+        currentSession.saveOrUpdate(user); // id empty ? insert : update
     }
 
     @Override
-    public Customer getCustomer(int id) {
+    public User getUser(int id) {
         Session currentSession = sessionFactory.getCurrentSession();
-        return currentSession.get(Customer.class, id);
+        return currentSession.get(User.class, id);
     }
 
     @Override
-    public void deleteCustomer(int id) {
+    public void deleteUser(int id) {
         Session currentSession = sessionFactory.getCurrentSession();
-        Query query = currentSession.createQuery("delete from Customer where id = :id");
+        Query query = currentSession.createQuery("delete from User where id = :id");
         query.setParameter("id", id);
         query.executeUpdate();
     }
