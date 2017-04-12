@@ -27,7 +27,7 @@
 <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="./index.html"><img src="WEB-INF/view/firlogo.png">Firdango</a>
+            <a class="navbar-brand" href="./index.jsp"><img src="WEB-INF/view/firlogo.png">Firdango</a>
 
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
