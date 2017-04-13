@@ -9,7 +9,7 @@
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="./checkout.css" rel="stylesheet">
+    <link href="/resources/css/checkout.css" rel="stylesheet">
 
     <!--
     Font Scheme
@@ -458,7 +458,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <button class="subscribe btn btn-success btn-lg btn-block" type="button" onclick="alert('Ticket Purchased.'); window.location.href = './index.html';">Purchase Ticket</button>
+                                                <button class="subscribe btn btn-success btn-lg btn-block" type="button" onclick="alert('Ticket Purchased.'); window.location.href = './index.jsp';">Purchase Ticket</button>
                                             </div>
                                         </div>
                                         <div class="row" style="display:none;">
@@ -481,6 +481,6 @@
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="checkout.js"></script>
+<script src="/resources/js/checkout.js"></script>
 
 </html>
