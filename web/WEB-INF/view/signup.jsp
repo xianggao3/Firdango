@@ -137,7 +137,7 @@
 		}
 	</style>
 
-	<link href="index.css" rel="stylesheet">
+	<link href="./resources/css/index.css" rel="stylesheet">
 
 	<style>
 		body {

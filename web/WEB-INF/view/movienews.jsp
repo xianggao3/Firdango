@@ -17,7 +17,7 @@
 
         -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
-        <link href="index.css" rel="stylesheet">
+        <link href="./resources/css/index.css" rel="stylesheet">
 
         <style> 
         #overviewList li {
@@ -64,58 +64,8 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top">
-            <div class="container">
-                <a class="navbar-brand" href="./index.html"><img src="../../resources/img/firlogo.png">Firdango</a>
-    
-                <div class="collapse navbar-collapse" id="navbarColor01">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="moviesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Movies
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="moviesDropdown">
-                                <a class="dropdown-item" href="./moviesintheatres.html">Now Playing</a>
-                                <a class="dropdown-item" href="./moviesintheatres.html">Opening This Week</a>
-                                <a class="dropdown-item" href="./moviesintheatres.html">Pre Sales Tickets</a>
-                                <a class="dropdown-item" href="./moviesintheatres.html">Coming Soon</a>
-                                <a class="dropdown-item" href="./moviesintheatres.html">More Movies</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="timesAndTicketsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Times & Tickets
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="timesAndTicketsDropdown">
-                                <a class="dropdown-item" href="./movietimesandtickets.html">Tickets for 'Fifty Shades Darker'</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                News
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="newsDropdown">
-                                <a class="dropdown-item" href="./movienews.html">Featured News</a>
-                                <a class="dropdown-item" href="./movienews.html">Explore Content</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="vipDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Sign In
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="vipDropdown">
-                                <a class="dropdown-item" href="./signup.html">Register</a>
-                                <a class="dropdown-item" href="./signin.html">Sign In</a>
-                            </div>
-                        </li>
-                    </ul>
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Enter a movie or location...">
-                        <input type= "button" class = "btn btn-outline-warning my-2 my-sm-0" onClick="parent.location='./movietimesandtickets.html'" value='Search'>
-                    </form>
-                </div>
-            </div>
-        </nav>
+    <jsp:include page="/WEB-INF/includes/header.jsp" />
+
         <div class="container">
             <div class="container-fluid">
 

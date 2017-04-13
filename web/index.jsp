@@ -70,26 +70,26 @@
         <h1 class="display-5 text-white border-bottom-1">Top Movies</h1>
 
         <div class="card-deck">
-            <a href="./movieoverview.html" class="card card-inverse text-center">
+            <a href="overview" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16883.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Fifty Shades Darker</h4>
                 </div>
             </a>
-            <a href="./movieoverview.html" class="card card-inverse text-center">
+            <a href="overview" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://www.myvue.com/-/media/images/film%20and%20events/february%202017/legobatmanposter2.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">The Lego Batman Movie</h4>
                 </div>
             </a>
-            <a href="./movieoverview.html" class="card card-inverse text-center">
+            <a href="overview" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16999.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Logan (2017)</h4>
                 </div>
             </a>
 
-            <a href="./movieoverview.html" class="card card-inverse text-center">
+            <a href="overview" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16631.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Patriots Day</h4>
@@ -99,19 +99,19 @@
 
         <!-- https://images.mymovies.net/images/film/cin/350x522/fid16502.jpg-->
         <div class="card-deck">
-            <a href="./movieoverview.html" class="card card-inverse text-center">
+            <a href="overview" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16502.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Beauty and the Beast</h4>
                 </div>
             </a>
-            <a href="./movieoverview.html" class="card card-inverse text-center">
+            <a href="overview" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16847.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Hidden Figures</h4>
                 </div>
             </a>
-            <a href="./movieoverview.html" class="card card-inverse text-center">
+            <a href=".overview" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16962.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">John Wick: Chapter Two</h4>
@@ -288,7 +288,7 @@
 
             <!-- Alt footer -->
             <div class="row">
-                <img id="footer-landmarks" src="WEB-INF/view/footer-landmarks.png">
+                <img id="footer-landmarks" src="resources/img/footer-landmarks.png">
 
                 <div id="bottom-footer">
                     <div class="row">

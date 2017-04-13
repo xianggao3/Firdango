@@ -8,7 +8,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="index.css" rel="stylesheet">
+    <link href="./resources/css/index.css" rel="stylesheet">
 
 
 
@@ -128,71 +128,19 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="./index.html"><img src="../../resources/img/firlogo.png">Firdango</a>
-
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="moviesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Movies
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="moviesDropdown">
-                            <a class="dropdown-item" href="./moviesintheatres.html">Now Playing</a>
-                            <a class="dropdown-item" href="./moviesintheatres.html">Opening This Week</a>
-                            <a class="dropdown-item" href="./moviesintheatres.html">Pre Sales Tickets</a>
-                            <a class="dropdown-item" href="./moviesintheatres.html">Coming Soon</a>
-                            <a class="dropdown-item" href="./moviesintheatres.html">More Movies</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="timesAndTicketsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Times & Tickets
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="timesAndTicketsDropdown">
-                            <a class="dropdown-item" href="./movietimesandtickets.html">Tickets for 'Fifty Shades Darker'</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            News
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="newsDropdown">
-                            <a class="dropdown-item" href="./movienews.html">Featured News</a>
-                            <a class="dropdown-item" href="./movienews.html">Explore Content</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="vipDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sign In
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="vipDropdown">
-                            <a class="dropdown-item" href="./signup.html">Register</a>
-                            <a class="dropdown-item" href="./signin.html">Sign In</a>
-                        </div>
-                    </li>
-                </ul>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Enter a movie or location...">
-                    <input type= "button" class = "btn btn-outline-warning my-2 my-sm-0" onClick="parent.location='./movietimesandtickets.html'" value='Search'>
-                </form>
-            </div>
-        </div>
-    </nav>
-
+    <jsp:include page="/WEB-INF/includes/header.jsp" />
     <div class="container">
 
         <h1 style="color: white">Fifty Shades Darker Review</h1>
         <div class="row">
             <ul id="overviewList">
-                <li><a href="./movieoverview.html">Overview</a></li>
-                <li><a href="./movietimesandtickets.html">Movie Times + Tickets</a></li>
-                <li><a href="./moviesynopsis.html">Synopsis</a></li>
-                <li class="active"><a href="./moviereviews.html">Movie Reviews</a></li>
-                <li><a href="./movietrailers.html">Trailers</a></li>
-                <li><a href="./moviephotosandposters.html">Photos + Posters</a></li>
-                <li><a href="./moviecastandcrew.html">Cast + Crew</a></li>
+                <li><a href="overview">Overview</a></li>
+                <li><a href="timesandtickets">Movie Times + Tickets</a></li>
+                <li><a href="synopsis">Synopsis</a></li>
+                <li class="active"><a href="reviews">Movie Reviews</a></li>
+                <li><a href="trailers">Trailers</a></li>
+                <li><a href="photosandposters">Photos + Posters</a></li>
+                <li"><a href="castandcrew">Cast + Crew</a></li>
 
             </ul>
         </div>
@@ -390,7 +338,7 @@
 
             <!-- Alt footer -->
             <div class="row">
-                <img id="footer-landmarks" src="./footer-landmarks.png">
+                <img id="footer-landmarks" src="../../resources/img/footer-landmarks.png">
 
                 <div id="bottom-footer">
                     <div class="row">

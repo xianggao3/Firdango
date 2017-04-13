@@ -141,13 +141,13 @@
         <h1 style="color: white">Fifty Shades Darker Times & Tickets</h1>
         <div class="row">
             <ul id="overviewList">
-                <li><a href="./movieoverview.html">Overview</a></li>
-                <li class="active"><a href="./movietimesandtickets.html">Movie Times + Tickets</a></li>
-                <li><a href="./moviesynopsis.html">Synopsis</a></li>
-                <li><a href="./moviereviews.html">Movie Reviews</a></li>
-                <li><a href="./movietrailers.html">Trailers</a></li>
-                <li><a href="./moviephotosandposters.html">Photos + Posters</a></li>
-                <li><a href="./moviecastandcrew.html">Cast + Crew</a></li>
+                <li><a href="overview">Overview</a></li>
+                <li class="active"><a href="timesandtickets">Movie Times + Tickets</a></li>
+                <li><a href="synopsis">Synopsis</a></li>
+                <li><a href="reviews">Movie Reviews</a></li>
+                <li><a href="trailers">Trailers</a></li>
+                <li><a href="photosandposters">Photos + Posters</a></li>
+                <li><a href="castandcrew">Cast + Crew</a></li>
 
             </ul>
         </div>
@@ -408,7 +408,7 @@
 
             <!-- Alt footer -->
             <div class="row">
-                <img id="footer-landmarks" src="./footer-landmarks.png">
+                <img id="footer-landmarks" src="../../resources/img/footer-landmarks.png">
 
                 <div id="bottom-footer">
                     <div class="row">
