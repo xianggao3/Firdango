@@ -111,7 +111,7 @@
                     <h4 class="card-title">Hidden Figures</h4>
                 </div>
             </a>
-            <a href=".overview" class="card card-inverse text-center">
+            <a href="overview" class="card card-inverse text-center">
                 <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16962.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">John Wick: Chapter Two</h4>

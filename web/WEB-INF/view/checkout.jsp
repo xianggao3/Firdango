@@ -2,7 +2,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type = "text/javascript" language = "javascript">
+    $(document).ready(function() {
+        $("#quantity").on('keyup mouseup', function () {
+            var numTicks = $("#quantity").value
+            var subt = $("#subtotal").value
+            alert(subt);
 
+            //subt = numTicks*subt;
+            $("#subtotal").html();
+        });
+    });
+</script>
 <head>
     <title>Firdango</title>
     <meta charset="utf-8">
@@ -76,9 +88,9 @@
                                     </td>
                                     <td data-th="Price">$11.99</td>
                                     <td data-th="Quantity">
-                                        <input type="number" class="form-control text-center" value="1">
+                                        <input id="quantity" type="number" class="form-control text-center" value="1" min="0" max="99">
                                     </td>
-                                    <td data-th="Subtotal" class="text-center">11.99</td>
+                                    <td id="subtotal" data-th="Subtotal" class="text-center" value="11.99">33</td>
                                     <td class="actions" data-th="">
                                         <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
                                         <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
@@ -100,6 +112,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="row setup-content" id="step-2">
             <div class="col-xs-12">
                 <div class="col-md-12 well text-center">
