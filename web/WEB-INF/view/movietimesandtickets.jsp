@@ -193,10 +193,10 @@
                         Select a movie time to buy tickets
                     </p>
 
-                    <button class="btn-warning time" onClick="parent.location='./checkout.html'">1:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'" >4:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">8:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">10:35 PM</button>
+                    <button class="btn-warning time" onClick="parent.location='checkout'">1:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'" >4:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">8:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">10:35 PM</button>
                 </div>
 
                 <div class="movieTheatre">
@@ -209,10 +209,10 @@
                         Select a movie time to buy tickets
                     </p>
 
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">1:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">4:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">8:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">10:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">1:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">4:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">8:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">10:35 PM</button>
                 </div>
 
 
@@ -226,10 +226,10 @@
                         Select a movie time to buy tickets
                     </p>
 
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">1:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">4:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">8:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">10:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">1:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">4:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">8:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">10:35 PM</button>
                 </div>
 
                 <div class="movieTheatre">
@@ -242,10 +242,10 @@
                         Select a movie time to buy tickets
                     </p>
 
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">1:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">4:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">8:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">10:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">1:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">4:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">8:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">10:35 PM</button>
                 </div>
 
                 <div class="movieTheatre">
@@ -258,10 +258,10 @@
                         Select a movie time to buy tickets
                     </p>
 
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">1:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">4:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">8:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='./checkout.html'">10:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">1:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">4:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">8:35 PM</button>
+                    <button class="btn-warning time"onClick="parent.location='checkout'">10:35 PM</button>
                 </div>
 
 
