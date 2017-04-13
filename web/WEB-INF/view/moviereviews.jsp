@@ -201,6 +201,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <jsp:include page="WEB-INF/includes/footer.jsp" />
 
             <center class="copyright">
@@ -209,6 +210,10 @@
         </div>
     </div>
     <!-- end footer -->
+=======
+
+        <jsp:include page="/WEB-INF/includes/footer.jsp" />
+>>>>>>> origin/master
 
 </body>
 

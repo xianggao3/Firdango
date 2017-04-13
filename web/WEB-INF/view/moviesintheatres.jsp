@@ -103,26 +103,26 @@
                 
 
             <div class="card-deck">
-                <a href="movieoverview" class="card card-inverse text-center">
+                <a href="overview" class="card card-inverse text-center">
                     <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16883.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">Fifty Shades Darker</h4>
                     </div>
                 </a>
-                <a href="movieoverview" class="card card-inverse text-center">
+                <a href="overview" class="card card-inverse text-center">
                     <img class="card-img-top" src="https://www.myvue.com/-/media/images/film%20and%20events/february%202017/legobatmanposter2.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">The Lego Batman Movie</h4>
                     </div>
                 </a>
-                <a href="movieoverview" class="card card-inverse text-center">
+                <a href="overview" class="card card-inverse text-center">
                     <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16999.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">Logan (2017)</h4>
                     </div>
                 </a>
 
-                <a href="movieoverview" class="card card-inverse text-center">
+                <a href="overview" class="card card-inverse text-center">
                     <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16631.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">Patriots Day</h4>
@@ -135,26 +135,26 @@
             <h1 class="display-5 text-white border-bottom-1">NOW PLAYING</h1>
             
             <div class="card-deck">
-                <a href="movieoverview" class="card card-inverse text-center">
+                <a href="overview" class="card card-inverse text-center">
                     <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16883.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">Fifty Shades Darker</h4>
                     </div>
                 </a>
-                <a href="movieoverview" class="card card-inverse text-center">
+                <a href="overview" class="card card-inverse text-center">
                     <img class="card-img-top" src="https://www.myvue.com/-/media/images/film%20and%20events/february%202017/legobatmanposter2.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">The Lego Batman Movie</h4>
                     </div>
                 </a>
-                <a href="movieoverview" class="card card-inverse text-center">
+                <a href="overview" class="card card-inverse text-center">
                     <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16999.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">Logan (2017)</h4>
                     </div>
                 </a>
 
-                <a href="movieoverview" class="card card-inverse text-center">
+                <a href="overview" class="card card-inverse text-center">
                     <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16631.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">Patriots Day</h4>
@@ -164,9 +164,13 @@
 
     </div>
     </div>
+<<<<<<< HEAD
 
             <jsp:include page="WEB-INF/includes/footer.jsp" />
 
+=======
+            <jsp:include page="/WEB-INF/includes/footer.jsp" />
+>>>>>>> origin/master
 
 </body>
 

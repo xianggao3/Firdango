@@ -60,8 +60,12 @@
         <h1 style="color: white">Search Results for ${param.keyword}</h1>
     </div>
 
+<<<<<<< HEAD
     <jsp:include page="WEB-INF/includes/footer.jsp" />
 
+=======
+    <jsp:include page="/WEB-INF/includes/footer.jsp" />
+>>>>>>> origin/master
 
 </body>
 
