@@ -34,4 +34,22 @@ public class MovieDAOImpl implements MovieDAO {
         return theQuery.getResultList();
     }
 
+    @Override
+    public Movie getMovie(int id){
+        Session currentSession = sessionFactory.getCurrentSession();
+        return currentSession.get(Movie.class, id);
+    }
+
+    @Override
+    void deleteUser(int id){
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query query = currentSession.createQuery("delete from Movie where id = :id");
+        query.setParameter("id", id);
+        query.executeUpdate();
+    }
+    @Override
+    public void saveMovie(Movie movie) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.saveOrUpdate(movie); // id empty ? insert : update
+    }
 }

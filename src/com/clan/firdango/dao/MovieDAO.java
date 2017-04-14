@@ -9,5 +9,7 @@ import com.clan.firdango.entity.Movie;
  */
 public interface MovieDAO {
     List<Movie> getFeatured();
-
+    Movie getMovie(int id);
+    void deleteMovie(int id);
+    void saveMovie(Movie movie) ;
 }
