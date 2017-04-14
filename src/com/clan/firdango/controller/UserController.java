@@ -53,18 +53,25 @@ public class UserController {
                                @RequestParam("email") String email,
                                @RequestParam("password") String password, ModelMap model) {
 
-        User u = new User();
-        u.setName(name);
-        u.setEmail(email);
-        u.setPassword(password);
 
-        // Add user to session
-        model.addAttribute("user", u);
+        User u = userService.getUserByEmail(email);
+        System.out.println(u);
+        if (u!=null){
+            return "redirect:/signup";
+        }
+        else {
+            u = new User();
+            u.setName(name);
+            u.setEmail(email);
+            u.setPassword(password);
 
-        //save the user
-        System.out.println(u.toString());
-        userService.saveUser(u);
-        return "redirect:/";
+            // Add user to session
+            model.addAttribute("user", u);
+
+            //save the user
+            userService.saveUser(u);
+            return "redirect:/";
+        }
     }
 
     @GetMapping("/account")
