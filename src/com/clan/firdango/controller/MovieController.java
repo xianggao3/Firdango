@@ -2,7 +2,6 @@ package com.clan.firdango.controller;
 
 import com.clan.firdango.entity.Movie;
 import com.clan.firdango.service.MovieService;
-import com.clan.firdango.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
