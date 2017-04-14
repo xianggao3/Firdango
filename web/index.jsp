@@ -72,7 +72,7 @@
         <c:forEach var="theMovie" items="${movies}">
             <div class="card-deck">
                 <a href="#" class="card card-inverse text-center">
-                    <img class="card-img-top" src=https://image.tmdb.org/t/p/w500//${theMovie.poster}"" alt="">
+                    <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${theMovie.poster}" alt="">
                     <div class="card-block">
                         <h4 class="card-title">${theMovie.title}</h4>
                     </div>
