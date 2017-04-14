@@ -68,88 +68,17 @@
 
     <div id="topMoviesDiv" class="container">
         <h1 class="display-5 text-white border-bottom-1">Top Movies</h1>
-
-        <div class="card-deck">
-            <a href="overview" class="card card-inverse text-center">
-                <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16883.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">Fifty Shades Darker</h4>
-                </div>
-            </a>
-            <a href="overview" class="card card-inverse text-center">
-                <img class="card-img-top" src="https://www.myvue.com/-/media/images/film%20and%20events/february%202017/legobatmanposter2.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">The Lego Batman Movie</h4>
-                </div>
-            </a>
-            <a href="overview" class="card card-inverse text-center">
-                <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16999.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">Logan (2017)</h4>
-                </div>
-            </a>
-
-            <a href="overview" class="card card-inverse text-center">
-                <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16631.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">Patriots Day</h4>
-                </div>
-            </a>
-        </div>
-
-        <!-- https://images.mymovies.net/images/film/cin/350x522/fid16502.jpg-->
-        <div class="card-deck">
-            <a href="overview" class="card card-inverse text-center">
-                <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16502.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">Beauty and the Beast</h4>
-                </div>
-            </a>
-            <a href="overview" class="card card-inverse text-center">
-                <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16847.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">Hidden Figures</h4>
-                </div>
-            </a>
-            <a href="overview" class="card card-inverse text-center">
-                <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16962.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">John Wick: Chapter Two</h4>
-                </div>
-            </a>
-            <a href="overview" class="card card-inverse text-center">
-                <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16152.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">Sing</h4>
-                </div>
-            </a>
-        </div>
-        <div class="card-deck">
-            <a href="overview" class="card card-inverse text-center">
-                <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid17189.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">Moonlight</h4>
-                </div>
-            </a>
-            <a href="overview" class="card card-inverse text-center">
-                <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid17038.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">A Cure For Wellness</h4>
-                </div>
-            </a>
-            <a href="overview" class="card card-inverse text-center">
-                <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16950.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">Lion</h4>
-                </div>
-            </a>
-            <a href="overview" class="card card-inverse text-center">
-                <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16546.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">Moana</h4>
-                </div>
-            </a>
-        </div>
+        hey ${movies}
+        <c:forEach var="theMovie" items="${movies}">
+            <div class="card-deck">
+                <a href="#" class="card card-inverse text-center">
+                    <img class="card-img-top" src=https://image.tmdb.org/t/p/w500//${theMovie.poster}"" alt="">
+                    <div class="card-block">
+                        <h4 class="card-title">${theMovie.title}</h4>
+                    </div>
+                </a>
+            </div>
+        </c:forEach>
     </div>
 
     <jsp:include page="WEB-INF/includes/footer.jsp" />

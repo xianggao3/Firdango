@@ -134,7 +134,7 @@
 
         <!-- Alt footer -->
         <div class="row">
-            <img id="footer-landmarks" src="../view/footer-landmarks.png">
+            <img id="footer-landmarks" src="../../resources/img/footer-landmarks.png">
 
             <div id="bottom-footer">
                 <div class="row">

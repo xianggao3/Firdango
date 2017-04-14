@@ -25,6 +25,7 @@ public class MovieServiceImpl implements MovieService{
     public List<Movie> getFeatured() {
         return movieDAO.getFeatured();
     }
+
     @Override
     @Transactional
     public void saveMovie(Movie movie) {

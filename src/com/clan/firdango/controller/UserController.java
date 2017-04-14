@@ -47,11 +47,7 @@ public class UserController {
     public String registerUser(@RequestParam("name") String name,
                                @RequestParam("email") String email,
                                @RequestParam("password") String password,
-                               @RequestParam("passwordValidate") String passwordValidate, ModelMap model){
-
-
-
-        //
+                               @RequestParam("passwordValidate") String passwordValidate, ModelMap model) {
 
         User u = new User();
         u.setName(name);
