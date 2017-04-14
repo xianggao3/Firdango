@@ -1,9 +1,9 @@
 package com.clan.firdango.service;
 
 import com.clan.firdango.dao.UserDAO;
+import org.springframework.stereotype.Service;
 import com.clan.firdango.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -36,6 +36,12 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public User getUser(int id) {
         return userDAO.getUser(id);
+    }
+
+    @Override
+    @Transactional
+    public User getUserByEmail(String email) {
+        return userDAO.getUserByEmail(email);
     }
 
     @Override

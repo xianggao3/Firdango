@@ -160,7 +160,7 @@
 			<div class="main-login main-center">
 				<h5>Sign in and enjoy exclusive VIP access to Fandango.</h5>
 				<hr/>
-				<form class="" method="post" action="#">
+				<form class="" method="post" action="signin">
 
 					<div class="form-group">
 						<label for="email" class="cols-sm-2 control-label">Your Email</label>
@@ -184,7 +184,7 @@
 					</div>
 
 					<div class="form-group ">
-						<a href="#" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Sign In</a>
+						<input type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="Sign In"/>
 					</div>
 
 				</form>

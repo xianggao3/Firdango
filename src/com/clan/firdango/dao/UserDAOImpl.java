@@ -7,6 +7,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
@@ -45,6 +46,15 @@ public class UserDAOImpl implements UserDAO {
         Session currentSession = sessionFactory.getCurrentSession();
         return currentSession.get(User.class, id);
     }
+
+    @Override
+    public User getUserByEmail(String email){
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query query = currentSession.createQuery("from User where email = :email");
+        query.setParameter("email", email);
+        return (User) query.uniqueResult();
+    }
+
 
     @Override
     public void deleteUser(int id) {

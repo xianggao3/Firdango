@@ -27,23 +27,27 @@ public class UserController {
 
     @GetMapping("/signup")
     public String signUp(Model model){
-
         return "signup";
     }
-    @GetMapping("/signin")
-    public String signIn(Model model){
 
+    @GetMapping("/signin")
+    public String getSignIn(Model model){
         return "signin";
     }
 
-
-    @GetMapping("/signout")
-    public String signOut(ModelMap model, HttpSession session){
-        session.removeAttribute("user");
-        return "redirect:/ ";
+    @PostMapping("/signin")
+    public String signIn(@RequestParam("email") String email,
+                         @RequestParam("password") String password,
+                         ModelMap model){
+        User u = userService.getUserByEmail(email);
+        if (u.getPassword().equals(password)){
+            model.addAttribute("user", u);
+            return "redirect:/";
+        }else{
+            return "signin";
+        }
     }
-
-
+    
     @PostMapping("/signup")
     public String registerUser(@RequestParam("name") String name,
                                @RequestParam("email") String email,
@@ -59,7 +63,7 @@ public class UserController {
 
         //save the user
         System.out.println(u.toString());
-        //userService.saveUser(user);
+        userService.saveUser(u);
         return "redirect:/";
     }
 
@@ -92,7 +96,7 @@ public class UserController {
                 u.setPassword(p2);
             }
         }
-        //userService.saveUser(user);
+        userService.saveUser(u);
         return "redirect:/account";
     }
 }
