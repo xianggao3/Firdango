@@ -201,8 +201,19 @@
             </div>
         </div>
 
+<<<<<<< HEAD
+        <jsp:include page="WEB-INF/includes/footer.jsp" />
+
+            <center class="copyright">
+                © 2017 Firdango. All rights reserved.
+            </center>
+        </div>
+    </div>
+    <!-- end footer -->
+=======
 
         <jsp:include page="/WEB-INF/includes/footer.jsp" />
+>>>>>>> origin/master
 
 </body>
 

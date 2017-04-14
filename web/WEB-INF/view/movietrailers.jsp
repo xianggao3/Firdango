@@ -171,8 +171,12 @@
         </div>
     </div>
 
+    <jsp:include page="WEB-INF/includes/footer.jsp" />
 
+<<<<<<< HEAD
+=======
     <jsp:include page="/WEB-INF/includes/footer.jsp" />
+>>>>>>> origin/master
 
 </body>
 
