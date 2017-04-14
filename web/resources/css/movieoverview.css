@@ -33,6 +33,9 @@
     height: auto;
 }
 
+h1 {
+    color: white;
+}
 #movieImg {
     margin: 0;
     padding: 0;
