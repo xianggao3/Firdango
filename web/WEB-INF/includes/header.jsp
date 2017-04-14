@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="true" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top">
@@ -37,18 +38,18 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="vipDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" id="vipDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         My Firdango
                     </a>
                     <div class="dropdown-menu" aria-labelledby="vipDropdown">
                         <c:choose>
-                            <c:when test="${empty loginStatus}">
-                                <a class="dropdown-item" href="signup">Register</a>
-                                <a class="dropdown-item" href="signin">Sign In</a>
-                            </c:when>
-                            <c:otherwise>
+                            <c:when test="${user != null}">
                                 <a class="dropdown-item" href="account">My Account</a>
                                 <a class="dropdown-item" href="signout">Sign Out</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a class="dropdown-item" href="signup">Register</a>
+                                <a class="dropdown-item" href="signin">Sign In</a>
                             </c:otherwise>
                         </c:choose>
 

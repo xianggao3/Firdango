@@ -1,17 +1,15 @@
-package springCode.controller;
+package com.clan.firdango.controller;
 
-import com.luv2code.springdemo.entity.User;
-import com.luv2code.springdemo.service.UserService;
+import com.clan.firdango.entity.User;
+import com.clan.firdango.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Created by xgao3 on 4/12/2017.
@@ -27,7 +25,8 @@ public class UserController {
     }
 
     @GetMapping("/signup")
-    public String SignIn(Model model){
+    public String SignUp(Model model){
+
         return "signup";
     }
 
@@ -35,7 +34,7 @@ public class UserController {
     @GetMapping("/signout")
     public String SignOut(ModelMap model){
         model.addAttribute("user", null);
-        return "redirect:/news";
+        return "redirect:/ ";
     }
 
 
@@ -46,6 +45,8 @@ public class UserController {
                                @RequestParam("passwordValidate") String passwordValidate, ModelMap model){
 
 
+
+        //
 
         User u = new User();
         u.setName(name);
@@ -58,7 +59,7 @@ public class UserController {
         //save the user
         System.out.println(u.toString());
         //userService.saveUser(user);
-        return "redirect:/news";
+        return "redirect:/";
     }
 
 }
