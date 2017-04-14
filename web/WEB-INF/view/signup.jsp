@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -211,14 +213,16 @@
 			<div class="main-login main-center">
 				<h5>Sign up and enjoy exclusive VIP access to Fandango.</h5>
 				<hr/>
-				<form class="" method="post" action="#">
+				<form action="/signup" modelAttribute="user" method="post">
+					<input type="hidden" name="id" />
 
+                <fieldset>
 					<div class="form-group">
 						<label for="name" class="cols-sm-2 control-label">Your Name</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-								<input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" />
+								<input path="name" id="name" name="name" placeholder="Enter your name" class="form-control" type="name"/>
 							</div>
 						</div>
 					</div>
@@ -228,10 +232,11 @@
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-								<input type="text" class="form-control" name="email" id="email" placeholder="Enter your Email" />
+								<input id="email" name="email" placeholder="Enter your email" class="form-control" type="email"/>
 							</div>
 						</div>
 					</div>
+
 
 
 					<div class="form-group">
@@ -239,24 +244,27 @@
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-								<input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
+								<input id="password" name="password" placeholder="Enter you password" class="form-control" type="password"/>
 							</div>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+						<label for="passwordValidate" class="cols-sm-2 control-label">Confirm Password</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-								<input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+								<input id="passwordValidate" name="passwordValidate" placeholder="Enter you password" class="form-control" type="password"/>
 							</div>
 						</div>
 					</div>
 
 					<div class="form-group ">
-						<a href="#" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
+						<input type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="Register"/>
 					</div>
+
+                    </fieldset>
+
 
 				</form>
 			</div>
