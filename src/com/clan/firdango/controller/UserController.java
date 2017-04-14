@@ -3,13 +3,14 @@ package com.clan.firdango.controller;
 import com.clan.firdango.entity.User;
 import com.clan.firdango.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.support.SessionStatus;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by xgao3 on 4/12/2017.
@@ -37,8 +38,8 @@ public class UserController {
 
 
     @GetMapping("/signout")
-    public String signOut(ModelMap model){
-        model.addAttribute("user", null);
+    public String signOut(ModelMap model, HttpSession session){
+        session.removeAttribute("user");
         return "redirect:/ ";
     }
 
@@ -46,8 +47,7 @@ public class UserController {
     @PostMapping("/signup")
     public String registerUser(@RequestParam("name") String name,
                                @RequestParam("email") String email,
-                               @RequestParam("password") String password,
-                               @RequestParam("passwordValidate") String passwordValidate, ModelMap model) {
+                               @RequestParam("password") String password, ModelMap model) {
 
         User u = new User();
         u.setName(name);
@@ -62,10 +62,37 @@ public class UserController {
         //userService.saveUser(user);
         return "redirect:/";
     }
+
     @GetMapping("/account")
     public String getAccount(Model model){
 
         return "account";
     }
 
+    @PostMapping("/changeNameEmail")
+    public String changeNameEmail(@RequestParam("name") String name,
+                               @RequestParam("email") String email,
+                                  @ModelAttribute User u) {
+        u.setName(name);
+        u.setEmail(email);
+
+        //userService.saveUser(user);
+        return "redirect:/account";
+    }
+
+    @PostMapping("/changePassword")
+    public String changeNameEmail(@RequestParam("oldPassword") String p1,
+                                  @RequestParam("password") String p2,
+                                  @RequestParam("passwordValidate") String p3,
+                                  @ModelAttribute User u) {
+        //Check old information
+        if (p1.equals(u.getPassword())){
+            //Check new information
+            if (p2.equals(p3)){
+                u.setPassword(p2);
+            }
+        }
+        //userService.saveUser(user);
+        return "redirect:/account";
+    }
 }
