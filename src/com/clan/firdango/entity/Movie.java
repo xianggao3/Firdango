@@ -1,4 +1,4 @@
-package springCode.entity;
+package com.clan.firdango.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

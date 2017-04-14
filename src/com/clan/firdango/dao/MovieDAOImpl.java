@@ -1,7 +1,6 @@
-package springCode.dao;
+package com.clan.firdango.dao;
 
-import springCode.entity.Movie;
-import springCode.entity.User;
+import com.clan.firdango.entity.Movie;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -29,7 +28,7 @@ public class MovieDAOImpl implements MovieDAO {
         Session currentSession = sessionFactory.getCurrentSession();
 
         // create a query
-        Query<Movie> theQuery = currentSession.createQuery("from Movie order by release_date where release_date<CURDATE() select 12", User.class);
+        Query<Movie> theQuery = currentSession.createQuery("from Movie order by release_date where release_date<CURDATE() limit 12", Movie.class);
 
         // execute and return the result list
         return theQuery.getResultList();

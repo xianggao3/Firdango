@@ -1,7 +1,7 @@
-package springCode.service;
+package com.clan.firdango.service;
 
-import springCode.dao.UserDAO;
-import springCode.entity.User;
+import com.clan.firdango.dao.UserDAO;
+import com.clan.firdango.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
