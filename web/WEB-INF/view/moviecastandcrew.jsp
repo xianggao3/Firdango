@@ -281,7 +281,7 @@ Stephanie Flack Supervising Sound Editor Provided by Rovi
             </div>
         </div>
 
-        <jsp:include page="WEB-INF/includes/footer.jsp" />
+        <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
 </body>
 
