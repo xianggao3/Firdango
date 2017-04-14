@@ -1,4 +1,4 @@
-package com.luv2code.springdemo.entity;
+package springCode.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

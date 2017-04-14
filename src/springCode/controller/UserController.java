@@ -1,4 +1,4 @@
-package com.luv2code.springdemo.controller;
+package springCode.controller;
 
 import com.luv2code.springdemo.entity.User;
 import com.luv2code.springdemo.service.UserService;

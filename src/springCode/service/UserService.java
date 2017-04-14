@@ -1,13 +1,13 @@
-package com.luv2code.springdemo.dao;
+package springCode.service;
 
-import com.luv2code.springdemo.entity.User;
+import springCode.entity.User;
 
 import java.util.List;
 
 /**
  * Created by marvinyan on 2/6/2017.
  */
-public interface UserDAO {
+public interface UserService {
     List<User> getUsers();
 
     void saveUser(User user);
