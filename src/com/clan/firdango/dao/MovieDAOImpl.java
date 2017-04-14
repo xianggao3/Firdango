@@ -28,7 +28,9 @@ public class MovieDAOImpl implements MovieDAO {
         Session currentSession = sessionFactory.getCurrentSession();
 
         // create a query
-        Query<Movie> theQuery = currentSession.createQuery("from Movie order by release_date where release_date<CURDATE() limit 12", Movie.class);
+        String q = "FROM Movie  where releaseDate<current_date ORDER BY releaseDate DESC ";
+        Query<Movie> theQuery = currentSession.createQuery(q, Movie.class);
+        theQuery.setMaxResults(12);
 
         // execute and return the result list
         return theQuery.getResultList();
@@ -42,7 +44,7 @@ public class MovieDAOImpl implements MovieDAO {
     }
 
     @Override
-    void deleteUser(int id){
+    public void deleteMovie(int id){
         Session currentSession = sessionFactory.getCurrentSession();
         Query query = currentSession.createQuery("delete from Movie where id = :id");
         query.setParameter("id", id);

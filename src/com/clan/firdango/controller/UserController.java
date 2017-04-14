@@ -25,14 +25,19 @@ public class UserController {
     }
 
     @GetMapping("/signup")
-    public String SignUp(Model model){
+    public String signUp(Model model){
 
         return "signup";
+    }
+    @GetMapping("/signin")
+    public String signIn(Model model){
+
+        return "signin";
     }
 
 
     @GetMapping("/signout")
-    public String SignOut(ModelMap model){
+    public String signOut(ModelMap model){
         model.addAttribute("user", null);
         return "redirect:/ ";
     }
@@ -60,6 +65,11 @@ public class UserController {
         System.out.println(u.toString());
         //userService.saveUser(user);
         return "redirect:/";
+    }
+    @GetMapping("/account")
+    public String getAccount(Model model){
+
+        return "account";
     }
 
 }
