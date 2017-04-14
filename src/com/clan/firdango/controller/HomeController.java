@@ -26,6 +26,6 @@ public class HomeController {
         List<Movie> movies = movieService.getFeatured();
         theModel.addAttribute("movies", movies);
         System.out.println("movies???: " + movies);
-        return "";
+        return "/index";
     }
 }
