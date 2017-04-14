@@ -1,6 +1,6 @@
-package com.luv2code.springdemo.dao;
+package springCode.dao;
 
-import com.luv2code.springdemo.entity.User;
+import springCode.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -28,7 +28,7 @@ public class UserDAOImpl implements UserDAO {
         Session currentSession = sessionFactory.getCurrentSession();
 
         // create a query
-        Query<User> theQuery = currentSession.createQuery("from User order by lastName", User.class);
+        Query<User> theQuery = currentSession.createQuery("from User order by  lastName", User.class);
 
         // execute and return the result list
         return theQuery.getResultList();

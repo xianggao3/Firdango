@@ -1,7 +1,7 @@
-package com.luv2code.springdemo.service;
+package springCode.service;
 
-import com.luv2code.springdemo.dao.UserDAO;
-import com.luv2code.springdemo.entity.User;
+import springCode.dao.UserDAO;
+import springCode.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
