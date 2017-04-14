@@ -162,7 +162,7 @@
 			<div class="main-login main-center">
 				<h5>Sign up and enjoy exclusive VIP access to Fandango.</h5>
 				<hr/>
-				<form action="/signup" modelAttribute="user" method="post">
+				<form action="signup" modelAttribute="user" method="post">
 					<input type="hidden" name="id" />
 
                 <fieldset>
