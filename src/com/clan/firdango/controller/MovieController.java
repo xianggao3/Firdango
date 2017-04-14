@@ -6,15 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
-import java.util.List;
 
 /**
  * Created by xgao3 on 4/11/2017.
  */
 @Controller
-//@RequestMapping("/movie")
 @SessionAttributes({"movie"})
 public class MovieController {
     private final MovieService movieService;
@@ -25,14 +23,9 @@ public class MovieController {
     }
 
     @GetMapping("/overview")
-    public String getMovieOverview(Model theModel) {
-        List<Movie> featuredMovies = movieService.getFeatured();
-
-        theModel.addAttribute("movies", featuredMovies);
-        System.out.println(featuredMovies.get(0));
-        System.out.println(featuredMovies.get(1));
-        System.out.println(featuredMovies.get(2));
-        System.out.println(featuredMovies.get(3));
+    public String getMovieOverview(@RequestParam("movieId") int id, Model theModel) {
+        Movie movie = movieService.getMovie(id);
+        theModel.addAttribute("movie", movie);
         return "movieoverview";
     }
 
