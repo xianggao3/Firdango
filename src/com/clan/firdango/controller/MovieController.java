@@ -1,7 +1,14 @@
 package com.clan.firdango.controller;
 
+import com.clan.firdango.entity.Movie;
+import com.clan.firdango.service.MovieService;
+import com.clan.firdango.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 /**
  * Created by xgao3 on 4/11/2017.
@@ -9,10 +16,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 //@RequestMapping("/movie")
 public class MovieController {
+    private final MovieService movieService;
+
+    @Autowired
+    public MovieController(MovieService movieService) {
+        this.movieService = movieService;
+    }
 
     @GetMapping("/overview")
-    public String getMovieOverview() {
-        return "movieoverview";
+    public String getMovieOverview(Model theModel) {
+        /*List<Movie> featuredMovies = movieService.getFeatured();
+
+        theModel.addAttribute("movies", featuredMovies);
+        System.out.println(featuredMovies.get(0));
+        */return "movieoverview";
     }
 
     @GetMapping("/search")

@@ -32,6 +32,7 @@ public class MovieDAOImpl implements MovieDAO {
 
         // execute and return the result list
         return theQuery.getResultList();
+
     }
 
 }

@@ -154,4 +154,11 @@ public class Movie {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String toString() {
+        return "Movie{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", release='" + releaseDate + "}";
+    }
 }

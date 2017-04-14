@@ -23,10 +23,8 @@
         <input type="button" value="Add User" onclick="window.location.href='showAddUserForm'" class="add-button" />
         <table>
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Name</th>
                 <th>Email</th>
-                <th>Action</th>
             </tr>
             <c:forEach var="tempUser" items="${users}">
                 <c:url var="updateLink" value="/admin/showUpdateUserForm">
@@ -36,8 +34,7 @@
                     <c:param name="userId" value="${tempUser.id}" />
                 </c:url>
                 <tr>
-                    <td>${tempUser.firstName}</td>
-                    <td>${tempUser.lastName}</td>
+                    <td>${tempUser.name}</td>
                     <td>${tempUser.email}</td>
                     <td>
                         <a href="${updateLink}">Update</a>
