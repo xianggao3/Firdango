@@ -1,13 +1,13 @@
-package springCode.service;
+package com.clan.firdango.dao;
 
-import springCode.entity.User;
+import com.clan.firdango.entity.User;
 
 import java.util.List;
 
 /**
  * Created by marvinyan on 2/6/2017.
  */
-public interface UserService {
+public interface UserDAO {
     List<User> getUsers();
 
     void saveUser(User user);

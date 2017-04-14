@@ -10,6 +10,7 @@
           <element id="library" level="project" name="jstl:jstl:1.2" />
           <element id="library" level="project" name="Hibernate 5.2.9-5.2.9" />
           <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="hibernate-core-5.2.9.Final" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="firdango/web/Web" />

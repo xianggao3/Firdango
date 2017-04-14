@@ -1,6 +1,6 @@
-package springCode.dao;
+package com.clan.firdango.dao;
 
-import springCode.entity.User;
+import com.clan.firdango.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
