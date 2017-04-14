@@ -26,7 +26,7 @@
 
     <div class="container">
 
-        <h1 style="color: white">Fifty Shades Darker Overview</h1>
+        <h1 style="color: white">${movie.title}</h1>
         <div class="row">
             <ul id="overviewList">
                 <li class="active"><a href="overview">Overview</a></li>
@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="row">
                         <div class="col-md-12" id="movieImg">
-                            <img src="https://i.ytimg.com/vi/vnLqJLeTMVU/maxresdefault.jpg">
+                            <img src="https://image.tmdb.org/t/p/w500//${movie.poster}">
                         </div>
                     </div>
                     <div class="row">
@@ -55,10 +55,10 @@
                                 <ul>
                                     <li><span class="detail">Fan Ratings: </span>1337</li>
                                     <li><span class="detail">Rotten Tomatos: </span> 8%</li>
-                                    <li><span class="detail">Released: </span>FEBRUARY 10, 2017</li>
+                                    <li><span class="detail">Released: </span>${movie.releaseDate}</li>
                                     <li><span class="detail">Rating: </span> R</li>
-                                    <li><span class="detail">Genre: </span> Drama, Romance</li>
-                                    <li><span class="detail">Length: </span> 13:37</li>
+                                    <li><span class="detail">Genre: </span>${movie.genre}</li>
+                                    <li><span class="detail">Length: </span>${movie.runtime} minutes</li>
 
                                 </ul>
                                 <input type= "button" class = "btn-danger" style="width: 100%" onClick="parent.location='./movietimesandtickets.jsp'" value='Buy Tickets'>
@@ -71,7 +71,9 @@
 
             </div>
             <div class="col-sm-7" id="rightDesc">
-                <iframe src="https://www.youtube.com/embed/n6BVyk7hty8"></iframe>
+                <video>
+                        <source src="https://www.youtube.com/watch?v=${movie.trailer}">
+                </video>
             </div>
         </div>
     </div>
