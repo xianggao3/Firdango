@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top">
     <div class="container">
         <a class="navbar-brand" href="/"><img src="../../resources/img/firlogo.png">Firdango</a>
@@ -35,11 +38,20 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="vipDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sign In
+                        My Firdango
                     </a>
                     <div class="dropdown-menu" aria-labelledby="vipDropdown">
-                        <a class="dropdown-item" href="signup">Register</a>
-                        <a class="dropdown-item" href="signin">Sign In</a>
+                        <c:choose>
+                            <c:when test="${empty loginStatus}">
+                                <a class="dropdown-item" href="signup">Register</a>
+                                <a class="dropdown-item" href="signin">Sign In</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a class="dropdown-item" href="account">My Account</a>
+                                <a class="dropdown-item" href="signout">Sign Out</a>
+                            </c:otherwise>
+                        </c:choose>
+
                     </div>
                 </li>
             </ul>
