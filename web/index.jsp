@@ -68,15 +68,16 @@
 
     <div id="topMoviesDiv" class="container">
         <h1 class="display-5 text-white border-bottom-1">Top Movies</h1>
-        hey ${movies}
-        <c:forEach var="theMovie" items="${movies}">
+        <c:forEach var="row" begin="0" end="2">
             <div class="card-deck">
-                <a href="#" class="card card-inverse text-center">
-                    <img class="card-img-top" src=https://image.tmdb.org/t/p/w500//${theMovie.poster}"" alt="">
+                <c:forEach var="col" begin="0" end="3" >
+                    <a href="#" class="card card-inverse text-center">
+                    <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[row*4+col].poster}" alt="">
                     <div class="card-block">
-                        <h4 class="card-title">${theMovie.title}</h4>
+                        <h4 class="card-title">${movies[row*4+col].title}</h4>
                     </div>
-                </a>
+                    </a>
+                </c:forEach>
             </div>
         </c:forEach>
     </div>

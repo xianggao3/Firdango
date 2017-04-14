@@ -28,11 +28,12 @@ public class MovieDAOImpl implements MovieDAO {
         Session currentSession = sessionFactory.getCurrentSession();
 
         // create a query
-        String q = "FROM Movie  where releaseDate<current_date ORDER BY releaseDate DESC ";
+        String q = "FROM Movie where releaseDate < current_date and poster is not null ORDER BY releaseDate DESC";
         Query<Movie> theQuery = currentSession.createQuery(q, Movie.class);
         theQuery.setMaxResults(12);
 
         // execute and return the result list
+        System.out.println(theQuery.getResultList());
         return theQuery.getResultList();
 
     }

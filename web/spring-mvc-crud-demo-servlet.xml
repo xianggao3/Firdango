@@ -20,11 +20,21 @@
 	<!-- Add support for conversion, formatting and validation support -->
 	<mvc:annotation-driven/>
 
-	<!-- Define Spring MVC view resolver -->
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="suffix" value=".jsp" />
-	</bean>
+    <!-- Define Spring MVC view resolver -->
+    <bean class="com.clan.firdango.MyViewResolver">
+        <property name="tilesResolver" ref="idxRes"/>
+        <property name="jspResolver" ref="jspRes"/>
+    </bean>
+
+    <bean id="idxRes" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <bean id="jspRes" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="WEB-INF/view/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
 
     <!-- Step 1: Define Database DataSource / connection pool -->
 	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
