@@ -9,5 +9,7 @@ import java.util.List;
  */
 public interface MovieService {
     List<Movie> getFeatured();
-
+    void saveMovie(Movie movie);
+    Movie getMovie(int id);
+    void deleteMovie(int id);
 }
