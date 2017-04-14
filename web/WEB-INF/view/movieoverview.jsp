@@ -71,9 +71,7 @@
 
             </div>
             <div class="col-sm-7" id="rightDesc">
-                <video>
-                        <source src="https://www.youtube.com/watch?v=${movie.trailer}">
-                </video>
+                <iframe src="http://www.youtube.com/embed/${movie.trailer}"></iframe>
             </div>
         </div>
     </div>
