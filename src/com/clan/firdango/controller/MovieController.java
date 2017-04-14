@@ -24,6 +24,7 @@ public class MovieController {
 
     @GetMapping("/overview")
     public String getMovieOverview(@RequestParam("movieId") int id, Model theModel) {
+        System.out.println(id);
         Movie movie = movieService.getMovie(id);
         theModel.addAttribute("movie", movie);
         return "movieoverview";
