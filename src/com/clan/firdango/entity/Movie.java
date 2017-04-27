@@ -9,7 +9,7 @@ import javax.persistence.Table;
  * Created by marvinyan on 4/12/2017.
  */
 @Entity
-@Table(name = "movie")
+@Table(name = "Movies")
 public class Movie {
     @Id
     @Column(name = "id")
@@ -18,7 +18,7 @@ public class Movie {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "release_date")
+    @Column(name = "releaseDate")
     private String releaseDate;
 
     @Column(name = "genre")
@@ -36,7 +36,7 @@ public class Movie {
     @Column(name = "trailer")
     private String trailer;
 
-    @Column(name = "imdb_id")
+    @Column(name = "imdbId")
     private String imdbId;
 
     @Column(name = "revenue")
