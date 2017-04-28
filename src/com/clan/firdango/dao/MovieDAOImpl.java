@@ -27,8 +27,7 @@ public class MovieDAOImpl implements MovieDAO {
         // get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
 
-        // create a query
-        String q = "FROM Movie where releaseDate < current_date and poster is not null ORDER BY releaseDate DESC";
+        String q = "FROM Movie where release_date < current_date and poster_path is not null ORDER BY release_date DESC";
         Query<Movie> theQuery = currentSession.createQuery(q, Movie.class);
         theQuery.setMaxResults(12);
 

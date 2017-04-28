@@ -1,13 +1,14 @@
 package com.clan.firdango.controller;
 
+import com.clan.firdango.dao.SearchImpl;
 import com.clan.firdango.entity.Movie;
 import com.clan.firdango.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by xgao3 on 4/11/2017.
@@ -16,9 +17,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes({"movie"})
 public class MovieController {
     private final MovieService movieService;
+    private final SearchImpl searchImpl;
 
     @Autowired
-    public MovieController(MovieService movieService) {
+    public MovieController(MovieService movieService, SearchImpl searchImpl) {
+        this.searchImpl=searchImpl;
         this.movieService = movieService;
     }
 
@@ -30,8 +33,10 @@ public class MovieController {
         return "movieoverview";
     }
 
-    @GetMapping("/search")
-    public String getSearchResults() {
+    @RequestMapping(value="/search",method = RequestMethod.GET)
+    public String getSearchResults(Model theModel, HttpServletRequest request) throws Exception {
+
+        theModel.addAttribute("searchRes", searchImpl.getSearchResults(theModel,request));
         return "search";
     }
 
