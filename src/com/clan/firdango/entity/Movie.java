@@ -9,7 +9,7 @@ import javax.persistence.Table;
  * Created by marvinyan on 4/12/2017.
  */
 @Entity
-@Table(name = "movie")
+@Table(name = "Movies")
 public class Movie {
     @Id
     @Column(name = "id")
@@ -18,8 +18,8 @@ public class Movie {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "release_date")
-    private String release_date;
+    @Column(name = "releaseDate")
+    private String releaseDate;
 
     @Column(name = "genre")
     private String genre;
@@ -28,15 +28,15 @@ public class Movie {
     private String runtime;
 
     @Column(name = "poster")
-    private String poster_path;
+    private String poster;
 
     @Column(name = "backdrop")
-    private String backdrop_path;
+    private String backdrop;
 
     @Column(name = "trailer")
     private String trailer;
 
-    @Column(name = "imdb_id")
+    @Column(name = "imdbId")
     private String imdbId;
 
     @Column(name = "revenue")
@@ -68,11 +68,11 @@ public class Movie {
     }
 
     public String getReleaseDate() {
-        return release_date;
+        return releaseDate;
     }
 
     public void setReleaseDate(String releaseDate) {
-        this.release_date = releaseDate;
+        this.releaseDate = releaseDate;
     }
 
     public String getGenre() {
@@ -92,19 +92,19 @@ public class Movie {
     }
 
     public String getPoster() {
-        return poster_path;
+        return poster;
     }
 
     public void setPoster(String poster) {
-        this.poster_path = poster;
+        this.poster = poster;
     }
 
     public String getBackdrop() {
-        return backdrop_path;
+        return backdrop;
     }
 
     public void setBackdrop(String backdrop) {
-        this.backdrop_path = backdrop;
+        this.backdrop = backdrop;
     }
 
     public String getTrailer() {
@@ -159,6 +159,6 @@ public class Movie {
         return "Movie{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", release='" + release_date + "}";
+                ", release='" + releaseDate + "}";
     }
 }
