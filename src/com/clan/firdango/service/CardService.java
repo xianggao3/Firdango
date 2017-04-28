@@ -14,11 +14,13 @@ import java.util.Map;
 public class CardService {
     private static final String STRIPE_API_KEY = "sk_test_9QacE44VdfO73XTcqGWRIIkd";
 
+    public CardService() {
+        Stripe.apiKey = STRIPE_API_KEY;
+    }
+
     // This is just for reference and practicing
     // TODO: Remove from production
     public void stripePractice() throws CardException, APIException, AuthenticationException, InvalidRequestException, APIConnectionException {
-        Stripe.apiKey = STRIPE_API_KEY;
-
         // Create customer
         // Token can only be used once, need to change before you can run this code again.
         //Map<String, Object> customerParams = new HashMap<>();
@@ -43,7 +45,6 @@ public class CardService {
     }
 
     public void processCharge(String stripeToken, String email, int amount, String description) throws CardException, APIException, AuthenticationException, InvalidRequestException, APIConnectionException {
-        Stripe.apiKey = STRIPE_API_KEY;
         Map<String, Object> params = new HashMap<>();
         params.put("source", stripeToken);
         params.put("receipt_email", email);
