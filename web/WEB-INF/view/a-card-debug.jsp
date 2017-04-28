@@ -11,12 +11,11 @@
     <title>Card Info</title>
 </head>
 <body>
-<h1>Submitted Card Info</h1>
+    <h1>Submitted Card Info</h1>
 
-<h2>Stripe Token</h2>
-${token}
+    <h2>Token</h2>
+    ${token}
 
-<h2>Stripe Email</h2>
-${email}
+    <p>${email} paid ${amount} for ${description}</p>
 </body>
 </html>

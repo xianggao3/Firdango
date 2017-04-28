@@ -407,12 +407,13 @@
             <div class="col-xs-12">
                 <div class="col-md-12 well">
                     <h1 class="text-center">STEP 3: Ticket Purchase</h1>
-
-
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4">
                             <!-- CREDIT CARD FORM STARTS HERE -->
                             <form action="/charge" method="POST">
+                                <!-- We need this info for the Stripe receipt, but Stripe doesn't POST this to /charge -->
+                                <input type="hidden" name="amount" value="10000" />
+                                <input type="hidden" name="description" value="2 widgets" />
                                 <script
                                         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                         data-key="pk_test_dwP3MykScmUXQIkyy01Hc81z"
