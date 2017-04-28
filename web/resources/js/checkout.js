@@ -34,7 +34,14 @@ $(document).ready(function() {
         $('ul.setup-panel li a[href="#step-3"]').trigger('click');
         $(this).remove();
     });
+
+    $("#quantity").on('keyup mouseup', function () {
+        var numTicks = $("#quantity").value
+        var subt = $("#subtotal").value
+        alert(subt);
+
+        //subt = numTicks*subt;
+        $("#subtotal").html();
+    });
 });
-
-
 
