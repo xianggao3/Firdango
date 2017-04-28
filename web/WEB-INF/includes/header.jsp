@@ -58,8 +58,8 @@
                 </li>
             </ul>
             <form class="form-inline">
-                <input id="searchQuery" class="form-control mr-sm-2" type="text" placeholder="Enter a movie or location..." >
-                <input type= "button" class = "btn btn-outline-warning my-2 my-sm-0" onClick="parent.location='search/${searchQuery.value}" value='Search'>
+                <input id="searchQuery" class="form-control mr-sm-2" type="text" placeholder="Enter a movie or location..." onkeypress="handle(event)" >
+                <input type= "button" class = "btn btn-outline-warning my-2 my-sm-0" onClick="parent.location='search?'+$('#searchQuery').val()" value='Search'>
             </form>
         </div>
     </div>

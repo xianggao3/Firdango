@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Movie Overview</title>
+    <title>Search Results</title>
     <meta charset="utf-8">
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -58,7 +58,7 @@
     
     <div class="container">
 
-        <h1 style="color: white">Search Results for ${param.keyword}</h1>
+        <h1 style="color: white">Search Results for ${qs}</h1>
     </div>
 
 
