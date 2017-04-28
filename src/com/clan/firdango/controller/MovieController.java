@@ -1,6 +1,6 @@
 package com.clan.firdango.controller;
 
-import com.clan.firdango.dao.SearchImpl;
+import com.clan.firdango.dao.SearchDAO;
 import com.clan.firdango.entity.Movie;
 import com.clan.firdango.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +17,11 @@ import javax.servlet.http.HttpServletRequest;
 @SessionAttributes({"movie"})
 public class MovieController {
     private final MovieService movieService;
-    private final SearchImpl searchImpl;
+    private final SearchDAO searchDAO;
 
     @Autowired
-    public MovieController(MovieService movieService, SearchImpl searchImpl) {
-        this.searchImpl=searchImpl;
+    public MovieController(MovieService movieService, SearchDAO searchDAO) {
+        this.searchDAO = searchDAO;
         this.movieService = movieService;
     }
 
@@ -36,7 +36,7 @@ public class MovieController {
     @RequestMapping(value="/search",method = RequestMethod.GET)
     public String getSearchResults(Model theModel, HttpServletRequest request) throws Exception {
 
-        theModel.addAttribute("searchRes", searchImpl.getSearchResults(theModel,request));
+        theModel.addAttribute("searchRes", searchDAO.getSearchResults(theModel,request));
         return "search";
     }
 

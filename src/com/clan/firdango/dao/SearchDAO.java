@@ -4,32 +4,24 @@ import com.clan.firdango.entity.Movie;
 import com.clan.firdango.entity.MovieSearchResults;
 import com.google.gson.Gson;
 import org.hibernate.SessionFactory;
-import org.jboss.weld.context.http.Http;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import javax.servlet.http.*;
-import java.util.List;
 
 @Repository
-public class SearchImpl {
+public class SearchDAO {
     private ArrayList<Movie> searchRes;
     private final SessionFactory sessionFactory;
 
     @Autowired
-    public SearchImpl(SessionFactory sessionFactory) {
+    public SearchDAO(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
@@ -57,7 +49,7 @@ public class SearchImpl {
     }
 
     public ArrayList<Movie> getSearchResults(Model theModel,HttpServletRequest request) throws Exception {
-        SearchImpl http = new SearchImpl(sessionFactory);
+        SearchDAO http = new SearchDAO(sessionFactory);
         String JSONstring = http.sendGet(request);
         String qs=request.getQueryString();
         System.out.println(JSONstring);
