@@ -19,7 +19,7 @@ public class Movie {
     private String title;
 
     @Column(name = "release_date")
-    private String releaseDate;
+    private String release_date;
 
     @Column(name = "genre")
     private String genre;
@@ -28,10 +28,10 @@ public class Movie {
     private String runtime;
 
     @Column(name = "poster")
-    private String poster;
+    private String poster_path;
 
     @Column(name = "backdrop")
-    private String backdrop;
+    private String backdrop_path;
 
     @Column(name = "trailer")
     private String trailer;
@@ -68,11 +68,11 @@ public class Movie {
     }
 
     public String getReleaseDate() {
-        return releaseDate;
+        return release_date;
     }
 
     public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
+        this.release_date = releaseDate;
     }
 
     public String getGenre() {
@@ -92,19 +92,19 @@ public class Movie {
     }
 
     public String getPoster() {
-        return poster;
+        return poster_path;
     }
 
     public void setPoster(String poster) {
-        this.poster = poster;
+        this.poster_path = poster;
     }
 
     public String getBackdrop() {
-        return backdrop;
+        return backdrop_path;
     }
 
     public void setBackdrop(String backdrop) {
-        this.backdrop = backdrop;
+        this.backdrop_path = backdrop;
     }
 
     public String getTrailer() {
@@ -159,6 +159,6 @@ public class Movie {
         return "Movie{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", release='" + releaseDate + "}";
+                ", release='" + release_date + "}";
     }
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +9,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="./resources/css/index.css" rel="stylesheet">
+    <link href="../../resources/css/index.css" rel="stylesheet">
 
 
 
@@ -60,12 +61,27 @@
         <h1 style="color: white">Search Results for ${param.keyword}</h1>
     </div>
 
-<<<<<<< HEAD
-    <jsp:include page="WEB-INF/includes/footer.jsp" />
 
-=======
+    <div id="topMoviesDiv" class="container">
+        <c:forEach var="row" begin="0" end="2">
+            <div class="card-deck">
+                <c:forEach var="col" begin="0" end="3" >
+                    <c:url var="overviewLink" value="/overview">
+                        <c:param name="movieId" value="${searchRes[row*4+col].id}" />
+                    </c:url>
+                    <a href="${overviewLink}" class="card card-inverse text-center">
+                        <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${searchRes[row*4+col].poster}" alt="">
+                        <div class="card-block">
+                            <h4 class="card-title">${searchRes[row*4+col].title}</h4>
+                        </div>
+                    </a>
+                </c:forEach>
+            </div>
+        </c:forEach>
+    </div>
+
     <jsp:include page="/WEB-INF/includes/footer.jsp" />
->>>>>>> origin/master
+
 
 </body>
 

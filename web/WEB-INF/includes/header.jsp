@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page session="true" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top">
     <div class="container">
@@ -57,8 +58,8 @@
                 </li>
             </ul>
             <form class="form-inline">
-                <input class="form-control mr-sm-2" type="text" placeholder="Enter a movie or location...">
-                <input type= "button" class = "btn btn-outline-warning my-2 my-sm-0" onClick="parent.location='timesandtickets'" value='Search'>
+                <input id="searchQuery" class="form-control mr-sm-2" type="text" placeholder="Enter a movie or location..." >
+                <input type= "button" class = "btn btn-outline-warning my-2 my-sm-0" onClick="parent.location='search/${searchQuery.value}" value='Search'>
             </form>
         </div>
     </div>

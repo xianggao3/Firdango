@@ -1,5 +1,6 @@
 package com.clan.firdango.controller;
 
+import com.clan.firdango.dao.SearchImpl;
 import com.clan.firdango.entity.Movie;
 import com.clan.firdango.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes({"movie"})
 public class MovieController {
     private final MovieService movieService;
+    private final SearchImpl searchImpl;
 
     @Autowired
-    public MovieController(MovieService movieService) {
+    public MovieController(MovieService movieService, SearchImpl searchImpl) {
+        this.searchImpl=searchImpl;
         this.movieService = movieService;
     }
 
@@ -31,7 +34,9 @@ public class MovieController {
     }
 
     @GetMapping("/search")
-    public String getSearchResults() {
+    public String getSearchResults(Model theModel) throws Exception {
+
+        theModel.addAttribute("searchRes", searchImpl.getSearchResults(theModel));
         return "search";
     }
 
