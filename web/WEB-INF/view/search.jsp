@@ -70,7 +70,7 @@
                         <c:param name="movieId" value="${searchRes[row*4+col].id}" />
                     </c:url>
                     <a href="${overviewLink}" class="card card-inverse text-center">
-                        <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${searchRes[row*4+col].poster}" alt="">
+                        <img class="card-img-top" height="360" src="https://image.tmdb.org/t/p/w500//${searchRes[row*4+col].poster}" onerror="this.src='../../resources/img/placeholderposter.png'">
                         <div class="card-block">
                             <h4 class="card-title">${searchRes[row*4+col].title}</h4>
                         </div>
