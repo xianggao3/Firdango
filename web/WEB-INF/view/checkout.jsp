@@ -1,20 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <html>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type = "text/javascript" language = "javascript">
-    $(document).ready(function() {
-        $("#quantity").on('keyup mouseup', function () {
-            var numTicks = $("#quantity").value
-            var subt = $("#subtotal").value
-            alert(subt);
-
-            //subt = numTicks*subt;
-            $("#subtotal").html();
-        });
-    });
-</script>
 <head>
     <title>Firdango</title>
     <meta charset="utf-8">
@@ -421,68 +407,23 @@
             <div class="col-xs-12">
                 <div class="col-md-12 well">
                     <h1 class="text-center">STEP 3: Ticket Purchase</h1>
-
-
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4">
                             <!-- CREDIT CARD FORM STARTS HERE -->
-                            <div class="panel panel-default credit-card-box">
-                                <div class="panel-heading display-table">
-                                    <div class="row display-tr">
-                                        <h3 class="panel-title display-td">Payment Details</h3>
-                                        <div class="display-td">
-                                            <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <form role="form" id="payment-form" method="POST" action="javascript:void(0);">
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <div class="form-group">
-                                                    <label for="cardNumber">CARD NUMBER</label>
-                                                    <div class="input-group">
-                                                        <input type="tel" class="form-control" name="cardNumber" placeholder="Valid Card Number" autocomplete="cc-number" required autofocus />
-                                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-7 col-md-7">
-                                                <div class="form-group">
-                                                    <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
-                                                    <input type="tel" class="form-control" name="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp" required />
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-5 col-md-5 pull-right">
-                                                <div class="form-group">
-                                                    <label for="cardCVC">CV CODE</label>
-                                                    <input type="tel" class="form-control" name="cardCVC" placeholder="CVC" autocomplete="cc-csc" required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <div class="form-group">
-                                                    <label for="couponCode">COUPON CODE</label>
-                                                    <input type="text" class="form-control" name="couponCode" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <button class="subscribe btn btn-success btn-lg btn-block" type="button" onclick="alert('Ticket Purchased.'); window.location.href = '../../index.jsp';">Purchase Ticket</button>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="display:none;">
-                                            <div class="col-xs-12">
-                                                <p class="payment-errors"></p>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                            <form action="/charge" method="POST">
+                                <!-- We need this info for the Stripe receipt, but Stripe doesn't POST this to /charge -->
+                                <input type="hidden" name="amount" value="10000" />
+                                <input type="hidden" name="description" value="2 widgets" />
+                                <script
+                                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                        data-key="pk_test_dwP3MykScmUXQIkyy01Hc81z"
+                                        data-amount="10000"
+                                        data-name="Test Charge"
+                                        data-description="2 widgets"
+                                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                        data-locale="auto">
+                                </script>
+                            </form>
                             <!-- CREDIT CARD FORM ENDS HERE -->
                         </div>
                     </div>
@@ -496,5 +437,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/resources/js/checkout.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
 
 </html>

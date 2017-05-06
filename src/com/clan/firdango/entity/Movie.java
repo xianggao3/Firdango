@@ -9,7 +9,7 @@ import javax.persistence.Table;
  * Created by marvinyan on 4/12/2017.
  */
 @Entity
-@Table(name = "movie")
+@Table(name = "movies")
 public class Movie {
     @Id
     @Column(name = "id")
@@ -18,8 +18,8 @@ public class Movie {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "release_date")
-    private String releaseDate;
+    @Column(name = "releaseDate")
+    private String release_date;
 
     @Column(name = "genre")
     private String genre;
@@ -28,7 +28,7 @@ public class Movie {
     private String runtime;
 
     @Column(name = "poster")
-    private String poster;
+    private String poster_path;
 
     @Column(name = "backdrop")
     private String backdrop;
@@ -36,7 +36,7 @@ public class Movie {
     @Column(name = "trailer")
     private String trailer;
 
-    @Column(name = "imdb_id")
+    @Column(name = "imdbId")
     private String imdbId;
 
     @Column(name = "revenue")
@@ -68,11 +68,11 @@ public class Movie {
     }
 
     public String getReleaseDate() {
-        return releaseDate;
+        return release_date;
     }
 
     public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
+        this.release_date = releaseDate;
     }
 
     public String getGenre() {
@@ -92,11 +92,11 @@ public class Movie {
     }
 
     public String getPoster() {
-        return poster;
+        return poster_path;
     }
 
     public void setPoster(String poster) {
-        this.poster = poster;
+        this.poster_path = poster;
     }
 
     public String getBackdrop() {
@@ -159,6 +159,6 @@ public class Movie {
         return "Movie{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", release='" + releaseDate + "}";
+                ", release='" + release_date + "}";
     }
 }

@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Created by marvinyan on 2/6/2017.
  */
 @Entity
-@Table(name = "user")
+@Table(name = "Users")
 public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
