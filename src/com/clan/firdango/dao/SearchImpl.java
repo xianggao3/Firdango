@@ -60,14 +60,14 @@ public class SearchImpl {
         SearchImpl http = new SearchImpl(sessionFactory);
         String JSONstring = http.sendGet(request);
         String qs=request.getQueryString();
-        System.out.println(JSONstring);
+        //System.out.println(JSONstring);
 
         Gson gson = new Gson();
         MovieSearchResults msr= gson.fromJson(JSONstring, MovieSearchResults.class);
         searchRes=msr.getResults();
-        //
-        System.out.println(searchRes.get(0).getOverview());
-        System.out.println(searchRes.get(0).getPoster());
+
+        //System.out.println(searchRes.get(0).getOverview());
+        //System.out.println(searchRes.get(0).getPoster());
         System.out.println(searchRes.toString());
 
         theModel.addAttribute("searchRes", searchRes);
@@ -78,11 +78,12 @@ public class SearchImpl {
 
    /*
    KNOWN ISSUES:
-   1./search? returns error because tmdb site returns error for no search query
+   1./search? returns error because tmdb site returns error for no results
    2./search returns results for NULL or ZERO
    3. too little movie to display will have blank card
    4. pages if lots of results?
    5. links to movies we dont have?
+   6. Enter doesnt work
     */
 
 }
