@@ -3,14 +3,10 @@ package com.clan.firdango.controller;
 import com.clan.firdango.entity.User;
 import com.clan.firdango.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.support.SessionStatus;
-
-import javax.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by xgao3 on 4/12/2017.
@@ -53,18 +49,25 @@ public class UserController {
                                @RequestParam("email") String email,
                                @RequestParam("password") String password, ModelMap model) {
 
-        User u = new User();
-        u.setName(name);
-        u.setEmail(email);
-        u.setPassword(password);
 
-        // Add user to session
-        model.addAttribute("user", u);
+        User u = userService.getUserByEmail(email);
+        System.out.println(u);
+        if (u!=null){
+            return "redirect:/signup";
+        }
+        else {
+            u = new User();
+            u.setName(name);
+            u.setEmail(email);
+            u.setPassword(password);
 
-        //save the user
-        System.out.println(u.toString());
-        userService.saveUser(u);
-        return "redirect:/";
+            // Add user to session
+            model.addAttribute("user", u);
+
+            //save the user
+            userService.saveUser(u);
+            return "redirect:/";
+        }
     }
 
     @GetMapping("/account")

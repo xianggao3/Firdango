@@ -1,20 +1,47 @@
 package com.clan.firdango.service;
 
+import com.clan.firdango.dao.UserDAO;
+import org.springframework.stereotype.Service;
 import com.clan.firdango.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
- * Created by marvinyan on 2/6/2017.
+ * controller <-> service (@Transactional here)<-> multiple DAO <-> database
  */
-public interface UserService {
-    List<User> getUsers();
+@Service
+public class UserService {
+    private final UserDAO userDAO;
 
-    void saveUser(User user);
+    @Autowired
+    public UserService(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 
-    User getUserByEmail(String email);
+    @Transactional
+    public List<User> getUsers() {
+        return userDAO.getUsers();
+    }
 
-    User getUser(int id);
+    @Transactional
+    public void saveUser(User user) {
+        userDAO.saveUser(user);
+    }
 
-    void deleteUser(int id);
+    @Transactional
+    public User getUser(int id) {
+        return userDAO.getUser(id);
+    }
+
+    @Transactional
+    public User getUserByEmail(String email) {
+        return userDAO.getUserByEmail(email);
+    }
+
+    @Transactional
+    public void deleteUser(int id) {
+        userDAO.deleteUser(id);
+    }
 }
