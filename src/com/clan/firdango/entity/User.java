@@ -26,6 +26,11 @@ public class User implements Serializable{
     @Column(name = "password")
     private String password;
 
+    @Column(name = "balance")
+    private double balance;
+
+    @Column(name = "receiveNewsletter")
+    private boolean receiveNewsletter;
 
     public User() {
     }
@@ -46,11 +51,11 @@ public class User implements Serializable{
         this.lastName = lastName;
     }
 
-    public String getFirstName(String firstName) {
+    public String getFirstName() {
         return firstName;
     }
 
-    public String getLastName(String lastName) {
+    public String getLastName() {
         return lastName;
     }
 
@@ -68,6 +73,22 @@ public class User implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public boolean isReceiveNewsletter() {
+        return receiveNewsletter;
+    }
+
+    public void setReceiveNewsletter(boolean receiveNewsletter) {
+        this.receiveNewsletter = receiveNewsletter;
     }
 
     @Override

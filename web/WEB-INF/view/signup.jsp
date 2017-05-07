@@ -187,11 +187,11 @@
 					</div>
 
 					<div class="form-group">
-						<label for="email" class="cols-sm-2 control-label">Your Email</label>
+						<label for="newsletter" class="cols-sm-2 control-label">Your Email</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-								<input id="email" name="email" placeholder="Enter your email" class="form-control" type="email"/>
+								<input id="newsletter" name="newsletter" placeholder="Enter your newsletter" class="form-control" type="newsletter"/>
 							</div>
 						</div>
 					</div>

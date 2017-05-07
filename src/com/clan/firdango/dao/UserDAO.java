@@ -24,8 +24,8 @@ public class UserDAO {
 
     public List<User> getUsers() {
         Session currentSession = sessionFactory.getCurrentSession();
-        Query<User> theQuery = currentSession.createQuery("from User order by name", User.class);
-        return theQuery.getResultList();
+        Query<User> query = currentSession.createQuery("from User order by lastName", User.class);
+        return query.getResultList();
     }
 
     public void saveUser(User user) {
@@ -50,5 +50,17 @@ public class UserDAO {
         Query query = currentSession.createQuery("delete from User where id = :id");
         query.setParameter("id", id);
         query.executeUpdate();
+    }
+
+    public List<String> getAllEmails() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query<String> query = currentSession.createQuery("select email from User", String.class);
+        return query.getResultList();
+    }
+
+    public List<String> getNewsletterEmails() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query<String> query = currentSession.createQuery("select email from User where receiveNewsletter = true", String.class);
+        return query.getResultList();
     }
 }

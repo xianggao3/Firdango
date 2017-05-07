@@ -1,5 +1,6 @@
 package com.clan.firdango.controller;
 
+import com.clan.firdango.entity.Newsletter;
 import com.clan.firdango.entity.User;
 import com.clan.firdango.service.EmailService;
 import com.clan.firdango.service.UserService;
@@ -25,14 +26,15 @@ public class AdminController {
         this.emailService = emailService;
     }
 
+    @GetMapping("/")
+    public String index() {
+        return "admin-index";
+    }
+
     @GetMapping("/listUsers")
     public String listUsers(Model theModel) {
-        // get users from the dao
         List<User> users = userService.getUsers();
-
-        // add the users to the model
         theModel.addAttribute("users", users);
-
         return "list-users";
     }
 
@@ -65,11 +67,14 @@ public class AdminController {
 
     @GetMapping("/showNewsletterForm")
     public String showNewsletterForm(Model model) {
-        return "";
+        Newsletter newsletter = new Newsletter();
+        model.addAttribute("newsletter", newsletter);
+        return "newsletter-form";
     }
 
     @PostMapping("/sendNewsletter")
-    public String sendNewsletter(Model model) {
-        return "";
+    public String sendNewsletter(@ModelAttribute("newsletter") Newsletter newsletter) {
+        emailService.sendMassEmail(newsletter.getSubject(), newsletter.getBody());
+        return "redirect:/admin/listUsers";
     }
 }

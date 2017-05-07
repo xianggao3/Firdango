@@ -44,4 +44,14 @@ public class UserService {
     public void deleteUser(int id) {
         userDAO.deleteUser(id);
     }
+
+    @Transactional
+    public List<String> getAllEmails() {
+        return userDAO.getAllEmails();
+    }
+
+    @Transactional
+    public List<String> getNewsletterEmails() {
+        return userDAO.getNewsletterEmails();
+    }
 }

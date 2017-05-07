@@ -55,7 +55,7 @@
                     <div class="single">
                         <h2>Subscribe to our Newsletter</h2>
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <input type="newsletter" class="form-control" placeholder="Enter your newsletter">
                             <span class="input-group-btn">
                                     <button class="btn btn-theme" type="submit">Subscribe</button>
                                 </span>

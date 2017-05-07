@@ -17,12 +17,9 @@
 
 </head>
 <body>
-    <h1>Send a Newsletter</h1>
-    <div id="container">
-        <h3>Save User</h3>
-        <!-- modelAttribute pre-populates fields -->
+    <div class="container">
+        <h1>Send a Newsletter</h1>
         <form:form action="sendNewsletter" modelAttribute="newsletter" method="post">
-            <!-- need this to keep track of id for get/set ops-->
             <form:hidden path="id" />
             <table>
                 <tbody>
@@ -34,13 +31,13 @@
                     <td><label>Body:</label></td>
                     <td><form:input path="body" /></td>
                 </tr>
+                <tr>
+                    <td><label></label></td>
+                    <td><input type="submit" value="Send Newsletter" /></td>
+                </tr>
                 </tbody>
             </table>
         </form:form>
-        <div style="clear;both;"></div>
-        <p>
-            <a href="${pageContext.request.contextPath}/admin/listUsers">Back to List</a>
-        </p>
     </div>
 </body>
 </html>

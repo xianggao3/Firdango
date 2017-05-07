@@ -160,7 +160,7 @@
 	<div class="container">
 		<div class="row main">
 			<div class="main-login main-center">
-				<h5>Change name or email.</h5>
+				<h5>Change name or newsletter.</h5>
 				<hr/>
 				<form action="changeNameEmail" modelAttribute="user" method="post">
 					<div class="form-group">
@@ -184,11 +184,11 @@
 					</div>
 
 					<div class="form-group">
-						<label for="email" class="cols-sm-2 control-label">Email</label>
+						<label for="newsletter" class="cols-sm-2 control-label">Email</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-								<input value="${user.email}" id="email" name="email" placeholder="Enter your email" class="form-control" type="email" />
+								<input value="${user.newsletter}" id="newsletter" name="newsletter" placeholder="Enter your newsletter" class="form-control" type="newsletter" />
 							</div>
 						</div>
 					</div>
