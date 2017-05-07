@@ -123,7 +123,7 @@
                 <li><a href="reviews">Movie Reviews</a></li>
                 <li><a href="trailers">Trailers</a></li>
                 <li class="active"><a href="photosandposters">Photos + Posters</a></li>
-                <li"><a href="castandcrew">Cast + Crew</a></li>
+                <li><a href="castandcrew">Cast + Crew</a></li>
 
             </ul>
         </div>
@@ -133,7 +133,7 @@
                 <div class="row">
                     <div class="row">
                         <div class="col-md-12" id="movieImg">
-                            <img src="https://i.ytimg.com/vi/vnLqJLeTMVU/maxresdefault.jpg">
+                            <img src="https://image.tmdb.org/t/p/w500//${movie.poster}">
                         </div>
                     </div>
                     <div class="row">
@@ -143,16 +143,13 @@
                                 <ul>
                                     <li><span class="detail">Fan Ratings: </span>1337</li>
                                     <li><span class="detail">Rotten Tomatos: </span> 8%</li>
-                                    <li><span class="detail">Released: </span>FEBRUARY 10, 2017</li>
+                                    <li><span class="detail">Released: </span>${movie.releaseDate}</li>
                                     <li><span class="detail">Rating: </span> R</li>
-                                    <li><span class="detail">Genre: </span> Drama, Romance</li>
-                                    <li><span class="detail">Length: </span> 13:37</li>
-
+                                    <li><span class="detail">Genre: </span>${movie.genre}</li>
+                                    <li><span class="detail">Length: </span>${movie.runtime} minutes</li>
                                 </ul>
                                 <input type= "button" class = "btn-danger" style="width: 100%" onClick="parent.location='./movietimesandtickets.jsp'" value='Buy Tickets'>
                             </div>
-
-
                         </div>
                     </div>
                 </div>

@@ -19,7 +19,9 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
     <link href="../../resources/css/index.css" rel="stylesheet">
     <link href="../../resources/css/movieoverview.css" rel="stylesheet">
-    <style>body{background-image: url("https://image.tmdb.org/t/p/original${movie.backdrop}");background-size: cover;background-attachment: fixed;}</style>
+    <style>body{background-image: url("https://image.tmdb.org/t/p/original${movie.backdrop}");
+        background-size: cover;
+        background-attachment: fixed;}</style>
 </head>
 
 <body>
@@ -28,13 +30,13 @@
         <h1>${movie.title}</h1>
         <div class="row">
             <ul id="overviewList">
-                <li class="active"><a href="overview">Overview</a></li>
-                <li><a href="timesandtickets">Movie Times + Tickets</a></li>
-                <li><a href="synopsis">Synopsis</a></li>
-                <li><a href="reviews">Movie Reviews</a></li>
-                <li><a href="trailers">Trailers</a></li>
-                <li><a href="photosandposters">Photos + Posters</a></li>
-                <li><a href="castandcrew">Cast + Crew</a></li>
+                <li class="active"><a href="overview?movieId=${movie.id}">Overview</a></li>
+                <li><a href="timesandtickets?movieId=${movie.id}">Movie Times + Tickets</a></li>
+                <li><a href="synopsis?movieId=${movie.id}">Synopsis</a></li>
+                <li><a href="reviews?movieId=${movie.id}">Movie Reviews</a></li>
+                <li><a href="trailers?movieId=${movie.id}">Trailers</a></li>
+                <li><a href="photosandposters?movieId=${movie.id}">Photos + Posters</a></li>
+                <li><a href="castandcrew?movieId=${movie.id}">Cast + Crew</a></li>
 
             </ul>
         </div>

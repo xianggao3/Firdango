@@ -13,9 +13,9 @@
 
 
     <style>
-        #overviewList li {
-            display: inline;
-        }
+                          #overviewList li {
+                              display: inline;
+                          }
 
         #overviewList {
             width: 100%;
@@ -63,9 +63,9 @@
         }
 
         body {
-            background-image: url("http://68.media.tumblr.com/000dec43ea889876c1ee790bda6eda3c/tumblr_o1l249LzcK1teue7jo1_1280.jpg");
-            background-repeat: cover;
-            background-size: 100%;
+            background-image: url("https://image.tmdb.org/t/p/original${movie.backdrop}");
+            background-size: cover;
+            background-attachment: fixed;
             overflow: auto;
             padding-bottom: 3%;
         }
@@ -117,13 +117,13 @@
         <h1 style="color: white">Fifty Shades Darker Synopsis</h1>
         <div class="row">
             <ul id="overviewList">
-                <li><a href="overview">Overview</a></li>
-                <li><a href="timesandtickets">Movie Times + Tickets</a></li>
-                <li class="active"><a href="synopsis">Synopsis</a></li>
-                <li><a href="reviews">Movie Reviews</a></li>
-                <li><a href="trailers">Trailers</a></li>
-                <li><a href="photosandposters">Photos + Posters</a></li>
-                <li><a href="castandcrew">Cast + Crew</a></li>
+                <li><a href="overview?movieId=${movie.id}">Overview</a></li>
+                <li><a href="timesandtickets?movieId=${movie.id}">Movie Times + Tickets</a></li>
+                <li class="active"><a href="synopsis?movieId=${movie.id}">Synopsis</a></li>
+                <li><a href="reviews?movieId=${movie.id}">Movie Reviews</a></li>
+                <li><a href="trailers?movieId=${movie.id}">Trailers</a></li>
+                <li><a href="photosandposters?movieId=${movie.id}">Photos + Posters</a></li>
+                <li><a href="castandcrew?movieId=${movie.id}">Cast + Crew</a></li>
 
             </ul>
         </div>
@@ -133,7 +133,7 @@
                 <div class="row">
                     <div class="row">
                         <div class="col-md-12" id="movieImg">
-                            <img src="https://i.ytimg.com/vi/vnLqJLeTMVU/maxresdefault.jpg">
+                            <img src="https://image.tmdb.org/t/p/w500//${movie.poster}">
                         </div>
                     </div>
                     <div class="row">
@@ -143,16 +143,13 @@
                                 <ul>
                                     <li><span class="detail">Fan Ratings: </span>1337</li>
                                     <li><span class="detail">Rotten Tomatos: </span> 8%</li>
-                                    <li><span class="detail">Released: </span>FEBRUARY 10, 2017</li>
+                                    <li><span class="detail">Released: </span>${movie.releaseDate}</li>
                                     <li><span class="detail">Rating: </span> R</li>
-                                    <li><span class="detail">Genre: </span> Drama, Romance</li>
-                                    <li><span class="detail">Length: </span> 13:37</li>
-
+                                    <li><span class="detail">Genre: </span>${movie.genre}</li>
+                                    <li><span class="detail">Length: </span>${movie.runtime} minutes</li>
                                 </ul>
-                                <input type= "button" class = "btn-danger" style="width: 100%" onClick="parent.location='./movietimesandtickets.html'" value='Buy Tickets'>
+                                <input type= "button" class = "btn-danger" style="width: 100%" onClick="parent.location='./movietimesandtickets.jsp'" value='Buy Tickets'>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -160,9 +157,9 @@
             </div>
             <div class="col-sm-7" id="rightDesc">
                 <h1>Synopsis</h1>
-                <p>This sequel to Fifty Shades of Grey adapts the second installment in E.L. James' best-selling trilogy of novels, which chronicle the torrid love affair between the demure Anatasia Steele (Dakota Johnson) and possessive businessman Christian Grey (Jamie Dornan). This time around, Steele and Grey's attempts to build a more trusting relationship are threatened by several of his past lovers.James Foley directed this erotic drama, which co-stars Kim Basinger, Rita Ora, Eric Johnson, Bella Heathcote, and Luke Grimes. ~ Jack Rodgers, Rovi
+                <h4>${movie.overview}
 
-</p><br>Provided by Rovi
+                </h4>
             </div>
         </div>
     </div>
