@@ -41,13 +41,19 @@ public class MovieController {
     }
 
     @GetMapping("/news")
-    public String getMovieNews() {
-        return "movienews";
+    public String getMovieNews(@RequestParam("movieId") int id, Model theModel) {
+        System.out.println(id);
+        Movie movie = movieService.getMovie(id);
+        theModel.addAttribute("movie", movie);
+        return "movieoverview";
     }
 
     @GetMapping("/castandcrew")
-    public String getMovieCastAndCrew() {
-        return "moviecastandcrew";
+    public String getMovieCastAndCrew(@RequestParam("movieId") int id, Model theModel) {
+        System.out.println(id);
+        Movie movie = movieService.getMovie(id);
+        theModel.addAttribute("movie", movie);
+        return "movieoverview";
     }
 
     @GetMapping("/photosandposters")

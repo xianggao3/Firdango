@@ -75,8 +75,3 @@
 	<!-- Resources folder -->
 	<mvc:resources location="/resources/" mapping="/resources/**" />
 </beans>
-
-
-
-
-

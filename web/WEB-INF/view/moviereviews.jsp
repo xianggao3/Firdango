@@ -134,13 +134,13 @@
         <h1 style="color: white">Fifty Shades Darker Review</h1>
         <div class="row">
             <ul id="overviewList">
-                <li><a href="overview">Overview</a></li>
-                <li><a href="timesandtickets">Movie Times + Tickets</a></li>
-                <li><a href="synopsis">Synopsis</a></li>
-                <li class="active"><a href="reviews">Movie Reviews</a></li>
-                <li><a href="trailers">Trailers</a></li>
-                <li><a href="photosandposters">Photos + Posters</a></li>
-                <li"><a href="castandcrew">Cast + Crew</a></li>
+                <li><a href="overview?movieId=${movie.id}">Overview</a></li>
+                <li><a href="timesandtickets?movieId=${movie.id}">Movie Times + Tickets</a></li>
+                <li><a href="synopsis?movieId=${movie.id}">Synopsis</a></li>
+                <li class="active"><a href="reviews?movieId=${movie.id}">Movie Reviews</a></li>
+                <li><a href="trailers?movieId=${movie.id}">Trailers</a></li>
+                <li><a href="photosandposters?movieId=${movie.id}">Photos + Posters</a></li>
+                <li><a href="castandcrew?movieId=${movie.id}">Cast + Crew</a></li>
 
             </ul>
         </div>
@@ -150,7 +150,7 @@
                 <div class="row">
                     <div class="row">
                         <div class="col-md-12" id="movieImg">
-                            <img src="https://i.ytimg.com/vi/vnLqJLeTMVU/maxresdefault.jpg">
+                            <img src="https://image.tmdb.org/t/p/w500//${movie.poster}">
                         </div>
                     </div>
                     <div class="row">
@@ -160,16 +160,13 @@
                                 <ul>
                                     <li><span class="detail">Fan Ratings: </span>1337</li>
                                     <li><span class="detail">Rotten Tomatos: </span> 8%</li>
-                                    <li><span class="detail">Released: </span>FEBRUARY 10, 2017</li>
+                                    <li><span class="detail">Released: </span>${movie.releaseDate}</li>
                                     <li><span class="detail">Rating: </span> R</li>
-                                    <li><span class="detail">Genre: </span> Drama, Romance</li>
-                                    <li><span class="detail">Length: </span> 13:37</li>
-
+                                    <li><span class="detail">Genre: </span>${movie.genre}</li>
+                                    <li><span class="detail">Length: </span>${movie.runtime} minutes</li>
                                 </ul>
-                                <input type= "button" class = "btn-danger" style="width: 100%" onClick="parent.location='./movietimesandtickets.html'" value='Buy Tickets'>
-                                </div>
-
-
+                                <input type= "button" class = "btn-danger" style="width: 100%" onClick="parent.location='./movietimesandtickets.jsp'" value='Buy Tickets'>
+                            </div>
                         </div>
                     </div>
                 </div>
