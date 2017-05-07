@@ -23,13 +23,8 @@ public class UserDAO {
     }
 
     public List<User> getUsers() {
-        // get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
-
-        // create a query
-        Query<User> theQuery = currentSession.createQuery("from User order by  name", User.class);
-
-        // execute and return the result list
+        Query<User> theQuery = currentSession.createQuery("from User order by name", User.class);
         return theQuery.getResultList();
     }
 

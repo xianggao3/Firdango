@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $('#topMoviesDiv .card').hover(function() {
         $('#topMoviesDiv .card').css({
             opacity: '0.3'
@@ -16,8 +15,7 @@ $(document).ready(function() {
 
 function handle(e){
     if(e.keyCode === 13){
-        e.preventDefault(); // Ensure it is only this code that rusn
-
+        e.preventDefault(); // Ensure it is only this code that runs
         redirect('search/'+$('#searchQuery').val());
     }
 }
