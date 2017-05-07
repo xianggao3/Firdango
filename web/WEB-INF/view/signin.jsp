@@ -163,11 +163,11 @@
 				<form class="" method="post" action="signin">
 
 					<div class="form-group">
-						<label for="newsletter" class="cols-sm-2 control-label">Your Email</label>
+						<label for="email" class="cols-sm-2 control-label">Your Email</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-								<input type="text" class="form-control" name="newsletter" id="newsletter" placeholder="Enter your Email" />
+								<input type="text" class="form-control" name="email" id="email" placeholder="Enter your Email" />
 							</div>
 						</div>
 					</div>

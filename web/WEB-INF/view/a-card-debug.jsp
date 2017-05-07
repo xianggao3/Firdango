@@ -16,6 +16,6 @@
     <h2>Token</h2>
     ${token}
 
-    <p>${newsletter} paid ${amount} for ${description}</p>
+    <p>${email} paid ${amount} for ${description}</p>
 </body>
 </html>

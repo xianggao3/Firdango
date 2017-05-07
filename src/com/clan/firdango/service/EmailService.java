@@ -52,7 +52,7 @@ public class EmailService {
             message.setText(body);
 
             Transport.send(message);
-            System.out.println("Newsletter successfully sent.");
+            System.out.println("Email successfully sent.");
         } catch (MessagingException e) {
             System.out.println("Error sending email: " + e.getMessage());
         }
