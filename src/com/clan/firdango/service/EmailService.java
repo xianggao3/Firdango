@@ -31,7 +31,7 @@ public class EmailService {
     }
 
     // Send any email in general
-    public void sendEmail(String recipient, String subject, String text) {
+    public void sendEmail(String recipient, String subject, String body) {
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -43,7 +43,7 @@ public class EmailService {
             message.setFrom(new InternetAddress("noreply.firdango@gmail.com"));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
             message.setSubject(subject);
-            message.setText(text);
+            message.setText(body);
 
             Transport.send(message);
             System.out.println("Email successfully sent.");

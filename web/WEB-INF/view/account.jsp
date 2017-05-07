@@ -163,24 +163,32 @@
 				<h5>Change name or email.</h5>
 				<hr/>
 				<form action="changeNameEmail" modelAttribute="user" method="post">
-
-
 					<div class="form-group">
-						<label for="name" class="cols-sm-2 control-label">Your Name</label>
+						<label for="firstName" class="cols-sm-2 control-label">First Name</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-								<input value="${user.name}" id="name" name="name" placeholder="Enter your name" class="form-control" type="name"/>
+								<input value="${user.firstName}" id="firstName" name="firstName" placeholder="Enter your first name" class="form-control" type="text" />
 							</div>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="email" class="cols-sm-2 control-label">Your Email</label>
+						<label for="lastName" class="cols-sm-2 control-label">Last Name</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input value="${user.lastName}" id="lastName" name="lastName" placeholder="Enter your last name" class="form-control" type="text" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="email" class="cols-sm-2 control-label">Email</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-								<input value="${user.email}" id="email" name="email" placeholder="Enter your email" class="form-control" type="email"/>
+								<input value="${user.email}" id="email" name="email" placeholder="Enter your email" class="form-control" type="email" />
 							</div>
 						</div>
 					</div>
@@ -188,8 +196,7 @@
 					<div class="form-group ">
 						<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Submit"/>
 					</div>
-
-				<form/>
+				</form>
 
 				<form action="changePassword" modelAttribute="user" method="post">
 					<hr>
@@ -214,7 +221,6 @@
 						</div>
 					</div>
 
-
 					<div class="form-group">
 						<label for="passwordValidate" class="cols-sm-2 control-label">Confirm Password</label>
 						<div class="cols-sm-10">
@@ -228,11 +234,7 @@
 					<div class="form-group ">
 						<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Submit"/>
 					</div>
-					<form/>
-
-
-
-
+				</form>
 			</div>
 		</div>
 	</div>

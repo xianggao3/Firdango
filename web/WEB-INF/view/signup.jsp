@@ -167,11 +167,21 @@
 
                 <fieldset>
 					<div class="form-group">
-						<label for="name" class="cols-sm-2 control-label">Your Name</label>
+						<label for="firstName" class="cols-sm-2 control-label">First Name</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-								<input path="name" id="name" name="name" placeholder="Enter your name" class="form-control" type="name"/>
+								<input id="firstName" name="firstName" placeholder="Enter your first name" class="form-control" type="text" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="lastName" class="cols-sm-2 control-label">Last Name</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input id="lastName" name="lastName" placeholder="Enter your last name" class="form-control" type="text" />
 							</div>
 						</div>
 					</div>
@@ -213,8 +223,6 @@
 					</div>
 
                     </fieldset>
-
-
 				</form>
 			</div>
 		</div>

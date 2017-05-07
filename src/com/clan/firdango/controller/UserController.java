@@ -45,7 +45,8 @@ public class UserController {
     }
     
     @PostMapping("/signup")
-    public String registerUser(@RequestParam("name") String name,
+    public String registerUser(@RequestParam("firstName") String firstName,
+                               @RequestParam("lastName") String lastName,
                                @RequestParam("email") String email,
                                @RequestParam("password") String password, ModelMap model) {
 
@@ -57,7 +58,8 @@ public class UserController {
         }
         else {
             u = new User();
-            u.setName(name);
+            u.setFirstName(firstName);
+            u.setLastName(lastName);
             u.setEmail(email);
             u.setPassword(password);
 
@@ -77,10 +79,12 @@ public class UserController {
     }
 
     @PostMapping("/changeNameEmail")
-    public String changeNameEmail(@RequestParam("name") String name,
-                               @RequestParam("email") String email,
+    public String changeNameEmail(@RequestParam("firstName") String firstName,
+                                  @RequestParam("lastName") String lastName,
+                                  @RequestParam("email") String email,
                                   @ModelAttribute User u) {
-        u.setName(name);
+        u.setFirstName(firstName);
+        u.setLastName(lastName);
         u.setEmail(email);
 
         //userService.saveUser(user);
@@ -88,7 +92,7 @@ public class UserController {
     }
 
     @PostMapping("/changePassword")
-    public String changeNameEmail(@RequestParam("oldPassword") String p1,
+    public String changePassword(@RequestParam("oldPassword") String p1,
                                   @RequestParam("password") String p2,
                                   @RequestParam("passwordValidate") String p3,
                                   @ModelAttribute User u) {
