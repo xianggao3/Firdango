@@ -70,15 +70,7 @@
 <!-- Google Ads-->
 <div id="adsenseDiv" class="container">
     <center class="adsense-margin">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Firdango -->
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:728px;height:90px"
-             data-ad-client="ca-pub-4834950964481595"
-             data-ad-slot="8057548921"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+        <jsp:include page="/WEB-INF/includes/banner-ad.jsp" />
     </center>
 </div>
 <!-- end Google Ads -->
