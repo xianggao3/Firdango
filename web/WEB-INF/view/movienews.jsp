@@ -18,6 +18,7 @@
         -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
         <link href="./resources/css/index.css" rel="stylesheet">
+        <link href="./resources/css/movie.css" rel="stylesheet">
 
         <style> 
         #overviewList li {

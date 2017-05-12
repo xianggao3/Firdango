@@ -26,6 +26,12 @@ public class ReviewService {
     }
 
     @Transactional
+    public List<Review> getReviewsByMovie(int movieId){
+        return reviewDao.getReviewsByMovie(movieId);
+    }
+
+
+    @Transactional
     public void saveReview(Review review) {
         reviewDao.saveReview(review);
     }
