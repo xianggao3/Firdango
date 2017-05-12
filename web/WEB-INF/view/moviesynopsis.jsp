@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Movie Synopsis</title>
     <meta charset="utf-8">
@@ -11,7 +10,6 @@
     <link href="./resources/css/movie.css" rel="stylesheet">
     <link href="./resources/css/moviesynopsis.css" rel="stylesheet">
 </head>
-
 <style>
     body{
         background-image: url("https://image.tmdb.org/t/p/original${movie.backdrop}");
@@ -19,12 +17,9 @@
         background-attachment: fixed;
     }
 </style>
-
 <body>
 <jsp:include page="/WEB-INF/includes/header.jsp" />
-    
     <div class="container">
-
         <h1 style="color: white">Fifty Shades Darker Synopsis</h1>
         <div class="row">
             <ul id="overviewList">
@@ -62,7 +57,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="col-sm-7" id="rightDesc">
                 <h1>Synopsis</h1>
@@ -72,16 +66,11 @@
             </div>
         </div>
     </div>
-
 <jsp:include page="/WEB-INF/includes/footer.jsp" />
-
-
 </body>
-
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script src="../../resources/js/index.js"></script>
-
 </html>
 

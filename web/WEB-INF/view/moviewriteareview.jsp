@@ -9,117 +9,14 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="./resources/css/index.css" rel="stylesheet">
+    <link href="./resources/css/movie.css" rel="stylesheet">
     <link href="./resources/css/moviewriteareview.css" rel="stylesheet">
 
-
     <style>
-        #overviewList li {
-            display: inline;
-        }
-
-        #overviewList {
-            width: 100%;
-            margin-bottom: 2%;
-        }
-
-        #overviewList li {
-            color: orange;
-            background-color: rgba(100, 100, 100, 0.5);
-            border-radius: 5px;
-            padding: 1%;
-        }
-
-        #overviewList a {
-            color: white;
-        }
-
-        #overviewList .active {
-            background-color: white;
-            color: black;
-        }
-
-        #overviewList .active a {
-            color: black;
-        }
-
-        #leftOverview {
-            text-align: left;
-            background-color: rgba(240, 240, 240, 0.9);
-            height: auto;
-        }
-
-        #movieImg {
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        #movieDesc {
-            padding: 4% auto;
-        }
-
-        #movieImg img {
-            width: 94%;
-        }
-
-        body {
-            background-image: url("http://68.media.tumblr.com/000dec43ea889876c1ee790bda6eda3c/tumblr_o1l249LzcK1teue7jo1_1280.jpg");
-            background-repeat: cover;
-            background-size: 100%;
-            overflow: auto;
-            padding-bottom: 3%;
-        }
-
-        #stats {
-            padding: 3%;
-        }
-
-        #stats ul {
-            list-style: none
-        }
-
-        #stats .detail {
-            color: teal;
-        }
-
-        #rightDesc {
-            height: auto;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 2%;
-            text-align: center;
-            color: white;
-        }
-
-        #rightDesc iframe {
-            width: 100%;
-            height: 80%;
-        }
-
-        hr {
-            display: block;
-            height: 1px;
-            border: 0;
-            border-top: 1px solid #ccc;
-            margin: 1em 0;
-            padding: 0;
-        }
-
-        .movieReview{
-            text-align: left;
-            padding: 2%;
-        }
-
-        .reviewDate{
-            color: gray;
-            margin-left: 1%;
-        }
-
-        .reviewAuthor{
-            color: teal;
-        }
-
-        .reviewFull{
-
+        body{
+            background-image: url("https://image.tmdb.org/t/p/original${movie.backdrop}");
+            background-size: cover;
+            background-attachment: fixed;
         }
     </style>
 
@@ -170,30 +67,28 @@
             <div class="col-sm-7" id="rightDesc">
                 <h1>Write a review</h1>
                 <div class="row">
-                        <form class="" method="post" action="signin">
+                    <div class="movieReview">
+                        <form class="" method="post" action="writeareview">
                             <div class="form-group">
-                                <label for="email" class="cols-sm-2 control-label">Title</label>
-                                <div class="cols-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Email" />
-                                    </div>
+                                <div class="input-group">
+                                    <input type="hidden" class="form-control" name="movieId" id="movieId" value="${movie.id}" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="password" class="cols-sm-2 control-label">Body</label>
-                                <div class="cols-sm-10">
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="textarea" class="form-control" name="password" id="password" placeholder="Enter your Password" />
+                                        <input type="text" class="form-control" name="title" id="title" placeholder="Title of review." value="${review.title}"/>
                                     </div>
-                                </div>
                             </div>
-
+                            <div class="form-group">
+                                    <div class="input-group">
+                                        <textarea class="form-control" rows="8" name="reviewBody" id="reviewBody" placeholder="Write your review." value="${review.body}"></textarea>
+                                    </div>
+                            </div>
                             <div class="form-group ">
                                 <input type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="Save Review"/>
                             </div>
                         </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ public class Review implements Serializable {
     private int reviewId;
 
     @Column(name = "userId")
-    private String userId;
+    private int userId;
 
     @Column(name = "title")
     private String title;
@@ -29,11 +29,14 @@ public class Review implements Serializable {
     @Column(name = "timeOfReview")
     private String timeOfReview;
 
-    public String getUserId() {
+    @Column(name = "movieId")
+    private String movieId;
+
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -68,4 +71,9 @@ public class Review implements Serializable {
     public void setTimeOfReview(String timeOfReview) {
         this.timeOfReview = timeOfReview;
     }
+
+    public String getMovieId() {return movieId;}
+
+    public void setMovieId(String movieId) {this.movieId = movieId;}
+
 }

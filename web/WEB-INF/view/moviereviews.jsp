@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,10 +31,8 @@
                 <li><a href="trailers?movieId=${movie.id}">Trailers</a></li>
                 <li><a href="photosandposters?movieId=${movie.id}">Photos + Posters</a></li>
                 <li><a href="castandcrew?movieId=${movie.id}">Cast + Crew</a></li>
-
             </ul>
         </div>
-
         <div class="row">
             <div class="col-sm-5" id="leftOverview">
                 <div class="row">
@@ -56,10 +58,16 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="col-sm-7" id="rightDesc">
-                <a href="writeareview?movieId=${movie.id}">Cast + Crew</a>
+                <c:choose>
+                    <c:when test="${user != null}">
+                        <a href="writeareview?movieId=${movie.id}">Write a Review</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="signup">Sign in to Leave a Review</a>
+                    </c:otherwise>
+                </c:choose>
                 <h1>Movie Reviews</h1>
                 <div class="row">
                     <div class="movieReview">
