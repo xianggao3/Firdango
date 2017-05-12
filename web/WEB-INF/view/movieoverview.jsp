@@ -17,11 +17,17 @@
     Secondary Texts (eg. article content): Josefin Sans
     -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
-    <link href="../../resources/css/index.css" rel="stylesheet">
-    <link href="../../resources/css/movieoverview.css" rel="stylesheet">
-    <style>body{background-image: url("https://image.tmdb.org/t/p/original${movie.backdrop}");
-        background-size: cover;
-        background-attachment: fixed;}</style>
+    <link href="./resources/css/index.css" rel="stylesheet">
+    <link href="./resources/css/movie.css" rel="stylesheet">
+    <link href="./resources/css/movieoverview.css" rel="stylesheet">
+
+    <style>
+        body{
+            background-image: url("https://image.tmdb.org/t/p/original${movie.backdrop}");
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 
 <body>

@@ -186,7 +186,6 @@
 					<div class="form-group ">
 						<input type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="Sign In"/>
 					</div>
-
 				</form>
 			</div>
 		</div>

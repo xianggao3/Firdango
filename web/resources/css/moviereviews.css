@@ -1,0 +1,21 @@
+body {
+    background-image: url("http://68.media.tumblr.com/000dec43ea889876c1ee790bda6eda3c/tumblr_o1l249LzcK1teue7jo1_1280.jpg");
+    background-repeat: cover;
+    background-size: 100%;
+    overflow: auto;
+    padding-bottom: 3%;
+}
+
+.movieReview{
+    text-align: left;
+    padding: 2%;
+}
+
+.reviewDate{
+    color: gray;
+    margin-left: 1%;
+}
+
+.reviewAuthor{
+    color: teal;
+}

@@ -66,6 +66,9 @@ public class MovieController {
         return "moviereviews";
     }
 
+    @GetMapping("/writeareview")
+    public String getMovieWriteAReview() {return "moviewriteareview";}
+
     @GetMapping("/synopsis")
     public String getMovieSynopsis() {
         return "moviesynopsis";
