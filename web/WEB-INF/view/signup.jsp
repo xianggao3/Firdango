@@ -160,7 +160,7 @@
 	<div class="container">
 		<div class="row main">
 			<div class="main-login main-center">
-				<h5>Sign up and enjoy exclusive VIP access to Fandango.</h5>
+				<h5>Sign up and enjoy exclusive VIP access to Firdango.</h5>
 				<hr/>
 				<form action="signup" modelAttribute="user" method="post">
 					<input type="hidden" name="id" />
@@ -196,14 +196,12 @@
 						</div>
 					</div>
 
-
-
 					<div class="form-group">
 						<label for="password" class="cols-sm-2 control-label">Password</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-								<input id="password" name="password" placeholder="Enter you password" class="form-control" type="password"/>
+								<input id="password" name="password" placeholder="Enter your password" class="form-control" type="password"/>
 							</div>
 						</div>
 					</div>
@@ -213,9 +211,16 @@
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-								<input id="passwordValidate" name="passwordValidate" placeholder="Enter you password" class="form-control" type="password"/>
+								<input id="passwordValidate" name="passwordValidate" placeholder="Enter your password" class="form-control" type="password"/>
 							</div>
 						</div>
+					</div>
+
+					<div class="form-check">
+						<label class="form-check-label">
+							<input class="form-check-input" type="checkbox" checked="checked" name="receiveNewsletter">
+							I would like to receive promotional emails from Firdango.
+						</label>
 					</div>
 
 					<div class="form-group ">

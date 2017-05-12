@@ -46,6 +46,11 @@ public class UserService {
     }
 
     @Transactional
+    public void setReceiveNewsletter(int id, boolean choice) {
+        userDAO.setReceiveNewsletter(id, choice);
+    }
+
+    @Transactional
     public List<String> getAllEmails() {
         return userDAO.getAllEmails();
     }

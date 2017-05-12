@@ -34,12 +34,12 @@ public class UserController {
     @PostMapping("/signin")
     public String signIn(@RequestParam("email") String email,
                          @RequestParam("password") String password,
-                         ModelMap model){
+                         ModelMap model) {
         User u = userService.getUserByEmail(email);
-        if (u.getPassword().equals(password)){
+        if (u.getPassword().equals(password)) {
             model.addAttribute("user", u);
             return "redirect:/";
-        }else{
+        } else {
             return "signin";
         }
     }
@@ -48,12 +48,13 @@ public class UserController {
     public String registerUser(@RequestParam("firstName") String firstName,
                                @RequestParam("lastName") String lastName,
                                @RequestParam("email") String email,
-                               @RequestParam("password") String password, ModelMap model) {
+                               @RequestParam("password") String password,
+                               @RequestParam(value = "receiveNewsletter", defaultValue = "") String receiveNewsletter,
+                               ModelMap model) {
 
 
-        User u = userService.getUserByEmail(email);
-        System.out.println(u);
-        if (u!=null){
+        User u = userService.getUserByEmail(email); // TODO: need clarification
+        if (u != null) {
             return "redirect:/signup";
         }
         else {
@@ -62,11 +63,9 @@ public class UserController {
             u.setLastName(lastName);
             u.setEmail(email);
             u.setPassword(password);
-
-            // Add user to session
+            u.setReceiveNewsletter(!receiveNewsletter.equals(""));
             model.addAttribute("user", u);
 
-            //save the user
             userService.saveUser(u);
             return "redirect:/";
         }
@@ -74,7 +73,6 @@ public class UserController {
 
     @GetMapping("/account")
     public String getAccount(Model model){
-
         return "account";
     }
 
@@ -87,7 +85,7 @@ public class UserController {
         u.setLastName(lastName);
         u.setEmail(email);
 
-        //userService.saveUser(user);
+        userService.saveUser(u);
         return "redirect:/account";
     }
 
@@ -97,13 +95,21 @@ public class UserController {
                                   @RequestParam("passwordValidate") String p3,
                                   @ModelAttribute User u) {
         //Check old information
-        if (p1.equals(u.getPassword())){
+        if (p1.equals(u.getPassword())) {
             //Check new information
-            if (p2.equals(p3)){
+            if (p2.equals(p3)) {
                 u.setPassword(p2);
             }
         }
         userService.saveUser(u);
+        return "redirect:/account";
+    }
+
+    @PostMapping("/receiveNewsletter")
+    public String changeReceiveNewsletter(@RequestParam(value = "receiveNewsletter", defaultValue = "") String val,
+                                          @ModelAttribute User user) {
+        user.setReceiveNewsletter(!val.equals(""));
+        userService.saveUser(user);
         return "redirect:/account";
     }
 }

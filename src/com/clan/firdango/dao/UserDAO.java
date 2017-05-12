@@ -63,4 +63,12 @@ public class UserDAO {
         Query<String> query = currentSession.createQuery("select email from User where receiveNewsletter = true", String.class);
         return query.getResultList();
     }
+
+    public void setReceiveNewsletter(int id, boolean choice) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query query = currentSession.createQuery("update User set receiveNewsletter = :choice where id = :id");
+        query.setParameter("id", id);
+        query.setParameter("choice", choice);
+        query.executeUpdate();
+    }
 }

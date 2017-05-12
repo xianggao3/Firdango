@@ -83,8 +83,12 @@ public class User implements Serializable{
         this.balance = balance;
     }
 
-    public boolean isReceiveNewsletter() {
-        return receiveNewsletter;
+    public int getReceiveNewsletter() {
+        if (receiveNewsletter) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     public void setReceiveNewsletter(boolean receiveNewsletter) {

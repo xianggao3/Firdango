@@ -194,7 +194,7 @@
 					</div>
 
 					<div class="form-group ">
-						<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Submit"/>
+						<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Save"/>
 					</div>
 				</form>
 
@@ -231,9 +231,24 @@
 						</div>
 					</div>
 
-					<div class="form-group ">
-						<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Submit"/>
+					<div class="form-group">
+						<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Save"/>
 					</div>
+				</form>
+
+				<form action="receiveNewsletter" modelAttribute="user" method="post">
+					<hr>
+					<h5>Receive Firdango Newsletter</h5>
+					<div class="form-check">
+						<label class="form-check-label">
+							<input class="form-check-input" type="checkbox" ${user.receiveNewsletter == 1 ? 'checked' : ''} name="receiveNewsletter">
+							I would like to receive promotional emails from Firdango.
+						</label>
+					</div>
+
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Save"/>
+                    </div>
 				</form>
 			</div>
 		</div>
