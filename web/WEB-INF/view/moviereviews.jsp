@@ -63,8 +63,9 @@
         }
 
         body {
-            background-image: url("http://68.media.tumblr.com/000dec43ea889876c1ee790bda6eda3c/tumblr_o1l249LzcK1teue7jo1_1280.jpg");
-            background-repeat: cover;
+            background-image: url("https://image.tmdb.org/t/p/original${movie.backdrop}");
+            background-size: cover;
+            background-attachment: fixed;
             background-size: 100%;
             overflow: auto;
             padding-bottom: 3%;
@@ -131,7 +132,7 @@
     <jsp:include page="/WEB-INF/includes/header.jsp" />
     <div class="container">
 
-        <h1 style="color: white">Fifty Shades Darker Review</h1>
+        <h1 style="color: white">${movie.title} Review</h1>
         <div class="row">
             <ul id="overviewList">
                 <li><a href="overview?movieId=${movie.id}">Overview</a></li>

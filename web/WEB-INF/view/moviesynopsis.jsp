@@ -114,7 +114,7 @@
     
     <div class="container">
 
-        <h1 style="color: white">Fifty Shades Darker Synopsis</h1>
+        <h1 style="color: white">${movie.title} Synopsis</h1>
         <div class="row">
             <ul id="overviewList">
                 <li><a href="overview?movieId=${movie.id}">Overview</a></li>
