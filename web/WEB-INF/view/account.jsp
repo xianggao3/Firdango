@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -29,7 +30,14 @@
 	<div class="container">
 		<div class="row main">
 			<div class="main-login main-center">
-				<h5>Change name or email.</h5>
+                <div class="alert alert-info" role="alert">
+                    <strong>Account Balance: </strong>
+                    <fmt:formatNumber
+                        value="${user.balance}"
+                        type="currency"/>
+                </div>
+
+                <h5>Change name or email.</h5>
 				<hr/>
 				<form action="changeNameEmail" modelAttribute="user" method="post">
 					<div class="form-group">
