@@ -79,11 +79,13 @@ public class MovieController {
     @GetMapping("/writeareview")
     public String getMovieWriteAReview(@ModelAttribute("user") User u, Model theModel)
     {
+
         List<Review> reviews = reviewService.getReviewsByUser(u.getId());
         if (!reviews.isEmpty()) {
             Review r = reviews.get(0);
             theModel.addAttribute("review", r);
         }
+
         return "moviewriteareview";
     }
 
@@ -95,9 +97,10 @@ public class MovieController {
                                   @ModelAttribute Review r) {
         r.setUserId(u.getId());
         r.setMovieId(movieId);
+        r.setRating("1");
         r.setTitle(title);
         r.setBody(reviewBody);
-        r.setTimeOfReview((new Timestamp(System.currentTimeMillis())).toString());
+        r.setTimeOfReview((new Timestamp(System.currentTimeMillis())));
         System.out.println(movieId + ", " + title + ", " + reviewBody);
         reviewService.saveReview(r);
         return "moviewriteareview";

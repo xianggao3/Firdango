@@ -22,10 +22,10 @@ public class ReviewDao {
     }
 
     public List<Review> getReviewsByUser(int userId) {
-        Session currentSession = sessionFactory.getCurrentSession();
-        Query<Review> theQuery = currentSession.createQuery("from Review where userId = :userId order by timeOfReview desc ", Review.class);
-        theQuery.setParameter("userId", userId);
-        return theQuery.getResultList();
+            Session currentSession = sessionFactory.getCurrentSession();
+            Query<Review> theQuery = currentSession.createQuery("from Review where userId = :userId order by timeOfReview desc", Review.class);
+            theQuery.setParameter("userId", userId);
+            return theQuery.getResultList();
     }
 
     public void saveReview(Review review) {

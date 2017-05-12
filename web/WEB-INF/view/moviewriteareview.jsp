@@ -81,7 +81,7 @@
                             </div>
                             <div class="form-group">
                                     <div class="input-group">
-                                        <textarea class="form-control" rows="8" name="reviewBody" id="reviewBody" placeholder="Write your review." value="${review.body}"></textarea>
+                                        <textarea class="form-control" rows="8" name="reviewBody" id="reviewBody" placeholder="Write your review." value="${review.body}">${review.body}</textarea>
                                     </div>
                             </div>
                             <div class="form-group ">

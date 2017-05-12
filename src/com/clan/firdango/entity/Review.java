@@ -2,6 +2,7 @@ package com.clan.firdango.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
  * Created by marvinyan on 4/27/2017.
@@ -27,7 +28,7 @@ public class Review implements Serializable {
     private String rating;
 
     @Column(name = "timeOfReview")
-    private String timeOfReview;
+    private Timestamp timeOfReview;
 
     @Column(name = "movieId")
     private String movieId;
@@ -64,11 +65,11 @@ public class Review implements Serializable {
         this.rating = rating;
     }
 
-    public String getTimeOfReview() {
+    public Timestamp getTimeOfReview() {
         return timeOfReview;
     }
 
-    public void setTimeOfReview(String timeOfReview) {
+    public void setTimeOfReview(Timestamp timeOfReview) {
         this.timeOfReview = timeOfReview;
     }
 
