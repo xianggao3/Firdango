@@ -13,11 +13,11 @@ import java.util.List;
  * Created by marvinyan on 5/6/2017.
  */
 @Repository
-public class ReviewDao {
+public class ReviewDAO {
     private final SessionFactory sessionFactory;
 
     @Autowired
-    public ReviewDao(SessionFactory sessionFactory) {
+    public ReviewDAO(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 

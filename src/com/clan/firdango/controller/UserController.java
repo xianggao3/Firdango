@@ -1,6 +1,7 @@
 package com.clan.firdango.controller;
 
 import com.clan.firdango.entity.User;
+import com.clan.firdango.service.GiftCardService;
 import com.clan.firdango.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,19 +16,27 @@ import org.springframework.web.bind.annotation.*;
 @SessionAttributes({"user"})
 public class UserController {
     private final UserService userService;
+    private final GiftCardService giftCardService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, GiftCardService giftCardService) {
         this.userService = userService;
+        this.giftCardService = giftCardService;
     }
 
     @GetMapping("/signup")
-    public String signUp(Model model){
+    public String signUp(Model model) {
+        return "signup";
+    }
+
+    @PostMapping("/signupFromNewsletter")
+    public String signUpFromNewsletter(@RequestParam(value = "subscribeEmail", defaultValue = "") String email, Model model) {
+        model.addAttribute("subscribeEmail", email.trim());
         return "signup";
     }
 
     @GetMapping("/signin")
-    public String getSignIn(Model model){
+    public String getSignIn(Model model) {
         return "signin";
     }
 
@@ -72,7 +81,7 @@ public class UserController {
     }
 
     @GetMapping("/account")
-    public String getAccount(Model model){
+    public String getAccount(Model model) {
         return "account";
     }
 
@@ -109,7 +118,13 @@ public class UserController {
     public String changeReceiveNewsletter(@RequestParam(value = "receiveNewsletter", defaultValue = "") String val,
                                           @ModelAttribute User user) {
         user.setReceiveNewsletter(!val.equals(""));
-        userService.saveUser(user);
+        return "redirect:/account";
+    }
+
+    @PostMapping("/redeemGiftCard")
+    public String redeemGiftCard(@RequestParam(value = "code", defaultValue = "") String code,
+                                 @ModelAttribute User user) {
+        user.setBalance(userService.redeemGiftCard(user.getId(), code));
         return "redirect:/account";
     }
 }

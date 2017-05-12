@@ -14,7 +14,6 @@ import java.util.List;
  */
 @Repository
 public class MovieDAO {
-    // need to inject the session factory
     private final SessionFactory sessionFactory;
 
     @Autowired
@@ -23,17 +22,14 @@ public class MovieDAO {
     }
 
     public List<Movie> getFeatured() {
-        // get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
 
         String q = "FROM Movie where release_date < current_date and poster_path is not null ORDER BY release_date DESC";
         Query<Movie> theQuery = currentSession.createQuery(q, Movie.class);
         theQuery.setMaxResults(12);
 
-        // execute and return the result list
         System.out.println(theQuery.getResultList());
         return theQuery.getResultList();
-
     }
 
     public Movie getMovie(int id){

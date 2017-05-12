@@ -191,7 +191,7 @@
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-								<input id="newsletter" name="email" placeholder="Enter your email" class="form-control" type="email"/>
+								<input id="newsletter" name="email" placeholder="Enter your email" class="form-control" type="email" value="${subscribeEmail}"/>
 							</div>
 						</div>
 					</div>

@@ -54,12 +54,14 @@
                 <div class="col-sm-12">
                     <div class="single">
                         <h2>Subscribe to our Newsletter</h2>
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your email">
-                            <span class="input-group-btn">
-                                    <button class="btn btn-theme" type="submit">Subscribe</button>
+                        <form action="signupFromNewsletter" modelAttribute="user" method="post">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Enter your email" name="subscribeEmail">
+                                <span class="input-group-btn">
+                                        <button class="btn btn-theme" type="submit">Subscribe</button>
                                 </span>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

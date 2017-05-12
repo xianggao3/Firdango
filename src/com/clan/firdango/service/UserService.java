@@ -1,11 +1,13 @@
 package com.clan.firdango.service;
 
+import com.clan.firdango.dao.GiftCardDAO;
 import com.clan.firdango.dao.UserDAO;
-import org.springframework.stereotype.Service;
 import com.clan.firdango.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 /**
@@ -14,10 +16,12 @@ import java.util.List;
 @Service
 public class UserService {
     private final UserDAO userDAO;
+    private final GiftCardDAO giftCardDAO;
 
     @Autowired
-    public UserService(UserDAO userDAO) {
+    public UserService(UserDAO userDAO, GiftCardDAO giftCardDAO) {
         this.userDAO = userDAO;
+        this.giftCardDAO = giftCardDAO;
     }
 
     @Transactional
@@ -58,5 +62,19 @@ public class UserService {
     @Transactional
     public List<String> getNewsletterEmails() {
         return userDAO.getNewsletterEmails();
+    }
+
+    @Transactional
+    public double redeemGiftCard(int userId, String code) {
+        User user = userDAO.getUser(userId);
+        double balance = user.getBalance();
+        try {
+            double cardValue = giftCardDAO.getBalance(code);
+            userDAO.setBalance(userId, user.getBalance() + cardValue);
+            giftCardDAO.emptyBalance(code);
+            return balance + cardValue;
+        } catch (NoResultException e) {
+            return balance;
+        }
     }
 }

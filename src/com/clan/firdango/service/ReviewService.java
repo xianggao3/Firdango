@@ -1,6 +1,6 @@
 package com.clan.firdango.service;
 
-import com.clan.firdango.dao.ReviewDao;
+import com.clan.firdango.dao.ReviewDAO;
 import com.clan.firdango.entity.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,36 +13,36 @@ import java.util.List;
  */
 @Service
 public class ReviewService {
-    private final ReviewDao reviewDao;
+    private final ReviewDAO reviewDAO;
 
     @Autowired
-    public ReviewService(ReviewDao reviewDao) {
-        this.reviewDao = reviewDao;
+    public ReviewService(ReviewDAO reviewDAO) {
+        this.reviewDAO = reviewDAO;
     }
 
     @Transactional
     public List<Review> getReviewsByUser(int userId) {
-        return reviewDao.getReviewsByUser(userId);
+        return reviewDAO.getReviewsByUser(userId);
     }
 
     @Transactional
     public List<Review> getReviewsByMovie(int movieId){
-        return reviewDao.getReviewsByMovie(movieId);
+        return reviewDAO.getReviewsByMovie(movieId);
     }
 
 
     @Transactional
     public void saveReview(Review review) {
-        reviewDao.saveReview(review);
+        reviewDAO.saveReview(review);
     }
 
     @Transactional
     public Review getReview(int id) {
-        return reviewDao.getReview(id);
+        return reviewDAO.getReview(id);
     }
 
     @Transactional
     public void deleteReview(int id) {
-        reviewDao.deleteReview(id);
+        reviewDAO.deleteReview(id);
     }
 }

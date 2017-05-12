@@ -37,7 +37,7 @@
                         type="currency"/>
                 </div>
 
-                <h5>Change name or email.</h5>
+                <h5>Change name or email</h5>
 				<hr/>
 				<form action="changeNameEmail" modelAttribute="user" method="post">
 					<div class="form-group">
@@ -115,7 +115,7 @@
 
 				<form action="receiveNewsletter" modelAttribute="user" method="post">
 					<hr>
-					<h5>Receive Firdango Newsletter</h5>
+					<h5>Receive newsletter</h5>
 					<div class="form-check">
 						<label class="form-check-label">
 							<input class="form-check-input" type="checkbox" ${user.receiveNewsletter == 1 ? 'checked' : ''} name="receiveNewsletter">
@@ -127,6 +127,22 @@
                         <input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Save"/>
                     </div>
 				</form>
+
+                <form action="/redeemGiftCard" modelAttribute="user" method="post">
+                    <div class="form-group">
+                        <label for="firstName" class="cols-sm-2 control-label">Gift Card Code</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input id="code" name="code" placeholder="Enter your gift card code" class="form-control" type="text" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Save"/>
+                    </div>
+                </form>
 			</div>
 		</div>
 	</div>

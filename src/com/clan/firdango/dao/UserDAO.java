@@ -71,4 +71,12 @@ public class UserDAO {
         query.setParameter("choice", choice);
         query.executeUpdate();
     }
+
+    public void setBalance(int id, double balance) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query query = currentSession.createQuery("update User set balance = :balance where id = :id");
+        query.setParameter("id", id);
+        query.setParameter("balance", balance);
+        query.executeUpdate();
+    }
 }
