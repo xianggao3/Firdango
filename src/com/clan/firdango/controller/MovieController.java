@@ -72,36 +72,39 @@ public class MovieController {
     }
 
     @GetMapping("/reviews")
-    public String getMovieReviews() {
+    public String getMovieReviews(@RequestParam("movieId") int id, Model theModel) {
+        List<Review> reviews = reviewService.getReviewsByMovie(id);
+        if (!reviews.isEmpty()) {
+            theModel.addAttribute("reviews", reviews);
+        }
         return "moviereviews";
     }
 
     @GetMapping("/writeareview")
     public String getMovieWriteAReview(@ModelAttribute("user") User u, Model theModel)
     {
-
         List<Review> reviews = reviewService.getReviewsByUser(u.getId());
         if (!reviews.isEmpty()) {
             Review r = reviews.get(0);
             theModel.addAttribute("review", r);
         }
-
         return "moviewriteareview";
     }
 
     @PostMapping("/writeareview")
-    public String saveMovieWriteAReview(@RequestParam("movieId") String movieId,
+    public String saveMovieWriteAReview(@RequestParam("movieId") int movieId,
                                   @RequestParam("title") String title,
+                                  @RequestParam("rating") String rating,
                                   @RequestParam("reviewBody") String reviewBody,
                                   @ModelAttribute("user") User u,
                                   @ModelAttribute Review r) {
+        System.out.println(rating);
         r.setUserId(u.getId());
         r.setMovieId(movieId);
-        r.setRating("1");
+        r.setRating(rating);
         r.setTitle(title);
         r.setBody(reviewBody);
         r.setTimeOfReview((new Timestamp(System.currentTimeMillis())));
-        System.out.println(movieId + ", " + title + ", " + reviewBody);
         reviewService.saveReview(r);
         return "moviewriteareview";
     }

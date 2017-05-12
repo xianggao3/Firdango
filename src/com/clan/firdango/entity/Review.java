@@ -31,7 +31,7 @@ public class Review implements Serializable {
     private Timestamp timeOfReview;
 
     @Column(name = "movieId")
-    private String movieId;
+    private int movieId;
 
     public int getUserId() {
         return userId;
@@ -73,8 +73,8 @@ public class Review implements Serializable {
         this.timeOfReview = timeOfReview;
     }
 
-    public String getMovieId() {return movieId;}
+    public int getMovieId() {return movieId;}
 
-    public void setMovieId(String movieId) {this.movieId = movieId;}
+    public void setMovieId(int movieId) {this.movieId = movieId;}
 
 }

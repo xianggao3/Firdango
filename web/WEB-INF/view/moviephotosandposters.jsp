@@ -11,6 +11,13 @@
     <link href="./resources/css/index.css" rel="stylesheet">
     <link href="./resources/css/movie.css" rel="stylesheet">
     <link href="./resources/css/moviesphotosandposters.css" rel="stylesheet">
+    <style>
+        body{
+            background-image: url("https://image.tmdb.org/t/p/original${movie.backdrop}");
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 
 <body>

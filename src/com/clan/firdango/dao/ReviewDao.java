@@ -28,6 +28,14 @@ public class ReviewDao {
             return theQuery.getResultList();
     }
 
+
+    public List<Review> getReviewsByMovie(int movieId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query<Review> theQuery = currentSession.createQuery("from Review where movieId = :movieId order by timeOfReview desc", Review.class);
+        theQuery.setParameter("movieId", movieId);
+        return theQuery.getResultList();
+    }
+
     public void saveReview(Review review) {
         Session currentSession = sessionFactory.getCurrentSession();
         currentSession.saveOrUpdate(review);
