@@ -54,12 +54,14 @@
                 <div class="col-sm-12">
                     <div class="single">
                         <h2>Subscribe to our Newsletter</h2>
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your email">
-                            <span class="input-group-btn">
-                                    <button class="btn btn-theme" type="submit">Subscribe</button>
+                        <form action="signupFromNewsletter" modelAttribute="user" method="post">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Enter your email" name="subscribeEmail">
+                                <span class="input-group-btn">
+                                        <button class="btn btn-theme" type="submit">Subscribe</button>
                                 </span>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -70,11 +72,7 @@
 <!-- Google Ads-->
 <div id="adsenseDiv" class="container">
     <center class="adsense-margin">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4834950964481595" data-ad-slot="6101749327"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+        <jsp:include page="/WEB-INF/includes/banner-ad.jsp" />
     </center>
 </div>
 <!-- end Google Ads -->
@@ -145,7 +143,7 @@
                         <a href="#">Affiliate Program</a>
                         <a href="#">Loyalty Program</a>
                         <a href="#">Privacy Policy</a>
-                        <a href="#">Terms and Policies</a>
+                        <a href="https://firdango.zendesk.com/hc/en-us">Support</a>
                     </div>
                     <div class="col-md-4 phone">
                         <div class="pull-left">
@@ -166,4 +164,26 @@
         </center>
     </div>
 </div>
+<!-- Start of firdango Zendesk Widget script -->
+<script>
+    /*<![CDATA[*/
+    window.zEmbed || function(e, t) {
+        var n, o, d, i, s, a = [],
+            r = document.createElement("iframe");
+        window.zEmbed = function() {
+            a.push(arguments)
+        }, window.zE = window.zE || window.zEmbed, r.src = "javascript:false", r.title = "", r.role = "presentation", (r.frameElement || r).style.cssText = "display: none", d = document.getElementsByTagName("script"), d = d[d.length - 1], d.parentNode.insertBefore(r, d), i = r.contentWindow, s = i.document;
+        try {
+            o = s
+        } catch (e) {
+            n = document.domain, r.src = 'javascript:var d=document.open();d.domain="' + n + '";void(0);', o = s
+        }
+        o.open()._l = function() {
+            var e = this.createElement("script");
+            n && (this.domain = n), e.id = "js-iframe-async", e.src = "https://assets.zendesk.com/embeddable_framework/main.js", this.t = +new Date, this.zendeskHost = "firdango.zendesk.com", this.zEQueue = a, this.body.appendChild(e)
+        }, o.write('<body onload="document._l();">'), o.close()
+    }();
+    /*]]>*/
+</script>
+<!-- End of firdango Zendesk Widget script -->
 <!-- end footer -->

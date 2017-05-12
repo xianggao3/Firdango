@@ -14,8 +14,11 @@ public class User implements Serializable{
     @Column(name = "id")
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "firstName")
+    private String firstName;
+
+    @Column(name = "lastName")
+    private String lastName;
 
     @Column(name = "email")
     private String email;
@@ -23,6 +26,11 @@ public class User implements Serializable{
     @Column(name = "password")
     private String password;
 
+    @Column(name = "balance")
+    private double balance;
+
+    @Column(name = "receiveNewsletter")
+    private boolean receiveNewsletter;
 
     public User() {
     }
@@ -35,12 +43,20 @@ public class User implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public String getPassword() {
@@ -59,11 +75,31 @@ public class User implements Serializable{
         this.email = email;
     }
 
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public int getReceiveNewsletter() {
+        if (receiveNewsletter) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public void setReceiveNewsletter(boolean receiveNewsletter) {
+        this.receiveNewsletter = receiveNewsletter;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                ", name='" + firstName + ' ' + lastName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 '}';

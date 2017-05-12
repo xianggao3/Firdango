@@ -1,0 +1,21 @@
+#rightDesc {
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2%;
+    text-align: center;
+    color: white;
+}
+
+#rightDesc iframe {
+    width: 100%;
+    height: 80%;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}

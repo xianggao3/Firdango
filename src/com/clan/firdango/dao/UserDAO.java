@@ -23,14 +23,9 @@ public class UserDAO {
     }
 
     public List<User> getUsers() {
-        // get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
-
-        // create a query
-        Query<User> theQuery = currentSession.createQuery("from User order by  name", User.class);
-
-        // execute and return the result list
-        return theQuery.getResultList();
+        Query<User> query = currentSession.createQuery("from User order by lastName", User.class);
+        return query.getResultList();
     }
 
     public void saveUser(User user) {
@@ -54,6 +49,34 @@ public class UserDAO {
         Session currentSession = sessionFactory.getCurrentSession();
         Query query = currentSession.createQuery("delete from User where id = :id");
         query.setParameter("id", id);
+        query.executeUpdate();
+    }
+
+    public List<String> getAllEmails() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query<String> query = currentSession.createQuery("select email from User", String.class);
+        return query.getResultList();
+    }
+
+    public List<String> getNewsletterEmails() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query<String> query = currentSession.createQuery("select email from User where receiveNewsletter = true", String.class);
+        return query.getResultList();
+    }
+
+    public void setReceiveNewsletter(int id, boolean choice) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query query = currentSession.createQuery("update User set receiveNewsletter = :choice where id = :id");
+        query.setParameter("id", id);
+        query.setParameter("choice", choice);
+        query.executeUpdate();
+    }
+
+    public void setBalance(int id, double balance) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query query = currentSession.createQuery("update User set balance = :balance where id = :id");
+        query.setParameter("id", id);
+        query.setParameter("balance", balance);
         query.executeUpdate();
     }
 }

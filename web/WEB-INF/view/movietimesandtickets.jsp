@@ -8,28 +8,29 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="../../resources/css/index.css" rel="stylesheet">
+    <link href="./resources/css/index.css" rel="stylesheet">
+    <link href="./resources/css/movie.css" rel="stylesheet">
+    <link href="./resources/css/movietimesandtickets.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link href="../../resources/css/movietimesandtickets.css" rel="stylesheet">
+
     <style>
-        body {
+        body{
             background-image: url("https://image.tmdb.org/t/p/original${movie.backdrop}");
             background-size: cover;
             background-attachment: fixed;
-            overflow: auto;
-            padding-bottom: 3%;
         }
     </style>
+
+
 </head>
 
 <body>
-
 <jsp:include page="/WEB-INF/includes/header.jsp" />
 
     <div class="container">
 
-        <h1 style="color: white">${movie.title} Times & Tickets</h1>
+        <h1 style="color: white">Fifty Shades Darker Times & Tickets</h1>
         <div class="row">
             <ul id="overviewList">
                 <li><a href="overview?movieId=${movie.id}">Overview</a></li>

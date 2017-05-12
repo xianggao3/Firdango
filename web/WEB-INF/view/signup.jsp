@@ -160,40 +160,48 @@
 	<div class="container">
 		<div class="row main">
 			<div class="main-login main-center">
-				<h5>Sign up and enjoy exclusive VIP access to Fandango.</h5>
+				<h5>Sign up and enjoy exclusive VIP access to Firdango.</h5>
 				<hr/>
 				<form action="signup" modelAttribute="user" method="post">
 					<input type="hidden" name="id" />
 
                 <fieldset>
 					<div class="form-group">
-						<label for="name" class="cols-sm-2 control-label">Your Name</label>
+						<label for="firstName" class="cols-sm-2 control-label">First Name</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-								<input path="name" id="name" name="name" placeholder="Enter your name" class="form-control" type="name"/>
+								<input id="firstName" name="firstName" placeholder="Enter your first name" class="form-control" type="text" />
 							</div>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="email" class="cols-sm-2 control-label">Your Email</label>
+						<label for="lastName" class="cols-sm-2 control-label">Last Name</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-								<input id="email" name="email" placeholder="Enter your email" class="form-control" type="email"/>
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input id="lastName" name="lastName" placeholder="Enter your last name" class="form-control" type="text" />
 							</div>
 						</div>
 					</div>
 
-
+					<div class="form-group">
+						<label for="newsletter" class="cols-sm-2 control-label">Your Email</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+								<input id="newsletter" name="email" placeholder="Enter your email" class="form-control" type="email" value="${subscribeEmail}"/>
+							</div>
+						</div>
+					</div>
 
 					<div class="form-group">
 						<label for="password" class="cols-sm-2 control-label">Password</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-								<input id="password" name="password" placeholder="Enter you password" class="form-control" type="password"/>
+								<input id="password" name="password" placeholder="Enter your password" class="form-control" type="password"/>
 							</div>
 						</div>
 					</div>
@@ -203,9 +211,16 @@
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-								<input id="passwordValidate" name="passwordValidate" placeholder="Enter you password" class="form-control" type="password"/>
+								<input id="passwordValidate" name="passwordValidate" placeholder="Enter your password" class="form-control" type="password"/>
 							</div>
 						</div>
+					</div>
+
+					<div class="form-check">
+						<label class="form-check-label">
+							<input class="form-check-input" type="checkbox" checked="checked" name="receiveNewsletter">
+							I would like to receive promotional emails from Firdango.
+						</label>
 					</div>
 
 					<div class="form-group ">
@@ -213,8 +228,6 @@
 					</div>
 
                     </fieldset>
-
-
 				</form>
 			</div>
 		</div>

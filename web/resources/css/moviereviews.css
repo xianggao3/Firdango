@@ -1,0 +1,8 @@
+table, fieldset {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.movieReview{
+    width: 100%
+}

@@ -1,6 +1,8 @@
 package com.clan.firdango.controller;
 
+import com.clan.firdango.entity.Newsletter;
 import com.clan.firdango.entity.User;
+import com.clan.firdango.service.EmailService;
 import com.clan.firdango.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,22 +17,24 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    // need to inject the user service
     private final UserService userService;
+    private final EmailService emailService;
 
     @Autowired
-    public AdminController(UserService userService) {
+    public AdminController(UserService userService, EmailService emailService) {
         this.userService = userService;
+        this.emailService = emailService;
+    }
+
+    @GetMapping("/")
+    public String index() {
+        return "admin-index";
     }
 
     @GetMapping("/listUsers")
     public String listUsers(Model theModel) {
-        // get users from the dao
         List<User> users = userService.getUsers();
-
-        // add the users to the model
         theModel.addAttribute("users", users);
-
         return "list-users";
     }
 
@@ -58,6 +62,19 @@ public class AdminController {
     @GetMapping("/deleteUser")
     public String delete(@RequestParam("userId") int id) {
         userService.deleteUser(id);
+        return "redirect:/admin/listUsers";
+    }
+
+    @GetMapping("/showNewsletterForm")
+    public String showNewsletterForm(Model model) {
+        Newsletter newsletter = new Newsletter();
+        model.addAttribute("newsletter", newsletter);
+        return "newsletter-form";
+    }
+
+    @PostMapping("/sendNewsletter")
+    public String sendNewsletter(@ModelAttribute("newsletter") Newsletter newsletter) {
+        emailService.sendMassEmail(newsletter.getSubject(), newsletter.getBody());
         return "redirect:/admin/listUsers";
     }
 }

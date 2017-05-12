@@ -17,50 +17,8 @@
 
         -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
-        <link href="./resources/css/index.css" rel="stylesheet">
+        <link href="./resources/css/movie.css" rel="stylesheet">
 
-        <style> 
-        #overviewList li {
-            display: inline;
-            text-transform: uppercase;
-                padding: 10px 10px 10px 0;
-        }
-
-        #overviewList {
-            display:block;
-            width: 100%;
-            margin-top:2%;
-            margin-bottom: 2%;
-        }
-
-        #overviewList li {
-            color: orange;
-            background-color: rgba(100, 100, 100, 0.5);
-            border-radius: 5px;
-            padding: 1%;
-        }
-
-        #overviewList a {
-            color: white;
-        }
-
-        #overviewList .active {
-            background-color: white;
-            color: black;
-        }
-
-        #overviewList .active a {
-            color: black;
-        }
-
-        #leftOverview {
-            text-align: left;
-            background-color: rgba(240, 240, 240, 0.9);
-            height: auto;
-        }
-
-
-    </style>
     </head>
 
     <body>

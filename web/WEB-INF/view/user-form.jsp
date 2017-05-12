@@ -42,13 +42,21 @@
                         <td><form:input path="email" /></td>
                     </tr>
                     <tr>
+                        <td><label>Receive Newsletter:</label></td>
+                        <td><form:input path="receiveNewsletter" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Balance:</label></td>
+                        <td><form:input path="balance" /></td>
+                    </tr>
+                    <tr>
                         <td><label></label></td>
                         <td><input type="submit" value="Save" /></td>
                     </tr>
                 </tbody>
             </table>
         </form:form>
-        <div style="clear;both;"></div>
+        <div style="clear:both;"></div>
         <p>
             <a href="${pageContext.request.contextPath}/admin/listUsers">Back to List</a>
         </p>

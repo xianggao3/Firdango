@@ -1,6 +1,7 @@
 package com.clan.firdango.controller;
 
 import com.clan.firdango.entity.User;
+import com.clan.firdango.service.GiftCardService;
 import com.clan.firdango.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,91 +16,115 @@ import org.springframework.web.bind.annotation.*;
 @SessionAttributes({"user"})
 public class UserController {
     private final UserService userService;
+    private final GiftCardService giftCardService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, GiftCardService giftCardService) {
         this.userService = userService;
+        this.giftCardService = giftCardService;
     }
 
     @GetMapping("/signup")
-    public String signUp(Model model){
+    public String signUp(Model model) {
+        return "signup";
+    }
+
+    @PostMapping("/signupFromNewsletter")
+    public String signUpFromNewsletter(@RequestParam(value = "subscribeEmail", defaultValue = "") String email, Model model) {
+        model.addAttribute("subscribeEmail", email.trim());
         return "signup";
     }
 
     @GetMapping("/signin")
-    public String getSignIn(Model model){
+    public String getSignIn(Model model) {
         return "signin";
     }
 
     @PostMapping("/signin")
     public String signIn(@RequestParam("email") String email,
                          @RequestParam("password") String password,
-                         ModelMap model){
+                         ModelMap model) {
         User u = userService.getUserByEmail(email);
-        if (u.getPassword().equals(password)){
+        if (u.getPassword().equals(password)) {
             model.addAttribute("user", u);
             return "redirect:/";
-        }else{
+        } else {
             return "signin";
         }
     }
     
     @PostMapping("/signup")
-    public String registerUser(@RequestParam("name") String name,
+    public String registerUser(@RequestParam("firstName") String firstName,
+                               @RequestParam("lastName") String lastName,
                                @RequestParam("email") String email,
-                               @RequestParam("password") String password, ModelMap model) {
+                               @RequestParam("password") String password,
+                               @RequestParam(value = "receiveNewsletter", defaultValue = "") String receiveNewsletter,
+                               ModelMap model) {
 
 
-        User u = userService.getUserByEmail(email);
-        System.out.println(u);
-        if (u!=null){
+        User u = userService.getUserByEmail(email); // TODO: need clarification
+        if (u != null) {
             return "redirect:/signup";
         }
         else {
             u = new User();
-            u.setName(name);
+            u.setFirstName(firstName);
+            u.setLastName(lastName);
             u.setEmail(email);
             u.setPassword(password);
-
-            // Add user to session
+            u.setReceiveNewsletter(!receiveNewsletter.equals(""));
             model.addAttribute("user", u);
 
-            //save the user
             userService.saveUser(u);
             return "redirect:/";
         }
     }
 
     @GetMapping("/account")
-    public String getAccount(Model model){
-
+    public String getAccount(Model model) {
         return "account";
     }
 
     @PostMapping("/changeNameEmail")
-    public String changeNameEmail(@RequestParam("name") String name,
-                               @RequestParam("email") String email,
+    public String changeNameEmail(@RequestParam("firstName") String firstName,
+                                  @RequestParam("lastName") String lastName,
+                                  @RequestParam("email") String email,
                                   @ModelAttribute User u) {
-        u.setName(name);
+        u.setFirstName(firstName);
+        u.setLastName(lastName);
         u.setEmail(email);
 
-        //userService.saveUser(user);
+        userService.saveUser(u);
         return "redirect:/account";
     }
 
     @PostMapping("/changePassword")
-    public String changeNameEmail(@RequestParam("oldPassword") String p1,
+    public String changePassword(@RequestParam("oldPassword") String p1,
                                   @RequestParam("password") String p2,
                                   @RequestParam("passwordValidate") String p3,
                                   @ModelAttribute User u) {
         //Check old information
-        if (p1.equals(u.getPassword())){
+        if (p1.equals(u.getPassword())) {
             //Check new information
-            if (p2.equals(p3)){
+            if (p2.equals(p3)) {
                 u.setPassword(p2);
             }
         }
         userService.saveUser(u);
+        return "redirect:/account";
+    }
+
+    @PostMapping("/receiveNewsletter")
+    public String changeReceiveNewsletter(@RequestParam(value = "receiveNewsletter", defaultValue = "") String val,
+                                          @ModelAttribute User user) {
+        user.setReceiveNewsletter(!val.equals(""));
+        return "redirect:/account";
+    }
+
+    @PostMapping("/redeemGiftCard")
+    public String redeemGiftCard(@RequestParam(value = "code", defaultValue = "") String code,
+                                 @ModelAttribute User user) {
+        user.setBalance(userService.redeemGiftCard(user.getId(), code));
         return "redirect:/account";
     }
 }
