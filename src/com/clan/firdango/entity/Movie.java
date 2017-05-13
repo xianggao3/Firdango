@@ -48,7 +48,7 @@ public class Movie {
     @Column(name = "overview")
     private String overview;
 
-    @Column(name = "status")
+    @Column(name = "movieStatus")
     private String status;
 
     public int getId() {

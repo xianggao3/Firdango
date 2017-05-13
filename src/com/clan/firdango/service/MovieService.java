@@ -39,4 +39,9 @@ public class MovieService {
     public void deleteMovie(int id) {
         movieDAO.deleteMovie(id);
     }
+
+    @Transactional
+    public List<Movie> getAllMovies() {
+        return movieDAO.getAllMovies();
+    }
 }

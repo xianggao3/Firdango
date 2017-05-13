@@ -48,4 +48,11 @@ public class MovieDAO {
         Session currentSession = sessionFactory.getCurrentSession();
         currentSession.saveOrUpdate(movie); // id empty ? insert : update
     }
+
+    public List<Movie> getAllMovies() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        String q = "FROM Movie ORDER BY id ASC";
+        Query<Movie> theQuery = currentSession.createQuery(q, Movie.class);
+        return theQuery.getResultList();
+    }
 }
