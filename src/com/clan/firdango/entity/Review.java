@@ -77,4 +77,11 @@ public class Review implements Serializable {
 
     public void setMovieId(int movieId) {this.movieId = movieId;}
 
+    public int getReviewId() {
+        return reviewId;
+    }
+
+    public void setReviewId(int reviewId) {
+        this.reviewId = reviewId;
+    }
 }

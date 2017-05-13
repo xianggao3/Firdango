@@ -52,4 +52,11 @@ public class ReviewDAO {
         query.setParameter("id", id);
         query.executeUpdate();
     }
+
+    public List<Review> getAllReviews() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        String q = "FROM Review ORDER BY timeOfReview DESC";
+        Query<Review> theQuery = currentSession.createQuery(q, Review.class);
+        return theQuery.getResultList();
+    }
 }

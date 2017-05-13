@@ -1,8 +1,10 @@
 package com.clan.firdango.controller;
 
 import com.clan.firdango.entity.Newsletter;
+import com.clan.firdango.entity.Review;
 import com.clan.firdango.entity.User;
 import com.clan.firdango.service.EmailService;
+import com.clan.firdango.service.ReviewService;
 import com.clan.firdango.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,11 +21,13 @@ import java.util.List;
 public class AdminController {
     private final UserService userService;
     private final EmailService emailService;
+    private final ReviewService reviewService;
 
     @Autowired
-    public AdminController(UserService userService, EmailService emailService) {
+    public AdminController(UserService userService, EmailService emailService, ReviewService reviewService) {
         this.userService = userService;
         this.emailService = emailService;
+        this.reviewService = reviewService;
     }
 
     @GetMapping("/")
@@ -76,5 +80,18 @@ public class AdminController {
     public String sendNewsletter(@ModelAttribute("newsletter") Newsletter newsletter) {
         emailService.sendMassEmail(newsletter.getSubject(), newsletter.getBody());
         return "redirect:/admin/listUsers";
+    }
+
+    @GetMapping("/listReviews")
+    public String listReviews(Model theModel) {
+        List<Review> reviews = reviewService.getAllReviews();
+        theModel.addAttribute("reviews", reviews);
+        return "list-reviews";
+    }
+
+    @GetMapping("/deleteReview")
+    public String deleteReview(@RequestParam("reviewId") int id) {
+        reviewService.deleteReview(id);
+        return "redirect:/admin/listReviews";
     }
 }

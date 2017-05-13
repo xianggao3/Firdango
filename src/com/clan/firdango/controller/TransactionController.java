@@ -1,7 +1,9 @@
 package com.clan.firdango.controller;
 
+import com.clan.firdango.entity.Ticket;
 import com.clan.firdango.service.CardService;
 import com.clan.firdango.service.EmailService;
+import com.clan.firdango.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by xgao3 on 4/12/2017.
@@ -18,11 +22,13 @@ import java.text.NumberFormat;
 public class TransactionController {
     private final CardService cardService;
     private final EmailService emailService;
+    private final TicketService ticketService;
 
     @Autowired
-    public TransactionController(CardService cardService, EmailService emailService) {
+    public TransactionController(CardService cardService, EmailService emailService, TicketService ticketService) {
         this.cardService = cardService;
         this.emailService = emailService;
+        this.ticketService = ticketService;
     }
 
     @GetMapping("checkout")
@@ -44,12 +50,20 @@ public class TransactionController {
         model.addAttribute("amount", formatter.format(amount/100.0));
         model.addAttribute("description", description);
 
+        Ticket ticket = new Ticket();
+        ticket.setPrice(amount/100.0);
+        Date today = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        ticket.setTimeOfPurchase(sdf.format(today));
+        ticket.setMovieId("1295");
+        ticket.setTheatreId("1403");
+        ticketService.saveTicket(ticket);
+
         try {
             cardService.processCharge(stripeToken, stripeEmail, amount, description);
-            // TODO: This will be replaced by emailService.sendReceipt(...)
-            emailService.sendEmail(stripeEmail, "Pass", "Charge successful.");
+            emailService.sendEmail(stripeEmail, "Ticket Purchase Confirmed", "Your ticket has been confirmed.");
         } catch (Exception e) {
-            emailService.sendEmail(stripeEmail, "Fail", "Charge unsuccessful.");
+            emailService.sendEmail(stripeEmail, "Ticket Purchase Unsuccessful", "Your card could not be processed.");
             System.out.println("Charge unsuccessful: " + e.getMessage());
         }
 

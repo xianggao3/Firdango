@@ -45,4 +45,9 @@ public class ReviewService {
     public void deleteReview(int id) {
         reviewDAO.deleteReview(id);
     }
+
+    @Transactional
+    public List<Review> getAllReviews() {
+        return reviewDAO.getAllReviews();
+    }
 }
