@@ -24,7 +24,7 @@ public class GiftCardDAO {
         Session currentSession = sessionFactory.getCurrentSession();
         Query query = currentSession.createQuery("select balance from GiftCard where gcCode = :code");
         query.setParameter("code", code);
-        return (double) query.getSingleResult();
+        return (double)query.getSingleResult();
     }
 
     public GiftCard createGiftCard(double balance) {
@@ -40,7 +40,7 @@ public class GiftCardDAO {
             Query query = currentSession.createQuery("from GiftCard where gcCode = :code");
             query.setParameter("code", code);
 
-            if (query.uniqueResult() != null) {
+            if (query.uniqueResult() == null) {
                 unique = true;
             }
         }

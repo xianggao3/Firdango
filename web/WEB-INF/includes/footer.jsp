@@ -26,7 +26,7 @@
             <img class="card-img-top" src="https://images.fandango.com/r103.4//images/spotlight/fd_LEGOBAT_300x150_offerstrip_v1.png" alt="Card image cap">
             <div class="card-block">
                 <h4 class="card-title">'The LEGO Batman Movie' Gift With Purchase</h4>
-                <p class="card-text">Buy tickets to ‘The LEGO Batman Movie’ and get 50% off a digital copy of ‘The LEGO Movie’ on FirdangoNOW.</p>
+                <p class="card-text">Buy tickets to 'The LEGO Batman Movie' and get 50% off a digital copy of 'The LEGO Movie' on FirdangoNOW.</p>
             </div>
             <div class="card-footer">
                 <a href="#" class="card-text"><small class="text-primary">Buy Tickets</small></a>
@@ -159,9 +159,7 @@
             </div>
         </div>
 
-        <center class="copyright">
-            © 2017 Firdango. All rights reserved.
-        </center>
+        <center class="copyright">&copy; 2017 Firdango. All rights reserved.</center>
     </div>
 </div>
 <!-- Start of firdango Zendesk Widget script -->

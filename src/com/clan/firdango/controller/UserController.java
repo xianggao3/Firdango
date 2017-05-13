@@ -85,6 +85,11 @@ public class UserController {
         return "account";
     }
 
+    @GetMapping("/giftCards")
+    public String showGiftCardsPage(Model model) {
+        return "gift-cards";
+    }
+
     @PostMapping("/changeNameEmail")
     public String changeNameEmail(@RequestParam("firstName") String firstName,
                                   @RequestParam("lastName") String lastName,
