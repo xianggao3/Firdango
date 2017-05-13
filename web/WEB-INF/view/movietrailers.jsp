@@ -23,7 +23,7 @@
 <body>
     <jsp:include page="/WEB-INF/includes/header.jsp" />
     <div class="container">
-        <h1 style="color: white">Fifty Shades Darker Trailers</h1>
+        <h1 style="color: white">${movie.title} Trailers</h1>
         <div class="row">
             <ul id="overviewList">
                 <li><a href="overview?movieId=${movie.id}">Overview</a></li>

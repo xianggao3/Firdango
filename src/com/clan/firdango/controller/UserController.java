@@ -9,6 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by xgao3 on 4/12/2017.
  */
@@ -43,10 +47,13 @@ public class UserController {
     @PostMapping("/signin")
     public String signIn(@RequestParam("email") String email,
                          @RequestParam("password") String password,
-                         ModelMap model) {
+                         ModelMap model,
+                         HttpServletRequest request) {
         User u = userService.getUserByEmail(email);
         if (u.getPassword().equals(password)) {
             model.addAttribute("user", u);
+            HttpSession session = request.getSession(true);
+            session.setAttribute("loggedinuser", u);
             return "redirect:/";
         } else {
             return "signin";
@@ -74,7 +81,6 @@ public class UserController {
             u.setPassword(password);
             u.setReceiveNewsletter(!receiveNewsletter.equals(""));
             model.addAttribute("user", u);
-
             userService.saveUser(u);
             return "redirect:/";
         }

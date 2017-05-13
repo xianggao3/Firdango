@@ -163,7 +163,7 @@
 				<h5>Sign up and enjoy exclusive VIP access to Firdango.</h5>
 				<hr/>
 				<form action="signup" modelAttribute="user" method="post">
-					<input type="hidden" name="id" />
+					<<input type="text" name="" id="">ut type="hidden" name="id" />
 
                 <fieldset>
 					<div class="form-group">
