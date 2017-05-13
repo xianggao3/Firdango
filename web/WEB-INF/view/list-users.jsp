@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
@@ -41,7 +42,9 @@
                     <td>${tempUser.lastName}</td>
                     <td>${tempUser.email}</td>
                     <td>${tempUser.receiveNewsletter}</td>
-                    <td>${tempUser.balance}</td>
+                    <td><fmt:formatNumber
+                            value="${tempUser.balance}"
+                            type="currency"/></td>
 
                     <td>
                         <a href="${updateLink}">Update</a>

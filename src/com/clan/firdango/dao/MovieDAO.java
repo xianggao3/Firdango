@@ -51,7 +51,7 @@ public class MovieDAO {
 
     public List<Movie> getAllMovies() {
         Session currentSession = sessionFactory.getCurrentSession();
-        String q = "FROM Movie ORDER BY id ASC";
+        String q = "FROM Movie ORDER BY id DESC";
         Query<Movie> theQuery = currentSession.createQuery(q, Movie.class);
         return theQuery.getResultList();
     }
