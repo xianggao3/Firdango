@@ -53,29 +53,13 @@ public class SearchDAO {
 
         return JSONresponse.toString();
     }
-
-    public ArrayList<Movie> getSearchMovieResults(Model theModel,HttpServletRequest request,String qs) throws Exception {
-        SearchDAO http = new SearchDAO(sessionFactory);
-        String JSONstring = http.sendGet(request);
-        //System.out.println(JSONstring);
-
-        Gson gson = new Gson();
-        MovieSearchResults msr= gson.fromJson(JSONstring, MovieSearchResults.class);
-        System.out.println(msr.getTotal_results());
-        searchRes=msr.getResults();
-        for(int x=searchRes.size()-1;x>-1;x--){
-            if((searchRes.get(x).getId()<315837)||(searchRes.get(x).getId()>316376)){
-                searchRes.remove(x);
-            }
-        }
-
-        //System.out.println(searchRes.get(0).getOverview());
-        //System.out.println(searchRes.get(0).getPoster());
-        System.out.println(searchRes.toString());
-
-        theModel.addAttribute("searchRes", searchRes);
-        theModel.addAttribute("qs",qs);
-        return searchRes;
+    @Transactional
+    public List<Movie> getSearchMovieResults(Model theModel,HttpServletRequest request,String qs) throws Exception {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query query=currentSession.createQuery("FROM Movie where title LIKE CONCAT('%',?1,'%')");
+        query.setParameter("1",qs);
+        List<Movie> trl=query.list();
+        return trl;
     }
     @Transactional
     public List<Theatre> getSearchTheatreResults(Model theModel, HttpServletRequest request,String qs) {
