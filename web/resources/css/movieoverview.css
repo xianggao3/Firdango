@@ -42,3 +42,19 @@ hr {
 h1 {
     color: white;
 }
+
+#titlefav{
+    display: inline-block;
+    width: 100%;
+}
+
+
+#titlefav h1{
+    display: inline;
+}
+
+#titleFav input{
+    position: relative;
+    float: right;
+    display: inline-block;
+}

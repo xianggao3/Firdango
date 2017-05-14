@@ -16,28 +16,22 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="Entities" value="f34b370e-e2bf-4a9f-a627-4a05effe97c6" />
-          <factory-entry name="NewPersistenceUnit" value="ea5f9a94-8d51-48c0-9621-7c3eb1d31d3e" />
+          <factory-entry name="NewPersistenceUnit" />
         </datasource-mapping>
-        <deploymentDescriptor name="orm.xml" url="file://$MODULE_DIR$/META-INF/orm.xml" />
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/out/artifacts/web_customer_tracker_war_exploded/WEB-INF/classes/META-INF/persistence.xml" />
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/out/artifacts/firdango_war_exploded/WEB-INF/classes/META-INF/persistence.xml" />
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/web/WEB-INF/spring-mvc-crud-demo-servlet.xml</file>
-        </fileset>
+        <fileset id="fileset" name="Spring Application Context" removed="false" />
       </configuration>
     </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" />
           <unit-entry name="sessionFactory" value="myDataSource" />
         </datasource-map>
         <naming-strategy-map />
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
       </configuration>
     </facet>
   </component>
@@ -49,14 +43,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="library" name="Spring-4.3.7.RELEASE" level="project" />
-    <orderEntry type="library" name="Hibernate 5.2.9-5.2.9" level="project" />
-    <orderEntry type="library" name="javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.1" level="project" />
+    <orderEntry type="library" name="com.google.code.gson:gson:2.8.0" level="project" />
     <orderEntry type="library" name="jstl:jstl:1.2" level="project" />
-    <orderEntry type="library" name="stripe-java-4.4.0" level="project" />
-    <orderEntry type="library" name="org.springframework.security:spring-security-core:4.2.2.RELEASE" level="project" />
-    <orderEntry type="library" name="org.apache.commons:commons-lang3:3.4" level="project" />
-    <orderEntry type="library" name="com.mashape.unirest:unirest-java:1.4.9" level="project" />
+    <orderEntry type="library" name="org.apache.commons:commons-lang3:3.5" level="project" />
     <orderEntry type="library" name="org.apache.directory.studio:org.apache.commons.io:2.4" level="project" />
     <orderEntry type="library" name="com.googlecode.json-simple:json-simple:1.1.1" level="project" />
   </component>

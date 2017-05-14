@@ -26,17 +26,7 @@
 
     <div class="container">
         <h1 style="color: white">${movie.title} Photos & Posters</h1>
-        <div class="row">
-            <ul id="overviewList">
-                <li><a href="overview?movieId=${movie.id}">Overview</a></li>
-                <li><a href="timesandtickets?movieId=${movie.id}">Movie Times + Tickets</a></li>
-                <li><a href="synopsis?movieId=${movie.id}">Synopsis</a></li>
-                <li><a href="reviews?movieId=${movie.id}">Movie Reviews</a></li>
-                <li><a href="trailers?movieId=${movie.id}">Trailers</a></li>
-                <li class="active"><a href="photosandposters?movieId=${movie.id}">Photos + Posters</a></li>
-                <li><a href="castandcrew?movieId=${movie.id}">Cast + Crew</a></li>
-            </ul>
-        </div>
+        <jsp:include page="/WEB-INF/includes/movienav.jsp" />
         <div class="row">
             <div class="col-sm-5" id="leftOverview">
                 <div class="row">

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -25,21 +26,20 @@
 </head>
 
 <body>
-<jsp:include page="WEB-INF/includes/header.jsp" />
-
+<jsp:include page="/WEB-INF/includes/header.jsp" />
 
 <div id="topMoviesDiv" class="container">
-    <h1 class="display-5 text-white border-bottom-1">Top Movies</h1>
-    <c:forEach var="row" begin="0" end="2">
+    <h1 class="display-5 text-white border-bottom-1">All Theatres</h1>
+    <c:forEach var="row" begin="0" end="${(fn:length(theatres)-1)/4}">
         <div class="card-deck">
             <c:forEach var="col" begin="0" end="3" >
-                <c:url var="overviewLink" value="/overview">
-                    <c:param name="movieId" value="${movies[row*4+col].id}" />
+                <c:url var="overviewLink" value="/theatre">
+                    <c:param name="theatreId" value="${theatres[row*4+col].id}" />
                 </c:url>
                 <a href="${overviewLink}" class="card card-inverse text-center">
-                    <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[row*4+col].poster}" alt="">
+                    <img class="card-img-top" src="${theatres[row*4+col].photo}" alt="">
                     <div class="card-block">
-                        <h4 class="card-title">${movies[row*4+col].title}</h4>
+                        <h4 class="card-title">${theatres[row*4+col].name}</h4>
                     </div>
                 </a>
             </c:forEach>
@@ -47,7 +47,7 @@
     </c:forEach>
 </div>
 
-<jsp:include page="WEB-INF/includes/footer.jsp" />
+<jsp:include page="/WEB-INF/includes/footer.jsp" />
 </body>
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

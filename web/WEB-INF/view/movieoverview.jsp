@@ -33,8 +33,9 @@
 <body>
     <jsp:include page="/WEB-INF/includes/header.jsp" />
     <div class="container">
-        <h1>${movie.title} Overview
-            <div class="input-group">
+        <div id="titlefav">
+            <h1>${movie.title} Overview</h1>
+            <div class="input-group" id="favoriteMovie">
                 <input type="hidden" class="form-control" name="movieId" id="movieId" value="${movie.id}" />
             </div>
 
@@ -44,20 +45,9 @@
             <c:if test="${favoriteStatus>=1}">
                 <form action="" method="post"><input class = "btn btn-outline-warning my-2 my-sm-0" type="submit" value="Favorited"></form>
             </c:if>
-        </h1>
-
-        <div class="row">
-            <ul id="overviewList">
-                <li class="active"><a href="overview?movieId=${movie.id}">Overview</a></li>
-                <li><a href="timesandtickets?movieId=${movie.id}">Movie Times + Tickets</a></li>
-                <li><a href="synopsis?movieId=${movie.id}">Synopsis</a></li>
-                <li><a href="reviews?movieId=${movie.id}">Movie Reviews</a></li>
-                <li><a href="trailers?movieId=${movie.id}">Trailers</a></li>
-                <li><a href="photosandposters?movieId=${movie.id}">Photos + Posters</a></li>
-                <li><a href="castandcrew?movieId=${movie.id}">Cast + Crew</a></li>
-
-            </ul>
         </div>
+
+        <jsp:include page="/WEB-INF/includes/movienav.jsp" />
 
         <div class="row">
             <div class="col-sm-5" id="leftOverview">
@@ -114,6 +104,4 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script type="text/javascript" src="./resources/js/index.js"></script>
 <script type="text/javascript" src="./resources/js/favMovieChange.js"></script>
-
 </html>
-
