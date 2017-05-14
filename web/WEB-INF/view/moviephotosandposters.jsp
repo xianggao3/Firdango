@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -24,7 +25,6 @@
     <jsp:include page="/WEB-INF/includes/header.jsp" />
 
     <div class="container">
-
         <h1 style="color: white">${movie.title} Photos & Posters</h1>
         <div class="row">
             <ul id="overviewList">
@@ -65,7 +65,16 @@
 
             </div>
             <div class="col-sm-7" id="rightDesc">
-                <iframe src="https://www.youtube.com/embed/n6BVyk7hty8"></iframe>
+                <c:forEach var="row" begin="0" end="${imageUrls.size() / 2 - 1}">
+                    <div class="card-deck">
+                        <c:forEach var="col" begin="0" end="1" >
+                            <c:url var="openImageLink" value="https://image.tmdb.org/t/p/w500//${imageUrls.get(row*2+col)}"></c:url>
+                            <a href="${openImageLink}" class="card card-inverse text-center">
+                                <img class="card-img-top" src="${openImageLink}" alt="">
+                            </a>
+                        </c:forEach>
+                    </div>
+                </c:forEach>
             </div>
         </div>
     </div>

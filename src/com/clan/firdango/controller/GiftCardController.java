@@ -26,7 +26,7 @@ public class GiftCardController {
         this.giftCardService = giftCardService;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public String index() {
         return "gift-cards-index";
     }
