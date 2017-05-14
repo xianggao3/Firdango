@@ -14,11 +14,11 @@
                         Movies
                     </a>
                     <div class="dropdown-menu" aria-labelledby="moviesDropdown">
-                        <a class="dropdown-item" href="moviesintheatres">Now Playing</a>
-                        <a class="dropdown-item" href="moviesintheatres">Opening This Week</a>
-                        <a class="dropdown-item" href="moviesintheatres">Pre Sales Tickets</a>
-                        <a class="dropdown-item" href="moviesintheatres">Coming Soon</a>
-                        <a class="dropdown-item" href="moviesintheatres">More Movies</a>
+                        <a class="dropdown-item" href="/moviesintheatres">Now Playing</a>
+                        <a class="dropdown-item" href="/moviesintheatres">Opening This Week</a>
+                        <a class="dropdown-item" href="/moviesintheatres">Pre Sales Tickets</a>
+                        <a class="dropdown-item" href="/moviesintheatres">Coming Soon</a>
+                        <a class="dropdown-item" href="/moviesintheatres">More Movies</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -26,7 +26,7 @@
                         Times & Tickets
                     </a>
                     <div class="dropdown-menu" aria-labelledby="timesAndTicketsDropdown">
-                        <a class="dropdown-item" href="timesandtickets">Tickets for 'Fifty Shades Darker'</a>
+                        <a class="dropdown-item" href="/timesandtickets">Tickets for 'Fifty Shades Darker'</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -34,8 +34,8 @@
                         News
                     </a>
                     <div class="dropdown-menu" aria-labelledby="newsDropdown">
-                        <a class="dropdown-item" href="news">Featured News</a>
-                        <a class="dropdown-item" href="news">Explore Content</a>
+                        <a class="dropdown-item" href="/news">Featured News</a>
+                        <a class="dropdown-item" href="/news">Explore Content</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -45,13 +45,13 @@
                     <div class="dropdown-menu" aria-labelledby="vipDropdown">
                         <c:choose>
                             <c:when test="${user != null}">
-                                <a class="dropdown-item" href="account">My Account</a>
-                                <a class="dropdown-item" href="/gift-cards/">Gift Cards</a>
-                                <a class="dropdown-item" href="signout">Sign Out</a>
+                                <a class="dropdown-item" href="/account">My Account</a>
+                                <a class="dropdown-item" href="/gift-cards">Gift Cards</a>
+                                <a class="dropdown-item" href="/signout">Sign Out</a>
                             </c:when>
                             <c:otherwise>
-                                <a class="dropdown-item" href="signup">Register</a>
-                                <a class="dropdown-item" href="signin">Sign In</a>
+                                <a class="dropdown-item" href="/signup">Register</a>
+                                <a class="dropdown-item" href="/signin">Sign In</a>
                             </c:otherwise>
                         </c:choose>
 

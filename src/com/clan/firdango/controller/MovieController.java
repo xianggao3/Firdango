@@ -7,6 +7,10 @@ import com.clan.firdango.entity.Review;
 import com.clan.firdango.entity.User;
 import com.clan.firdango.service.MovieService;
 import com.clan.firdango.service.ReviewService;
+import org.apache.commons.io.IOUtils;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +18,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.net.URL;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -37,16 +43,16 @@ public class MovieController {
 
     @GetMapping("/overview")
     public String getMovieOverview(@RequestParam("movieId") int id, Model theModel, HttpServletRequest request) {
-        System.out.println(id);
         Movie movie = movieService.getMovie(id);
         theModel.addAttribute("movie", movie);
+
         HttpSession session = request.getSession();
         int favStatus = 0;
         if (session.getAttribute("loggedinuser")!=null) {
             User u = (User)session.getAttribute("loggedinuser");
             favStatus = movieService.favMovieStatus(u.getId(), movie.getId());
         }
-        System.out.println(favStatus);
+
         session.setAttribute("favoriteStatus", favStatus);
         session.setAttribute("movieid", id);
         return "movieoverview";
@@ -98,7 +104,27 @@ public class MovieController {
     }
 
     @GetMapping("/photosandposters")
-    public String getMoviePhotos() {
+    public String getMoviePhotos(@RequestParam("movieId") int id, Model theModel) {
+        List<String> imageUrls = new ArrayList<>();
+
+        try {
+            URL url = new URL("https://api.themoviedb.org/3/movie/" + id + "/images?api_key=d36bee7b08bda0f0dd33ccdcd33e8685");
+            String imagesJson = IOUtils.toString(url);
+            JSONObject imagesJsonObject = (JSONObject) JSONValue.parseWithException(imagesJson);
+            JSONArray backdrops = (JSONArray) imagesJsonObject.get("backdrops");
+            for (int i = 0; i < backdrops.size(); i++) {
+                JSONObject curObj = (JSONObject) backdrops.get(i);
+                imageUrls.add((String) curObj.get("file_path"));
+            }
+            JSONArray posters = (JSONArray) imagesJsonObject.get("posters");
+            for (int i = 0; i < posters.size(); i++) {
+                JSONObject curObj = (JSONObject) posters.get(i);
+                imageUrls.add((String) curObj.get("file_path"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        theModel.addAttribute("imageUrls", imageUrls);
         return "moviephotosandposters";
     }
 
