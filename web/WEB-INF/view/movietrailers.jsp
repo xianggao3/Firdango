@@ -63,7 +63,7 @@
 
             </div>
             <div class="col-sm-7" id="rightDesc">
-                <iframe src="https://www.youtube.com/embed/n6BVyk7hty8"></iframe>
+                <iframe src="http://www.youtube.com/embed/${movie.trailer}"></iframe>
             </div>
         </div>
     </div>

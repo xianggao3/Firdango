@@ -97,11 +97,28 @@ public class MovieController {
 
     @GetMapping("/castandcrew")
     public String getMovieCastAndCrew(@RequestParam("movieId") int id, Model theModel) {
-        System.out.println(id);
-        Movie movie = movieService.getMovie(id);
-        theModel.addAttribute("movie", movie);
-        return "movieoverview";
+        List<String> castncrews = new ArrayList<>();
+        try {
+            URL url = new URL("https://api.themoviedb.org/3/movie/"+id+"/credits?api_key=d36bee7b08bda0f0dd33ccdcd33e8685\n");
+            String imagesJson = IOUtils.toString(url);
+            JSONObject imagesJsonObject = (JSONObject) JSONValue.parseWithException(imagesJson);
+            JSONArray backdrops = (JSONArray) imagesJsonObject.get("cast");
+            for (int i = 0; i < backdrops.size(); i++) {
+                JSONObject curObj = (JSONObject) backdrops.get(i);
+                castncrews.add((String) (curObj.get("name")+" as "+(curObj.get("character"))));
+            }
+            JSONArray posters = (JSONArray) imagesJsonObject.get("crew");
+            for (int i = 0; i < posters.size(); i++) {
+                JSONObject curObj = (JSONObject) posters.get(i);
+                castncrews.add((String) (curObj.get("name")+" in "+(curObj.get("department"))));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        theModel.addAttribute("castncrews", castncrews);
+        return "moviecastandcrew";
     }
+
 
     @GetMapping("/photosandposters")
     public String getMoviePhotos(@RequestParam("movieId") int id, Model theModel) {

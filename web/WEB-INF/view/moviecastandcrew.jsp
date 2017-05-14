@@ -1,8 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Movie Synopsis</title>
+    <title>Movie Cast and Crew</title>
     <meta charset="utf-8">
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -176,105 +177,11 @@
             <div class="col-sm-7" id="rightDesc">
                 <h1>Cast + Crew</h1>
                 <div class="row">
-Cast
-
-Dakota Johnson Anastasia Steele
-Jamie Dornan Christian Grey
-Eric Johnson Jack Hyde
-Rita Ora Mia Gray
-Luke Grimes Elliot Grey
-Victor Rasuk José Rodriguez
-Eloise Mumford Kate
-Bella Heathcote Leila Williams
-Kim Basinger Elena Lincoln
-Marcia Gay Harden Mrs. Grey
-Max Martini Taylor
-Bruce Altman Jerry Roach
-Andrew Airlie Carrick Grey
-Robinne Lee Ros Bailey
-Amy Price-Francis Liz
-Fay Masterson Mrs. Jones
-Ryker Brown 4-Year Old Christian
-Logan Brown 4-Year Old Christian
-John Callander Pimp
-Carmen Dollard Christian's Birth Mom
-Ellen Ewusie Gallery Guest
-Elizabeth McLaughlin Gallery Owner
-Albert Nicholas Waiter
-Stephan Miers Waiter
-Michael Meneer Auctioneer
-Michael St. John Smith Auction Bidder
-Derek Green Auction Bidder
-Michelle Harrison Auction Bidder
-Mark de Carlo News Anchor
-Bill Dow Willis
-Ashleigh LaThrop Hannah
-Stephanie Florian News Reporter
-Julia Dominczak Gretchen
-Shiraine Haas Gwen
-Colin Lawrence Penthouse Restaurant Customer
-Lucia Walters Penthouse Restaurant Customer
-Brooke Johnston Whispering Gallery Lady
-Paniz Zade Salon Receptionist
-Carmel Amit Whispering Guest at Masked Party
-Isaiah Dobbs Flower Delivery Man
-Jose James Gala Crooner
-Otis Brown Band Member
-Aaron Parks Band Member
-Josh Hari Band Member
-Rob Compton Yacht Captain
-Peter Boulanger Fire Choreographer
-Neezar Joseph Elferzeli Fire Breather
-Ryan Mellors Juggler
-Chris Murdoch Juggler
-Crew
-
-James Foley Director
-Dana Brunetti Producer
-E.L. James Producer, Book Author
-Marcus Viscidi Producer, Unit Production Manager
-Michael DeLuca Producer
-Alex Burdett Special Effects Coordinator
-Andy Wilson Camera Operator
-Barbara Kelly Unit Production Manager
-Bryan Litson CG Supervisor
-Carolyn A. Loucks Set Decorator
-Craig Humphries Art Director
-Dana Sano Musical Direction/Supervision
-Dane A. Davis Supervising Sound Editor
-Danny Elfman Composer (Music Score)
-David K. Arnold First Assistant Director
-Debra Wiebe Hair Styles
-Eddy Santos Second Assistant Director
-Evelyne Noraz Department Head Makeup
-Frank A. Montaño Re-Recording Mixer
-Graham Stumpf Post Production Supervisor
-Janice MacIsaac Costumes Supervisor
-Jay Mitchell Set Designer
-Jeremy Stanbridge Supervising Art Director
-Jim Ramsay Set Designer
-John Schwartzman Cinematographer
-Jon Taylor Re-Recording Mixer
-Julie Schubert Casting
-Karin Behrenz Second Assistant Director
-Kathleen Whelan Production Coordinator
-Kevin Hahn Visual Effects Supervisor
-Kyle White Set Designer
-Laray Mayfield Casting
-Mark Noda Production Sound Mixer
-Mary Prendergast Post Production Coordinator
-MPC Visual Effects
-Nelson Coates Production Designer
-Niall Leonard Screenwriter
-Paul Barry First Assistant Director
-Peter Bodnarus Art Director
-Phil Nee Nee Second Assistant Director
-Richard Francis-Bruce Editor
-Richard Spriggs Supervising Animator
-Rosalina Da Silva Department Head Makeup
-Scott Ateah Stunts Coordinator
-Shay Cunliffe Costume Designer
-Stephanie Flack Supervising Sound Editor Provided by Rovi
+                    <ul>
+                    <c:forEach items="${castncrews}" var="actorname">
+                        <li>${actorname}</li>
+                    </c:forEach>
+                    </ul>
                 </div>
             </div>
         </div>
