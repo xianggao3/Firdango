@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page session="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -83,7 +84,7 @@
                 <div class="row">
                     <div class="movieReview">
                         <c:forEach var="row" begin="0" end="2">
-                            <h2 class="reviewTitle">${reviews[0].title}</h2>
+                            <h2 class="reviewTitle">${reviews[row].title}</h2>
                             <table>
                                 <tr>
                                     <td>
@@ -103,12 +104,33 @@
                                 </tr>
                             </table>
                             <span class="reviewMeta">
-                                By <span class="reviewAuthor">${reviews[0].userName}</span>
-                                on <span class="reviewDate">${reviews[0].timeOfReview}</span>
+                                By <span class="reviewAuthor">${reviews[row].userName}</span>
+                                on <span class="reviewDate">${reviews[row].timeOfReview}</span>
                             </span>
                             <p class="reviewFull">
-                                    ${reviews[0].body}
+                                    ${reviews[row].body}
                             </p>
+                            <c:set var="isLiked" value="false" />
+                            <c:forEach var="reviewIndex" begin="0" end="${fn:length(favoriteReviews)-1}">
+                                <span>${reviews[row].reviewId}</span> - <span>${favoriteReviews[reviewIndex].reviewId}</span>
+                                <c:choose>
+                                    <c:when test="${reviews[row].reviewId==favoriteReviews[reviewIndex].reviewId}">
+                                        <c:set var="isLiked" value="true" />
+                                    </c:when>
+                                    <c:otherwise>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:forEach>
+                            <span>${isLiked}</span>
+                            <c:choose>
+
+                                <c:when test="${isLiked==true}">
+                                    <input id="${reviews[row].reviewId}" class="btn btn-danger like" type="button" value="Dislike">
+                                </c:when>
+                                <c:otherwise>
+                                    <input id="${reviews[row].reviewId}" class="btn btn-primary like" type="button" value="Like">
+                                </c:otherwise>
+                            </c:choose>
                             <hr>
                         </c:forEach>
 
@@ -126,16 +148,17 @@
 
 </body>
 
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="./resources/js/index.js"></script>
 
 <script>
     $(document).ready(function(){
+        /*
         var reviews = ${reviews};
         var $index = 0;
         console.log(reviews);
+        */
         $('input:radio[name="rating"]').filter('[value="${reviews[0].rating}"]').attr('checked', true);
         $("#prev").click(function(){
 
@@ -146,6 +169,35 @@
 
         });
 
+        function doLike(reviewId, likeState){
+            if (likeState==0) $(event.target).val("Dislike");
+            else $(event.target).val("Like");
+            $.post("/likeareview",
+                {
+                    reviewId: reviewId,
+                    likeState: likeState
+                },
+                function(data, status){
+
+                });
+        }
+
+        $(".like").click(function(event){
+            $(event.target).toggleClass("btn-primary");
+            $(event.target).toggleClass("btn-danger");
+            var val = $(event.target).val();
+            var rId = event.target.id;
+            switch (val){
+                case "Like":
+                    doLike(rId, 0);
+                    break;
+                case "Dislike":
+                    doLike(rId, 1);
+                    break;
+                default:
+                    break;
+            }
+        });
 
     });
 </script>

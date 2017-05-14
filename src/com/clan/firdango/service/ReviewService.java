@@ -1,6 +1,7 @@
 package com.clan.firdango.service;
 
 import com.clan.firdango.dao.ReviewDAO;
+import com.clan.firdango.entity.FavoriteReview;
 import com.clan.firdango.entity.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,4 +51,15 @@ public class ReviewService {
     public List<Review> getAllReviews() {
         return reviewDAO.getAllReviews();
     }
+
+    @Transactional
+    public void saveLike(FavoriteReview fr){ reviewDAO.saveLike(fr); }
+
+    @Transactional
+    public void removeLike(FavoriteReview fr){ reviewDAO.deleteLike(fr); }
+
+    @Transactional
+    public List<FavoriteReview> getReviewsLikedByUser(int userId) { return reviewDAO.getReviewsLikedByUser(userId);}
+
+
 }
