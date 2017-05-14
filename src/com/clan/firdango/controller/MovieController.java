@@ -63,7 +63,7 @@ public class MovieController {
         int fs = (int) session.getAttribute("favoriteStatus");
 
         if(session.getAttribute("loggedinuser")==null){
-            return("redirect:/signup");
+            return("redirect:/signin");
         }else{
             User liu = (User) session.getAttribute("loggedinuser");
             if (fs ==0){
@@ -77,7 +77,7 @@ public class MovieController {
             }
 
         }
-        return "movieoverview";
+        return "redirect:/timesandtickets";
     }
 
     @RequestMapping(value="/search",method = RequestMethod.GET)

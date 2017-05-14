@@ -76,7 +76,7 @@
                                     <td data-th="Quantity">
                                         <input id="quantity" type="number" class="form-control text-center" value="1" min="0" max="99">
                                     </td>
-                                    <td id="subtotal" data-th="Subtotal" class="text-center" value="11.99">33</td>
+                                    <td id="subtotal" data-th="Subtotal" class="text-center" value="11.99">11.99</td>
                                     <td class="actions" data-th="">
                                         <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
                                         <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>

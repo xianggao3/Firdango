@@ -39,10 +39,10 @@
             </div>
 
             <c:if test="${favoriteStatus==0}">
-                <form action="" method="post"><input type="submit" value="Favorite This"></form>
+                <form action="" method="post"><input class = "btn btn-outline-warning my-2 my-sm-0" type="submit" value="Favorite This"></form>
             </c:if>
             <c:if test="${favoriteStatus>=1}">
-                <form action="" method="post"><input type="submit" value="Favorited"></form>
+                <form action="" method="post"><input class = "btn btn-outline-warning my-2 my-sm-0" type="submit" value="Favorited"></form>
             </c:if>
         </h1>
 
