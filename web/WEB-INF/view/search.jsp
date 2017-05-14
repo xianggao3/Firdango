@@ -56,18 +56,17 @@
     </div>
     <div id="topMoviesDiv" class="container">
         <div class="card-deck">
-            <c:forEach var="col" begin="0" end="3" >
-                <c:url var="overviewLink" value="/overview">
-                    <c:param name="movieId" value="${theatreRes[col].id}" />
-                </c:url>
-                <a href="${overviewLink}" class="card card-inverse text-center">
-                    <img class="card-img-top" height="360" src="${theatreRes[col].photo}" onerror="this.src='../../resources/img/placeholderposter.png'">
-                    <div class="card-block">
-                        <h4 class="card-title">${theatreRes[col].name}</h4>
-                        <h6 class="card-title">${theatreRes[col].address}</h6>
-
-                    </div>
-                </a>
+            <c:forEach items="${theatreRes}" var="theatre">
+                    <c:url var="overviewLink" value="/overview">
+                        <c:param name="movieId" value="${theatre.id}" />
+                    </c:url>
+                    <a href="${overviewLink}" class="card card-inverse text-center">
+                        <img class="card-img-top" height="280" src="${theatre.photo}" onerror="this.src='../../resources/img/placeholderposter.png'">
+                        <div class="card-block">
+                            <h4 class="card-title">${theatre.name}</h4>
+                            <h6 class="card-title">${theatre.address}</h6>
+                        </div>
+                    </a>
             </c:forEach>
         </div>
     </div>
