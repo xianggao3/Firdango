@@ -56,7 +56,13 @@ public class SearchDAO {
 
         Gson gson = new Gson();
         MovieSearchResults msr= gson.fromJson(JSONstring, MovieSearchResults.class);
+        System.out.println(msr.getTotal_results());
         searchRes=msr.getResults();
+        for(int x=searchRes.size()-1;x>-1;x--){
+            if((searchRes.get(x).getId()<315837)||(searchRes.get(x).getId()>316376)){
+                searchRes.remove(x);
+            }
+        }
 
         //System.out.println(searchRes.get(0).getOverview());
         //System.out.println(searchRes.get(0).getPoster());

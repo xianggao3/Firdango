@@ -1,6 +1,7 @@
 package com.clan.firdango.service;
 
 import com.clan.firdango.dao.MovieDAO;
+import com.clan.firdango.entity.FavoriteMovie;
 import com.clan.firdango.entity.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,20 @@ public class MovieService {
     @Transactional
     public List<Movie> getAllMovies() {
         return movieDAO.getAllMovies();
+    }
+
+    @Transactional
+    public int favMovieStatus(int userid,int movieid) {
+        return movieDAO.favMovieStatus(userid,movieid);
+    }
+
+    @Transactional
+    public void addToFavList(FavoriteMovie fm) {
+         movieDAO.addToFavList(fm);
+    }
+
+    @Transactional
+    public void removeFromFavList(int mid, int uid) {
+         movieDAO.removeFromFavList(mid, uid);
     }
 }

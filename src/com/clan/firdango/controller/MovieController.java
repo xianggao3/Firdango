@@ -1,6 +1,7 @@
 package com.clan.firdango.controller;
 
 import com.clan.firdango.dao.SearchDAO;
+import com.clan.firdango.entity.FavoriteMovie;
 import com.clan.firdango.entity.Movie;
 import com.clan.firdango.entity.Review;
 import com.clan.firdango.entity.User;
@@ -16,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by xgao3 on 4/11/2017.
@@ -36,11 +38,46 @@ public class MovieController {
     }
 
     @GetMapping("/overview")
-    public String getMovieOverview(@RequestParam("movieId") int id, Model theModel) {
+    public String getMovieOverview(@RequestParam("movieId") int id, Model theModel,HttpServletRequest request) {
         System.out.println(id);
         Movie movie = movieService.getMovie(id);
         theModel.addAttribute("movie", movie);
+        HttpSession session= request.getSession();
+        int favStatus= 0;
+        if(session.getAttribute("loggedinuser")!=null){
+            User u = (User)session.getAttribute("loggedinuser");
+            favStatus=  movieService.favMovieStatus(u.getId(),movie.getId());
+        }
+        System.out.println(favStatus);
+        session.setAttribute("favoriteStatus",favStatus);
+        session.setAttribute("movieid",id);
         return "movieoverview";
+    }
+
+    @PostMapping("/overview")
+    public String changeFavoriteMovie(@RequestParam("movieId") int id, Model theModel,HttpServletRequest request) {
+        System.out.println(id);
+        Movie movie = movieService.getMovie(id);
+        theModel.addAttribute("movie", movie);
+        HttpSession session= request.getSession();
+        int fs = (int) session.getAttribute("favoriteStatus");
+
+        if(session.getAttribute("loggedinuser")==null){
+            return("redirect:/signin");
+        }else{
+            User liu = (User) session.getAttribute("loggedinuser");
+            if (fs ==0){
+                FavoriteMovie fm = new FavoriteMovie();
+                fm.setMovieid(id);
+                fm.setUserid(liu.getId());
+                movieService.addToFavList(fm);
+            }else{
+
+                movieService.removeFromFavList(id,liu.getId());
+            }
+
+        }
+        return "redirect:/timesandtickets";
     }
 
     @RequestMapping(value="/search",method = RequestMethod.GET)

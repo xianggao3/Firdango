@@ -152,7 +152,7 @@
                         </div>
                         <div class="pull-right">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
-                            <span class="red">support@firdango.com<small>Send Us An Email!</small></span>
+                            <span class="red">Support@Firdango<small>Send Us An Email!</small></span>
                         </div>
                     </div>
                 </div>
