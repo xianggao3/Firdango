@@ -11,8 +11,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="../../resources/css/index.css" rel="stylesheet">
 
-
-
     <style>
         #overviewList li {
             display: inline;

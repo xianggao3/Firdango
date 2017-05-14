@@ -141,6 +141,7 @@ public class MovieController {
         r.setRating(rating);
         r.setTitle(title);
         r.setBody(reviewBody);
+        r.setUserName(u.getFirstName() + " " + u.getLastName());
         r.setTimeOfReview((new Timestamp(System.currentTimeMillis())));
         reviewService.saveReview(r);
         return "moviewriteareview";

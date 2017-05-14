@@ -6,3 +6,18 @@ table, fieldset {
 .movieReview{
     width: 100%
 }
+
+.reviewMeta{
+    text-align: left;
+    font-size: 12px;
+    left: 0;
+}
+
+.reviewAuthor{
+    color: aquamarine;
+}
+
+.reviewDate{
+    color: indianred;
+}
+

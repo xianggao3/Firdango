@@ -9,15 +9,13 @@
     <title>Movie Synopsis</title>
     <meta charset="utf-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
-
     <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="./resources/css/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
     <link href="./resources/css/index.css" rel="stylesheet">
     <link href="./resources/css/movie.css" rel="stylesheet">
     <link href="./resources/css/moviereviews.css" rel="stylesheet">
-    <link href="./resources/css/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <style>
@@ -84,34 +82,40 @@
                 <h1>Movie Reviews</h1>
                 <div class="row">
                     <div class="movieReview">
-                        <table>
-                            <tr>
-                                <td>
-                                    <fieldset class="rating" disabled>
-                                        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                                        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                                        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                                        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                                        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                                        <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                                    </fieldset>
-                                </td>
-                            </tr>
-                        </table>
+                        <c:forEach var="row" begin="0" end="2">
+                            <h2 class="reviewTitle">${reviews[0].title}</h2>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <fieldset class="rating" disabled>
+                                            <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                            <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                            <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                            <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                            <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                            <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                        </fieldset>
+                                    </td>
+                                </tr>
+                            </table>
+                            <span class="reviewMeta">
+                                By <span class="reviewAuthor">${reviews[0].userName}</span>
+                                on <span class="reviewDate">${reviews[0].timeOfReview}</span>
+                            </span>
+                            <p class="reviewFull">
+                                    ${reviews[0].body}
+                            </p>
+                            <hr>
+                        </c:forEach>
 
-                        <h2 class="reviewTitle">${reviews[0].title}</h2>
-                        <span class="reviewAuthor">BY NIKKICHA</span><span class="reviewDate">${reviews[0].timeOfReview}</span>
-
-                        <p class="reviewFull">
-                            ${reviews[0].body}
-                        </p>
+                        <a href="#" style="margin-right: 60%; margin-left: 3%"><button id="prev">Previous</button></a>
+                        <a href="#"><button id="next">Next</button></a>
                     </div>
-                <a href="#" style="margin-right: 60%; margin-left: 3%">Previous Review</a>
-                <a href="#">Next Review</a>
+
 
                 </div>
             </div>
@@ -129,7 +133,20 @@
 
 <script>
     $(document).ready(function(){
+        var reviews = ${reviews};
+        var $index = 0;
+        console.log(reviews);
         $('input:radio[name="rating"]').filter('[value="${reviews[0].rating}"]').attr('checked', true);
+        $("#prev").click(function(){
+
+        });
+
+        $("#next").click(function(){
+            $index++;
+
+        });
+
+
     });
 </script>
 
