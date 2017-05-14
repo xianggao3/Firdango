@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     var navListItems = $('ul.setup-panel li a'),
         allWells = $('.setup-content');
 
@@ -35,13 +34,11 @@ $(document).ready(function() {
         $(this).remove();
     });
 
-    $("#quantity").on('keyup mouseup', function () {
-        var numTicks = $("#quantity").value
-        var subt = $("#subtotal").value
-        alert(subt);
-
-        //subt = numTicks*subt;
-        $("#subtotal").html();
+    $("#aQuantity, #cQuantity, #sQuantity").change(function() {
+        var adult = parseFloat($("#aQuantity").val());
+        var child = parseFloat($("#cQuantity").val());
+        var senior = parseFloat($("#sQuantity").val());
+        $(".total").html((adult * 13.99 + child * 10.99 + senior * 11.99).toFixed(2).toString());
     });
 });
 

@@ -14,17 +14,14 @@ public class Ticket implements Serializable {
     @Column(name = "ticketId")
     private int ticketId;
 
-    @Column(name = "price")
-    private double price;
+    @Column(name = "seat")
+    private String seat;
 
-    @Column(name = "movieId")
-    private String movieId;
+    @Column(name = "showtimeId")
+    private int showtimeId;
 
-    @Column(name = "theatreId")
-    private String theatreId;
-
-    @Column(name = "timeOfPurchase")
-    private String timeOfPurchase;
+    @Column(name = "userId")
+    private int userId;
 
     public int getTicketId() {
         return ticketId;
@@ -34,35 +31,27 @@ public class Ticket implements Serializable {
         this.ticketId = ticketId;
     }
 
-    public double getPrice() {
-        return price;
+    public int getShowtimeId() {
+        return showtimeId;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setShowtimeId(int showtimeId) {
+        this.showtimeId = showtimeId;
     }
 
-    public String getMovieId() {
-        return movieId;
+    public String getSeat() {
+        return seat;
     }
 
-    public void setMovieId(String movieId) {
-        this.movieId = movieId;
+    public void setSeat(String seat) {
+        this.seat = seat;
     }
 
-    public String getTheatreId() {
-        return theatreId;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setTheatreId(String theatreId) {
-        this.theatreId = theatreId;
-    }
-
-    public String getTimeOfPurchase() {
-        return timeOfPurchase;
-    }
-
-    public void setTimeOfPurchase(String timeOfPurchase) {
-        this.timeOfPurchase = timeOfPurchase;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

@@ -13,10 +13,10 @@
 <body>
     <h1>Purchase Successful</h1>
 
-    <!--
+    <%--
     <h2>Token</h2>
     ${token}
-    -->
+    --%>
 
     <p>Your receipt has been sent to ${email}</p>
     <p>Purchase Amount: ${amount}</p>
