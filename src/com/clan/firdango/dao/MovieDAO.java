@@ -73,4 +73,11 @@ public class MovieDAO {
         query.setParameter("uid",uid);
         query.executeUpdate();
     }
+
+    public List<Movie> getAllMovies() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        String q = "FROM Movie ORDER BY id DESC";
+        Query<Movie> theQuery = currentSession.createQuery(q, Movie.class);
+        return theQuery.getResultList();
+    }
 }

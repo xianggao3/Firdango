@@ -1,8 +1,12 @@
 package com.clan.firdango.controller;
 
+import com.clan.firdango.entity.Movie;
 import com.clan.firdango.entity.Newsletter;
+import com.clan.firdango.entity.Review;
 import com.clan.firdango.entity.User;
 import com.clan.firdango.service.EmailService;
+import com.clan.firdango.service.MovieService;
+import com.clan.firdango.service.ReviewService;
 import com.clan.firdango.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,11 +23,15 @@ import java.util.List;
 public class AdminController {
     private final UserService userService;
     private final EmailService emailService;
+    private final ReviewService reviewService;
+    private final MovieService movieService;
 
     @Autowired
-    public AdminController(UserService userService, EmailService emailService) {
+    public AdminController(UserService userService, EmailService emailService, ReviewService reviewService, MovieService movieService) {
         this.userService = userService;
         this.emailService = emailService;
+        this.reviewService = reviewService;
+        this.movieService = movieService;
     }
 
     @GetMapping("/")
@@ -47,7 +55,6 @@ public class AdminController {
 
     @PostMapping("/saveUser")
     public String saveUser(@ModelAttribute("user") User user) {
-        //save the user
         userService.saveUser(user);
         return "redirect:/admin/listUsers";
     }
@@ -76,5 +83,51 @@ public class AdminController {
     public String sendNewsletter(@ModelAttribute("newsletter") Newsletter newsletter) {
         emailService.sendMassEmail(newsletter.getSubject(), newsletter.getBody());
         return "redirect:/admin/listUsers";
+    }
+
+    @GetMapping("/listReviews")
+    public String listReviews(Model theModel) {
+        List<Review> reviews = reviewService.getAllReviews();
+        theModel.addAttribute("reviews", reviews);
+        return "list-reviews";
+    }
+
+    @GetMapping("/deleteReview")
+    public String deleteReview(@RequestParam("reviewId") int id) {
+        reviewService.deleteReview(id);
+        return "redirect:/admin/listReviews";
+    }
+
+    @GetMapping("/listMovies")
+    public String listMovies(Model theModel) {
+        List<Movie> movies = movieService.getAllMovies();
+        theModel.addAttribute("movies", movies);
+        return "list-movies";
+    }
+
+    @GetMapping("/deleteMovie")
+    public String deleteMovie(@RequestParam("movieId") int id) {
+        movieService.deleteMovie(id);
+        return "redirect:/admin/listMovies";
+    }
+
+    @GetMapping("/showAddMovieForm")
+    public String showAddMovieForm(Model model) {
+        Movie movie = new Movie();
+        model.addAttribute("movie", movie);
+        return "movie-form";
+    }
+
+    @GetMapping("/showUpdateMovieForm")
+    public String showUpdateMovieForm(@RequestParam("movieId") int id, Model model) {
+        Movie movie = movieService.getMovie(id);
+        model.addAttribute("movie", movie);
+        return "movie-form";
+    }
+
+    @PostMapping("/saveMovie")
+    public String saveMovie(@ModelAttribute("movie") Movie movie) {
+        movieService.saveMovie(movie);
+        return "redirect:/admin/listMovies";
     }
 }

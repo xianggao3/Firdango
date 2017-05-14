@@ -38,7 +38,7 @@
                 <img class="d-block img-fluid" src="https://www.myvue.com/-/media/images/film%20and%20events/february%202017/logancarouseld.jpg?sc=" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h3>Logan</h3>
-                    <p>In Theaters 2/28</p>
+                    <p>Now Playing</p>
                 </div>
             </div>
             <div class="carousel-item">

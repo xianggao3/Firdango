@@ -46,6 +46,7 @@
                         <c:choose>
                             <c:when test="${user != null}">
                                 <a class="dropdown-item" href="account">My Account</a>
+                                <a class="dropdown-item" href="giftCards">Gift Cards</a>
                                 <a class="dropdown-item" href="signout">Sign Out</a>
                             </c:when>
                             <c:otherwise>

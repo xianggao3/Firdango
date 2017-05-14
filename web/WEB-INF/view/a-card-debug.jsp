@@ -11,11 +11,15 @@
     <title>Card Info</title>
 </head>
 <body>
-    <h1>Submitted Card Info</h1>
+    <h1>Purchase Successful</h1>
 
+    <!--
     <h2>Token</h2>
     ${token}
+    -->
 
-    <p>${email} paid ${amount} for ${description}</p>
+    <p>Your receipt has been sent to ${email}</p>
+    <p>Purchase Amount: ${amount}</p>
+    <p>Purchase Type: ${description}</p>
 </body>
 </html>

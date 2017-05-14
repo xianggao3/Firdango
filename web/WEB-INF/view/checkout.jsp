@@ -412,14 +412,14 @@
                             <!-- CREDIT CARD FORM STARTS HERE -->
                             <form action="/charge" method="POST">
                                 <!-- We need this info for the Stripe receipt, but Stripe doesn't POST this to /charge -->
-                                <input type="hidden" name="amount" value="10000" />
-                                <input type="hidden" name="description" value="2 widgets" />
+                                <input type="hidden" name="amount" value="2000" />
+                                <input type="hidden" name="description" value="movie tickets" />
                                 <script
                                         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                         data-key="pk_test_dwP3MykScmUXQIkyy01Hc81z"
-                                        data-amount="10000"
-                                        data-name="Test Charge"
-                                        data-description="2 widgets"
+                                        data-amount="2000"
+                                        data-name="Firdango Ticket Purchase"
+                                        data-description="Movie Tickets"
                                         data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                                         data-locale="auto">
                                 </script>

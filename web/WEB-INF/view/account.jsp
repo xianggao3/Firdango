@@ -37,8 +37,8 @@
                         type="currency"/>
                 </div>
 
-                <h5>Change name or email</h5>
-				<hr/>
+                <hr>
+                <h5>Change Name Or Email</h5>
 				<form action="changeNameEmail" modelAttribute="user" method="post">
 					<div class="form-group">
 						<label for="firstName" class="cols-sm-2 control-label">First Name</label>
@@ -77,7 +77,7 @@
 
 				<form action="changePassword" modelAttribute="user" method="post">
 					<hr>
-					<h5>Change password</h5>
+					<h5>Change Password</h5>
 					<div class="form-group">
 						<label for="oldPassword" class="cols-sm-2 control-label">Old Password</label>
 						<div class="cols-sm-10">
@@ -103,7 +103,7 @@
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-								<input id="passwordValidate" name="passwordValidate" placeholder="Enter your password again." class="form-control" type="password"/>
+								<input id="passwordValidate" name="passwordValidate" placeholder="Enter your password again" class="form-control" type="password"/>
 							</div>
 						</div>
 					</div>
@@ -115,7 +115,7 @@
 
 				<form action="receiveNewsletter" modelAttribute="user" method="post">
 					<hr>
-					<h5>Receive newsletter</h5>
+					<h5>Receive Newsletter</h5>
 					<div class="form-check">
 						<label class="form-check-label">
 							<input class="form-check-input" type="checkbox" ${user.receiveNewsletter == 1 ? 'checked' : ''} name="receiveNewsletter">
@@ -130,7 +130,7 @@
 
                 <form action="/redeemGiftCard" modelAttribute="user" method="post">
                     <div class="form-group">
-                        <label for="firstName" class="cols-sm-2 control-label">Gift Card Code</label>
+                        <label for="code" class="cols-sm-2 control-label">Redeem Gift Card</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -146,7 +146,7 @@
 			</div>
 		</div>
 	</div>
-
+    <jsp:include page="/WEB-INF/includes/footer.jsp" />
 </body>
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

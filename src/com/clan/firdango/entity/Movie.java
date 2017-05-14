@@ -48,8 +48,8 @@ public class Movie {
     @Column(name = "overview")
     private String overview;
 
-    //@Column(name = "status")
-    //private String status;
+    @Column(name = "movieStatus")
+    private String status;
 
     public int getId() {
         return id;
@@ -147,13 +147,13 @@ public class Movie {
         this.overview = overview;
     }
 
-    /*public String getStatus() {
+    public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
-    }*/
+    }
 
     public String toString() {
         return "Movie{" +

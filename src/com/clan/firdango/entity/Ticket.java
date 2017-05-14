@@ -15,7 +15,7 @@ public class Ticket implements Serializable {
     private int ticketId;
 
     @Column(name = "price")
-    private String price;
+    private double price;
 
     @Column(name = "movieId")
     private String movieId;
@@ -34,11 +34,11 @@ public class Ticket implements Serializable {
         this.ticketId = ticketId;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

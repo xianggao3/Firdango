@@ -42,6 +42,11 @@ public class MovieService {
     }
 
     @Transactional
+    public List<Movie> getAllMovies() {
+        return movieDAO.getAllMovies();
+    }
+
+    @Transactional
     public int favMovieStatus(int userid,int movieid) {
         return movieDAO.favMovieStatus(userid,movieid);
     }
