@@ -133,7 +133,7 @@
 
                         <div class="theater">
                             <div class="screen">
-                                <h1>Please select a seat</h1>
+                                <h1>${theatre}</h1>
                             </div>
                             <div class="exit exit--front room">
 
@@ -440,12 +440,12 @@
                                     <legend>Credit Card Payment</legend>
                                     <div class="form-group">
                                         <label for="cc_name">Full Name</label>
-                                        <input type="text" class="form-control" id="cc_name">
+                                        <input type="text" class="form-control" id="cc_name" required>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-12">Card Number</label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -480,7 +480,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-12">Card CVV</label>
                                         <div class="col-md-3">
-                                            <input type="text" class="form-control" title="Three digits on the back of your card">
+                                            <input type="text" class="form-control" title="Three digits on the back of your card" required>
                                         </div>
                                     </div>
                                 </fieldset>

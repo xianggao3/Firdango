@@ -11,13 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Created by xgao3 on 4/11/2017.
@@ -38,46 +36,44 @@ public class MovieController {
     }
 
     @GetMapping("/overview")
-    public String getMovieOverview(@RequestParam("movieId") int id, Model theModel,HttpServletRequest request) {
+    public String getMovieOverview(@RequestParam("movieId") int id, Model theModel, HttpServletRequest request) {
         System.out.println(id);
         Movie movie = movieService.getMovie(id);
         theModel.addAttribute("movie", movie);
-        HttpSession session= request.getSession();
-        int favStatus= 0;
-        if(session.getAttribute("loggedinuser")!=null){
+        HttpSession session = request.getSession();
+        int favStatus = 0;
+        if (session.getAttribute("loggedinuser")!=null) {
             User u = (User)session.getAttribute("loggedinuser");
-            favStatus=  movieService.favMovieStatus(u.getId(),movie.getId());
+            favStatus = movieService.favMovieStatus(u.getId(), movie.getId());
         }
         System.out.println(favStatus);
-        session.setAttribute("favoriteStatus",favStatus);
-        session.setAttribute("movieid",id);
+        session.setAttribute("favoriteStatus", favStatus);
+        session.setAttribute("movieid", id);
         return "movieoverview";
     }
 
     @PostMapping("/overview")
-    public String changeFavoriteMovie(@RequestParam("movieId") int id, Model theModel,HttpServletRequest request) {
+    public String changeFavoriteMovie(@RequestParam("movieId") int id, Model theModel, HttpServletRequest request) {
         System.out.println(id);
         Movie movie = movieService.getMovie(id);
         theModel.addAttribute("movie", movie);
-        HttpSession session= request.getSession();
+        HttpSession session = request.getSession();
         int fs = (int) session.getAttribute("favoriteStatus");
 
-        if(session.getAttribute("loggedinuser")==null){
+        if (session.getAttribute("loggedinuser") == null){
             return("redirect:/signin");
-        }else{
+        } else {
             User liu = (User) session.getAttribute("loggedinuser");
-            if (fs ==0){
+            if (fs ==0) {
                 FavoriteMovie fm = new FavoriteMovie();
                 fm.setMovieid(id);
                 fm.setUserid(liu.getId());
                 movieService.addToFavList(fm);
-            }else{
-
+            } else {
                 movieService.removeFromFavList(id,liu.getId());
             }
-
         }
-        return "redirect:/timesandtickets";
+        return "redirect:/overview?movieId=" + id;
     }
 
     @RequestMapping(value="/search",method = RequestMethod.GET)

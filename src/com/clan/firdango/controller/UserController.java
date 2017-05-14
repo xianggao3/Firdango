@@ -1,7 +1,10 @@
 package com.clan.firdango.controller;
 
+import com.clan.firdango.entity.Movie;
+import com.clan.firdango.entity.MovieAlert;
 import com.clan.firdango.entity.User;
 import com.clan.firdango.service.GiftCardService;
+import com.clan.firdango.service.MovieAlertService;
 import com.clan.firdango.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,9 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by xgao3 on 4/12/2017.
@@ -21,11 +24,13 @@ import javax.servlet.http.HttpSession;
 public class UserController {
     private final UserService userService;
     private final GiftCardService giftCardService;
+    private final MovieAlertService movieAlertService;
 
     @Autowired
-    public UserController(UserService userService, GiftCardService giftCardService) {
+    public UserController(UserService userService, GiftCardService giftCardService, MovieAlertService movieAlertService) {
         this.userService = userService;
         this.giftCardService = giftCardService;
+        this.movieAlertService = movieAlertService;
     }
 
     @GetMapping("/signup")
@@ -137,5 +142,26 @@ public class UserController {
                                  @ModelAttribute User user) {
         user.setBalance(userService.redeemGiftCard(user.getId(), code));
         return "redirect:/account";
+    }
+
+    @PostMapping("/signupFirAlert")
+    public String signupFirAlert(@RequestParam("alertEmail") String email, @RequestParam("movieId") int movieId, HttpServletRequest request) {
+        HttpSession session = request.getSession(true);
+        User user = (User) session.getAttribute("loggedinuser");
+        MovieAlert alert = new MovieAlert();
+        alert.setEmail(email);
+        alert.setMovieId(movieId);
+        alert.setUserId(user.getId());
+        movieAlertService.saveAlert(alert);
+        return "redirect:/myAlerts";
+    }
+
+    @RequestMapping("/myAlerts")
+    public String showFirAlerts(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession(true);
+        User user = (User) session.getAttribute("loggedinuser");
+        List<Movie> movies = movieAlertService.getAlertList(user.getId());
+        model.addAttribute("movies", movies);
+        return "list-alerts";
     }
 }
