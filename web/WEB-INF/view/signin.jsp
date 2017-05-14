@@ -16,11 +16,8 @@
     Secondary Texts: Josefin Sans
     -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
-
-
 	<!-- Website Font style -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-
 	<style>
 		#playground-container {
 			height: 500px;
@@ -135,9 +132,7 @@
 			text-align: center;
 		}
 	</style>
-
-	<link href="index.css" rel="stylesheet">
-
+	<link href="/resources/css/index.css" rel="stylesheet">
 	<style>
 		body {
 			background-image: url("http://68.media.tumblr.com/418b7834fc7a27e275db832e07868d85/tumblr_msj2jpn07Y1sfie3io1_1280.png");
@@ -153,7 +148,14 @@
 
 <body>
     <jsp:include page="/WEB-INF/includes/header.jsp" />
-
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=1870229783265051";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
 	<div class="container">
 		<div class="row main">
@@ -187,6 +189,7 @@
 						<input type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="Sign In"/>
 					</div>
 				</form>
+				<div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
 			</div>
 		</div>
 	</div>
@@ -196,6 +199,7 @@
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script src="index.js"></script>
+<script src="/resources/js/index.js"></script>
+<script src="/resources/js/signin.js"></script>
 
 </html>
