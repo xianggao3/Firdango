@@ -82,8 +82,9 @@ public class MovieController {
 
     @RequestMapping(value="/search",method = RequestMethod.GET)
     public String getSearchResults(Model theModel, HttpServletRequest request) throws Exception {
-
-        theModel.addAttribute("searchRes", searchDAO.getSearchResults(theModel,request));
+        String qs =request.getQueryString();
+        theModel.addAttribute("searchRes", searchDAO.getSearchMovieResults(theModel,request,qs));
+        theModel.addAttribute("theatreRes",searchDAO.getSearchTheatreResults(theModel,request,qs));
         return "search";
     }
 

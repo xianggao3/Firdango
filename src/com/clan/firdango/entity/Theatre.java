@@ -22,6 +22,17 @@ public class Theatre {
     @Column(name = "zipcode")
     private String zipcode;
 
+    @Column(name = "photo")
+    private String photo;
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
     public int getId() {
         return id;
     }

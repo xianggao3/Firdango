@@ -2,10 +2,15 @@ package com.clan.firdango.dao;
 
 import com.clan.firdango.entity.Movie;
 import com.clan.firdango.entity.MovieSearchResults;
+import com.clan.firdango.entity.Theatre;
 import com.google.gson.Gson;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.mapping.Array;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +19,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class SearchDAO {
@@ -48,10 +54,9 @@ public class SearchDAO {
         return JSONresponse.toString();
     }
 
-    public ArrayList<Movie> getSearchResults(Model theModel,HttpServletRequest request) throws Exception {
+    public ArrayList<Movie> getSearchMovieResults(Model theModel,HttpServletRequest request,String qs) throws Exception {
         SearchDAO http = new SearchDAO(sessionFactory);
         String JSONstring = http.sendGet(request);
-        String qs=request.getQueryString();
         //System.out.println(JSONstring);
 
         Gson gson = new Gson();
@@ -71,6 +76,15 @@ public class SearchDAO {
         theModel.addAttribute("searchRes", searchRes);
         theModel.addAttribute("qs",qs);
         return searchRes;
+    }
+    @Transactional
+    public List<Theatre> getSearchTheatreResults(Model theModel, HttpServletRequest request,String qs) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query query=currentSession.createQuery("FROM Theatre where address LIKE CONCAT('%',?1,'%') or zipcode = :qs");
+        query.setParameter("1",qs);
+        query.setParameter("qs",qs);
+        List<Theatre> trl=query.list();
+        return trl;
     }
 
 

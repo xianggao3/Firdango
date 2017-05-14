@@ -46,20 +46,36 @@
             background-color: rgba(240, 240, 240, 0.9);
             height: auto;
         }
-
     </style>
-
 </head>
-
 <body>
     <jsp:include page="/WEB-INF/includes/header.jsp" />
     
     <div class="container">
+        <h1 style="color: white">Theatre Results for "${qs}"</h1>
+    </div>
+    <div id="topMoviesDiv" class="container">
+        <div class="card-deck">
+            <c:forEach var="col" begin="0" end="3" >
+                <c:url var="overviewLink" value="/overview">
+                    <c:param name="movieId" value="${theatreRes[col].id}" />
+                </c:url>
+                <a href="${overviewLink}" class="card card-inverse text-center">
+                    <img class="card-img-top" height="360" src="${theatreRes[col].photo}" onerror="this.src='../../resources/img/placeholderposter.png'">
+                    <div class="card-block">
+                        <h4 class="card-title">${theatreRes[col].name}</h4>
+                        <h6 class="card-title">${theatreRes[col].address}</h6>
 
-        <h1 style="color: white">Search Results for ${qs}</h1>
+                    </div>
+                </a>
+            </c:forEach>
+        </div>
     </div>
 
 
+    <div class="container">
+       <h1 style="color: white">Movie Results for "${qs}"</h1>
+    </div>
     <div id="topMoviesDiv" class="container">
         <c:forEach var="row" begin="0" end="2">
             <div class="card-deck">
