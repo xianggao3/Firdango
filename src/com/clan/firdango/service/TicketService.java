@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by marvinyan on 5/13/2017.
  */
@@ -21,5 +23,10 @@ public class TicketService {
     @Transactional
     public void saveTicket(Ticket ticket) {
         ticketDAO.saveTicket(ticket);
+    }
+
+    @Transactional
+    public List<Ticket> getTicketsByUser(int userId) {
+        return ticketDAO.getTicketsByUser(userId);
     }
 }
