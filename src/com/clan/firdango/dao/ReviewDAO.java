@@ -1,6 +1,7 @@
 package com.clan.firdango.dao;
 
 import com.clan.firdango.entity.Review;
+import com.clan.firdango.entity.FavoriteReview;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -59,4 +60,25 @@ public class ReviewDAO {
         Query<Review> theQuery = currentSession.createQuery(q, Review.class);
         return theQuery.getResultList();
     }
+
+    public void saveLike(FavoriteReview fr){
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.saveOrUpdate(fr);
+    }
+
+    public void deleteLike(FavoriteReview fr){
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query query = currentSession.createQuery("delete from FavoriteReview where userId = :uId and reviewId = :rId");
+        query.setParameter("uId", fr.getUserId());
+        query.setParameter("rId", fr.getReviewId());
+        query.executeUpdate();
+    }
+
+    public List<FavoriteReview> getReviewsLikedByUser(int userId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query<FavoriteReview> theQuery = currentSession.createQuery("from FavoriteReview where userId = :userId", FavoriteReview.class);
+        theQuery.setParameter("userId", userId);
+        return theQuery.getResultList();
+    }
+
 }

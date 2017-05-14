@@ -1,10 +1,7 @@
 package com.clan.firdango.controller;
 
 import com.clan.firdango.dao.SearchDAO;
-import com.clan.firdango.entity.FavoriteMovie;
-import com.clan.firdango.entity.Movie;
-import com.clan.firdango.entity.Review;
-import com.clan.firdango.entity.User;
+import com.clan.firdango.entity.*;
 import com.clan.firdango.service.MovieService;
 import com.clan.firdango.service.ReviewService;
 import org.apache.commons.io.IOUtils;
@@ -132,10 +129,16 @@ public class MovieController {
     }
 
     @GetMapping("/reviews")
-    public String getMovieReviews(@RequestParam("movieId") int id, Model theModel) {
+    public String getMovieReviews(@RequestParam("movieId") int id,
+                                  @ModelAttribute("user") User u,
+                                  Model theModel) {
+
+        int userId = u.getId();
+        List<FavoriteReview> favoriteReviews = reviewService.getReviewsLikedByUser(userId);
         List<Review> reviews = reviewService.getReviewsByMovie(id);
         if (!reviews.isEmpty()) {
             theModel.addAttribute("reviews", reviews);
+            theModel.addAttribute("favoriteReviews", favoriteReviews);
         }
         return "moviereviews";
     }
@@ -169,6 +172,21 @@ public class MovieController {
         reviewService.saveReview(r);
         return "moviewriteareview";
     }
+
+    @PostMapping("/likeareview")
+    public void likeMovie(@ModelAttribute("user") User u,
+                          @RequestParam("reviewId") int rid,
+                          @RequestParam("likeState") int likeState
+                          ){
+
+        System.out.println(likeState);
+        FavoriteReview fr = new FavoriteReview();
+        fr.setUserId(u.getId());
+        fr.setReviewId(rid);
+        if (likeState == 0) reviewService.saveLike(fr);
+        else reviewService.removeLike(fr);
+    }
+
 
     @GetMapping("/synopsis")
     public String getMovieSynopsis() {
