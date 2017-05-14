@@ -133,7 +133,7 @@
 
                         <div class="theater">
                             <div class="screen">
-                                <h1>Please select a seat</h1>
+                                <h1>${theatre}</h1>
                             </div>
                             <div class="exit exit--front room">
 

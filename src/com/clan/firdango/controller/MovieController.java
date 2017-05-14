@@ -44,11 +44,11 @@ public class MovieController {
         int favStatus = 0;
         if (session.getAttribute("loggedinuser")!=null) {
             User u = (User)session.getAttribute("loggedinuser");
-            favStatus = movieService.favMovieStatus(u.getId(),movie.getId());
+            favStatus = movieService.favMovieStatus(u.getId(), movie.getId());
         }
         System.out.println(favStatus);
-        session.setAttribute("favoriteStatus",favStatus);
-        session.setAttribute("movieid",id);
+        session.setAttribute("favoriteStatus", favStatus);
+        session.setAttribute("movieid", id);
         return "movieoverview";
     }
 

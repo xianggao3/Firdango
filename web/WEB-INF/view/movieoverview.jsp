@@ -79,7 +79,17 @@
                                     <li><span class="detail">Genre: </span>${movie.genre}</li>
                                     <li><span class="detail">Length: </span>${movie.runtime} minutes</li>
                                 </ul>
-                                <input type= "button" class = "btn-danger" style="width: 100%" onClick="parent.location='./movietimesandtickets.jsp'" value='Buy Tickets'>
+                                <input type="button" class = "btn-danger" style="width: 100%" onClick="parent.location='./movietimesandtickets.jsp'" value='Buy Tickets' ${movie.status == "Released" ? "" : "hidden='hidden'"}>
+
+                                <div ${movie.status == "Released" ? "hidden='hidden'" : ""}>
+                                    <form action="/signupFirAlert" method="post">
+                                        <input type="hidden" name="movieId" value="${movie.id}">
+                                        <h1 style="color:black">Firdango FirAlert</h1>
+                                        <label for="alertEmail">Sign up for a FirAlert and be the first to know when tickets are available in your area.</label>
+                                        <input id="alertEmail" name="alertEmail" type="text" style="width: 100%" placeholder="Enter your email">
+                                        <input class="btn btn-primary" type="submit" style="width: 100%" value="Sign Up For FirAlert">
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
