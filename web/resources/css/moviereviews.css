@@ -4,7 +4,7 @@ table, fieldset {
 }
 
 .movieReview{
-    width: 100%
+    width: 100%;
 }
 
 .reviewMeta{
@@ -21,3 +21,6 @@ table, fieldset {
     color: indianred;
 }
 
+p {
+    word-wrap: break-word;
+}
