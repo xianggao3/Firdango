@@ -60,16 +60,17 @@
                         <div id="stats">
                             <ul>
                                 <li><h2 style="color: darkorange">${theatre.name} </h2></li>
-                                <li><h3 style="color: darkorange">Address: ${theatre.address} ${theatre.zipcode}</h3></li>
+                                <br>
+                                <li><h5 style="color: darkorange">Address: </h5>${theatre.address}</li><br>
                                 <c:if test="${dispLL==1}">
-                                    <li><h3 style="color: darkorange">Coordinates: ${theatre.lat}, ${theatre.lon}</h3></li>
-                                </c:if>
+                                    <li><h5 style="color: darkorange">Coordinates: </h5>${theatre.lat}, ${theatre.lon}</li>
+                                </c:if><br>
                                 <c:if test="${dispwebsite==1}">
-                                    <li><h3 style="color: darkorange">Website: ${theatre.website}</h3></li>
-                                </c:if>
+                                    <li><h5 style="color: darkorange">Website: </h5>${theatre.website}</li>
+                                </c:if><br>
                                 <c:if test="${disptele==1}">
-                                    <li><h3 style="color: darkorange">Telephone: ${theatre.telephone}</h3></li>
-                                </c:if>
+                                    <li><h5 style="color: darkorange">Telephone: </h5>${theatre.telephone}</li>
+                                </c:if><br>
                             </ul>
                         </div>
                     </div>
