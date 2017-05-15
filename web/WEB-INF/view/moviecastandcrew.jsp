@@ -56,13 +56,19 @@
 
             </div>
             <div class="col-sm-7" id="rightDesc">
-                <h1>Cast + Crew</h1>
+                <h1>Cast</h1>
                 <div class="row">
                     <div id="ccList">
                     <ol>
-                    <c:forEach items="${castncrews}" var="actorname">
-                        <li>${actorname}</li>
+                    <c:forEach items="${castName}" var="actorname">
+                        <c:forEach items="${castRole}" var="actorrole">
+                        <li><a href="/actor?actorId=${actorname}">${actorname}</a> as ${actorrole}</li>
+                        </c:forEach>
                     </c:forEach>
+                        <h1>Cast</h1>
+                        <c:forEach items="${crew}" var="actorname">
+                            <li>${actorname}</li>
+                        </c:forEach>
                     </ol>
                     </div>
                 </div>
@@ -85,4 +91,3 @@
 </script>
 
 </html>
-

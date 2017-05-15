@@ -122,7 +122,9 @@ public class MovieController {
 
         @GetMapping("/castandcrew")
     public String getMovieCastAndCrew(@RequestParam("movieId") int id, Model theModel) {
-        List<String> castncrews = new ArrayList<>();
+        List<String> castName = new ArrayList<>();
+            List<String> castRole = new ArrayList<>();
+            List<String> crew = new ArrayList<>();
         try {
             URL url = new URL("https://api.themoviedb.org/3/movie/"+id+"/credits?api_key=d36bee7b08bda0f0dd33ccdcd33e8685");
             String imagesJson = IOUtils.toString(url);
@@ -130,17 +132,21 @@ public class MovieController {
             JSONArray backdrops = (JSONArray) imagesJsonObject.get("cast");
             for (int i = 0; i < backdrops.size(); i++) {
                 JSONObject curObj = (JSONObject) backdrops.get(i);
-                castncrews.add((String) (curObj.get("name")+" as "+(curObj.get("character"))));
+                castName.add((String) (curObj.get("name")));
+                castRole.add((String) (curObj.get("character")));
             }
             JSONArray posters = (JSONArray) imagesJsonObject.get("crew");
             for (int i = 0; i < posters.size(); i++) {
                 JSONObject curObj = (JSONObject) posters.get(i);
-                castncrews.add((String) (curObj.get("name")+" in "+(curObj.get("department"))));
+                crew.add((String) (curObj.get("name")+" in "+(curObj.get("department"))));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        theModel.addAttribute("castncrews", castncrews);
+
+        theModel.addAttribute("castName", castName);
+        theModel.addAttribute("castRole", castRole);
+        theModel.addAttribute("crew", crew);
         return "moviecastandcrew";
     }
 
@@ -296,5 +302,17 @@ public class MovieController {
     @GetMapping("/moviesintheatres")
     public String getMoviesInTheatres() {
         return "category";
+    }
+
+    @GetMapping("/actor")
+    public String getActor(@RequestParam("actorId") String id,
+                           Model theModel)
+    {
+
+        Actor a = movieService.getActorByName(id);
+        if (a!=null) {
+            theModel.addAttribute("actor", a);
+        }
+        return "actor";
     }
 }
