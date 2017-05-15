@@ -50,11 +50,11 @@
             <div class="col-sm-7" id="rightDesc">
                 <h1>Cast + Crew</h1>
                 <div class="row">
-                    <ul>
+                    <ol>
                     <c:forEach items="${castncrews}" var="actorname">
                         <li>${actorname}</li>
                     </c:forEach>
-                    </ul>
+                    </ol>
                 </div>
             </div>
         </div>
