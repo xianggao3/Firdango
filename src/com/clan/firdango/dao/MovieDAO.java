@@ -1,7 +1,9 @@
 package com.clan.firdango.dao;
 
+import com.clan.firdango.entity.Actor;
 import com.clan.firdango.entity.FavoriteMovie;
 import com.clan.firdango.entity.Movie;
+import com.clan.firdango.entity.Showtime;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -134,6 +136,13 @@ public class MovieDAO {
         query.setParameter("1",id);
         System.out.println(query.getResultList().get(0));
         return (double)query.getResultList().get(0);
+    }
+
+    public Actor getActorByName(String s) {
+            Session currentSession = sessionFactory.getCurrentSession();
+            Query<Actor> query = currentSession.createQuery("from Actor where name = :actorName", Actor.class);
+            query.setParameter("actorName", s);
+            return query.getSingleResult();
     }
 }
 
