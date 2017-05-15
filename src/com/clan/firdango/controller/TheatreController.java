@@ -33,7 +33,7 @@ public class TheatreController {
     }
 
     @RequestMapping(value = "/theatres", method = RequestMethod.GET)
-    public String getTheathres(Model theModel,
+    public String getTheatres(Model theModel,
                                @RequestParam("page") int pageNum) {
         List<Theatre> theatres = theatreService.getAllTheatres();
         theModel.addAttribute("theatres", theatres);
@@ -41,6 +41,65 @@ public class TheatreController {
         return "theatres";
     }
 
+    @GetMapping(value = "/movies-in-theatres")
+    public String getMovieOverview( Model theModel,
+                                   HttpServletRequest request) {
+        Theatre theatre = theatreService.getTheatre(40138);
+        int dispLL=1;
+        int dispwebsite=1;
+        int disptele=1;
+        if(theatre.getLat()==0){
+            dispLL=0;
+        }if(theatre.getWebsite()==null){
+            dispwebsite=0;
+        }if(theatre.getTelephone()==null){
+            disptele=0;
+        }
+        theModel.addAttribute("theatre", theatre);
+        theModel.addAttribute("dispLL", dispLL);
+        theModel.addAttribute("dispwebsite", dispwebsite);
+        theModel.addAttribute("disptele", disptele);
+
+        HttpSession session = request.getSession();
+        int favStatus = 0;
+        if (session.getAttribute("loggedinuser")!=null) {
+            User u = (User)session.getAttribute("loggedinuser");
+            favStatus = theatreService.favTheatreStatus(u.getId(), theatre.getId());
+        }
+
+        session.setAttribute("favoriteStatus", favStatus);
+        session.setAttribute("theatreid", 40138);
+
+        List<Showtime> showtimesByMovie = showtimeService.getShowtimeByTheatre(40138);
+        ArrayList<Movie> allMovies = new ArrayList<Movie>();
+        Map movieTimeMap = new HashMap();
+        for (Showtime s: showtimesByMovie){
+
+            System.out.println(s.getId());
+            if(movieTimeMap.containsKey(s.getMovieId())) {
+                ArrayList<Showtime> timesPerTheatre = (ArrayList<Showtime>) movieTimeMap.get(s.getMovieId());
+                timesPerTheatre.add(s);
+            }
+            else{
+                ArrayList<Showtime> timesPerMovie = new ArrayList<Showtime>();
+                timesPerMovie.add(s);
+                movieTimeMap.put(s.getMovieId(), timesPerMovie);
+                allMovies.add(movieService.getMovie(s.getMovieId()));
+            }
+            if (allMovies.size() == 20){
+                break;
+            }
+        }
+
+        System.out.println(allMovies.size());
+        theModel.addAttribute("movies", allMovies);
+        theModel.addAttribute("dictionary", movieTimeMap);
+
+
+
+
+        return "movies-in-theatres";
+    }
     @GetMapping("/theatre")
     public String getMovieOverview(@RequestParam("theatreId") int id,
                                    Model theModel,

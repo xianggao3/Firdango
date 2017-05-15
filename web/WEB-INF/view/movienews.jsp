@@ -1,114 +1,88 @@
-    <!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Firdango</title>
-        <meta charset="utf-8">
 
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<head>
+    <title>Firdango</title>
+    <meta charset="utf-8">
 
-        <!--
-        Font Scheme
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-        Logo (Branding): Roboto
-        Movie Titles: Maven Pro
-        Primary Texts: Raleway
-        Secondary Texts: Josefin Sans
+    <!--
+    Font Scheme
 
-        -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
-        <link href="./resources/css/index.css" rel="stylesheet">
-        <link href="./resources/css/movie.css" rel="stylesheet">
-    </head>
+    Logo (Branding): Roboto
+    Movie Titles:    Maven Pro
+    Primary Texts (eg. article title):     Raleway
+    Secondary Texts (eg. article content): Josefin Sans
+    -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
+    <link href="resources/css/index.css" rel="stylesheet">
 
-    <body>
-    <jsp:include page="/WEB-INF/includes/header.jsp" />
+    <style>
+        #paginationBar{
+            margin: 0 auto;
+            text-align: center;
+        }
 
-        <div class="container">
-            <div class="container-fluid">
+    </style>
 
-                <a class="display-4 text-white">MOVIE NEWS</a>
-            </div>
+</head>
+
+<body>
+<jsp:include page="/WEB-INF/includes/header.jsp" />
+
+<div id="topMoviesDiv" class="container">
+    <h1 class="display-5 text-white border-bottom-1">All Theatres</h1>
+    <c:set var="offset" value="${pageNum*12}"/>
+    <c:forEach var="row" begin="0" end="3">
+        <div class="card-deck">
+            <c:forEach var="col" begin="0" end="3" >
+                <c:url var="overviewLink" value="/theatre">
+                    <c:param name="theatreId" value="${theatres[offset+row*4+col].id}" />
+                </c:url>
+                <a href="${overviewLink}" class="card card-inverse text-center">
+                    <img class="card-img-top" src="${theatres[offset+row*4+col].photo}" alt="">
+                    <div class="card-block">
+                        <h4 class="card-title">${theatres[offset+row*4+col].name}</h4>
+                    </div>
+                </a>
+            </c:forEach>
         </div>
-        <div class="container">
-            <div class="container-fluid">
+    </c:forEach>
 
-            <div id="newMoviesDiv" class="container">
-            <h1 class="display-5 text-white border-bottom-1">Original Shows</h1>
-
-            <div class="card-deck">
-
-                <a href="/news/newspage?title=Weekend Tickets:Get out, Rock Dog, Fist Fight" class="card card-inverse text-center">
-                    <img class="card-img-top" src="https://images.fandango.com/imagerelay/300/0/video.fandango.com/MPX/image/NBCU_Fandango/82/651/WT_GetOut_OG.jpg/image.jpg/redesign/static/img/noxSquare.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">Weekend Tickets:Get out, Rock Dog, Fist Fight</h4>
-                    </div>
-                </a>
-                <a href="/news/newspage?title=FrontRunners Season 4: Adam McKay - The Big Short" class="card card-inverse text-center">
-                    <img class="card-img-top" src="http://images.fandango.com/imagerelay/300/0/video.fandango.com/MPX/image/NBCU_Fandango/365/23/FR_AdamMcKay_Original.jpg/image.jpg/redesign/static/img/noxSquare.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">FrontRunners Season 4: Adam McKay - The Big Short</h4>
-                    </div>
-                </a>
-                <a href="/news/newspage?title=Mom's Movie Minutes: Is 'Rock Dog' Perfect For Your 5-Year-Old?" class="card card-inverse text-center">
-                    <img class="card-img-top" src="http://images.fandango.com/imagerelay/300/0/video.fandango.com/MPX/image/NBCU_Fandango/958/127/MMM_RockDog_OG.jpg/image.jpg/redesign/static/img/noxSquare.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">Mom's Movie Minutes: Is 'Rock Dog' Perfect For Your 5-Year-Old?</h4>
-                    </div>
-                </a>
-                <a href="/news/newspage?title=Reel Kids: Kids Talk About Mythical Creatures" class="card card-inverse text-center">
-                    <img class="card-img-top" src="http://images.fandango.com/imagerelay/300/0/video.fandango.com/MPX/image/NBCU_Fandango/654/431/RK_Mythical_OG.jpg/image.jpg/redesign/static/img/noxSquare.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">Reel Kids: Kids Talk About Mythical Creatures</h4>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div id="nowPlayingDiv" class="container">
-            <h1 class="display-5 text-white border-bottom-1">Features</h1>
-            
-            <div class="card-deck">
-                <a href="/news/newspage?title=Our Favorite Movie Hitman" class="card card-inverse text-center">
-                    <img class="card-img-top" src="http://images.fandango.com/ImageRenderer/300/0/redesign/static/img/default_poster.png/0/images/masterrepository/other/intro_John%20Wick.JPG" alt="Our Favorite Movie Hit Men" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">Our Favorite Movie Hitman</h4>
-                    </div>
-                </a>
-                
-                <a href="/news/newspage?title=Watch Great Moments From Oscar Winner: 'Zootopia'" class="card card-inverse text-center">
-                    <img class="card-img-top" src="http://images.fandango.com/ImageRenderer/300/0/redesign/static/img/default_poster.png/0/images/fandangoblog/zootopia-180_35.356.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">Watch Great Moments From Oscar Winner: 'Zootopia'</h4>
-                    </div>
-                </a>
-                
-                <a href="/news/newspage?title=The Academy Awards 2017: The Best Red Carpet Looks" class="card card-inverse text-center">
-                    <img class="card-img-top" src="http://images.fandango.com/ImageRenderer/300/0/redesign/static/img/default_poster.png/0/images/masterrepository/other/INTRO_EmmaStone.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">The Academy Awards 2017: The Best Red Carpet Looks</h4>
-                    </div>
-                </a>
-
-                <a href="/news/newspage?title=Here's Your First Look At Will Smith's New Monster Movie, 'Bright'" class="card card-inverse text-center">
-                    <img class="card-img-top" src="http://images.fandango.com/ImageRenderer/300/0/redesign/static/img/default_poster.png/0/images/spotlight/will-smith-bright.jpg"  alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">Here's Your First Look At Will Smith's New Monster Movie, 'Bright'</h4>
-                    </div>
-                </a>
-                
-            </div>
-
-    </div>
+    <div id="paginationBar">
+        <c:set var="pageNum2" value="${pageNum-5}"/>
+        <c:if test="${pageNum2<0}">
+            <c:set var="pageNum2" value="0"/>
+        </c:if>
+        <c:forEach var="page" begin="${pageNum2}" end="${pageNum2+10}" >
+            <c:if test="${page==pageNum}">
+                <a href="/theatres?page=${page}"><button class="btn btn-warning">${page}</button></a>
+            </c:if>
+            <c:if test="${page!=pageNum}">
+                <a href="/theatres?page=${page}"><button class="btn btn-primary">${page}</button></a>
+            </c:if>
+        </c:forEach>
     </div>
 
-            <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
+</div>
+
+<jsp:include page="/WEB-INF/includes/footer.jsp" />
 </body>
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script src="index.js"></script>
+<script src="resources/js/index.js"></script>
+
+<script>
+    //${(fn:length(theatres)-1)/4}
+</script>
 
 </html>

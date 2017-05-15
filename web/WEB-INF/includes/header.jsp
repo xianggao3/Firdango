@@ -41,6 +41,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="timesAndTicketsDropdown">
                         <a class="dropdown-item" href="/theatres?page=0">All Theatres</a>
+                        <a class="dropdown-item" href="/movies-in-theatres">Movies in Theatres</a>
                         <a class="dropdown-item" href="#">Find Theatres Nearby
                             <form class="form-inline">
                                 <input id="nearbyQuery" class="form-control mr-sm-2" type="text" placeholder="City/ZipCode" onkeypress="parent.location='search?'+$('#searchQuery').val()" >
