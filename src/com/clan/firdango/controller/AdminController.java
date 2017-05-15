@@ -4,10 +4,7 @@ import com.clan.firdango.entity.Movie;
 import com.clan.firdango.entity.Newsletter;
 import com.clan.firdango.entity.Review;
 import com.clan.firdango.entity.User;
-import com.clan.firdango.service.EmailService;
-import com.clan.firdango.service.MovieService;
-import com.clan.firdango.service.ReviewService;
-import com.clan.firdango.service.UserService;
+import com.clan.firdango.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,13 +22,15 @@ public class AdminController {
     private final EmailService emailService;
     private final ReviewService reviewService;
     private final MovieService movieService;
+    private final DBUpdateService dbUpdateService;
 
     @Autowired
-    public AdminController(UserService userService, EmailService emailService, ReviewService reviewService, MovieService movieService) {
+    public AdminController(UserService userService, EmailService emailService, ReviewService reviewService, MovieService movieService, DBUpdateService dbUpdateService) {
         this.userService = userService;
         this.emailService = emailService;
         this.reviewService = reviewService;
         this.movieService = movieService;
+        this.dbUpdateService = dbUpdateService;
     }
 
     @GetMapping("/")
@@ -128,6 +127,17 @@ public class AdminController {
     @PostMapping("/saveMovie")
     public String saveMovie(@ModelAttribute("movie") Movie movie) {
         movieService.saveMovie(movie);
+        return "redirect:/admin/listMovies";
+    }
+
+    @GetMapping("/fetchNewMovies")
+    public String fetchNewMovies() {
+        return "fetch-new-movies";
+    }
+
+    @PostMapping("/fetchNewMovies")
+    public String fetchNewMovies(@RequestParam("url") String url, Model model) {
+        dbUpdateService.fetchNewMovies(url);
         return "redirect:/admin/listMovies";
     }
 }

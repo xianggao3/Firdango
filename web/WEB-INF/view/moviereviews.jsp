@@ -73,7 +73,9 @@
                 <h1>Movie Reviews</h1>
                 <div class="row">
                     <div class="movieReview">
-                            <c:forEach var="revIndex" begin="0" end="${fn:length(reviews)-1}">
+                        <c:choose>
+                            <c:when test="${fn:length(reviews) > 0}">
+                        <c:forEach var="revIndex" begin="0" end="${fn:length(reviews)-1}">
                             <h2 class="reviewTitle">${reviews[revIndex].title}</h2>
                             <table>
                                 <tr>
@@ -121,6 +123,8 @@
                             </c:choose>
                             <hr>
                         </c:forEach>
+                            </c:when>
+                        </c:choose>
 
                         <a href="#" style="margin-right: 60%; margin-left: 3%"><button id="prev">Previous</button></a>
                         <a href="#"><button id="next">Next</button></a>
