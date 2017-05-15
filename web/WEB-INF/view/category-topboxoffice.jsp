@@ -31,7 +31,13 @@
 <div class="container">
     <div class="container-fluid">
         <a class="display-4 text-white">TOP BOX OFFICE</a>
-        <jsp:include page="/WEB-INF/includes/categorynav.jsp" />
+        <div class="row">
+            <ul id="overviewList">
+                <li><a href="/category/all">now playing</a></li>
+                <li><a href="/category/comingsoon">comingsoon</a></li>
+                <li><a href="/category/topboxoffice">top box office</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 <div class="container">
@@ -52,25 +58,6 @@
             </c:forEach>
         </table>
 
-        <div id="newMoviesDiv" class="container">
-            <h1 class="display-5 text-white border-bottom-1">OPENING SOON</h1>
-            <div id="topMoviesDiv" class="container">
-                <c:forEach var="row" begin="0" end="0">
-                    <div class="card-deck">
-                        <c:forEach var="col" begin="0" end="3" >
-                            <c:url var="overviewLink" value="/overview">
-                                <c:param name="movieId" value="${comingSoon[4*row+col].id}" />
-                            </c:url>
-                            <a href="${overviewLink}" class="card card-inverse text-center">
-                                <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${comingSoon[4*row+col].poster}" alt="">
-                                <div class="card-block">
-                                    <h4 class="card-title">${comingSoon[row*4+col].title}</h4>
-                                </div>
-                            </a>
-                        </c:forEach>
-                    </div>
-                </c:forEach>
-            </div>
         </div>
 
     </div>

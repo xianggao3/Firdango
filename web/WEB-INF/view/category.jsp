@@ -36,19 +36,6 @@
         </div>
         <div class="container">
             <div class="container-fluid">
-                <%--<h4 style="color: white">Filter by Genre</h4>--%>
-        <%--<div class="row">--%>
-            <%--<ul id="genreList">--%>
-                <%--<li class="active"><a href="">All</a></li>--%>
-                <%--<li><a href="./">Action</a></li>--%>
-                <%--<li><a href="#">Comedy</a></li>--%>
-                <%--<li><a href="#">Drama</a></li>--%>
-                <%--<li><a href="#">Kids</a></li>--%>
-                <%--<li><a href="#">Romance</a></li>--%>
-                <%--<li><a href="#">Sci-Fi</a></li>--%>
-
-            <%--</ul>--%>
-        <%--</div>--%>
 
          <div id="newMoviesDiv" class="container">
              <h1 class="display-5 text-white border-bottom-1">OPENING SOON</h1>
