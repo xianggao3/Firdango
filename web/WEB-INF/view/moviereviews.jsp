@@ -194,5 +194,11 @@
     });
 </script>
 
+<script>
+    $(document).ready(function(){
+        $("#rightDesc").css({'height':($("#leftOverview").height()+'px')});
+    });
+</script>
+
 
 </html>

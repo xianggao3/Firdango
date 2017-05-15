@@ -9,6 +9,18 @@
 
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
+                <c:if test="${user.id==28}">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Admin Panel
+                        </a>
+                            <div class="dropdown-menu" aria-labelledby="newsDropdown">
+                                <a class="dropdown-item" href="/admin/getUserActivity">View User Activities</a>
+                                <a class="dropdown-item" href="/admin/listReviews">Manage Reviews</a>
+                                <a class="dropdown-item" href="/admin/listMovies">Manage Movies</a>
+                            </div>
+                    </li>
+                </c:if>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="moviesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Movies

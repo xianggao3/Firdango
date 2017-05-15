@@ -41,6 +41,16 @@
 
         }
 
+        #theatreInfo li{
+            width: 100%;
+            padding: 2%;
+        }
+
+        #theatreInfo ul{
+            list-style-type: none;
+        }
+
+
 
     </style>
 </head>
@@ -74,31 +84,21 @@
         </iframe>
 
             <div class="row">
-                <div class="row">
-                    <div class="col-md-12" id="movieImg">
-                        <img src="${theatre.photo}">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12" id="movieDesc">
-                        <div id="stats">
+                        <div id="theatreInfo">
                             <ul>
                                 <li><h2 style="color: darkorange">${theatre.name} </h2></li>
-                                <br>
-                                <li><h5 style="color: darkorange">Address: </h5>${theatre.address}</li><br>
+                                <li><h5 style="color: darkorange">Address: </h5>${theatre.address}</li>
                                 <c:if test="${dispLL==1}">
                                     <li><h5 style="color: darkorange">Coordinates: </h5>${theatre.lat}, ${theatre.lon}</li>
-                                </c:if><br>
+                                </c:if>
                                 <c:if test="${dispwebsite==1}">
                                     <li><h5 style="color: darkorange">Website: </h5>${theatre.website}</li>
-                                </c:if><br>
+                                </c:if>
                                 <c:if test="${disptele==1}">
                                     <li><h5 style="color: darkorange">Telephone: </h5>${theatre.telephone}</li>
-                                </c:if><br>
+                                </c:if>
                             </ul>
                         </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
