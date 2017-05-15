@@ -36,6 +36,17 @@ public class TheatreDAO {
         return theQuery.getResultList();
     }
 
+    public List<Theatre> getNearbyTheatres(int zip) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        int zip1 = zip+30;
+        int zip2 = zip-30;
+        String q = "FROM Theatre where zipcode between :zip1 and  :zip2 ORDER BY  id DESC";
+        Query<Theatre> theQuery = currentSession.createQuery(q, Theatre.class);
+        theQuery.setParameter("zip1",zip1);
+        theQuery.setParameter("zip2",zip2);
+        return theQuery.getResultList();
+    }
+
     @Transactional
     public int favTheatreStatus(int id, int id1) {
         Session currentSession = sessionFactory.getCurrentSession();
@@ -61,4 +72,6 @@ public class TheatreDAO {
         query.setParameter("uid",id1);
         query.executeUpdate();
     }
+
+
 }

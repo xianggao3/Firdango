@@ -29,18 +29,18 @@
 
         <a class="display-4 text-white">MOVIE NEWS</a>
     </div>
-</div>
-<div class="container">
+    </div>
+    <div class="container">
     <div class="container-fluid">
 
         <div id="newMoviesDiv" class="container">
+            <img class="card -img-top" src="https://images.fandango.com/imagerelay/300/0/video.fandango.com/MPX/image/NBCU_Fandango/82/651/WT_GetOut_OG.jpg/image.jpg/redesign/static/img/noxSquare.jpg" alt="">
             <h1 class="display-5 text-white border-bottom-1">${title}</h1>
-
+            <font color="white">How the fashion set would interpret the Met Gala’s avant-garde dress code was the question on everyone’s mind last night. The answer? Very, very diversely. Some attendees stuck to the Comme des Garçons theme strictly—ahem, Rihanna—while others found new ways to dress the part. That birthed a range of red carpet trends, from the swooping backless dresses of Kendall Jenner and Bella Hadid, to Zendaya’s and Lily-Rose Depp’s billowing ball gowns, to the fact that not one, not two, but three attendees showed up in denim.
+                In short, it might have been one of the wildest Met Gala red carpets ever—but that didn’t mean that there weren’t breakaway trends. Learn them below, and keep your eyes on upcoming red carpets to see if the themes stick—after all, don’t forget it was the Met Gala where the naked dress originated in 2015.</font>
 
         </div>
 
-        <div id="nowPlayingDiv" class="container">
-            <h1 class="display-5 text-white border-bottom-1">Features</h1>
 
 
         </div>

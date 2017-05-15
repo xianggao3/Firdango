@@ -32,6 +32,8 @@ public class TheatreService {
         return theatreDAO.getAllTheatres();
     }
 
+    @Transactional
+    public List<Theatre> getNearbyTheatres(int zip) { return theatreDAO.getNearbyTheatres(zip);}
 
     public int favTheatreStatus(int id, int id1) {
         return theatreDAO.favTheatreStatus(id, id1);
