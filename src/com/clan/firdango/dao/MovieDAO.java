@@ -2,7 +2,6 @@ package com.clan.firdango.dao;
 
 import com.clan.firdango.entity.FavoriteMovie;
 import com.clan.firdango.entity.Movie;
-import com.sun.org.apache.xpath.internal.SourceTree;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -95,6 +94,7 @@ public class MovieDAO {
         query.setParameter("genre", genre);
         return query.getResultList();
     }
+
     public List<Movie> getSoonGenreMovie(String genre) {
         Session currentSession = sessionFactory.getCurrentSession();
         String q = "FROM Movie where release_date > current_date  and genre LIKE CONCAT('%', :genre,'%') ORDER BY release_date ASC";

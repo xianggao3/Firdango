@@ -31,7 +31,10 @@ public class TransactionController {
     }
 
     @GetMapping("checkout")
-    public String getCheckout(@RequestParam("showtimeId") int showId, @RequestParam("userId") int userId, Model model) {
+    public String getCheckout(@RequestParam("showtimeId") int showId, @RequestParam(value = "userId", defaultValue = "-1") int userId, Model model) {
+        if (userId == -1) {
+            return "redirect:/signin";
+        }
         Showtime showtime = showtimeService.getShowtime(showId);
         Movie movie = movieService.getMovie(showtime.getMovieId());
         Theatre theatre = theatreService.getTheatre(showtime.getTheatreId());
