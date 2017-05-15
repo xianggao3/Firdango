@@ -59,27 +59,40 @@
 
         <div id="newMoviesDiv" class="container">
             <h1 class="display-5 text-white border-bottom-1">OPENING THIS WEEK</h1>
-        </div>
-
-]       <div id="nowPlayingDiv" class="container">
-            <h1 class="display-5 text-white border-bottom-1">NOW PLAYING</h1>
-
             <div id="topMoviesDiv" class="container">
                 <c:forEach var="row" begin="0" end="2">
                     <div class="card-deck">
                         <c:forEach var="col" begin="0" end="3" >
                             <c:url var="overviewLink" value="/overview">
-                                <c:param name="movieId" value="${movies[row*4+col].id}" />
+                                <c:param name="movieId" value="${comingsoon[row*4+col].id}" />
 
                             </c:url>
-                            <a href="/" class="card card-inverse text-center">
-                                <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[row*4+col].poster}" alt="">
+                            <a href="${overviewLink}" class="card card-inverse text-center">
+                                <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${comingsoon[row*4+col].poster}" alt="">
                                 <div class="card-block">
-                                    <h4 class="card-title">${movies[row*4+col].title}</h4>
+                                    <h4 class="card-title">${comingsoon[row*4+col].title}</h4>
                                 </div>
                             </a>
                         </c:forEach>
                     </div>
+                </c:forEach>
+            </div>
+        </div>
+
+       <div id="nowPlayingDiv" class="container">
+            <h1 class="display-5 text-white border-bottom-1">NOW PLAYING</h1>
+
+            <div id="topMoviesDiv" class="container">
+                <c:forEach var="col" begin="0" end="3" >
+                    <c:url var="overviewLink" value="/overview">
+                        <c:param name="movieId" value="${movies[col].id}" />
+                    </c:url>
+                    <a href="${overviewLink}" class="card card-inverse text-center">
+                        <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[col].poster}" alt="">
+                        <div class="card-block">
+                            <h4 class="card-title">${movies[col].title}</h4>
+                        </div>
+                    </a>
                 </c:forEach>
             </div>
         </div>
