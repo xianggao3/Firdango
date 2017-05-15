@@ -28,7 +28,7 @@ public class GenreController {
         theModel.addAttribute("movies", movies);
         List<Movie> comingSoon = movieService.getComingSoonMovie("*");
         theModel.addAttribute("commingSoon", comingSoon);
-        return "moviesintheatres-index";
+        return "moviesintheatres";
     }
 
     @GetMapping("/genre")

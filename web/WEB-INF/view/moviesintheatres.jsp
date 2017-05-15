@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +20,7 @@
 
         -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
-        <link href="./resources/css/movie.css" rel="stylesheet">
+        <link href="./resources/css/index.css" rel="stylesheet">
 
     </head>
 
@@ -31,10 +34,9 @@
 
                 <ul id="overviewList">
                     <li class="active"><a href="#">now playing</a></li>
-                    <li><a href="#">coming soon</a></li>
-                    <li><a href="#">MOVIE GENRES</a></li>
-                    <li><a href="#">TOP BOX OFFICE</a></li>
-                    <li><a href="#">AT HOME</a></li>
+                    <li><a href="/moviesintheatres/comingsoon">coming soon</a></li>
+                    <li><a href="./moviesintheatres/genre">MOVIE GENRES</a></li>
+                    <li><a href="./topboxoffice">TOP BOX OFFICE</a></li>
                 </ul>
 
             </div>
@@ -43,7 +45,7 @@
                     <div class="container-fluid">
                 <h4 style="color: white">Filter by Genre</h4>
         <div class="row">
-            <ul id="overviewList">
+            <ul id="genreList">
                 <li class="active"><a href="">All</a></li>
                 <li><a href="#">Action</a></li>
                 <li><a href="#">Comedy</a></li>
@@ -57,70 +59,30 @@
 
         <div id="newMoviesDiv" class="container">
             <h1 class="display-5 text-white border-bottom-1">OPENING THIS WEEK</h1>
-            
-                
-
-            <div class="card-deck">
-                <a href="overview" class="card card-inverse text-center">
-                    <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16883.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">Fifty Shades Darker</h4>
-                    </div>
-                </a>
-                <a href="overview" class="card card-inverse text-center">
-                    <img class="card-img-top" src="https://www.myvue.com/-/media/images/film%20and%20events/february%202017/legobatmanposter2.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">The Lego Batman Movie</h4>
-                    </div>
-                </a>
-                <a href="overview" class="card card-inverse text-center">
-                    <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16999.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">Logan (2017)</h4>
-                    </div>
-                </a>
-
-                <a href="overview" class="card card-inverse text-center">
-                    <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16631.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">Patriots Day</h4>
-                    </div>
-                </a>
-            </div>
         </div>
 
-        <div id="nowPlayingDiv" class="container">
+]       <div id="nowPlayingDiv" class="container">
             <h1 class="display-5 text-white border-bottom-1">NOW PLAYING</h1>
-            
-            <div class="card-deck">
-                <a href="overview" class="card card-inverse text-center">
-                    <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16883.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">Fifty Shades Darker</h4>
-                    </div>
-                </a>
-                <a href="overview" class="card card-inverse text-center">
-                    <img class="card-img-top" src="https://www.myvue.com/-/media/images/film%20and%20events/february%202017/legobatmanposter2.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">The Lego Batman Movie</h4>
-                    </div>
-                </a>
-                <a href="overview" class="card card-inverse text-center">
-                    <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16999.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">Logan (2017)</h4>
-                    </div>
-                </a>
 
-                <a href="overview" class="card card-inverse text-center">
-                    <img class="card-img-top" src="https://images.mymovies.net/images/film/cin/350x522/fid16631.jpg" alt="">
-                    <div class="card-block">
-                        <h4 class="card-title">Patriots Day</h4>
+            <div id="topMoviesDiv" class="container">
+                <c:forEach var="row" begin="0" end="2">
+                    <div class="card-deck">
+                        <c:forEach var="col" begin="0" end="3" >
+                            <c:url var="overviewLink" value="/overview">
+                                <c:param name="movieId" value="${movies[row*4+col].id}" />
+
+                            </c:url>
+                            <a href="/" class="card card-inverse text-center">
+                                <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[row*4+col].poster}" alt="">
+                                <div class="card-block">
+                                    <h4 class="card-title">${movies[row*4+col].title}</h4>
+                                </div>
+                            </a>
+                        </c:forEach>
                     </div>
-                </a>
+                </c:forEach>
             </div>
-
-    </div>
+        </div>
     </div>
             <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
