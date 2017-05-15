@@ -11,6 +11,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="./resources/css/index.css" rel="stylesheet">
     <link href="./resources/css/movie.css" rel="stylesheet">
+    <link href="./resources/css/moviecastandcrew.css" rel="stylesheet">
+
+    <style>
+        #ccList{
+            text-align: left;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -50,11 +58,13 @@
             <div class="col-sm-7" id="rightDesc">
                 <h1>Cast + Crew</h1>
                 <div class="row">
+                    <div id="ccList">
                     <ol>
                     <c:forEach items="${castncrews}" var="actorname">
                         <li>${actorname}</li>
                     </c:forEach>
                     </ol>
+                    </div>
                 </div>
             </div>
         </div>
