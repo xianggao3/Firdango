@@ -42,7 +42,6 @@
                                 <center><img style="width: 50%; margin: 3% auto" src="http://www.homequalitymark.com/filelibrary/interactive_scorecard/4_star.png" /></center>
                                 <ul>
                                     <li><span class="detail">Fan Ratings: </span>${sessionScope.avgRating/2}</li>
-                                    <li><span class="detail">Rotten Tomatos: </span> 8%</li>
                                     <li><span class="detail">Released: </span>${movie.releaseDate}</li>
                                     <li><span class="detail">Rating: </span> R</li>
                                     <li><span class="detail">Genre: </span>${movie.genre}</li>
@@ -65,7 +64,7 @@
                         <li><a href="/actor?actorId=${actorname}">${actorname}</a> as ${actorrole}</li>
                         </c:forEach>
                     </c:forEach>
-                        <h1>Cast</h1>
+                        <h1>Crew</h1>
                         <c:forEach items="${crew}" var="actorname">
                             <li>${actorname}</li>
                         </c:forEach>
