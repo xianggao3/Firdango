@@ -38,14 +38,14 @@
         <div id="newMoviesDiv" class="container">
             <h1 class="display-5 text-white border-bottom-1">OPENING SOON</h1>
             <div class="card-deck">
-            <c:forEach items="${comingSoon}" var="amovie" >
+            <c:forEach items="${comingSoon}" var="actor" >
                 <c:url var="overviewLink" value="/overview">
-                    <c:param name="movieId" value="${amovie.id}" />
+                    <c:param name="movieId" value="${actor.id}" />
                 </c:url>
                 <a href="${overviewLink}" class="card card-inverse text-center">
-                    <img class="card-img-top" height="360" style="min-width:243px;" src="https://image.tmdb.org/t/p/w500//${amovie.poster}" onerror="this.src='../../resources/img/placeholderposter.png'">
+                    <img class="card-img-top" height="360" style="min-width:243px;" src="https://image.tmdb.org/t/p/w500//${actor.poster}" onerror="this.src='../../resources/img/placeholderposter.png'">
                     <div class="card-block">
-                        <h4 class="card-title">${amovie.title}</h4>
+                        <h4 class="card-title">${actor.title}</h4>
                     </div>
                 </a>
             </c:forEach>

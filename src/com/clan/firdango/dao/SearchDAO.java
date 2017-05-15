@@ -1,9 +1,6 @@
 package com.clan.firdango.dao;
 
-import com.clan.firdango.entity.Cast;
-import com.clan.firdango.entity.Movie;
-import com.clan.firdango.entity.MovieSearchResults;
-import com.clan.firdango.entity.Theatre;
+import com.clan.firdango.entity.*;
 import com.google.gson.Gson;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -77,13 +74,12 @@ public class SearchDAO {
     }
 
     @Transactional
-    public List<Cast> getSearchActorResults(Model theModel, HttpServletRequest request, String qs) {
+    public List<Actor> getSearchActorResults(Model theModel, HttpServletRequest request, String qs) {
         Session currentSession = sessionFactory.getCurrentSession();
         System.out.println(qs);
-        Query query=currentSession.createQuery("FROM Cast where na LIKE CONCAT('%',?1,'%') or name LIKE CONCAT('%',?1,'%') or zipcode = :qs");
+        Query query=currentSession.createQuery("FROM Actor where name LIKE CONCAT('%',?1,'%')");
         query.setParameter("1",qs);
-        query.setParameter("qs",qs);
-        List<Cast> trl=query.list();
+        List<Actor> trl=query.list();
         return trl;
     }
 

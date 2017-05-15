@@ -27,7 +27,7 @@
 <div class="container">
 
     <h1 style="color: white">${actor.name} Profile Page</h1>
-    <jsp:include page="/WEB-INF/includes/movienav.jsp" />
+
     <div class="row">
         <div class="col-sm-5" id="leftOverview">
             <div class="row">
@@ -40,8 +40,16 @@
                     <div class="col-md-12" id="movieDesc">
                         <div id="stats">
                             <ul>
-                                <li><span class="detail">Birthday</span>${actor.birthday}</li>
-                                <li><span class="detail">Gender</span>${actor.gender}</li>
+                                <h1>${actor.name}</h1>
+                                <li><span class="detail">Birthday: </span>${actor.birthday}</li>
+                                    <c:if test="${actor.gender==0}">
+                                    </c:if>
+                                    <c:if test="${actor.gender==1}">
+                                        <li><span class="detail">Gender: </span>Female</li>
+                                    </c:if>
+                                    <c:if test="${actor.gender==2}">
+                                        <li><span class="detail">Gender: </span>Male</li>
+                                    </c:if>
                                 <li><span class="detail">Place of birth: </span>${actor.placeOfBirth}</li>
                                 <li><span class="detail">Popularity: </span>${actor.popularity}</li>
                             </ul>
