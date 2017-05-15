@@ -18,6 +18,8 @@ import javax.servlet.http.HttpSession;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -151,8 +153,19 @@ public class MovieController {
         int userId = u.getId();
         List<FavoriteReview> favoriteReviews = reviewService.getReviewsLikedByUser(userId);
         List<Review> reviews = reviewService.getReviewsByMovie(id);
+        HashSet<Integer> hs = new HashSet<Integer>();
+        ArrayList<Review> filteredReviews = new ArrayList<Review>();
+        for (Review r : reviews){
+            if (!hs.contains(r.getUserId())) {
+                hs.add(r.getUserId());
+                filteredReviews.add(r);
+                System.out.println(r.getBody());
+            }
+        }
+
         if (!reviews.isEmpty()) {
-            theModel.addAttribute("reviews", reviews);
+            System.out.println(filteredReviews.size());
+            theModel.addAttribute("reviews", filteredReviews);
             theModel.addAttribute("favoriteReviews", favoriteReviews);
         }
         return "moviereviews";

