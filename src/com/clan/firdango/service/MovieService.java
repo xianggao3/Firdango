@@ -60,4 +60,13 @@ public class MovieService {
     public void removeFromFavList(int mid, int uid) {
          movieDAO.removeFromFavList(mid, uid);
     }
+
+    @Transactional
+    public  List<Movie> getGenreMovie(String genre) { return movieDAO.getGenreMovie(genre);    }
+
+    @Transactional
+    public  List<Movie> getComingSoonMovie(String genre) { return movieDAO.getComingSoonMovie(genre);    }
+
+    @Transactional
+    public  List<Movie>  getRevenueMovies() { return movieDAO. getRevenueMovies();    }
 }

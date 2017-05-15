@@ -33,12 +33,12 @@ public class MovieDAO {
         return theQuery.getResultList();
     }
 
-    public Movie getMovie(int id){
+    public Movie getMovie(int id) {
         Session currentSession = sessionFactory.getCurrentSession();
         return currentSession.get(Movie.class, id);
     }
 
-    public void deleteMovie(int id){
+    public void deleteMovie(int id) {
         Session currentSession = sessionFactory.getCurrentSession();
         Query query = currentSession.createQuery("delete from Movie where id = :id");
         query.setParameter("id", id);
@@ -55,7 +55,7 @@ public class MovieDAO {
         String q = "FROM FavoriteMovie where userid = :uid and movieid = :mid";
         Query query = currentSession.createQuery(q);
         query.setParameter("uid", userid);
-        query.setParameter("mid",movieid);
+        query.setParameter("mid", movieid);
         System.out.println(query.getResultList());
         return query.getResultList().size();
 
@@ -70,7 +70,7 @@ public class MovieDAO {
         Session currentSession = sessionFactory.getCurrentSession();
         Query query = currentSession.createQuery("delete from FavoriteMovie where movieid = :mid and userid=:uid");
         query.setParameter("mid", mid);
-        query.setParameter("uid",uid);
+        query.setParameter("uid", uid);
         query.executeUpdate();
     }
 
@@ -80,4 +80,31 @@ public class MovieDAO {
         Query<Movie> theQuery = currentSession.createQuery(q, Movie.class);
         return theQuery.getResultList();
     }
+
+    public List<Movie> getGenreMovie(String genre) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        String q = "FROM Movie where release_date < current_date and poster_path is not null and genre =:genre ORDER BY release_date DESC";
+        Query<Movie> query = currentSession.createQuery(q, Movie.class);
+        query.setParameter("genre", genre);
+        query.setMaxResults(10);
+        return query.getResultList();
+    }
+
+    public List<Movie> getComingSoonMovie(String genre) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        String q = "FROM Movie where release_date > current_date  and poster_path is not null and genre =:genre ORDER BY release_date ASC";
+        Query<Movie> query = currentSession.createQuery(q, Movie.class);
+        query.setParameter("genre", genre);
+        query.setMaxResults(10);
+        return query.getResultList();
+    }
+
+    public List<Movie> getRevenueMovies() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        String q = "FROM Movie where release_date < current_date  and poster_path is not null  ORDER BY release_date, revenue DESC";
+        Query<Movie> query = currentSession.createQuery(q, Movie.class);
+        query.setMaxResults(50);
+        return  query.getResultList();
+    }
 }
+
