@@ -60,7 +60,7 @@ public class UserDAO {
 
     public List<String> getNewsletterEmails() {
         Session currentSession = sessionFactory.getCurrentSession();
-        Query<String> query = currentSession.createQuery("select email from User where receiveNewsletter = true", String.class);
+        Query<String> query = currentSession.createQuery("select email from User where receiveNewsletter = 1", String.class);
         return query.getResultList();
     }
 

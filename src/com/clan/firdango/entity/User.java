@@ -30,7 +30,7 @@ public class User implements Serializable{
     private double balance;
 
     @Column(name = "receiveNewsletter")
-    private boolean receiveNewsletter;
+    private int receiveNewsletter;
 
     public User() {
     }
@@ -84,14 +84,10 @@ public class User implements Serializable{
     }
 
     public int getReceiveNewsletter() {
-        if (receiveNewsletter) {
-            return 1;
-        } else {
-            return 0;
-        }
+        return receiveNewsletter;
     }
 
-    public void setReceiveNewsletter(boolean receiveNewsletter) {
+    public void setReceiveNewsletter(int receiveNewsletter) {
         this.receiveNewsletter = receiveNewsletter;
     }
 
