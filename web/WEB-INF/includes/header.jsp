@@ -37,8 +37,7 @@
                         Times & Tickets
                     </a>
                     <div class="dropdown-menu" aria-labelledby="timesAndTicketsDropdown">
-                        <a class="dropdown-item" href="/timesandtickets">Tickets for 'Fifty Shades Darker'</a>
-                    </div>
+                        <a class="dropdown-item" href="/search?NY">Nearby Theatres</a>                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,7 +47,6 @@
                         <a class="dropdown-item" href="/news">Featured News</a>
                         <a class="dropdown-item" href="/theatres?page=0">Theatres</a>
                         <a class="dropdown-item" href="/gift-cards">Gift Cards</a>
-
                     </div>
                 </li>
                 <li class="nav-item dropdown">
