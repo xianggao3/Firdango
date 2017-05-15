@@ -4,6 +4,8 @@ import com.clan.firdango.dao.SearchDAO;
 import com.clan.firdango.entity.*;
 import com.clan.firdango.service.MovieService;
 import com.clan.firdango.service.ReviewService;
+import com.clan.firdango.service.ShowtimeService;
+import com.clan.firdango.service.TheatreService;
 import org.apache.commons.io.IOUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -12,6 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import java.util.HashMap;
+import java.util.Map;
+
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -29,14 +35,19 @@ import java.util.List;
 public class MovieController {
     private final MovieService movieService;
     private final ReviewService reviewService;
+    private final ShowtimeService showtimeService;
+    private final TheatreService ts;
     private final SearchDAO searchDAO;
 
 
     @Autowired
-    public MovieController(MovieService movieService, ReviewService reviewService, SearchDAO searchDAO) {
+    public MovieController(MovieService movieService, ReviewService reviewService, ShowtimeService showtimeService, TheatreService ts, SearchDAO searchDAO) {
         this.searchDAO = searchDAO;
         this.movieService = movieService;
         this.reviewService = reviewService;
+        this.showtimeService = showtimeService;
+        this.ts = ts;
+
     }
 
     @GetMapping("/overview")
@@ -240,7 +251,29 @@ public class MovieController {
     }
 
     @GetMapping("/timesandtickets")
-    public String getMovieTimes() {
+    public String getMovieTimes(@RequestParam("movieId") int movieId,
+                                Model theModel) {
+        List<Showtime> showtimesByMovie = showtimeService.getShowtimeByMovie(movieId);
+        System.out.println("SIZE:" + showtimesByMovie.size());
+        ArrayList<Theatre> allTheatres = new ArrayList<Theatre>();
+        Map theatreTimeMap = new HashMap();
+        for (Showtime s: showtimesByMovie){
+            System.out.println(s.getId());
+            if(theatreTimeMap.containsKey(s.getTheatreId())) {
+                ArrayList<Showtime> timesPerTheatre = (ArrayList<Showtime>) theatreTimeMap.get(s.getTheatreId());
+                timesPerTheatre.add(s);
+            }
+            else{
+                ArrayList<Showtime> timesPerTheatre = new ArrayList<Showtime>();
+                timesPerTheatre.add(s);
+                theatreTimeMap.put(s.getTheatreId(), timesPerTheatre);
+                allTheatres.add(ts.getTheatre(s.getTheatreId()));
+            }
+        }
+
+        System.out.println(allTheatres.size());
+        theModel.addAttribute("theatres", allTheatres);
+        theModel.addAttribute("dictionary", theatreTimeMap);
         return "movietimesandtickets";
     }
 

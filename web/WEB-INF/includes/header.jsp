@@ -28,8 +28,8 @@
                     <div class="dropdown-menu" aria-labelledby="moviesDropdown">
                         <a class="dropdown-item" href="/category/all?page=0">Now Playing</a>
                         <a class="dropdown-item" href="/category/comingsoon?page=0">Coming Soon</a>
-                        <a class="dropdown-item" href="/category/all?page=0"">Sort by Genre</a>
-                        <a class="dropdown-item" href="/category/topboxoffice"">Top Box Office</a>
+                        <a class="dropdown-item" href="/category/all?page=0">Sort by Genre</a>
+                        <a class="dropdown-item" href="/category/topboxoffice">Top Box Office</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

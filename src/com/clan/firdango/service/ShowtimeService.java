@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by marvinyan on 5/14/2017.
  */
@@ -22,4 +24,11 @@ public class ShowtimeService {
     public Showtime getShowtime(int showtimeId) {
         return showtimeDAO.getShowtime(showtimeId);
     }
+
+    @Transactional
+    public List<Showtime> getShowtimeByMovie(int mid) {
+        return showtimeDAO.getShowtimeByMovie(mid);
+    }
+
+
 }
