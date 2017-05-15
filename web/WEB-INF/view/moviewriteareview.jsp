@@ -58,7 +58,7 @@
                 <h1>Write a review</h1>
                 <div class="row">
                     <div class="movieReview">
-                        <form class="" method="post" action="writeareview">
+                        <form class="" method="post" action="">
 
                                 <div class="input-group">
                                     <input type="hidden" class="form-control" name="movieId" id="movieId" value="${movie.id}" />
