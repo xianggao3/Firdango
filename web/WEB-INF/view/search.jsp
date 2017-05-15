@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -57,8 +58,8 @@
     <div id="topMoviesDiv" class="container">
         <div class="card-deck">
             <c:forEach items="${theatreRes}" var="theatre">
-                    <c:url var="overviewLink" value="/overview">
-                        <c:param name="movieId" value="${theatre.id}" />
+                    <c:url var="overviewLink" value="/theatre">
+                        <c:param name="theatreId" value="${theatre.id}" />
                     </c:url>
                     <a href="${overviewLink}" class="card card-inverse text-center">
                         <img class="card-img-top" height="280" src="${theatre.photo}" onerror="this.src='../../resources/img/placeholderposter.png'">
@@ -76,9 +77,10 @@
        <h1 style="color: white">Movie Results for "${qs}"</h1>
     </div>
     <div id="topMoviesDiv" class="container">
-        <c:forEach var="row" begin="0" end="2">
+        <c:set var="rowEnd" value="3"></c:set>
+        <c:forEach var="row" begin="0" end="${(fn:length(searchRes)-1)/4}">
             <div class="card-deck">
-                <c:forEach var="col" begin="0" end="3" >
+                <c:forEach var="col" begin="0" end="${rowEnd}" >
                     <c:url var="overviewLink" value="/overview">
                         <c:param name="movieId" value="${searchRes[row*4+col].id}" />
                     </c:url>
@@ -103,7 +105,14 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script src="index.js"></script>
 
-</html>
+
+<script>
+    $(document).ready(function(){
+        //$("img[src$='../../resources/img/placeholderposter.png']").parent().toggle();
+    })
+
+
+</script>
 
 
 </html>
