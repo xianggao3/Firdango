@@ -33,4 +33,11 @@ public class ShowtimeDAO {
         query.setParameter("movieId", movieId);
         return query.getResultList();
     }
+
+    public List<Showtime> getShowtimeByTheatre(int theatreId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query<Showtime> query = currentSession.createQuery("from Showtime where theatreId = :theatreId", Showtime.class);
+        query.setParameter("theatreId", theatreId);
+        return query.getResultList();
+    }
 }

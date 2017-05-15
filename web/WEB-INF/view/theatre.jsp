@@ -1,3 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -20,6 +25,7 @@
     <link href="./resources/css/index.css" rel="stylesheet">
     <link href="./resources/css/movie.css" rel="stylesheet">
     <link href="./resources/css/movieoverview.css" rel="stylesheet">
+    <link href="./resources/css/movietimesandtickets.css" rel="stylesheet">
 
     <style>
         body{
@@ -49,6 +55,14 @@
         #theatreInfo ul{
             list-style-type: none;
         }
+
+        #theatreTickets{
+            margin-top: 2%;
+            background-color: #d8d8d8;
+            padding: 2%;
+        }
+
+
 
 
 
@@ -101,6 +115,31 @@
                         </div>
             </div>
         </div>
+    </div>
+
+    <h1>Movies and Tickets</h1>
+    <div class="row" id="theatreTickets">
+
+        <c:forEach var="theatreIndex" begin="0" end="${fn:length(movies)}">
+            <div class="movieTheatre">
+                <div class="theatreHeader">
+                    <h2>${movies[theatreIndex].title}</h2>
+                    <p>${movies[theatreIndex].overview}</p>
+                </div>
+                <p>
+                    Select a movie time to buy tickets
+                </p>
+                <c:set var="showtimeEnd" value="${(fn:length(dictionary[movies[theatreIndex].id]))}"></c:set>
+                <c:forEach var="showtimeIndex" begin="0" end="${showtimeEnd}">
+                    <a href="/checkout?showtimeId=${((dictionary[movies[theatreIndex].id])[showtimeIndex]).id}&userId=${sessionScope.loggedinuser.id}">
+                        <c:if test="${showtimeIndex < showtimeEnd}">
+                            <button class="btn-warning time" onClick="parent.location='checkout'">${((dictionary[movies[theatreIndex].id])[showtimeIndex]).showtime}</button>
+                        </c:if>
+                    </a>
+                </c:forEach>
+
+            </div>
+        </c:forEach>
     </div>
 
 </div>
