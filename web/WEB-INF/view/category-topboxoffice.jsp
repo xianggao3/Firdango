@@ -30,18 +30,18 @@
 <jsp:include page="/WEB-INF/includes/header.jsp" />
 <div class="container">
     <div class="container-fluid">
-        <h1>TOP BOX OFFICE</h1>
+        <h1>Top Box Office</h1>
         <div class="row">
             <ul id="overviewList">
-                <li><a href="/category/all?page=0">now playing</a></li>
-                <li><a href="/category/comingsoon?page=0">comingsoon</a></li>
-                <li><a href="/category/topboxoffice">top box office</a></li>
+                <li><a href="/category/all?page=0">Now Playing</a></li>
+                <li><a href="/category/comingsoon?page=0">Coming Soon</a></li>
+                <li><a href="/category/topboxoffice">Top Box Office</a></li>
             </ul>
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="container-fluid">
+    <div class="container-fluid" style="color:white; text-align: center">
 
         <table>
             <tr>

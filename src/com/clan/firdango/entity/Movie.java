@@ -40,7 +40,7 @@ public class Movie {
     private String imdbId;
 
     @Column(name = "revenue")
-    private String revenue;
+    private int revenue;
 
     @Column(name = "budget")
     private String budget;
@@ -123,11 +123,11 @@ public class Movie {
         this.imdbId = imdbId;
     }
 
-    public String getRevenue() {
+    public int getRevenue() {
         return revenue;
     }
 
-    public void setRevenue(String revenue) {
+    public void setRevenue(int revenue) {
         this.revenue = revenue;
     }
 

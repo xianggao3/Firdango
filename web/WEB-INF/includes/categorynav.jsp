@@ -10,23 +10,23 @@
 
 <div class="row">
     <ul id="overviewList">
-        <li><a href="/category/all?page=0">now playing</a></li>
-        <li><a href="/category/comingsoon?page=0">comingsoon</a></li>
-        <li><a href="/category/topboxoffice?page=0">top box office</a></li>
+        <li><a href="/category/all?page=0">Now Playing</a></li>
+        <li><a href="/category/comingsoon?page=0">Coming Soon</a></li>
+        <li><a href="/category/topboxoffice">Top Box Office</a></li>
     </ul>
 </div>
 
 <div class="row">
     <ul id="overviewList">
         <h1>Sort by Genre</h1>
-        <li><a href="/category/genre?genre=Action">ACTION</a></li>
-        <li><a href="/category/genre?genre=Drama">DRAMA</a></li>
-        <li><a href="/category/genre?genre=Comedy">COMEDY</a></li>
-        <li><a href="/category/genre?genre=Family">KIDS</a></li>
-        <li><a href="/category/genre?genre=Horror">HORROR</a></li>
-        <li><a href="/category/genre?genre=Romance">ROMANCE</a></li>
-        <li><a href="/category/genre?genre=Science Fiction">SCI-FI</a></li>
-        <li><a href="/category/genre?genre=Animation">ANIMATED</a></li>
+        <li><a href="/category/genre?genre=Action">Action</a></li>
+        <li><a href="/category/genre?genre=Drama">Drama</a></li>
+        <li><a href="/category/genre?genre=Comedy">Comedy</a></li>
+        <li><a href="/category/genre?genre=Family">Kids</a></li>
+        <li><a href="/category/genre?genre=Horror">Horror</a></li>
+        <li><a href="/category/genre?genre=Romance">Romance</a></li>
+        <li><a href="/category/genre?genre=Science Fiction">Sci-Fi</a></li>
+        <li><a href="/category/genre?genre=Animation">Animated</a></li>
 
             <%--<c:param name="genre" value="Drama" />--%>
         <%--<li><a href=${genreLink}>DRAMA</a></li>--%>
