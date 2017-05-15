@@ -117,7 +117,6 @@ public class MovieController {
         return "moviecastandcrew";
     }
 
-
     @GetMapping("/photosandposters")
     public String getMoviePhotos(@RequestParam("movieId") int id, Model theModel) {
         List<String> imageUrls = new ArrayList<>();
@@ -201,7 +200,6 @@ public class MovieController {
         if (likeState == 0) reviewService.saveLike(fr);
         else reviewService.removeLike(fr);
     }
-
 
     @GetMapping("/synopsis")
     public String getMovieSynopsis() {
