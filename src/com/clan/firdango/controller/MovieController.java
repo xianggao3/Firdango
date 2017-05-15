@@ -99,7 +99,7 @@ public class MovieController {
 
     @GetMapping("/news")
     public String getMovieNews( Model theModel) {
-        return "movieoverview";
+        return "movienews";
     }
 
     @GetMapping("/castandcrew")
