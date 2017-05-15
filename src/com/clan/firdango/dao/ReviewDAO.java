@@ -39,6 +39,7 @@ public class ReviewDAO {
 
     public void saveReview(Review review) {
         Session currentSession = sessionFactory.getCurrentSession();
+        ;
         currentSession.saveOrUpdate(review);
     }
 

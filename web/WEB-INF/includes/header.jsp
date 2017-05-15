@@ -50,11 +50,19 @@
                     <div class="dropdown-menu" aria-labelledby="timesAndTicketsDropdown">
                         <a class="dropdown-item" href="/theatres?page=0">All Theatres</a>
 
-                        <a class="dropdown-item" href="#">Loading nearby locations..</a>
-                        <div id="nearbyLocations" style="display:none;">
+                        <a id="nearbyLocationsLoading" class="dropdown-item" href="#">Loading nearby locations..</a>
+                        <div id="nearbyLocationsHidden" style="display:none;">
                             <div class="card-block">
-                                <h4 class="card-title" style="color: orange;">AMC Loews Stony Brook 17</h4>
+                                <h4 class="card-title" style="color: orange;"><a href="/theatre?theatreId=41557">AMC Loews Stony Brook 17</a></h4>
                                 <h6 class="card-title">(631) 941-0156</h6>
+                            </div>
+                            <div class="card-block">
+                                <h4 class="card-title" style="color: orange;"><a href="/theatre?theatreId=41582">Regal Ronkonkoma Stadium 9</a></h4>
+                                <h6 class="card-title">(844) 462-7342</h6>
+                            </div>
+                            <div class="card-block">
+                                <h4 class="card-title" style="color: orange;"><a href="/theatre?theatreId=41581">AMC Loews Shore 8</a></h4>
+                                <h6 class="card-title">(631) 425-2785</h6>
                             </div>
                         </div>
 
