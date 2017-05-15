@@ -13,21 +13,21 @@ import java.util.List;
  * Created by junyounkim on 5/14/2017.
  */
 @Controller
-@RequestMapping("/moviesintheatres")
-public class GenreController {
+@RequestMapping("/category")
+public class CategoryController {
     private final MovieService movieService;
 
     @Autowired
-    public GenreController(MovieService movieService) {
+    public CategoryController(MovieService movieService) {
         this.movieService = movieService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public String index(Model theModel) {
         List<Movie> movies = movieService.getFeatured();
         theModel.addAttribute("movies", movies);
         List<Movie> comingSoon = movieService.getComingSoonMovie("*");
-        theModel.addAttribute("commingSoon", comingSoon);
+        theModel.addAttribute("comingSoon", comingSoon);
         return "moviesintheatres";
     }
 

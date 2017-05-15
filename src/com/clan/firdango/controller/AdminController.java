@@ -33,7 +33,7 @@ public class AdminController {
         this.dbUpdateService = dbUpdateService;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public String index() {
         return "admin-index";
     }
@@ -140,4 +140,6 @@ public class AdminController {
         dbUpdateService.fetchNewMovies(url);
         return "redirect:/admin/listMovies";
     }
+
+
 }
