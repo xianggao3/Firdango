@@ -63,14 +63,13 @@ public class MovieService {
     }
 
     @Transactional
-    public  List<Movie> getGenreMovie(String genre) {
-        return movieDAO.getGenreMovie(genre);
-    }
+    public  List<Movie> getGenreMovie(String genre) { return movieDAO.getGenreMovie(genre);    }
 
     @Transactional
-    public  List<Movie> getComingSoonMovie(String genre) {
-        return movieDAO.getComingSoonMovie(genre);
-    }
+    public  List<Movie> getSoonGenreMovie(String genre) { return movieDAO.getSoonGenreMovie(genre);    }
+
+    @Transactional
+    public  List<Movie> getComingSoonMovie() { return movieDAO.getComingSoonMovie();    }
 
     @Transactional
     public  List<Movie> getRevenueMovies() {

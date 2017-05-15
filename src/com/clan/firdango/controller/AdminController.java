@@ -34,7 +34,7 @@ public class AdminController {
         this.ticketService = ticketService;
     }
 
-    @GetMapping()
+    @GetMapping("/")
     public String index() {
         return "admin-index";
     }

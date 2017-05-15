@@ -94,22 +94,29 @@ public class MovieDAO {
         String q = "FROM Movie where release_date < current_date and poster_path is not null and genre =:genre ORDER BY release_date DESC";
         Query<Movie> query = currentSession.createQuery(q, Movie.class);
         query.setParameter("genre", genre);
-        query.setMaxResults(10);
+        query.setMaxResults(12);
+        return query.getResultList();
+    }
+    public List<Movie> getSoonGenreMovie(String genre) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        String q = "FROM Movie where release_date > current_date and poster_path is not null and genre =:genre ORDER BY release_date ASC";
+        Query<Movie> query = currentSession.createQuery(q, Movie.class);
+        query.setParameter("genre", genre);
+        query.setMaxResults(12);
         return query.getResultList();
     }
 
-    public List<Movie> getComingSoonMovie(String genre) {
+    public List<Movie> getComingSoonMovie() {
         Session currentSession = sessionFactory.getCurrentSession();
-        String q = "FROM Movie where release_date > current_date  and poster_path is not null and genre =:genre ORDER BY release_date ASC";
+        String q = "FROM Movie where release_date > current_date  and poster_path is not null ORDER BY release_date ASC";
         Query<Movie> query = currentSession.createQuery(q, Movie.class);
-        query.setParameter("genre", genre);
-        query.setMaxResults(10);
+        query.setMaxResults(12);
         return query.getResultList();
     }
 
     public List<Movie> getRevenueMovies() {
         Session currentSession = sessionFactory.getCurrentSession();
-        String q = "FROM Movie where release_date < current_date  and poster_path is not null  ORDER BY release_date, revenue DESC";
+        String q = "FROM Movie where release_date < current_date and poster_path is not null  ORDER BY revenue  DESC";
         Query<Movie> query = currentSession.createQuery(q, Movie.class);
         query.setMaxResults(50);
         return  query.getResultList();

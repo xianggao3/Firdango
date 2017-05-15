@@ -251,6 +251,6 @@ public class MovieController {
 
     @GetMapping("/moviesintheatres")
     public String getMoviesInTheatres() {
-        return "moviesintheatres";
+        return "category";
     }
 }
