@@ -63,7 +63,7 @@
             </div>
             <div class="col-sm-7" id="rightDesc">
                 <c:choose>
-                    <c:when test="${user != null}">
+                    <c:when test="${sessionScope.loggedinuser != null}">
                         <a href="writeareview?movieId=${movie.id}">Write a Review</a>
                     </c:when>
                     <c:otherwise>
@@ -73,54 +73,58 @@
                 <h1>Movie Reviews</h1>
                 <div class="row">
                     <div class="movieReview">
-                        <c:forEach var="row" begin="0" end="2">
-                            <h2 class="reviewTitle">${reviews[row].title}</h2>
+                        <c:choose>
+                            <c:when test="${fn:length(reviews) > 0}">
+                        <c:forEach var="revIndex" begin="0" end="${fn:length(reviews)-1}">
+                            <h2 class="reviewTitle">${reviews[revIndex].title}</h2>
                             <table>
                                 <tr>
                                     <td>
                                         <fieldset class="rating" disabled>
-                                            <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                                            <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                                            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                                            <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                                            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                                            <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                                            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                                            <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                                            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                                            <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                            <input type="radio" id="star5" name="rating${revIndex}" value="10" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                            <input type="radio" id="star4half" name="rating${revIndex}" value="9" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                            <input type="radio" id="star4" name="rating${revIndex}" value="8" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                            <input type="radio" id="star3half" name="rating${revIndex}" value="7" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                            <input type="radio" id="star3" name="rating${revIndex}" value="6" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                            <input type="radio" id="star2half" name="rating${revIndex}" value="5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                            <input type="radio" id="star2" name="rating${revIndex}" value="4" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                            <input type="radio" id="star1half" name="rating${revIndex}" value="3" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                            <input type="radio" id="star1" name="rating${revIndex}" value="2" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                            <input type="radio" id="starhalf" name="rating${revIndex}" value="1" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
                                         </fieldset>
                                     </td>
                                 </tr>
                             </table>
                             <span class="reviewMeta">
-                                By <span class="reviewAuthor">${reviews[row].userName}</span>
-                                on <span class="reviewDate">${reviews[row].timeOfReview}</span>
+                                By <span class="reviewAuthor">${reviews[revIndex].userName}</span>
+                                on <span class="reviewDate">${reviews[revIndex].timeOfReview}</span>
                             </span>
                             <p class="reviewFull">
-                                    ${reviews[row].body}
+                                    ${reviews[revIndex].body}
                             </p>
                             <c:set var="isLiked" value="false" />
-                            <c:forEach var="reviewIndex" begin="0" end="${fn:length(favoriteReviews)-1}">
+                            <c:forEach var="reviewIndex" begin="0" end="${fn:length(favoriteReviews)}">
                                 <c:choose>
-                                    <c:when test="${reviews[row].reviewId==favoriteReviews[reviewIndex].reviewId}">
+                                    <c:when test="${reviews[revIndex].reviewId==favoriteReviews[reviewIndex].reviewId}">
                                         <c:set var="isLiked" value="true" />
                                     </c:when>
                                     <c:otherwise>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
-                            <c:choose>
 
+                            <c:choose>
                                 <c:when test="${isLiked==true}">
-                                    <input id="${reviews[row].reviewId}" class="btn btn-danger like" type="button" value="Dislike">
+                                    <input id="${reviews[revIndex].reviewId}" class="btn btn-danger like" type="button" value="Dislike">
                                 </c:when>
                                 <c:otherwise>
-                                    <input id="${reviews[row].reviewId}" class="btn btn-primary like" type="button" value="Like">
+                                    <input id="${reviews[revIndex].reviewId}" class="btn btn-primary like" type="button" value="Like">
                                 </c:otherwise>
                             </c:choose>
                             <hr>
                         </c:forEach>
+                            </c:when>
+                        </c:choose>
 
                         <a href="#" style="margin-right: 60%; margin-left: 3%"><button id="prev">Previous</button></a>
                         <a href="#"><button id="next">Next</button></a>
@@ -147,15 +151,11 @@
         var $index = 0;
         console.log(reviews);
         */
-        $('input:radio[name="rating"]').filter('[value="${reviews[0].rating}"]').attr('checked', true);
-        $("#prev").click(function(){
 
-        });
+        <c:forEach var="reviewIndex" begin="0" end="${fn:length(reviews)-1}">
+            $('input:radio[name=' + "rating" + ${reviewIndex} + ']').filter('[value="${reviews[reviewIndex].rating}"]').attr('checked', true);
+        </c:forEach>
 
-        $("#next").click(function(){
-            $index++;
-
-        });
 
         function doLike(reviewId, likeState){
             if (likeState==0) $(event.target).val("Dislike");

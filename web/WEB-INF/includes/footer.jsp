@@ -9,7 +9,7 @@
                 <p class="card-text">Buy tickets and get a free song download.</p>
             </div>
             <div class="card-footer">
-                <a href="#" class="card-text"><small class="text-primary">Buy Tickets</small></a>
+                <a href="/gift-cards" class="card-text"><small class="text-primary">Buy Tickets</small></a>
             </div>
         </div>
         <div class="card card-inverse">
@@ -19,7 +19,7 @@
                 <p class="card-text">Change of plans? No sweat. Refund or exchange your tickets as a Firdango VIP.</p>
             </div>
             <div class="card-footer">
-                <a href="#" class="card-text"><small class="text-primary">Join Now For Free</small></a>
+                <a href="/signup" class="card-text"><small class="text-primary">Join Now For Free</small></a>
             </div>
         </div>
         <div class="card card-inverse">
@@ -39,7 +39,7 @@
                 <p class="card-text">Give the gift of movies. Get your Firdango Movie Gift Card now.</p>
             </div>
             <div class="card-footer">
-                <a href="#" class="card-text"><small class="text-primary">Buy Gift Cards</small></a>
+                <a href="/gift-cards" class="card-text"><small class="text-primary">Buy Gift Cards</small></a>
             </div>
         </div>
     </div>

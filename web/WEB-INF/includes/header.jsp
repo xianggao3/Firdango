@@ -31,11 +31,13 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        News
+                        Other
                     </a>
                     <div class="dropdown-menu" aria-labelledby="newsDropdown">
                         <a class="dropdown-item" href="/news">Featured News</a>
-                        <a class="dropdown-item" href="/news">Explore Content</a>
+                        <a class="dropdown-item" href="/theatres">Theatres</a>
+                        <a class="dropdown-item" href="/gift-cards">Gift Cards</a>
+
                     </div>
                 </li>
                 <li class="nav-item dropdown">

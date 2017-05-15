@@ -6,9 +6,10 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/admin/listUsers">Users</a><br>
-<a href="${pageContext.request.contextPath}/admin/listMovies">Movies</a><br>
-<a href="${pageContext.request.contextPath}/admin/listReviews">Reviews</a><br>
-<a href="${pageContext.request.contextPath}/admin/showNewsletterForm">Newsletter</a>
+<a href="/admin/listUsers">Users</a><br>
+<a href="/admin/listMovies">Movies</a><br>
+<a href="/admin/listReviews">Reviews</a><br>
+<a href="/admin/showNewsletterForm">Newsletter</a><br>
+<a href="/admin/fetchNewMovies">Fetch New Movies</a><br>
 </body>
 </html>
