@@ -25,6 +25,22 @@ public class Theatre {
     @Column(name = "photo")
     private String photo;
 
+    @Column(name = "lat")
+    private float lat;
+
+    @Column(name = "lon")
+    private float lon;
+
+    @Column(name = "website")
+    private String website;
+
+    @Column(name = "telephone")
+    private String telephone;
+
+    @Column(name = "chain_id")
+    private String chain_id;
+
+
     public String getPhoto() {
         return photo;
     }
@@ -64,4 +80,48 @@ public class Theatre {
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
+
+    public float getLat() {
+        return lat;
+    }
+
+    public void setLat(float lat) {
+        this.lat = lat;
+    }
+
+    public float getLon() {
+        return lon;
+    }
+
+    public void setLon(float lon) {
+        this.lon = lon;
+    }
+
+    public String getChain() {
+        return chain_id;
+    }
+
+    public void setChain(String chain_id) {
+        this.chain_id = chain_id;
+    }
+
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String zipcode) {
+        this.website = zipcode;
+    }
+
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String zipcode) {
+        this.telephone = zipcode;
+    }
+
+
 }

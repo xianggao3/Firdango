@@ -40,7 +40,20 @@ public class TheatreController {
                                    Model theModel,
                                    HttpServletRequest request) {
         Theatre theatre = theatreService.getTheatre(id);
+        int dispLL=1;
+        int dispwebsite=1;
+        int disptele=1;
+        if(theatre.getLat()==0){
+            dispLL=0;
+        }if(theatre.getWebsite()==null){
+            dispwebsite=0;
+        }if(theatre.getTelephone()==null){
+            disptele=0;
+        }
         theModel.addAttribute("theatre", theatre);
+        theModel.addAttribute("dispLL", dispLL);
+        theModel.addAttribute("dispwebsite", dispwebsite);
+        theModel.addAttribute("disptele", disptele);
 
         HttpSession session = request.getSession();
         int favStatus = 0;

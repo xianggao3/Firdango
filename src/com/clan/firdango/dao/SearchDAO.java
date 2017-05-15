@@ -53,6 +53,8 @@ public class SearchDAO {
 
         return JSONresponse.toString();
     }
+
+
     @Transactional
     public List<Movie> getSearchMovieResults(Model theModel,HttpServletRequest request,String qs) throws Exception {
         Session currentSession = sessionFactory.getCurrentSession();

@@ -62,7 +62,7 @@
                         <c:param name="theatreId" value="${theatre.id}" />
                     </c:url>
                     <a href="${overviewLink}" class="card card-inverse text-center">
-                        <img class="card-img-top" height="280" src="${theatre.photo}" onerror="this.src='../../resources/img/placeholderposter.png'">
+                        <img class="card-img-top" height="243" style="min-width:243px; max-width:243px;" src="${theatre.photo}" onerror="this.src='../../resources/img/placeholderposter.png'">
                         <div class="card-block">
                             <h4 class="card-title">${theatre.name}</h4>
                             <h6 class="card-title">${theatre.address}</h6>
@@ -77,22 +77,19 @@
        <h1 style="color: white">Movie Results for "${qs}"</h1>
     </div>
     <div id="topMoviesDiv" class="container">
-        <c:set var="rowEnd" value="3"></c:set>
-        <c:forEach var="row" begin="0" end="${(fn:length(searchRes)-1)/4}">
             <div class="card-deck">
-                <c:forEach var="col" begin="0" end="${rowEnd}" >
+                <c:forEach items="${searchRes}" var="amovie" >
                     <c:url var="overviewLink" value="/overview">
-                        <c:param name="movieId" value="${searchRes[row*4+col].id}" />
+                        <c:param name="movieId" value="${amovie.id}" />
                     </c:url>
                     <a href="${overviewLink}" class="card card-inverse text-center">
-                        <img class="card-img-top" height="360" src="https://image.tmdb.org/t/p/w500//${searchRes[row*4+col].poster}" onerror="this.src='../../resources/img/placeholderposter.png'">
+                        <img class="card-img-top" height="360" style="min-width:243px;" src="https://image.tmdb.org/t/p/w500//${amovie.poster}" onerror="this.src='../../resources/img/placeholderposter.png'">
                         <div class="card-block">
-                            <h4 class="card-title">${searchRes[row*4+col].title}</h4>
+                            <h4 class="card-title">${amovie.title}</h4>
                         </div>
                     </a>
                 </c:forEach>
             </div>
-        </c:forEach>
     </div>
 
     <jsp:include page="/WEB-INF/includes/footer.jsp" />
@@ -108,7 +105,7 @@
 
 <script>
     $(document).ready(function(){
-        //$("img[src$='../../resources/img/placeholderposter.png']").parent().toggle();
+        $("img[src$='../../resources/img/placeholderposter.png']").parent().toggle();
     })
 
 
