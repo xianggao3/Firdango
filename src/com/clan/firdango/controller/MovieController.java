@@ -170,7 +170,6 @@ public class MovieController {
         }
 
         if (!reviews.isEmpty()) {
-            System.out.println(filteredReviews.size());
             theModel.addAttribute("reviews", filteredReviews);
             theModel.addAttribute("favoriteReviews", favoriteReviews);
         }
@@ -181,9 +180,16 @@ public class MovieController {
     public String getMovieWriteAReview(@ModelAttribute("user") User u,@RequestParam("movieId") int id, Model theModel)
     {
         List<Review> reviews = reviewService.getReviewsByUser(u.getId());
-        if (!reviews.isEmpty()) {
-            Review r = reviews.get(0);
-            theModel.addAttribute("review", r);
+        Review review = null;
+        for (Review r : reviews){
+            if (r.getMovieId() == id){
+                review = r;
+                break;
+            }
+
+        }
+        if (review!=null) {
+            theModel.addAttribute("review", review);
         }
         return "moviewriteareview";
     }
