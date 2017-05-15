@@ -59,7 +59,7 @@
                 </div>
         </div>
 
-            <div id="paginationBar">
+            <div id="paginationBar" style="text-align: center;">
                 <c:set var="pageNum2" value="${page-5}"/>
                 <c:if test="${pageNum2<0}">
                     <c:set var="pageNum2" value="0"/>

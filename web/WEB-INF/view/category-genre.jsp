@@ -37,23 +37,19 @@
 <div class="container">
         <div id="newMoviesDiv" class="container">
             <h1 class="display-5 text-white border-bottom-1">OPENING SOON</h1>
-            <div id="topMoviesDiv" class="container">
-                <c:forEach var="row" begin="0" end="0">
-                    <div class="card-deck">
-                        <c:forEach var="col" begin="0" end="3" >
-                            <c:url var="overviewLink" value="/overview">
-                                <c:param name="movieId" value="${comingSoon[4*row+col].id}" ></c:param>
-                            </c:url>
-                            <a href="${overviewLink}" class="card card-inverse text-center">
-                                <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${comingSoon[4*row+col].poster}" alt="">
-                                <div class="card-block">
-                                    <h4 class="card-title">${comingSoon[row*4+col].title}</h4>
-                                </div>
-                            </a>
-                        </c:forEach>
+            <div class="card-deck">
+            <c:forEach items="${comingSoon}" var="amovie" >
+                <c:url var="overviewLink" value="/overview">
+                    <c:param name="movieId" value="${amovie.id}" />
+                </c:url>
+                <a href="${overviewLink}" class="card card-inverse text-center">
+                    <img class="card-img-top" height="360" style="min-width:243px;" src="https://image.tmdb.org/t/p/w500//${amovie.poster}" onerror="this.src='../../resources/img/placeholderposter.png'">
+                    <div class="card-block">
+                        <h4 class="card-title">${amovie.title}</h4>
                     </div>
-                </c:forEach>
-            </div>
+                </a>
+            </c:forEach>
+        </div>
         </div>
 
 
@@ -67,7 +63,7 @@
                                 <c:param name="movieId" value="${movies[row*4+col].id}" />
                             </c:url>
                             <a href="${overviewLink}" class="card card-inverse text-center">
-                                <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[row*4+col].poster}" alt="">
+                                <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[row*4+col].poster}" onerror="this.src='../../resources/img/placeholderposter.png'">
                                 <div class="card-block">
                                     <h4 class="card-title">${movies[row*4+col].title}</h4>
                                 </div>
