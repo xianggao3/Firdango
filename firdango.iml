@@ -16,7 +16,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="NewPersistenceUnit" />
+          <factory-entry name="NewPersistenceUnit" value="46ad2040-d109-43ec-9d5e-0522d68b676a" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/out/artifacts/firdango_war_exploded/WEB-INF/classes/META-INF/persistence.xml" />
       </configuration>

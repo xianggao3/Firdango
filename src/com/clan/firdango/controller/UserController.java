@@ -106,7 +106,7 @@ public class UserController {
             u.setLastName(lastName);
             u.setEmail(email);
             u.setPassword(password);
-            u.setReceiveNewsletter(!receiveNewsletter.equals(""));
+            u.setReceiveNewsletter(!receiveNewsletter.equals("") ? 1 : 0);
             model.addAttribute("user", u);
             userService.saveUser(u);
             return "redirect:/";
@@ -153,9 +153,9 @@ public class UserController {
     }
 
     @PostMapping("/receiveNewsletter")
-    public String changeReceiveNewsletter(@RequestParam(value = "receiveNewsletter", defaultValue = "") String val,
+    public String changeReceiveNewsletter(@RequestParam(value = "receive", defaultValue = "") String recv,
                                           @ModelAttribute User user) {
-        user.setReceiveNewsletter(!val.equals(""));
+        user.setReceiveNewsletter(!recv.equals("") ? 1 : 0);
         return "redirect:/account";
     }
 

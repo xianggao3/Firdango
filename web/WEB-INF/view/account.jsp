@@ -118,7 +118,7 @@
 					<h5>Receive Newsletter</h5>
 					<div class="form-check">
 						<label class="form-check-label">
-							<input class="form-check-input" type="checkbox" ${user.receiveNewsletter == 1 ? 'checked' : ''} name="receiveNewsletter">
+							<input class="form-check-input" type="checkbox" ${user.receiveNewsletter == 1 ? 'checked' : ''} name="receive">
 							I would like to receive promotional emails from Firdango.
 						</label>
 					</div>
