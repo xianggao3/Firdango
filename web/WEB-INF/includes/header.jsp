@@ -35,7 +35,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="newsDropdown">
                         <a class="dropdown-item" href="/news">Featured News</a>
-                        <a class="dropdown-item" href="/theatres">Theatres</a>
+                        <a class="dropdown-item" href="/theatres?page=0">Theatres</a>
                         <a class="dropdown-item" href="/gift-cards">Gift Cards</a>
 
                     </div>
