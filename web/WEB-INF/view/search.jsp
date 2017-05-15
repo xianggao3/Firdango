@@ -62,10 +62,9 @@
                         <c:param name="theatreId" value="${theatre.id}" />
                     </c:url>
                     <a href="${overviewLink}" class="card card-inverse text-center">
-                        <img class="card-img-top" height="243" style="min-width:243px; max-width:243px;" src="${theatre.photo}" onerror="this.src='../../resources/img/placeholderposter.png'">
                         <div class="card-block">
-                            <h4 class="card-title">${theatre.name}</h4>
-                            <h6 class="card-title">${theatre.address}</h6>
+                            <h4 class="card-title" style="color: orange;">${theatre.name}</h4>
+                            <h6 class="card-title">${theatre.telephone}</h6>
                         </div>
                     </a>
             </c:forEach>
@@ -78,38 +77,47 @@
     </div>
     <div id="topMoviesDiv" class="container">
             <div class="card-deck">
-                <c:forEach items="${searchRes}" var="amovie" >
+                <c:forEach items="${searchRes}" var="actor" >
                     <c:url var="overviewLink" value="/overview">
-                        <c:param name="movieId" value="${amovie.id}" />
+                        <c:param name="movieId" value="${actor.id}" />
                     </c:url>
                     <a href="${overviewLink}" class="card card-inverse text-center">
-                        <img class="card-img-top" height="360" style="min-width:243px;" src="https://image.tmdb.org/t/p/w500//${amovie.poster}" onerror="this.src='../../resources/img/placeholderposter.png'">
+                        <img class="card-img-top" height="360" style="min-width:243px;" src="https://image.tmdb.org/t/p/w500//${actor.poster}" onerror="this.src='../../resources/img/placeholderposter.png'">
                         <div class="card-block">
-                            <h4 class="card-title">${amovie.title}</h4>
+                            <h4 class="card-title">${actor.title}</h4>
                         </div>
                     </a>
                 </c:forEach>
             </div>
     </div>
 
+    <div class="container">
+        <h1 style="color: white">Actor Results for "${qs}"</h1>
+    </div>
+    <div id="topMoviesDiv" class="container">
+        <div class="card-deck">
+            <c:forEach items="${actorRes}" var="actor">
+                <c:url var="overviewLink" value="/actor">
+                    <c:param name="actorId" value="${actor.name}" />
+                </c:url>
+                <a href="${overviewLink}" class="card card-inverse text-center">
+                    <img class="card-img-top" height="360" style="min-width:243px;" src="https://image.tmdb.org/t/p/w500//${actor.profilePath}" onerror="this.src='../../resources/img/placeholderposter.png'">
+                    <div class="card-block">
+                        <h4 class="card-title">${actor.name}</h4>
+                    </div>
+                </a>
+            </c:forEach>
+        </div>
+    </div>
     <jsp:include page="/WEB-INF/includes/footer.jsp" />
-
-
 </body>
-
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script src="index.js"></script>
-
-
 <script>
     $(document).ready(function(){
         $("img[src$='../../resources/img/placeholderposter.png']").parent().toggle();
     })
-
-
 </script>
-
-
 </html>

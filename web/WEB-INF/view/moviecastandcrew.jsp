@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -42,7 +43,6 @@
                                 <center><img style="width: 50%; margin: 3% auto" src="http://www.homequalitymark.com/filelibrary/interactive_scorecard/4_star.png" /></center>
                                 <ul>
                                     <li><span class="detail">Fan Ratings: </span>${sessionScope.avgRating/2}</li>
-                                    <li><span class="detail">Rotten Tomatos: </span> 8%</li>
                                     <li><span class="detail">Released: </span>${movie.releaseDate}</li>
                                     <li><span class="detail">Rating: </span> R</li>
                                     <li><span class="detail">Genre: </span>${movie.genre}</li>
@@ -56,13 +56,17 @@
 
             </div>
             <div class="col-sm-7" id="rightDesc">
-                <h1>Cast + Crew</h1>
+                <h1>Cast</h1>
                 <div class="row">
                     <div id="ccList">
                     <ol>
-                    <c:forEach items="${castncrews}" var="actorname">
-                        <li>${actorname}</li>
-                    </c:forEach>
+                        <c:forEach var="index" begin="0" end="${fn:length(castName)}" >
+                            <li>${castName[index]}as ${castRole[index]}</li>
+                        </c:forEach>
+                        <h1>Crew</h1>
+                        <c:forEach items="${crew}" var="actorname">
+                            <li>${actorname}</li>
+                        </c:forEach>
                     </ol>
                     </div>
                 </div>
@@ -85,4 +89,3 @@
 </script>
 
 </html>
-

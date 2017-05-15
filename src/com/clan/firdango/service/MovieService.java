@@ -1,6 +1,7 @@
 package com.clan.firdango.service;
 
 import com.clan.firdango.dao.MovieDAO;
+import com.clan.firdango.entity.Actor;
 import com.clan.firdango.entity.FavoriteMovie;
 import com.clan.firdango.entity.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,4 +94,8 @@ public class MovieService {
     public double getAvgMovieRating(int id) {
         return movieDAO.getAvgMovieRating(id);
     }
+
+    @Transactional
+    public Actor getActorByName(String s) { return movieDAO.getActorByName(s);}
+
 }

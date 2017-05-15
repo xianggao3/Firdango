@@ -1,8 +1,6 @@
 package com.clan.firdango.dao;
 
-import com.clan.firdango.entity.Movie;
-import com.clan.firdango.entity.MovieSearchResults;
-import com.clan.firdango.entity.Theatre;
+import com.clan.firdango.entity.*;
 import com.google.gson.Gson;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -58,6 +56,7 @@ public class SearchDAO {
     @Transactional
     public List<Movie> getSearchMovieResults(Model theModel,HttpServletRequest request,String qs) throws Exception {
         Session currentSession = sessionFactory.getCurrentSession();
+        System.out.println(qs);
         Query query=currentSession.createQuery("FROM Movie where title LIKE CONCAT('%',?1,'%')");
         query.setParameter("1",qs);
         List<Movie> trl=query.list();
@@ -66,13 +65,23 @@ public class SearchDAO {
     @Transactional
     public List<Theatre> getSearchTheatreResults(Model theModel, HttpServletRequest request,String qs) {
         Session currentSession = sessionFactory.getCurrentSession();
-        Query query=currentSession.createQuery("FROM Theatre where address LIKE CONCAT('%',?1,'%') or zipcode = :qs");
+        System.out.println(qs);
+        Query query=currentSession.createQuery("FROM Theatre where address LIKE CONCAT('%',?1,'%') or name LIKE CONCAT('%',?1,'%') or zipcode = :qs");
         query.setParameter("1",qs);
         query.setParameter("qs",qs);
         List<Theatre> trl=query.list();
         return trl;
     }
 
+    @Transactional
+    public List<Actor> getSearchActorResults(Model theModel, HttpServletRequest request, String qs) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        System.out.println(qs);
+        Query query=currentSession.createQuery("FROM Actor where name LIKE CONCAT('%',?1,'%')");
+        query.setParameter("1",qs);
+        List<Actor> trl=query.list();
+        return trl;
+    }
 
    /*
    KNOWN ISSUES:
