@@ -20,57 +20,49 @@
 
         -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
-        <link href="./resources/css/index.css" rel="stylesheet">
+        <link href="../../resources/css/index.css" rel="stylesheet">
+        <link href="../../web/resources/css/movie.css" rel="stylesheet">
+        <link href="../../web/resources/css/movieoverview.css" rel="stylesheet">
 
     </head>
 
     <body>
     <jsp:include page="/WEB-INF/includes/header.jsp" />
-
         <div class="container">
             <div class="container-fluid">
-
                 <a class="display-4 text-white">MOVIES NOW PLAYING</a>
-
-                <ul id="overviewList">
-                    <li class="active"><a href="#">now playing</a></li>
-                    <li><a href="/moviesintheatres/comingsoon">coming soon</a></li>
-                    <li><a href="./moviesintheatres/genre">MOVIE GENRES</a></li>
-                    <li><a href="./topboxoffice">TOP BOX OFFICE</a></li>
-                </ul>
-
+                <jsp:include page="/WEB-INF/includes/categorynav.jsp" />
             </div>
         </div>
         <div class="container">
-                    <div class="container-fluid">
-                <h4 style="color: white">Filter by Genre</h4>
-        <div class="row">
-            <ul id="genreList">
-                <li class="active"><a href="">All</a></li>
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Comedy</a></li>
-                <li><a href="#">Drama</a></li>
-                <li><a href="#">Kids</a></li>
-                <li><a href="#">Romance</a></li>
-                <li><a href="#">Sci-Fi</a></li>
+            <div class="container-fluid">
+                <%--<h4 style="color: white">Filter by Genre</h4>--%>
+        <%--<div class="row">--%>
+            <%--<ul id="genreList">--%>
+                <%--<li class="active"><a href="">All</a></li>--%>
+                <%--<li><a href="./">Action</a></li>--%>
+                <%--<li><a href="#">Comedy</a></li>--%>
+                <%--<li><a href="#">Drama</a></li>--%>
+                <%--<li><a href="#">Kids</a></li>--%>
+                <%--<li><a href="#">Romance</a></li>--%>
+                <%--<li><a href="#">Sci-Fi</a></li>--%>
 
-            </ul>
-        </div>
+            <%--</ul>--%>
+        <%--</div>--%>
 
-        <div id="newMoviesDiv" class="container">
-            <h1 class="display-5 text-white border-bottom-1">OPENING THIS WEEK</h1>
+         <div id="newMoviesDiv" class="container">
+             <h1 class="display-5 text-white border-bottom-1">OPENING SOON</h1>
             <div id="topMoviesDiv" class="container">
-                <c:forEach var="row" begin="0" end="2">
+                <c:forEach var="row" begin="0" end="0">
                     <div class="card-deck">
                         <c:forEach var="col" begin="0" end="3" >
                             <c:url var="overviewLink" value="/overview">
-                                <c:param name="movieId" value="${comingsoon[row*4+col].id}" />
-
+                                <c:param name="movieId" value="${comingSoon[4*row+col].id}" />
                             </c:url>
                             <a href="${overviewLink}" class="card card-inverse text-center">
-                                <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${comingsoon[row*4+col].poster}" alt="">
+                                <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${comingSoon[4*row+col].poster}" alt="">
                                 <div class="card-block">
-                                    <h4 class="card-title">${comingsoon[row*4+col].title}</h4>
+                                    <h4 class="card-title">${comingSoon[row*4+col].title}</h4>
                                 </div>
                             </a>
                         </c:forEach>
@@ -79,22 +71,26 @@
             </div>
         </div>
 
+
        <div id="nowPlayingDiv" class="container">
             <h1 class="display-5 text-white border-bottom-1">NOW PLAYING</h1>
-
-            <div id="topMoviesDiv" class="container">
-                <c:forEach var="col" begin="0" end="3" >
-                    <c:url var="overviewLink" value="/overview">
-                        <c:param name="movieId" value="${movies[col].id}" />
-                    </c:url>
-                    <a href="${overviewLink}" class="card card-inverse text-center">
-                        <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[col].poster}" alt="">
-                        <div class="card-block">
-                            <h4 class="card-title">${movies[col].title}</h4>
-                        </div>
-                    </a>
-                </c:forEach>
-            </div>
+                    <div id="botMoviesDiv" class="container">
+                        <c:forEach var="row" begin="0" end="2">
+                            <div class="card-deck">
+                                <c:forEach var="col" begin="0" end="3" >
+                                    <c:url var="overviewLink" value="/overview">
+                                        <c:param name="movieId" value="${movies[row*4+col].id}" />
+                                    </c:url>
+                                    <a href="${overviewLink}" class="card card-inverse text-center">
+                                        <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[row*4+col].poster}" alt="">
+                                        <div class="card-block">
+                                            <h4 class="card-title">${movies[row*4+col].title}</h4>
+                                        </div>
+                                    </a>
+                                </c:forEach>
+                            </div>
+                        </c:forEach>
+                    </div>
         </div>
     </div>
             <jsp:include page="/WEB-INF/includes/footer.jsp" />

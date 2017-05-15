@@ -13,42 +13,45 @@ import java.util.List;
  * Created by junyounkim on 5/14/2017.
  */
 @Controller
-@RequestMapping("/moviesintheatres")
-public class GenreController {
+@RequestMapping("/category")
+public class CategoryController {
     private final MovieService movieService;
 
     @Autowired
-    public GenreController(MovieService movieService) {
+    public CategoryController(MovieService movieService) {
         this.movieService = movieService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public String index(Model theModel) {
         List<Movie> movies = movieService.getFeatured();
         theModel.addAttribute("movies", movies);
-        List<Movie> comingSoon = movieService.getComingSoonMovie("*");
-        theModel.addAttribute("commingSoon", comingSoon);
-        return "moviesintheatres";
+        List<Movie> comingSoon = movieService.getComingSoonMovie();
+        theModel.addAttribute("comingSoon", comingSoon);
+        return "category";
     }
 
     @GetMapping("/genre")
     public String getGenreMovies(@RequestParam("genre") String genre, Model theModel) {
         List<Movie> movies = movieService.getGenreMovie(genre);
         theModel.addAttribute("movies", movies);
-        return " genre";
+        List<Movie> comingSoon = movieService.getSoonGenreMovie(genre);
+        theModel.addAttribute("comingSoon", comingSoon);
+
+        return "category-genre";
     }
 
     @GetMapping("/comingsoon")
-    public String getComingSoonMovies(@RequestParam("genre") String genre, Model theModel) {
-        List<Movie> movies = movieService.getComingSoonMovie(genre);
+    public String getComingSoonMovies(Model theModel) {
+        List<Movie> movies = movieService.getComingSoonMovie();
         theModel.addAttribute("movies", movies);
-        return " comingsoon";
+        return "category-comingsoon";
     }
 
     @GetMapping("/topboxoffice")
     public String getRevenueMovies(Model theModel){
         List<Movie> movies = movieService.getRevenueMovies();
         theModel.addAttribute("movies", movies);
-        return " topboxoffice";
+        return "category-topboxoffice";
     }
 }

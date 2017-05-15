@@ -140,4 +140,6 @@ public class AdminController {
         dbUpdateService.fetchNewMovies(url);
         return "redirect:/admin/listMovies";
     }
+
+
 }
