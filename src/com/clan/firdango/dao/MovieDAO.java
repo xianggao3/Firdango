@@ -2,6 +2,7 @@ package com.clan.firdango.dao;
 
 import com.clan.firdango.entity.FavoriteMovie;
 import com.clan.firdango.entity.Movie;
+import com.sun.org.apache.xpath.internal.SourceTree;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -112,6 +113,24 @@ public class MovieDAO {
         Query<Movie> query = currentSession.createQuery(q, Movie.class);
         query.setMaxResults(50);
         return  query.getResultList();
+    }
+
+    public long getNumMovieRatings(int id) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        String q = "select count(*) FROM Review where movieId=:id";
+        Query query = currentSession.createQuery(q);
+        query.setParameter("id",id);
+        System.out.println(query.getResultList().get(0));
+        return (long) query.getResultList().get(0);
+    }
+
+    public double getAvgMovieRating(int id) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        String q = "select avg(rating) FROM Review where movieId=?1";
+        Query query = currentSession.createQuery(q);
+        query.setParameter("1",id);
+        System.out.println(query.getResultList().get(0));
+        return (double)query.getResultList().get(0);
     }
 }
 

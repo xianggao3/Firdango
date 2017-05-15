@@ -86,4 +86,12 @@ public class MovieService {
         }
         return movies;
     }
+    @Transactional
+    public long getNumMovieRatings(int id) {
+        return movieDAO.getNumMovieRatings(id);
+    }
+    @Transactional
+    public double getAvgMovieRating(int id) {
+        return movieDAO.getAvgMovieRating(id);
+    }
 }
