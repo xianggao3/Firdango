@@ -10,9 +10,9 @@
 
 <div class="row">
     <ul id="overviewList">
-        <li><a href="/category/all">now playing</a></li>
-        <li><a href="/category/comingsoon">comingsoon</a></li>
-        <li><a href="/category/topboxoffice">top box office</a></li>
+        <li><a href="/category/all?page=0">now playing</a></li>
+        <li><a href="/category/comingsoon?page=0">comingsoon</a></li>
+        <li><a href="/category/topboxoffice?page=0">top box office</a></li>
     </ul>
 </div>
 

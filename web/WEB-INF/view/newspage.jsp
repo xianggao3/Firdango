@@ -1,6 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,49 +17,36 @@
 
     -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
-    <link href="../../resources/css/index.css" rel="stylesheet">
-    <link href="../../resources/css/movie.css" rel="stylesheet">
-    <link href="../../resources/css/movieoverview.css" rel="stylesheet">
-
+    <link href="../resources/css/index.css" rel="stylesheet">
+    <link href="../resources/css/movie.css" rel="stylesheet">
 </head>
 
 <body>
 <jsp:include page="/WEB-INF/includes/header.jsp" />
+
 <div class="container">
     <div class="container-fluid">
-        <h1>TOP BOX OFFICE</h1>
-        <div class="row">
-            <ul id="overviewList">
-                <li><a href="/category/all?page=0">now playing</a></li>
-                <li><a href="/category/comingsoon?page=0">comingsoon</a></li>
-                <li><a href="/category/topboxoffice">top box office</a></li>
-            </ul>
-        </div>
+
+        <a class="display-4 text-white">MOVIE NEWS</a>
     </div>
 </div>
 <div class="container">
     <div class="container-fluid">
 
-        <table>
-            <tr>
-                <th>Title</th>
-                <th>Revenue</th>
-                <th>Release Date</th>
-            </tr>
-            <c:forEach items="${movies}" var="movie">
-                <tr>
-                    <td>${movie.title}</td>
-                    <td>${movie.revenue}</td>
-                    <td>${movie.releaseDate}</td>
-                </tr>
-            </c:forEach>
-        </table>
+        <div id="newMoviesDiv" class="container">
+            <h1 class="display-5 text-white border-bottom-1">${title}</h1>
+
 
         </div>
 
-    </div>
-    <jsp:include page="/WEB-INF/includes/footer.jsp" />
+        <div id="nowPlayingDiv" class="container">
+            <h1 class="display-5 text-white border-bottom-1">Features</h1>
 
+
+        </div>
+    </div>
+
+    <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
 </body>
 
