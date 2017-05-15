@@ -50,9 +50,17 @@ public class MovieController {
             User u = (User)session.getAttribute("loggedinuser");
             favStatus = movieService.favMovieStatus(u.getId(), movie.getId());
         }
+        long numRatings;
+        double avgRating=0;
+        numRatings=movieService.getNumMovieRatings(id);
+        if(numRatings>0){
+            avgRating=movieService.getAvgMovieRating(id);
+        }
 
         session.setAttribute("favoriteStatus", favStatus);
         session.setAttribute("movieid", id);
+        session.setAttribute("avgRating",avgRating);
+        session.setAttribute("numRatings", numRatings);
         return "movieoverview";
     }
 
@@ -70,8 +78,8 @@ public class MovieController {
             User liu = (User) session.getAttribute("loggedinuser");
             if (fs ==0) {
                 FavoriteMovie fm = new FavoriteMovie();
-                fm.setMovieid(id);
-                fm.setUserid(liu.getId());
+                fm.setMovieId(id);
+                fm.setUserId(liu.getId());
                 movieService.addToFavList(fm);
             } else {
                 movieService.removeFromFavList(id,liu.getId());

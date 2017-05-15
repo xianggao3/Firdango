@@ -1,6 +1,7 @@
 package com.clan.firdango.service;
 
 import com.clan.firdango.dao.TheatreDAO;
+import com.clan.firdango.entity.FavoriteTheatre;
 import com.clan.firdango.entity.Movie;
 import com.clan.firdango.entity.Theatre;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,4 +33,15 @@ public class TheatreService {
     }
 
 
+    public int favTheatreStatus(int id, int id1) {
+        return theatreDAO.favTheatreStatus(id, id1);
+    }
+
+    public void addToFavList(FavoriteTheatre fm) {
+        theatreDAO.addToFavList(fm);
+    }
+
+    public void removeFromFavList(int id, int id1) {
+        theatreDAO.removeFromFavList(id, id1);
+    }
 }
