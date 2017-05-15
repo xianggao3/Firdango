@@ -23,11 +23,13 @@ public class CategoryController {
     }
 
     @GetMapping("/all")
-    public String index(Model theModel) {
+    public String index(@RequestParam("page") int page,  Model theModel) {
         List<Movie> movies = movieService.getFeatured();
         theModel.addAttribute("movies", movies);
         List<Movie> comingSoon = movieService.getComingSoonMovie();
         theModel.addAttribute("comingSoon", comingSoon);
+        theModel.addAttribute( "size", movies.size());
+        theModel.addAttribute("pageNum", page);
         return "category";
     }
 
@@ -37,7 +39,8 @@ public class CategoryController {
         theModel.addAttribute("movies", movies);
         List<Movie> comingSoon = movieService.getSoonGenreMovie(genre);
         theModel.addAttribute("comingSoon", comingSoon);
-
+        theModel.addAttribute( "size", movies.size());
+        theModel.addAttribute( "soonSize", comingSoon.size());
         return "category-genre";
     }
 
@@ -45,6 +48,7 @@ public class CategoryController {
     public String getComingSoonMovies(Model theModel) {
         List<Movie> movies = movieService.getComingSoonMovie();
         theModel.addAttribute("movies", movies);
+        theModel.addAttribute( "size", movies.size());
         return "category-comingsoon";
     }
 

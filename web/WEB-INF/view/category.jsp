@@ -21,8 +21,8 @@
         -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
         <link href="../../resources/css/index.css" rel="stylesheet">
-        <link href="../../web/resources/css/movie.css" rel="stylesheet">
-        <link href="../../web/resources/css/movieoverview.css" rel="stylesheet">
+        <link href="../../resources/css/movie.css" rel="stylesheet">
+        <link href="../../resources/css/movieoverview.css" rel="stylesheet">
 
     </head>
 
@@ -30,55 +30,50 @@
     <jsp:include page="/WEB-INF/includes/header.jsp" />
         <div class="container">
             <div class="container-fluid">
-                <a class="display-4 text-white">MOVIES NOW PLAYING</a>
+                <h1 >MOVIES NOW PLAYING</h1>
                 <jsp:include page="/WEB-INF/includes/categorynav.jsp" />
             </div>
         </div>
         <div class="container">
             <div class="container-fluid">
-
-         <div id="newMoviesDiv" class="container">
-             <h1 class="display-5 text-white border-bottom-1">OPENING SOON</h1>
-            <div id="topMoviesDiv" class="container">
-                <c:forEach var="row" begin="0" end="0">
-                    <div class="card-deck">
-                        <c:forEach var="col" begin="0" end="3" >
-                            <c:url var="overviewLink" value="/overview">
-                                <c:param name="movieId" value="${comingSoon[4*row+col].id}" />
-                            </c:url>
-                            <a href="${overviewLink}" class="card card-inverse text-center">
-                                <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${comingSoon[4*row+col].poster}" alt="">
-                                <div class="card-block">
-                                    <h4 class="card-title">${comingSoon[row*4+col].title}</h4>
-                                </div>
-                            </a>
-                        </c:forEach>
-                    </div>
-                </c:forEach>
-            </div>
-        </div>
-
-
-       <div id="nowPlayingDiv" class="container">
-            <h1 class="display-5 text-white border-bottom-1">NOW PLAYING</h1>
+                <div id="nowPlayingDiv" class="container">
+                    <h1 class="display-5 text-white border-bottom-1">NOW PLAYING</h1>
                     <div id="botMoviesDiv" class="container">
+                        <c:set var="offset" value="${pageNum*12}"/>
                         <c:forEach var="row" begin="0" end="2">
                             <div class="card-deck">
                                 <c:forEach var="col" begin="0" end="3" >
                                     <c:url var="overviewLink" value="/overview">
-                                        <c:param name="movieId" value="${movies[row*4+col].id}" />
+                                        <c:param name="movieId" value="${movies[offset+ row*4+col].id}" />
                                     </c:url>
                                     <a href="${overviewLink}" class="card card-inverse text-center">
-                                        <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[row*4+col].poster}" alt="">
+                                        <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[offset+ row*4+col].poster}" alt="">
                                         <div class="card-block">
-                                            <h4 class="card-title">${movies[row*4+col].title}</h4>
+                                            <h4 class="card-title">${movies[offset+row*4+col].title}</h4>
                                         </div>
                                     </a>
                                 </c:forEach>
                             </div>
                         </c:forEach>
                     </div>
+                </div>
         </div>
+
+            <div id="paginationBar">
+                <c:set var="pageNum2" value="${page-5}"/>
+                <c:if test="${pageNum2<0}">
+                    <c:set var="pageNum2" value="0"/>
+                </c:if>
+                <c:forEach var="page" begin="${pageNum2}" end="${pageNum2+10}" >
+                    <c:if test="${page==pageNum}">
+                        <a href="./all?page=${page}"><button class="btn btn-warning">${page}</button></a>
+                    </c:if>
+                    <c:if test="${page!=pageNum}">
+                        <a href="./all?page=${page}"><button class="btn btn-primary">${page}</button></a>
+                    </c:if>
+                </c:forEach>
+            </div>
+
     </div>
             <jsp:include page="/WEB-INF/includes/footer.jsp" />
 

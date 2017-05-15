@@ -21,8 +21,8 @@
     -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
     <link href="../../resources/css/index.css" rel="stylesheet">
-    <link href="../../web/resources/css/movie.css" rel="stylesheet">
-    <link href="../../web/resources/css/movieoverview.css" rel="stylesheet">
+    <link href="../../resources/css/movie.css" rel="stylesheet">
+    <link href="../../resources/css/movieoverview.css" rel="stylesheet">
 
 </head>
 
@@ -30,7 +30,7 @@
 <jsp:include page="/WEB-INF/includes/header.jsp" />
 <div class="container">
     <div class="container-fluid">
-        <a class="display-4 text-white">TOP BOX OFFICE</a>
+        <h1>TOP BOX OFFICE</h1>
         <div class="row">
             <ul id="overviewList">
                 <li><a href="/category/all">now playing</a></li>

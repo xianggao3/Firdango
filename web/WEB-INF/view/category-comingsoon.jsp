@@ -21,8 +21,8 @@
     -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto|Maven+Pro|Josefin+Sans:300,400" rel="stylesheet">
     <link href="../../resources/css/index.css" rel="stylesheet">
-    <link href="../../web/resources/css/movie.css" rel="stylesheet">
-    <link href="../../web/resources/css/movieoverview.css" rel="stylesheet">
+    <link href="../../resources/css/movie.css" rel="stylesheet">
+    <link href="../../resources/css/movieoverview.css" rel="stylesheet">
 
 </head>
 
@@ -30,15 +30,12 @@
 <jsp:include page="/WEB-INF/includes/header.jsp" />
 <div class="container">
     <div class="container-fluid">
-        <a class="display-4 text-white">COMING SOON</a>
+        <h1>COMING SOON</h1>
         <jsp:include page="/WEB-INF/includes/categorynav.jsp" />
     </div>
 </div>
 <div class="container">
     <div class="container-fluid">
-        <a class="display-4 text-white">Genre</a>
-        <
-
         <div id="newMoviesDiv" class="container">
             <h1 class="display-5 text-white border-bottom-1">OPENING SOON</h1>
             <div id="topMoviesDiv" class="container">
