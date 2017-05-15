@@ -5,6 +5,7 @@ import com.clan.firdango.entity.*;
 import com.clan.firdango.service.MovieService;
 import com.clan.firdango.service.ReviewService;
 import org.apache.commons.io.IOUtils;
+import org.jboss.weld.context.http.Http;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -18,6 +19,8 @@ import javax.servlet.http.HttpSession;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -144,21 +147,37 @@ public class MovieController {
 
     @GetMapping("/reviews")
     public String getMovieReviews(@RequestParam("movieId") int id,
-                                  @ModelAttribute("user") User u,
-                                  Model theModel) {
-
-        int userId = u.getId();
+                                  Model theModel, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User liu=null;
+        if (session.getAttribute("loggedinuser") == null){
+            return("redirect:/signin");
+        } else {
+             liu = (User) session.getAttribute("loggedinuser");
+        }
+        int userId = liu.getId();
         List<FavoriteReview> favoriteReviews = reviewService.getReviewsLikedByUser(userId);
         List<Review> reviews = reviewService.getReviewsByMovie(id);
+        HashSet<Integer> hs = new HashSet<Integer>();
+        ArrayList<Review> filteredReviews = new ArrayList<Review>();
+        for (Review r : reviews){
+            if (!hs.contains(r.getUserId())) {
+                hs.add(r.getUserId());
+                filteredReviews.add(r);
+                System.out.println(r.getBody());
+            }
+        }
+
         if (!reviews.isEmpty()) {
-            theModel.addAttribute("reviews", reviews);
+            System.out.println(filteredReviews.size());
+            theModel.addAttribute("reviews", filteredReviews);
             theModel.addAttribute("favoriteReviews", favoriteReviews);
         }
         return "moviereviews";
     }
 
     @GetMapping("/writeareview")
-    public String getMovieWriteAReview(@ModelAttribute("user") User u, Model theModel)
+    public String getMovieWriteAReview(@ModelAttribute("user") User u,@RequestParam("movieId") int id, Model theModel)
     {
         List<Review> reviews = reviewService.getReviewsByUser(u.getId());
         if (!reviews.isEmpty()) {
