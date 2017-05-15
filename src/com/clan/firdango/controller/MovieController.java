@@ -106,7 +106,7 @@ public class MovieController {
     public String getMovieCastAndCrew(@RequestParam("movieId") int id, Model theModel) {
         List<String> castncrews = new ArrayList<>();
         try {
-            URL url = new URL("https://api.themoviedb.org/3/movie/"+id+"/credits?api_key=d36bee7b08bda0f0dd33ccdcd33e8685\n");
+            URL url = new URL("https://api.themoviedb.org/3/movie/"+id+"/credits?api_key=d36bee7b08bda0f0dd33ccdcd33e8685");
             String imagesJson = IOUtils.toString(url);
             JSONObject imagesJsonObject = (JSONObject) JSONValue.parseWithException(imagesJson);
             JSONArray backdrops = (JSONArray) imagesJsonObject.get("cast");

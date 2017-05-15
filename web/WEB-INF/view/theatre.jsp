@@ -27,6 +27,21 @@
             background-size: cover;
             background-attachment: fixed;
         }
+
+        #theatreCard{
+            background-color: #d8d8d8;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2%;
+        }
+
+        #map{
+            margin: 2% auto;
+            text-align: center;
+
+        }
+
+
     </style>
 </head>
 
@@ -35,7 +50,7 @@
 <div class="container">
     <h1>${theatre.name}
         <div class="input-group">
-            <input type="hidden" class="form-control" name="movieId" id="movieId" value="${theatre.id}" />
+            <input type="hidden" class="form-control" name="theatreId" id="theatreId" value="${theatre.id}" />
         </div>
 
         <c:if test="${favoriteStatus==0}">
@@ -46,9 +61,18 @@
         </c:if>
     </h1>
 
-
     <div class="row">
-        <div class="col-sm-5" id="leftOverview">
+        <div id="theatreCard">
+        <iframe id="map"
+                width="100%"
+                height="300px"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+                src="https://maps.google.com/maps?q=${theatre.lat},${theatre.lon}&hl=es;z=14&amp;output=embed">
+        </iframe>
+
             <div class="row">
                 <div class="row">
                     <div class="col-md-12" id="movieImg">
@@ -76,12 +100,9 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-        <div class="col-sm-7" id="rightDesc">
-            <iframe src=""></iframe>
         </div>
     </div>
+
 </div>
 <jsp:include page="/WEB-INF/includes/footer.jsp" />
 </body>
