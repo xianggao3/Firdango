@@ -14,6 +14,11 @@
     <link href="./resources/css/moviecastandcrew.css" rel="stylesheet">
 
     <style>
+        body{
+            background-image: url("https://jackbeard.files.wordpress.com/2013/04/0524.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+        }
         #ccList{
             text-align: left;
             margin: 0 auto;
@@ -33,7 +38,7 @@
             <div class="row">
                 <div class="row">
                     <div class="col-md-12" id="movieImg">
-                        <img src="https://image.tmdb.org/t/p/w500//${actor.profilePath}">
+                        <img src="https://image.tmdb.org/t/p/w500//${actor.profilePath}" onerror="this.src='../../resources/img/placeholderposter.png'">
                     </div>
                 </div>
                 <div class="row">

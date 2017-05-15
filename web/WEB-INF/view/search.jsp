@@ -62,10 +62,9 @@
                         <c:param name="theatreId" value="${theatre.id}" />
                     </c:url>
                     <a href="${overviewLink}" class="card card-inverse text-center">
-                        <img class="card-img-top" height="243" style="min-width:243px; max-width:243px;" src="${theatre.photo}" onerror="this.src='../../resources/img/placeholderposter.png'">
                         <div class="card-block">
-                            <h4 class="card-title">${theatre.name}</h4>
-                            <h6 class="card-title">${theatre.address}</h6>
+                            <h4 class="card-title" style="color: orange;">${theatre.name}</h4>
+                            <h6 class="card-title">${theatre.telephone}</h6>
                         </div>
                     </a>
             </c:forEach>
