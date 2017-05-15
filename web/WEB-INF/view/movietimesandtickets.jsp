@@ -1,3 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -61,87 +66,24 @@
 
             </div>
             <div class="col-sm-7" id="rightDesc">
-                <div class="movieTheatre">
-                    <div class="theatreHeader">
-                        <h2>AMC LOEWS STONY BROOK 17 </h2>
-                        <p>2196 Nesconset Highway, Stony Brook, NY 11790</p>
+                <c:forEach var="theatreIndex" begin="0" end="${fn:length(theatres)}">
+                    <div class="movieTheatre">
+                        <div class="theatreHeader">
+                            <h2>${theatres[theatreIndex].name}</h2>
+                            <p>${theatres[theatreIndex].address}</p>
+                        </div>
+
+                        <p>
+                            Select a movie time to buy tickets
+                        </p>
+                    <c:forEach var="showtimeIndex" begin="0" end="${(fn:length(dictionary[theatres[theatreIndex].id]))}">
+                        <a href="/checkout?showtimeId=${((dictionary[theatres[theatreIndex].id])[showtimeIndex]).id}&userId=${sessionScope.loggedinuser.id}">
+                        <button class="btn-warning time" onClick="parent.location='checkout'">${((dictionary[theatres[theatreIndex].id])[showtimeIndex]).showtime}</button>
+                        </a>
+                    </c:forEach>
+
                     </div>
-
-                    <p>
-                        Select a movie time to buy tickets
-                    </p>
-
-                    <button class="btn-warning time" onClick="parent.location='checkout'">1:35 PM</button>
-                    <button class="btn-warning time" onClick="parent.location='checkout'" >4:35 PM</button>
-                    <button class="btn-warning time" onClick="parent.location='checkout'">8:35 PM</button>
-                    <button class="btn-warning time" onClick="parent.location='checkout'">10:35 PM</button>
-                </div>
-
-                <div class="movieTheatre">
-                    <div class="theatreHeader">
-                        <h2>AMC LOEWS INGLEWOOD 17 </h2>
-                        <p>2196 Nesconset Highway, Stony Brook, NY 11790</p>
-                    </div>
-
-                    <p>
-                        Select a movie time to buy tickets
-                    </p>
-
-                    <button class="btn-warning time" onClick="parent.location='checkout'">1:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='checkout'">4:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='checkout'">8:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='checkout'">10:35 PM</button>
-                </div>
-
-
-                <div class="movieTheatre">
-                    <div class="theatreHeader">
-                        <h2>AMC LOEWS COMPTON 17 </h2>
-                        <p>2196 Nesconset Highway, Stony Brook, NY 11790</p>
-                    </div>
-
-                    <p>
-                        Select a movie time to buy tickets
-                    </p>
-
-                    <button class="btn-warning time"onClick="parent.location='checkout'">1:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='checkout'">4:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='checkout'">8:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='checkout'">10:35 PM</button>
-                </div>
-
-                <div class="movieTheatre">
-                    <div class="theatreHeader">
-                        <h2>AMC LOEWS NEW COMP SCI 17 </h2>
-                        <p>2196 Nesconset Highway, Stony Brook, NY 11790</p>
-                    </div>
-
-                    <p>
-                        Select a movie time to buy tickets
-                    </p>
-
-                    <button class="btn-warning time"onClick="parent.location='checkout'">1:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='checkout'">4:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='checkout'">8:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='checkout'">10:35 PM</button>
-                </div>
-
-                <div class="movieTheatre">
-                    <div class="theatreHeader">
-                        <h2>AMC LOEWS DETROIT 17 </h2>
-                        <p>2196 Nesconset Highway, Stony Brook, NY 11790</p>
-                    </div>
-
-                    <p>
-                        Select a movie time to buy tickets
-                    </p>
-
-                    <button class="btn-warning time"onClick="parent.location='checkout'">1:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='checkout'">4:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='checkout'">8:35 PM</button>
-                    <button class="btn-warning time"onClick="parent.location='checkout'">10:35 PM</button>
-                </div>
-
+                </c:forEach>
 
 
             </div>
