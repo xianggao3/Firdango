@@ -110,7 +110,7 @@ public class MovieController {
 
     @GetMapping("/news")
     public String getMovieNews( Model theModel) {
-        return "movieoverview";
+        return "movienews";
     }
 
     @GetMapping("/castandcrew")
@@ -258,6 +258,7 @@ public class MovieController {
         ArrayList<Theatre> allTheatres = new ArrayList<Theatre>();
         Map theatreTimeMap = new HashMap();
         for (Showtime s: showtimesByMovie){
+
             System.out.println(s.getId());
             if(theatreTimeMap.containsKey(s.getTheatreId())) {
                 ArrayList<Showtime> timesPerTheatre = (ArrayList<Showtime>) theatreTimeMap.get(s.getTheatreId());
@@ -268,6 +269,9 @@ public class MovieController {
                 timesPerTheatre.add(s);
                 theatreTimeMap.put(s.getTheatreId(), timesPerTheatre);
                 allTheatres.add(ts.getTheatre(s.getTheatreId()));
+            }
+            if (allTheatres.size() == 20){
+                break;
             }
         }
 

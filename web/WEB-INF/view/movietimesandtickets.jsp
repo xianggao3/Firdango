@@ -76,9 +76,12 @@
                         <p>
                             Select a movie time to buy tickets
                         </p>
-                    <c:forEach var="showtimeIndex" begin="0" end="${(fn:length(dictionary[theatres[theatreIndex].id]))}">
+                        <c:set var="showtimeEnd" value="${(fn:length(dictionary[theatres[theatreIndex].id]))}"></c:set>
+                    <c:forEach var="showtimeIndex" begin="0" end="${showtimeEnd}">
                         <a href="/checkout?showtimeId=${((dictionary[theatres[theatreIndex].id])[showtimeIndex]).id}&userId=${sessionScope.loggedinuser.id}">
-                        <button class="btn-warning time" onClick="parent.location='checkout'">${((dictionary[theatres[theatreIndex].id])[showtimeIndex]).showtime}</button>
+                            <c:if test="${showtimeIndex < showtimeEnd}">
+                                <button class="btn-warning time" onClick="parent.location='checkout'">${((dictionary[theatres[theatreIndex].id])[showtimeIndex]).showtime}</button>
+                            </c:if>
                         </a>
                     </c:forEach>
 
