@@ -27,9 +27,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="moviesDropdown">
                         <a class="dropdown-item" href="/category/all">Now Playing</a>
-                        <a class="dropdown-item" href="/category/comingsoon">Opening This Week</a>
-                        <a class="dropdown-item" href="/category/all">Pre Sales Tickets</a>
-                        <a class="dropdown-item" href="/category/all">Coming Soon</a>
+                        <a class="dropdown-item" href="/category/comingsoon">Coming soon</a>
                         <a class="dropdown-item" href="/category/all">More Movies</a>
                     </div>
                 </li>
