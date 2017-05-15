@@ -23,7 +23,7 @@
 
     <style>
         body{
-            background-image: url("https://image.tmdb.org/t/p/original${theatre.photo}");
+            background-image: url("https://jackbeard.files.wordpress.com/2013/04/0524.jpg");
             background-size: cover;
             background-attachment: fixed;
         }
@@ -35,7 +35,7 @@
 <div class="container">
     <h1>${theatre.name}
         <div class="input-group">
-            <input type="hidden" class="form-control" name="theatreId" id="theatreId" value="${theatre.id}" />
+            <input type="hidden" class="form-control" name="movieId" id="movieId" value="${theatre.id}" />
         </div>
 
         <c:if test="${favoriteStatus==0}">
@@ -59,8 +59,17 @@
                     <div class="col-md-12" id="movieDesc">
                         <div id="stats">
                             <ul>
-                                <li><h1 style="color: darkorange">${theatre.name} </h1></li>
-                                <li><h3 style="color: black">Address: ${theatre.address} ${theatre.zipcode}</h3></li>
+                                <li><h2 style="color: darkorange">${theatre.name} </h2></li>
+                                <li><h3 style="color: darkorange">Address: ${theatre.address} ${theatre.zipcode}</h3></li>
+                                <c:if test="${dispLL==1}">
+                                    <li><h3 style="color: darkorange">Coordinates: ${theatre.lat}, ${theatre.lon}</h3></li>
+                                </c:if>
+                                <c:if test="${dispwebsite==1}">
+                                    <li><h3 style="color: darkorange">Website: ${theatre.website}</h3></li>
+                                </c:if>
+                                <c:if test="${disptele==1}">
+                                    <li><h3 style="color: darkorange">Telephone: ${theatre.telephone}</h3></li>
+                                </c:if>
                             </ul>
                         </div>
                     </div>
@@ -69,7 +78,7 @@
 
         </div>
         <div class="col-sm-7" id="rightDesc">
-
+            <iframe src=""></iframe>
         </div>
     </div>
 </div>

@@ -25,6 +25,61 @@ public class Theatre {
     @Column(name = "photo")
     private String photo;
 
+    @Column(name = "lat")
+    private float lat;
+
+    @Column(name = "lon")
+    private float lon;
+
+    @Column(name = "website")
+    private String website;
+
+    @Column(name = "telephone")
+    private String telephone;
+
+    public float getLat() {
+        return lat;
+    }
+
+    public void setLat(float lat) {
+        this.lat = lat;
+    }
+
+    public float getLon() {
+        return lon;
+    }
+
+    public void setLon(float lon) {
+        this.lon = lon;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getChain_id() {
+        return chain_id;
+    }
+
+    public void setChain_id(String chain_id) {
+        this.chain_id = chain_id;
+    }
+
+    @Column(name = "chain_id")
+    private String chain_id;
+
     public String getPhoto() {
         return photo;
     }
