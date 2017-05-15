@@ -30,5 +30,9 @@ public class ShowtimeService {
         return showtimeDAO.getShowtimeByMovie(mid);
     }
 
+    @Transactional
+    public List<Showtime> getShowtimeByTheatre(int tid) {
+        return showtimeDAO.getShowtimeByTheatre(tid);
+    }
 
 }
