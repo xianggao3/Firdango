@@ -63,7 +63,7 @@
             </div>
             <div class="col-sm-7" id="rightDesc">
                 <c:choose>
-                    <c:when test="${user != null}">
+                    <c:when test="${sessionScope.loggedinuser != null}">
                         <a href="writeareview?movieId=${movie.id}">Write a Review</a>
                     </c:when>
                     <c:otherwise>
@@ -73,7 +73,7 @@
                 <h1>Movie Reviews</h1>
                 <div class="row">
                     <div class="movieReview">
-                        <c:forEach var="revIndex" begin="0" end="${fn:length(reviews)-1}">
+                            <c:forEach var="revIndex" begin="0" end="${fn:length(reviews)-1}">
                             <h2 class="reviewTitle">${reviews[revIndex].title}</h2>
                             <table>
                                 <tr>

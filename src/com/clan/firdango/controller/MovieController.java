@@ -152,7 +152,7 @@ public class MovieController {
         HttpSession session = request.getSession();
         User liu=null;
         if (session.getAttribute("loggedinuser") == null){
-            return("redirect:/signin");
+            return("moviereviews");
         } else {
              liu = (User) session.getAttribute("loggedinuser");
         }
