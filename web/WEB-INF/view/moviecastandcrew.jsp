@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -59,9 +60,8 @@
                 <div class="row">
                     <div id="ccList">
                     <ol>
-                    <c:forEach items="${castName}" var="actorname">
-                        <c:forEach items="${castRole}" var="actorrole">
-                        <li><a href="/actor?actorId=${actorname}">${actorname}</a> as ${actorrole}</li>
+                        <c:forEach var="index" begin="0" end="${fn:length(castName)}" >
+                            <li><a href="/actor?actorId=${castName[index]}">${castName[index]}</a> as ${castRole[index]}</li>
                         </c:forEach>
                     </c:forEach>
                         <h1>Crew</h1>

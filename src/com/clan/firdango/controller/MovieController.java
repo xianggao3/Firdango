@@ -122,7 +122,7 @@ public class MovieController {
     }
 
 
-        @GetMapping("/castandcrew")
+    @GetMapping("/castandcrew")
     public String getMovieCastAndCrew(@RequestParam("movieId") int id, Model theModel) {
         List<String> castName = new ArrayList<>();
             List<String> castRole = new ArrayList<>();
@@ -133,9 +133,12 @@ public class MovieController {
             JSONObject imagesJsonObject = (JSONObject) JSONValue.parseWithException(imagesJson);
             JSONArray backdrops = (JSONArray) imagesJsonObject.get("cast");
             for (int i = 0; i < backdrops.size(); i++) {
+
                 JSONObject curObj = (JSONObject) backdrops.get(i);
-                castName.add((String) (curObj.get("name")));
-                castRole.add((String) (curObj.get("character")));
+                Actor a = movieService.getActorByName((String) curObj.get("name"));
+                    castName.add((String) (curObj.get("name")));
+                    castRole.add((String) (curObj.get("character")));
+
             }
             JSONArray posters = (JSONArray) imagesJsonObject.get("crew");
             for (int i = 0; i < posters.size(); i++) {
@@ -312,9 +315,10 @@ public class MovieController {
     {
 
         Actor a = movieService.getActorByName(id);
-        if (a!=null) {
-            theModel.addAttribute("actor", a);
+        if (a==null) {
+            return "actor";
         }
+        theModel.addAttribute("actor", a);
         return "actor";
     }
 }
