@@ -52,7 +52,7 @@ public class MovieDAO {
 
     public int favMovieStatus(int userid, int movieid) {
         Session currentSession = sessionFactory.getCurrentSession();
-        String q = "FROM FavoriteMovie where userid = :uid and movieid = :mid";
+        String q = "FROM FavoriteMovie where userId = :uid and movieId = :mid";
         Query query = currentSession.createQuery(q);
         query.setParameter("uid", userid);
         query.setParameter("mid", movieid);
@@ -68,7 +68,7 @@ public class MovieDAO {
 
     public void removeFromFavList(int mid, int uid) {
         Session currentSession = sessionFactory.getCurrentSession();
-        Query query = currentSession.createQuery("delete from FavoriteMovie where movieid = :mid and userid=:uid");
+        Query query = currentSession.createQuery("delete from FavoriteMovie where movieId = :mid and userId=:uid");
         query.setParameter("mid", mid);
         query.setParameter("uid", uid);
         query.executeUpdate();
@@ -78,6 +78,13 @@ public class MovieDAO {
         Session currentSession = sessionFactory.getCurrentSession();
         String q = "FROM Movie ORDER BY id DESC";
         Query<Movie> theQuery = currentSession.createQuery(q, Movie.class);
+        return theQuery.getResultList();
+    }
+
+    public List<FavoriteMovie> getFavoriteMovies(int userId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query<FavoriteMovie> theQuery = currentSession.createQuery("from FavoriteMovie where userId=:userId", FavoriteMovie.class);
+        theQuery.setParameter("userId", userId);
         return theQuery.getResultList();
     }
 

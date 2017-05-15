@@ -1,9 +1,6 @@
 package com.clan.firdango.controller;
 
-import com.clan.firdango.entity.Movie;
-import com.clan.firdango.entity.Newsletter;
-import com.clan.firdango.entity.Review;
-import com.clan.firdango.entity.User;
+import com.clan.firdango.entity.*;
 import com.clan.firdango.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,14 +20,18 @@ public class AdminController {
     private final ReviewService reviewService;
     private final MovieService movieService;
     private final DBUpdateService dbUpdateService;
+    private final MovieAlertService movieAlertService;
+    private final TicketService ticketService;
 
     @Autowired
-    public AdminController(UserService userService, EmailService emailService, ReviewService reviewService, MovieService movieService, DBUpdateService dbUpdateService) {
+    public AdminController(UserService userService, EmailService emailService, ReviewService reviewService, MovieService movieService, DBUpdateService dbUpdateService, MovieAlertService movieAlertService, TicketService ticketService) {
         this.userService = userService;
         this.emailService = emailService;
         this.reviewService = reviewService;
         this.movieService = movieService;
         this.dbUpdateService = dbUpdateService;
+        this.movieAlertService = movieAlertService;
+        this.ticketService = ticketService;
     }
 
     @GetMapping()
@@ -141,5 +142,23 @@ public class AdminController {
         return "redirect:/admin/listMovies";
     }
 
+    @GetMapping("/getUserActivity")
+    public String getUserActivity() {
+        return "list-user-activity";
+    }
 
+    @PostMapping("/getUserActivity")
+    public String getUserActivity(@RequestParam("userId") int userId, Model model) {
+        List<Movie> alerts = movieAlertService.getAlertList(userId);
+        List<Movie> favMovies = movieService.getFavoriteMovies(userId);
+        List<Ticket> tickets = ticketService.getTicketsByUser(userId);
+        List<Review> reviews = reviewService.getReviewsByUser(userId);
+
+        model.addAttribute("userId", userId);
+        model.addAttribute("favMovies", favMovies);
+        model.addAttribute("alerts", alerts);
+        model.addAttribute("tickets", tickets);
+        model.addAttribute("reviews", reviews);
+        return "list-user-activity-result";
+    }
 }

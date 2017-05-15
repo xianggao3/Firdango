@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,7 +48,7 @@ public class MovieService {
     }
 
     @Transactional
-    public int favMovieStatus(int userid,int movieid) {
+    public int favMovieStatus(int userid, int movieid) {
         return movieDAO.favMovieStatus(userid,movieid);
     }
 
@@ -62,11 +63,27 @@ public class MovieService {
     }
 
     @Transactional
-    public  List<Movie> getGenreMovie(String genre) { return movieDAO.getGenreMovie(genre);    }
+    public  List<Movie> getGenreMovie(String genre) {
+        return movieDAO.getGenreMovie(genre);
+    }
 
     @Transactional
-    public  List<Movie> getComingSoonMovie(String genre) { return movieDAO.getComingSoonMovie(genre);    }
+    public  List<Movie> getComingSoonMovie(String genre) {
+        return movieDAO.getComingSoonMovie(genre);
+    }
 
     @Transactional
-    public  List<Movie>  getRevenueMovies() { return movieDAO. getRevenueMovies();    }
+    public  List<Movie> getRevenueMovies() {
+        return movieDAO.getRevenueMovies();
+    }
+
+    @Transactional
+    public List<Movie> getFavoriteMovies(int userId) {
+        List<FavoriteMovie> fm = movieDAO.getFavoriteMovies(userId);
+        List<Movie> movies = new ArrayList<>();
+        for (FavoriteMovie fav : fm) {
+            movies.add(getMovie(fav.getMovieId()));
+        }
+        return movies;
+    }
 }
