@@ -102,9 +102,11 @@ public class MovieController {
     @RequestMapping(value="/search",method = RequestMethod.GET)
     public String getSearchResults(Model theModel, HttpServletRequest request) throws Exception {
         String qs =request.getQueryString();
+        qs = qs.replaceAll("%20", " ");
         theModel.addAttribute("qs",qs);
         theModel.addAttribute("searchRes", searchDAO.getSearchMovieResults(theModel,request,qs));
         theModel.addAttribute("theatreRes",searchDAO.getSearchTheatreResults(theModel,request,qs));
+        theModel.addAttribute("actorRes",searchDAO.getSearchActorResults(theModel,request,qs));
         return "search";
     }
 
