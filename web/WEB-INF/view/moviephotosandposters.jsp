@@ -55,16 +55,28 @@
 
             </div>
             <div class="col-sm-7" id="rightDesc">
-                <c:forEach var="row" begin="0" end="${imageUrls.size() / 2 - 1}">
-                    <div class="card-deck">
-                        <c:forEach var="col" begin="0" end="1" >
-                            <c:url var="openImageLink" value="https://image.tmdb.org/t/p/w500//${imageUrls.get(row*2+col)}"></c:url>
+                <c:choose>
+                    <c:when test="${imageUrls.size() > 2}">
+                        <c:forEach var="row" begin="0" end="${imageUrls.size() / 2 - 1}">
+                            <div class="card-deck">
+                                <c:forEach var="col" begin="0" end="1" >
+                                    <c:url var="openImageLink" value="https://image.tmdb.org/t/p/w500//${imageUrls.get(row*2+col)}"></c:url>
+                                    <a href="${openImageLink}" class="card card-inverse text-center">
+                                        <img class="card-img-top" src="${openImageLink}" alt="">
+                                    </a>
+                                </c:forEach>
+                            </div>
+                        </c:forEach>
+                    </c:when>
+                    <c:when test="${imageUrls.size() == 1}">
+                        <div class="card-deck">
+                            <c:url var="openImageLink" value="https://image.tmdb.org/t/p/w500//${imageUrls.get(0)}"></c:url>
                             <a href="${openImageLink}" class="card card-inverse text-center">
                                 <img class="card-img-top" src="${openImageLink}" alt="">
                             </a>
-                        </c:forEach>
-                    </div>
-                </c:forEach>
+                        </div>
+                    </c:when>
+                </c:choose>
             </div>
         </div>
     </div>

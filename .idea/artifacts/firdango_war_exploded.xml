@@ -7,9 +7,16 @@
           <element id="module-output" name="firdango" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="jstl:jstl:1.2" />
+          <element id="library" level="project" name="Hibernate 5.2.9-5.2.9" />
           <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="hibernate-core-5.2.9.Final" />
+          <element id="library" level="project" name="Spring-4.3.7.RELEASE" />
+          <element id="library" level="project" name="com.google.code.gson:gson:2.8.0" />
+          <element id="library" level="project" name="Spring-4.3.8.RELEASE" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="firdango/web/Web" />
       <element id="javaee-facet-resources" facet="firdango/web/Web" />
     </root>
   </artifact>
