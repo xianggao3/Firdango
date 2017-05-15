@@ -91,7 +91,7 @@ public class MovieDAO {
 
     public List<Movie> getGenreMovie(String genre) {
         Session currentSession = sessionFactory.getCurrentSession();
-        String q = "FROM Movie where release_date < current_date and poster_path is not null and genre =:genre ORDER BY release_date DESC";
+        String q = "FROM Movie where release_date < current_date and  genre like CONCAT('%', :genre,'%') ORDER BY release_date DESC";
         Query<Movie> query = currentSession.createQuery(q, Movie.class);
         query.setParameter("genre", genre);
         query.setMaxResults(12);
@@ -99,7 +99,7 @@ public class MovieDAO {
     }
     public List<Movie> getSoonGenreMovie(String genre) {
         Session currentSession = sessionFactory.getCurrentSession();
-        String q = "FROM Movie where release_date > current_date and poster_path is not null and genre =:genre ORDER BY release_date ASC";
+        String q = "FROM Movie where release_date > current_date  and genre LIKE CONCAT('%', :genre,'%') ORDER BY release_date ASC";
         Query<Movie> query = currentSession.createQuery(q, Movie.class);
         query.setParameter("genre", genre);
         query.setMaxResults(12);
