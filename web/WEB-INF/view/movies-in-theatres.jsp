@@ -60,52 +60,36 @@
 <body>
 <jsp:include page="/WEB-INF/includes/header.jsp" />
 <div class="container">
-    <h1>${theatre.name}
-        <div class="input-group">
-            <input type="hidden" class="form-control" name="theatreId" id="theatreId" value="${theatre.id}" />
-        </div>
 
-        <c:if test="${favoriteStatus==0}">
-            <form action="" method="post"><input class = "btn btn-outline-warning my-2 my-sm-0" type="submit" value="Favorite This"></form>
-        </c:if>
-        <c:if test="${favoriteStatus>=1}">
-            <form action="" method="post"><input class = "btn btn-outline-warning my-2 my-sm-0" type="submit" value="Favorited"></form>
-        </c:if>
-    </h1>
 
-    <div class="row">
-        <div id="theatreCard">
-            <iframe id="map"
-                    width="100%"
-                    height="300px"
-                    frameborder="0"
-                    scrolling="no"
-                    marginheight="0"
-                    marginwidth="0"
-                    src="https://maps.google.com/maps?q=${theatre.lat},${theatre.lon}&hl=es;z=14&amp;output=embed">
-            </iframe>
+    <h1>Edwards Mira Mesa 18 IMAX & RPX
+        Movies and Tickets</h1>
+    <div class="row" id="theatreTickets">
 
-            <div class="row">
-                <div id="theatreInfo">
-                    <ul>
-                        <li><h2 style="color: darkorange">${theatre.name} </h2></li>
-                        <li><h5 style="color: darkorange">Address: </h5>${theatre.address}</li>
-                        <c:if test="${dispLL==1}">
-                            <li><h5 style="color: darkorange">Coordinates: </h5>${theatre.lat}, ${theatre.lon}</li>
-                        </c:if>
-                        <c:if test="${dispwebsite==1}">
-                            <li><h5 style="color: darkorange">Website: </h5>${theatre.website}</li>
-                        </c:if>
-                        <c:if test="${disptele==1}">
-                            <li><h5 style="color: darkorange">Telephone: </h5>${theatre.telephone}</li>
-                        </c:if>
-                    </ul>
+        <c:forEach var="theatreIndex" begin="0" end="${fn:length(movies)-1}">
+            <div class="movieTheatre">
+                <div class="theatreHeader">
+                    <h2>${movies[theatreIndex].title}</h2>
+                    <p>${movies[theatreIndex].overview}</p>
                 </div>
+                <p>
+                    Select a movie time to buy tickets
+                </p>
+                <c:set var="showtimeEnd" value="${(fn:length(dictionary[movies[theatreIndex].id]))}"></c:set>
+                <c:forEach var="showtimeIndex" begin="0" end="${showtimeEnd}">
+                    <a href="/checkout?showtimeId=${((dictionary[movies[theatreIndex].id])[showtimeIndex]).id}&userId=${sessionScope.loggedinuser.id}">
+                        <c:if test="${showtimeIndex < showtimeEnd}">
+                            <button class="btn-warning time" onClick="parent.location='checkout'">${((dictionary[movies[theatreIndex].id])[showtimeIndex]).showtime}</button>
+                        </c:if>
+                    </a>
+                </c:forEach>
+
             </div>
-        </div>
+        </c:forEach>
     </div>
 
-    <h1>Movies and Tickets</h1>
+    <h1>AMC Mission Valley 20
+        Movies and Tickets</h1>
     <div class="row" id="theatreTickets">
 
         <c:forEach var="theatreIndex" begin="0" end="${fn:length(movies)}">
@@ -130,7 +114,33 @@
         </c:forEach>
     </div>
 
+    <h1>Regal Cinemas Rancho Del Rey 16
+        Movies and Tickets</h1>
+    <div class="row" id="theatreTickets">
+
+        <c:forEach var="theatreIndex" begin="0" end="${fn:length(movies)}">
+            <div class="movieTheatre">
+                <div class="theatreHeader">
+                    <h2>${movies[theatreIndex].title}</h2>
+                    <p>${movies[theatreIndex].overview}</p>
+                </div>
+                <p>
+                    Select a movie time to buy tickets
+                </p>
+                <c:set var="showtimeEnd" value="${(fn:length(dictionary[movies[theatreIndex].id]))}"></c:set>
+                <c:forEach var="showtimeIndex" begin="0" end="${showtimeEnd}">
+                    <a href="/checkout?showtimeId=${((dictionary[movies[theatreIndex].id])[showtimeIndex]).id}&userId=${sessionScope.loggedinuser.id}">
+                        <c:if test="${showtimeIndex < showtimeEnd}">
+                            <button class="btn-warning time" onClick="parent.location='checkout'">${((dictionary[movies[theatreIndex].id])[showtimeIndex]).showtime}</button>
+                        </c:if>
+                    </a>
+                </c:forEach>
+
+            </div>
+        </c:forEach>
+    </div>
 </div>
+
 <jsp:include page="/WEB-INF/includes/footer.jsp" />
 </body>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

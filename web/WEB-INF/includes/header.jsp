@@ -49,7 +49,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="timesAndTicketsDropdown">
                         <a class="dropdown-item" href="/theatres?page=0">All Theatres</a>
-
+                        <a class="dropdown-item" href="/movies-in-theatres?page=0">Movies in Theatres</a>
                         <a id="nearbyLocationsLoading" class="dropdown-item" href="#">Loading nearby locations..</a>
                         <div id="nearbyLocationsHidden" style="display:none;">
                             <div class="card-block">
