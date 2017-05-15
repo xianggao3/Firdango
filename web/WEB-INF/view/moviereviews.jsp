@@ -114,12 +114,16 @@
                             </c:forEach>
 
                             <c:choose>
-                                <c:when test="${isLiked==true}">
-                                    <input id="${reviews[revIndex].reviewId}" class="btn btn-danger like" type="button" value="Dislike">
+                                <c:when test="${sessionScope.loggedinuser!=null}">
+                                    <c:choose>
+                                        <c:when test="${isLiked==true}">
+                                            <input id="${reviews[revIndex].reviewId}" class="btn btn-danger like" type="button" value="Dislike">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <input id="${reviews[revIndex].reviewId}" class="btn btn-primary like" type="button" value="Like">
+                                        </c:otherwise>
+                                    </c:choose>
                                 </c:when>
-                                <c:otherwise>
-                                    <input id="${reviews[revIndex].reviewId}" class="btn btn-primary like" type="button" value="Like">
-                                </c:otherwise>
                             </c:choose>
                             <hr>
                         </c:forEach>

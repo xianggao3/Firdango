@@ -27,9 +27,11 @@ public class TheatreController {
     }
 
     @RequestMapping(value = "/theatres", method = RequestMethod.GET)
-    public String getTheathres(Model theModel) {
+    public String getTheathres(Model theModel,
+                               @RequestParam("page") int pageNum) {
         List<Theatre> theatres = theatreService.getAllTheatres();
         theModel.addAttribute("theatres", theatres);
+        theModel.addAttribute("pageNum", pageNum);
         return "theatres";
     }
 
