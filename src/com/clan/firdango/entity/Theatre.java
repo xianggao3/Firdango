@@ -37,48 +37,9 @@ public class Theatre {
     @Column(name = "telephone")
     private String telephone;
 
-    public float getLat() {
-        return lat;
-    }
-
-    public void setLat(float lat) {
-        this.lat = lat;
-    }
-
-    public float getLon() {
-        return lon;
-    }
-
-    public void setLon(float lon) {
-        this.lon = lon;
-    }
-
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getChain_id() {
-        return chain_id;
-    }
-
-    public void setChain_id(String chain_id) {
-        this.chain_id = chain_id;
-    }
-
     @Column(name = "chain_id")
     private String chain_id;
+
 
     public String getPhoto() {
         return photo;
@@ -119,4 +80,48 @@ public class Theatre {
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
+
+    public float getLat() {
+        return lat;
+    }
+
+    public void setLat(float lat) {
+        this.lat = lat;
+    }
+
+    public float getLon() {
+        return lon;
+    }
+
+    public void setLon(float lon) {
+        this.lon = lon;
+    }
+
+    public String getChain() {
+        return chain_id;
+    }
+
+    public void setChain(String chain_id) {
+        this.chain_id = chain_id;
+    }
+
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String zipcode) {
+        this.website = zipcode;
+    }
+
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String zipcode) {
+        this.telephone = zipcode;
+    }
+
+
 }
