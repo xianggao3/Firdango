@@ -63,7 +63,6 @@
                         <c:forEach var="index" begin="0" end="${fn:length(castName)}" >
                             <li><a href="/actor?actorId=${castName[index]}">${castName[index]}</a> as ${castRole[index]}</li>
                         </c:forEach>
-                    </c:forEach>
                         <h1>Crew</h1>
                         <c:forEach items="${crew}" var="actorname">
                             <li>${actorname}</li>

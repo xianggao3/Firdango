@@ -140,7 +140,7 @@ public class MovieDAO {
 
     public Actor getActorByName(String s) {
             Session currentSession = sessionFactory.getCurrentSession();
-            Query<Actor> query = currentSession.createQuery("from Actor where name = :actorName", Actor.class);
+            Query<Actor> query = currentSession.createQuery("from Actor where name like concat('%',:actorName,'%')", Actor.class);
             query.setParameter("actorName", s);
             return query.getSingleResult();
     }

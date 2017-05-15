@@ -125,8 +125,8 @@ public class MovieController {
     @GetMapping("/castandcrew")
     public String getMovieCastAndCrew(@RequestParam("movieId") int id, Model theModel) {
         List<String> castName = new ArrayList<>();
-            List<String> castRole = new ArrayList<>();
-            List<String> crew = new ArrayList<>();
+        List<String> castRole = new ArrayList<>();
+        List<String> crew = new ArrayList<>();
         try {
             URL url = new URL("https://api.themoviedb.org/3/movie/"+id+"/credits?api_key=d36bee7b08bda0f0dd33ccdcd33e8685");
             String imagesJson = IOUtils.toString(url);
@@ -135,9 +135,9 @@ public class MovieController {
             for (int i = 0; i < backdrops.size(); i++) {
 
                 JSONObject curObj = (JSONObject) backdrops.get(i);
-                Actor a = movieService.getActorByName((String) curObj.get("name"));
-                    castName.add((String) (curObj.get("name")));
-                    castRole.add((String) (curObj.get("character")));
+                //Actor a = movieService.getActorByName((String) curObj.get("name"));
+                castName.add((String) (curObj.get("name")));
+                castRole.add((String) (curObj.get("character")));
 
             }
             JSONArray posters = (JSONArray) imagesJsonObject.get("crew");
