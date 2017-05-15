@@ -155,14 +155,8 @@ public class MovieController {
     public String getMovieReviews(@RequestParam("movieId") int id,
                                   Model theModel, HttpServletRequest request) {
         HttpSession session = request.getSession();
-        User liu=null;
-        if (session.getAttribute("loggedinuser") == null){
-            return("moviereviews");
-        } else {
-             liu = (User) session.getAttribute("loggedinuser");
-        }
-        int userId = liu.getId();
-        List<FavoriteReview> favoriteReviews = reviewService.getReviewsLikedByUser(userId);
+
+
         List<Review> reviews = reviewService.getReviewsByMovie(id);
         HashSet<Integer> hs = new HashSet<Integer>();
         ArrayList<Review> filteredReviews = new ArrayList<Review>();
@@ -173,9 +167,17 @@ public class MovieController {
                 System.out.println(r.getBody());
             }
         }
-
         if (!reviews.isEmpty()) {
             theModel.addAttribute("reviews", filteredReviews);
+        }
+        User liu=null;
+        if (session.getAttribute("loggedinuser") == null){
+            theModel.addAttribute("favoriteReviews", new ArrayList<Review>());
+
+        } else {
+            liu = (User) session.getAttribute("loggedinuser");
+            int userId = liu.getId();
+            List<FavoriteReview> favoriteReviews = reviewService.getReviewsLikedByUser(userId);
             theModel.addAttribute("favoriteReviews", favoriteReviews);
         }
         return "moviereviews";
