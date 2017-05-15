@@ -109,11 +109,18 @@ public class MovieController {
     }
 
     @GetMapping("/news")
-    public String getMovieNews( Model theModel) {
+    public String getMovieNews() {
         return "movienews";
     }
 
-    @GetMapping("/castandcrew")
+    @GetMapping("/news/newspage")
+    public String getNewsPage(@RequestParam("title") String title, Model theModel) {
+        theModel.addAttribute("title", title);
+        return "newspage";
+    }
+
+
+        @GetMapping("/castandcrew")
     public String getMovieCastAndCrew(@RequestParam("movieId") int id, Model theModel) {
         List<String> castncrews = new ArrayList<>();
         try {

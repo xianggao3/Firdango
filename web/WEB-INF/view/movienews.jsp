@@ -37,26 +37,26 @@
             <h1 class="display-5 text-white border-bottom-1">Original Shows</h1>
 
             <div class="card-deck">
-            
-                <a href="#" class="card card-inverse text-center">
+
+                <a href="/news/newspage?title=Weekend Tickets:Get out, Rock Dog, Fist Fight" class="card card-inverse text-center">
                     <img class="card-img-top" src="https://images.fandango.com/imagerelay/300/0/video.fandango.com/MPX/image/NBCU_Fandango/82/651/WT_GetOut_OG.jpg/image.jpg/redesign/static/img/noxSquare.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">Weekend Tickets:Get out, Rock Dog, Fist Fight</h4>
                     </div>
                 </a>
-                <a href="#" class="card card-inverse text-center">
+                <a href="/news/newspage?title=FrontRunners Season 4: Adam McKay - The Big Short" class="card card-inverse text-center">
                     <img class="card-img-top" src="http://images.fandango.com/imagerelay/300/0/video.fandango.com/MPX/image/NBCU_Fandango/365/23/FR_AdamMcKay_Original.jpg/image.jpg/redesign/static/img/noxSquare.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">FrontRunners Season 4: Adam McKay - The Big Short</h4>
                     </div>
                 </a>
-                <a href="#" class="card card-inverse text-center">
+                <a href="/news/newspage?title=Mom's Movie Minutes: Is 'Rock Dog' Perfect For Your 5-Year-Old?" class="card card-inverse text-center">
                     <img class="card-img-top" src="http://images.fandango.com/imagerelay/300/0/video.fandango.com/MPX/image/NBCU_Fandango/958/127/MMM_RockDog_OG.jpg/image.jpg/redesign/static/img/noxSquare.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">Mom's Movie Minutes: Is 'Rock Dog' Perfect For Your 5-Year-Old?</h4>
                     </div>
                 </a>
-                <a href="#" class="card card-inverse text-center">
+                <a href="/news/newspage?title=Reel Kids: Kids Talk About Mythical Creatures" class="card card-inverse text-center">
                     <img class="card-img-top" src="http://images.fandango.com/imagerelay/300/0/video.fandango.com/MPX/image/NBCU_Fandango/654/431/RK_Mythical_OG.jpg/image.jpg/redesign/static/img/noxSquare.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">Reel Kids: Kids Talk About Mythical Creatures</h4>
@@ -69,29 +69,28 @@
             <h1 class="display-5 text-white border-bottom-1">Features</h1>
             
             <div class="card-deck">
-                <a href="" class="card card-inverse text-center">
+                <a href="/news/newspage?title=Our Favorite Movie Hitman" class="card card-inverse text-center">
                     <img class="card-img-top" src="http://images.fandango.com/ImageRenderer/300/0/redesign/static/img/default_poster.png/0/images/masterrepository/other/intro_John%20Wick.JPG" alt="Our Favorite Movie Hit Men" alt="">
                     <div class="card-block">
                         <h4 class="card-title">Our Favorite Movie Hitman</h4>
                     </div>
                 </a>
                 
-                <a href="#" class="card card-inverse text-center">
+                <a href="/news/newspage?title=Watch Great Moments From Oscar Winner: 'Zootopia'" class="card card-inverse text-center">
                     <img class="card-img-top" src="http://images.fandango.com/ImageRenderer/300/0/redesign/static/img/default_poster.png/0/images/fandangoblog/zootopia-180_35.356.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">Watch Great Moments From Oscar Winner: 'Zootopia'</h4>
                     </div>
                 </a>
                 
-                <a href="#" class="card card-inverse text-center">
+                <a href="/news/newspage?title=The Academy Awards 2017: The Best Red Carpet Looks" class="card card-inverse text-center">
                     <img class="card-img-top" src="http://images.fandango.com/ImageRenderer/300/0/redesign/static/img/default_poster.png/0/images/masterrepository/other/INTRO_EmmaStone.jpg" alt="">
                     <div class="card-block">
                         <h4 class="card-title">The Academy Awards 2017: The Best Red Carpet Looks</h4>
                     </div>
                 </a>
 
-                <a href="#" class="card card-inverse text-center">
-                    
+                <a href="/news/newspage?title=Here's Your First Look At Will Smith's New Monster Movie, 'Bright'" class="card card-inverse text-center">
                     <img class="card-img-top" src="http://images.fandango.com/ImageRenderer/300/0/redesign/static/img/default_poster.png/0/images/spotlight/will-smith-bright.jpg"  alt="">
                     <div class="card-block">
                         <h4 class="card-title">Here's Your First Look At Will Smith's New Monster Movie, 'Bright'</h4>
