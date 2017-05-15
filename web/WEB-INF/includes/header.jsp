@@ -17,7 +17,10 @@
                             <div class="dropdown-menu" aria-labelledby="newsDropdown">
                                 <a class="dropdown-item" href="/admin/getUserActivity">View User Activities</a>
                                 <a class="dropdown-item" href="/admin/listReviews">Manage Reviews</a>
+                                <a class="dropdown-item" href="/admin/listUsers">Manage Users</a>
                                 <a class="dropdown-item" href="/admin/listMovies">Manage Movies</a>
+                                <a class="dropdown-item" href="/admin/fetchNewMovies">Get New Movies</a>
+                                <a class="dropdown-item" href="/admin/showNewsletterForm">Send a Newsletter</a>
                             </div>
                     </li>
                 </c:if>
@@ -37,7 +40,15 @@
                         Times & Tickets
                     </a>
                     <div class="dropdown-menu" aria-labelledby="timesAndTicketsDropdown">
-                        <a class="dropdown-item" href="/search?NY">Nearby Theatres</a>                    </div>
+                        <a class="dropdown-item" href="/theatres?page=0">All Theatres</a>
+                        <a class="dropdown-item" href="#">Find Theatres Nearby
+                            <form class="form-inline">
+                                <input id="nearbyQuery" class="form-control mr-sm-2" type="text" placeholder="City/ZipCode" onkeypress="parent.location='search?'+$('#searchQuery').val()" >
+                                <input type= "button" class = "btn btn-outline-warning my-2 my-sm-0" onClick="parent.location='search?'+$('#nearbyQuery').val()" value='Search'>
+                            </form>
+                        </a>
+
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,7 +56,6 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="newsDropdown">
                         <a class="dropdown-item" href="/news">Featured News</a>
-                        <a class="dropdown-item" href="/theatres?page=0">Theatres</a>
                         <a class="dropdown-item" href="/gift-cards">Gift Cards</a>
                     </div>
                 </li>
@@ -70,9 +80,16 @@
                 </li>
             </ul>
             <form class="form-inline">
-                <input id="searchQuery" class="form-control mr-sm-2" type="text" placeholder="Enter a movie or location..." onkeypress="handle(event)" >
+                <input id="searchQuery" class="form-control mr-sm-2" type="text" placeholder="Enter a movie or location..." onkeypress="return runScript(event);" >
                 <input type= "button" class = "btn btn-outline-warning my-2 my-sm-0" onClick="parent.location='search?'+$('#searchQuery').val()" value='Search'>
             </form>
         </div>
     </div>
 </nav>
+<script>
+    function runScript(e) {
+        if (e.keyCode == 13) {
+            parent.location.href = '/search?'+$("#searchQuery").val();
+        }
+    }
+</script>
