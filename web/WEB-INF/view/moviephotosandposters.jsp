@@ -61,7 +61,7 @@
                             <div class="card-deck">
                                 <c:forEach var="col" begin="0" end="1" >
                                     <c:url var="openImageLink" value="https://image.tmdb.org/t/p/w500//${imageUrls.get(row*2+col)}"></c:url>
-                                    <a href="${openImageLink}" class="card card-inverse text-center">
+                                    <a href="https://image.tmdb.org/t/p/w780//${imageUrls.get(row*2+col)}" class="card card-inverse text-center">
                                         <img class="card-img-top" src="${openImageLink}" alt="">
                                     </a>
                                 </c:forEach>
@@ -71,7 +71,7 @@
                     <c:when test="${imageUrls.size() == 1}">
                         <div class="card-deck">
                             <c:url var="openImageLink" value="https://image.tmdb.org/t/p/w500//${imageUrls.get(0)}"></c:url>
-                            <a href="${openImageLink}" class="card card-inverse text-center">
+                            <a href="https://image.tmdb.org/t/p/w780//${imageUrls.get(0)}" class="card card-inverse text-center">
                                 <img class="card-img-top" src="${openImageLink}" alt="">
                             </a>
                         </div>

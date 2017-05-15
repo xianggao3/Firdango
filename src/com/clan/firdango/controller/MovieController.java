@@ -5,7 +5,6 @@ import com.clan.firdango.entity.*;
 import com.clan.firdango.service.MovieService;
 import com.clan.firdango.service.ReviewService;
 import org.apache.commons.io.IOUtils;
-import org.jboss.weld.context.http.Http;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -19,7 +18,6 @@ import javax.servlet.http.HttpSession;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
@@ -72,8 +70,8 @@ public class MovieController {
             User liu = (User) session.getAttribute("loggedinuser");
             if (fs ==0) {
                 FavoriteMovie fm = new FavoriteMovie();
-                fm.setMovieid(id);
-                fm.setUserid(liu.getId());
+                fm.setMovieId(id);
+                fm.setUserId(liu.getId());
                 movieService.addToFavList(fm);
             } else {
                 movieService.removeFromFavList(id,liu.getId());

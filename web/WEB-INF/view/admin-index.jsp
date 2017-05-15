@@ -11,5 +11,7 @@
 <a href="/admin/listReviews">Reviews</a><br>
 <a href="/admin/showNewsletterForm">Newsletter</a><br>
 <a href="/admin/fetchNewMovies">Fetch New Movies</a><br>
+<a href="/admin/getUserActivity">View User Activity</a><br>
+
 </body>
 </html>

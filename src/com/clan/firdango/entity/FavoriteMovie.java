@@ -12,36 +12,36 @@ import javax.persistence.Table;
 @Table(name = "favoritemovies")
 public class FavoriteMovie {
     @Id
-    @Column(name = "favoriteid")
-    private int favoriteid;
+    @Column(name = "favoriteId")
+    private int favoriteId;
 
-    @Column(name = "movieid")
-    private int movieid;
+    @Column(name = "movieId")
+    private int movieId;
 
-    @Column(name = "userid")
-    private int userid;
+    @Column(name = "userId")
+    private int userId;
 
-    public int getFavoriteid() {
-        return favoriteid;
+    public int getFavoriteId() {
+        return favoriteId;
     }
 
-    public void setFavoriteid(int favoriteid) {
-        this.favoriteid = favoriteid;
+    public void setFavoriteId(int favoriteId) {
+        this.favoriteId = favoriteId;
     }
 
-    public int getMovieid() {
-        return movieid;
+    public int getMovieId() {
+        return movieId;
     }
 
-    public void setMovieid(int movieid) {
-        this.movieid = movieid;
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
     }
 
-    public int getUserid() {
-        return userid;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
