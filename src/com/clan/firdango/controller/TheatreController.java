@@ -1,5 +1,6 @@
 package com.clan.firdango.controller;
 
+import com.clan.firdango.entity.FavoriteTheatre;
 import com.clan.firdango.entity.Movie;
 import com.clan.firdango.entity.Theatre;
 import com.clan.firdango.entity.User;
@@ -7,10 +8,7 @@ import com.clan.firdango.service.TheatreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -41,6 +39,41 @@ public class TheatreController {
                                    HttpServletRequest request) {
         Theatre theatre = theatreService.getTheatre(id);
         theModel.addAttribute("theatre", theatre);
+
+        HttpSession session = request.getSession();
+        int favStatus = 0;
+        if (session.getAttribute("loggedinuser")!=null) {
+            User u = (User)session.getAttribute("loggedinuser");
+            favStatus = theatreService.favTheatreStatus(u.getId(), theatre.getId());
+        }
+
+        session.setAttribute("favoriteStatus", favStatus);
+        session.setAttribute("theatreid", id);
         return "theatre";
     }
+
+    @PostMapping("/theatre")
+    public String changeFavoriteTheatre(@RequestParam("theatreId") int id, Model theModel, HttpServletRequest request) {
+        System.out.println(id);
+        Theatre theatre = theatreService.getTheatre(id);
+        theModel.addAttribute("theatre", theatre);
+        HttpSession session = request.getSession();
+        int fs = (int) session.getAttribute("favoriteStatus");
+
+        if (session.getAttribute("loggedinuser") == null){
+            return("redirect:/signin");
+        } else {
+            User liu = (User) session.getAttribute("loggedinuser");
+            if (fs ==0) {
+                FavoriteTheatre fm = new FavoriteTheatre();
+                fm.setTheatreid(id);
+                fm.setUserid(liu.getId());
+                theatreService.addToFavList(fm);
+            } else {
+                theatreService.removeFromFavList(id,liu.getId());
+            }
+        }
+        return "redirect:/theatre?theatreId=" + id;
+    }
+
 }

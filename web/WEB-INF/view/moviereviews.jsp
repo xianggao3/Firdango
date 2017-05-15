@@ -67,7 +67,7 @@
                         <a href="writeareview?movieId=${movie.id}">Write a Review</a>
                     </c:when>
                     <c:otherwise>
-                        <a href="signup">Sign in to Leave a Review</a>
+                        <a href="signin">Sign in to Leave a Review</a>
                     </c:otherwise>
                 </c:choose>
                 <h1>Movie Reviews</h1>

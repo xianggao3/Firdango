@@ -35,7 +35,7 @@
 <div class="container">
     <h1>${theatre.name}
         <div class="input-group">
-            <input type="hidden" class="form-control" name="movieId" id="movieId" value="${theatre.id}" />
+            <input type="hidden" class="form-control" name="theatreId" id="theatreId" value="${theatre.id}" />
         </div>
 
         <c:if test="${favoriteStatus==0}">
