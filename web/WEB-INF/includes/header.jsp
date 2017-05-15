@@ -3,6 +3,14 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<head>
+    <style>
+    .hideDiv{
+        display: inline-block;
+    }
+    </style>
+</head>
+
 <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top">
     <div class="container">
         <a class="navbar-brand" href="/"><img src="../../resources/img/firlogo.png">Firdango</a>
@@ -41,12 +49,14 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="timesAndTicketsDropdown">
                         <a class="dropdown-item" href="/theatres?page=0">All Theatres</a>
-                        <a class="dropdown-item" href="#">Find Theatres Nearby
-                            <form class="form-inline">
-                                <input id="nearbyQuery" class="form-control mr-sm-2" type="text" placeholder="City/ZipCode" onkeypress="parent.location='search?'+$('#searchQuery').val()" >
-                                <input type= "button" class = "btn btn-outline-warning my-2 my-sm-0" onClick="parent.location='search?'+$('#nearbyQuery').val()" value='Search'>
-                            </form>
-                        </a>
+
+                        <a class="dropdown-item" href="#">Loading nearby locations..</a>
+                        <div id="nearbyLocations" style="display:none;">
+                            <div class="card-block">
+                                <h4 class="card-title" style="color: orange;">AMC Loews Stony Brook 17</h4>
+                                <h6 class="card-title">(631) 941-0156</h6>
+                            </div>
+                        </div>
 
                     </div>
                 </li>
@@ -86,3 +96,9 @@
         </div>
     </div>
 </nav>
+
+<script>
+    function toggleNearby(){
+        document.getElementById("#nearbyLocations").className = "hideDiv";
+    }
+</script>
