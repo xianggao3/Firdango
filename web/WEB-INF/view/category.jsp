@@ -30,24 +30,24 @@
     <jsp:include page="/WEB-INF/includes/header.jsp" />
         <div class="container">
             <div class="container-fluid">
-                <h1 >MOVIES NOW PLAYING</h1>
+                <h1 >Movies Now Playing</h1>
                 <jsp:include page="/WEB-INF/includes/categorynav.jsp" />
             </div>
         </div>
         <div class="container">
             <div class="container-fluid">
                 <div id="nowPlayingDiv" class="container">
-                    <h1 class="display-5 text-white border-bottom-1">NOW PLAYING</h1>
+                    <h1 class="display-5 text-white border-bottom-1">Now Playing</h1>
                     <div id="botMoviesDiv" class="container">
                         <c:set var="offset" value="${pageNum*12}"/>
-                        <c:forEach var="row" begin="0" end="2">
+                        <c:forEach var="row" begin="0" end="3">
                             <div class="card-deck">
                                 <c:forEach var="col" begin="0" end="3" >
                                     <c:url var="overviewLink" value="/overview">
-                                        <c:param name="movieId" value="${movies[offset+ row*4+col].id}" />
+                                        <c:param name="movieId" value="${movies[offset+row*4+col].id}" />
                                     </c:url>
                                     <a href="${overviewLink}" class="card card-inverse text-center">
-                                        <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[offset+ row*4+col].poster}" alt="">
+                                        <img class="card-img-top" src="https://image.tmdb.org/t/p/w500//${movies[offset+row*4+col].poster}" alt="">
                                         <div class="card-block">
                                             <h4 class="card-title">${movies[offset+row*4+col].title}</h4>
                                         </div>

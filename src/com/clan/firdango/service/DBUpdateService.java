@@ -47,7 +47,7 @@ public class DBUpdateService {
                 movie.setBackdrop(ele.getElementsByTagName("backdrop").item(0).getTextContent());
                 movie.setTrailer(ele.getElementsByTagName("trailer").item(0).getTextContent());
                 movie.setImdbId(ele.getElementsByTagName("imdb_id").item(0).getTextContent());
-                movie.setRevenue(ele.getElementsByTagName("revenue").item(0).getTextContent());
+                movie.setRevenue(Integer.parseInt(ele.getElementsByTagName("revenue").item(0).getTextContent()));
                 movie.setBudget(ele.getElementsByTagName("budget").item(0).getTextContent());
                 movie.setOverview(ele.getElementsByTagName("overview").item(0).getTextContent());
                 movie.setStatus(ele.getElementsByTagName("movie_status").item(0).getTextContent());

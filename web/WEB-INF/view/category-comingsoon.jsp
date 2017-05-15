@@ -30,14 +30,14 @@
 <jsp:include page="/WEB-INF/includes/header.jsp" />
 <div class="container">
     <div class="container-fluid">
-        <h1>COMING SOON</h1>
+        <h1>Coming Soon</h1>
         <jsp:include page="/WEB-INF/includes/categorynav.jsp" />
     </div>
 </div>
 <div class="container">
     <div class="container-fluid">
         <div id="newMoviesDiv" class="container">
-            <h1 class="display-5 text-white border-bottom-1">OPENING SOON</h1>
+            <h1 class="display-5 text-white border-bottom-1">Opening Soon</h1>
             <div id="topMoviesDiv" class="container">
                 <c:forEach var="row" begin="0" end="2">
                     <div class="card-deck">

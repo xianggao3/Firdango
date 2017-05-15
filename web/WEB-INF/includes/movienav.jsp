@@ -18,6 +18,6 @@
         <li><a href="reviews?movieId=${movie.id}">Movie Reviews</a></li>
         <li><a href="trailers?movieId=${movie.id}">Trailers</a></li>
         <li><a href="photosandposters?movieId=${movie.id}">Photos + Posters</a></li>
-        <li><a href="bcastandcrew?movieId=${movie.id}">Cast + Crew</a></li>
+        <li><a href="castandcrew?movieId=${movie.id}">Cast + Crew</a></li>
     </ul>
 </div>

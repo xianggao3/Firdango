@@ -28,7 +28,6 @@ public class MovieDAO {
 
         String q = "FROM Movie where release_date < current_date and poster_path is not null ORDER BY release_date DESC";
         Query<Movie> theQuery = currentSession.createQuery(q, Movie.class);
-        theQuery.setMaxResults(12);
 
         System.out.println(theQuery.getResultList());
         return theQuery.getResultList();
