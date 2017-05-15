@@ -18,7 +18,7 @@
 
 <div class="row">
     <ul id="overviewList">
-        <a class="display-4 text-white">Sort by Genre</a>
+        <h1>Sort by Genre</h1>
         <li><a href="/category/genre?genre=Action">ACTION</a></li>
         <li><a href="/category/genre?genre=Drama">DRAMA</a></li>
         <li><a href="/category/genre?genre=Comedy">COMEDY</a></li>
