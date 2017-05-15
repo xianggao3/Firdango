@@ -33,8 +33,7 @@
 <body>
     <jsp:include page="/WEB-INF/includes/header.jsp" />
     <div class="container">
-        <div id="titlefav">
-            <h1>${movie.title} Overview</h1>
+        <h1>${movie.title} Overview
             <div class="input-group" id="favoriteMovie">
                 <input type="hidden" class="form-control" name="movieId" id="movieId" value="${movie.id}" />
             </div>
@@ -45,7 +44,7 @@
             <c:if test="${favoriteStatus>=1}">
                 <form action="" method="post"><input class = "btn btn-outline-warning my-2 my-sm-0" type="submit" value="Favorited"></form>
             </c:if>
-        </div>
+        </h1>
 
         <jsp:include page="/WEB-INF/includes/movienav.jsp" />
 
